@@ -27,6 +27,8 @@ tags:
   description: API endpoints from the v1 API.
 - name: v2
   description: API endpoints from the v2 API
+- name: Introspection
+  description: API used to gather information about the API itself.
 paths:
   /api/:
     get:
