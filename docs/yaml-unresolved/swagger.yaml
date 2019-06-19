@@ -25,7 +25,10 @@ paths:
           description: some response
   /api/internal/me/notifications/:
     get:
-      operationId: ListActiveUserNotificationsView_api_internal_me_notifications_
+      operationId: ListActiveUserNotifications
+      summary: List active user notifications
+      tags:
+        - internal
       parameters:
         - description: A page number within the paginated result set.
           in: query
