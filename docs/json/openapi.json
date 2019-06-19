@@ -87,6 +87,7 @@
     },
     "/api/internal/me/notifications/clear/" : {
       "put" : {
+        "tags" : [ "internal" ],
         "operationId" : "UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_",
         "parameters" : [ ],
         "responses" : {
@@ -103,6 +104,7 @@
         }
       },
       "delete" : {
+        "tags" : [ "internal" ],
         "operationId" : "DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_",
         "parameters" : [ ],
         "responses" : {
@@ -121,6 +123,7 @@
     },
     "/api/internal/me/notifications/{id}/" : {
       "get" : {
+        "tags" : [ "internal" ],
         "operationId" : "RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__",
         "parameters" : [ {
           "name" : "id",
@@ -156,6 +159,7 @@
         }
       },
       "put" : {
+        "tags" : [ "internal" ],
         "operationId" : "UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__",
         "parameters" : [ {
           "name" : "id",
@@ -201,6 +205,7 @@
         }
       },
       "delete" : {
+        "tags" : [ "internal" ],
         "operationId" : "DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__",
         "parameters" : [ {
           "name" : "id",
@@ -236,6 +241,7 @@
         }
       },
       "patch" : {
+        "tags" : [ "internal" ],
         "operationId" : "PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__",
         "parameters" : [ {
           "name" : "id",
@@ -283,6 +289,7 @@
     },
     "/api/internal/me/preferences/" : {
       "get" : {
+        "tags" : [ "internal" ],
         "operationId" : "RetrieveActiveUserPreferencesView_api_internal_me_preferences_",
         "parameters" : [ {
           "name" : "search",
@@ -309,6 +316,7 @@
         }
       },
       "put" : {
+        "tags" : [ "internal" ],
         "operationId" : "UpdateActiveUserPreferencesView_api_internal_me_preferences_",
         "parameters" : [ {
           "name" : "search",
@@ -345,6 +353,7 @@
         }
       },
       "patch" : {
+        "tags" : [ "internal" ],
         "operationId" : "PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_",
         "parameters" : [ {
           "name" : "search",
