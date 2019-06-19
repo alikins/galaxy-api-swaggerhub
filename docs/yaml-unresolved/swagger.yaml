@@ -635,6 +635,8 @@ paths:
   /api/internal/ui/collections/:
     get:
       operationId: ListCollectionList_api_internal_ui_collections_
+      tags:
+        - internal
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -775,6 +777,8 @@ paths:
   '/api/internal/ui/collections/{id}/':
     patch:
       operationId: PartialUpdateCollectionUpdate_api_internal_ui_collections__id__
+      tags:
+        - internal
       parameters:
         - description: A unique integer value identifying this collection.
           in: path
@@ -813,6 +817,8 @@ paths:
           description: some response
     put:
       operationId: UpdateCollectionUpdate_api_internal_ui_collections__id__
+      tags:
+        - internal
       parameters:
         - description: A unique integer value identifying this collection.
           in: path
@@ -853,6 +859,8 @@ paths:
     get:
       operationId: >-
         RetrieveCollectionDetail_api_internal_ui_collections__namespace__name___name__
+      tags:
+        - internal
       parameters:
         - description: ''
           in: path
@@ -1000,6 +1008,8 @@ paths:
     get:
       operationId: >-
         ListNamespaceImportsList_api_internal_ui_namespaces__namespace_id__imports_
+      tags:
+        - internal
       parameters:
         - description: ''
           in: path
@@ -1067,6 +1077,8 @@ paths:
   /api/internal/ui/search/:
     get:
       operationId: ListSearchView_api_internal_ui_search_
+      tags:
+        - internal
       parameters: []
       responses:
         '200':
@@ -1077,6 +1089,8 @@ paths:
   /api/v1/:
     get:
       operationId: ListApiV1RootView_api_v1_
+      tags:
+        - introspection
       parameters: []
       responses:
         '200':
@@ -1090,6 +1104,8 @@ paths:
   /api/v1/me/:
     get:
       operationId: RetrieveActiveUserView_api_v1_me_
+      tags:
+        - me
       parameters:
         - description: A search term.
           in: query
