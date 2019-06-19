@@ -28,6 +28,8 @@ paths:
     get:
       tags:
       - internal
+      - notifications
+      - me
       summary: List active user notifications
       operationId: ListActiveUserNotifications
       parameters:
@@ -66,6 +68,8 @@ paths:
     put:
       tags:
       - internal
+      - notifications
+      - me
       operationId: UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_
       parameters: []
       responses:
@@ -78,6 +82,8 @@ paths:
     delete:
       tags:
       - internal
+      - notifications
+      - me
       operationId: DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_
       parameters: []
       responses:
@@ -91,6 +97,8 @@ paths:
     get:
       tags:
       - internal
+      - notifications
+      - me
       operationId: RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       parameters:
       - name: id
@@ -118,6 +126,8 @@ paths:
     put:
       tags:
       - internal
+      - notifications
+      - me
       operationId: UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       parameters:
       - name: id
@@ -151,6 +161,8 @@ paths:
     delete:
       tags:
       - internal
+      - notifications
+      - me
       operationId: DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       parameters:
       - name: id
@@ -178,6 +190,8 @@ paths:
     patch:
       tags:
       - internal
+      - notifications
+      - me
       operationId: PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       parameters:
       - name: id
@@ -212,6 +226,7 @@ paths:
     get:
       tags:
       - internal
+      - me
       operationId: RetrieveActiveUserPreferencesView_api_internal_me_preferences_
       parameters:
       - name: search
@@ -232,6 +247,7 @@ paths:
     put:
       tags:
       - internal
+      - me
       operationId: UpdateActiveUserPreferencesView_api_internal_me_preferences_
       parameters:
       - name: search
@@ -258,6 +274,7 @@ paths:
     patch:
       tags:
       - internal
+      - me
       operationId: PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_
       parameters:
       - name: search
@@ -285,6 +302,7 @@ paths:
     get:
       tags:
       - internal
+      - collections
       operationId: ListCollectionList_api_internal_ui_collections_
       parameters:
       - name: page
@@ -322,6 +340,7 @@ paths:
     put:
       tags:
       - internal
+      - collections
       operationId: UpdateCollectionUpdate_api_internal_ui_collections__id__
       parameters:
       - name: id
@@ -356,6 +375,7 @@ paths:
     patch:
       tags:
       - internal
+      - collections
       operationId: PartialUpdateCollectionUpdate_api_internal_ui_collections__id__
       parameters:
       - name: id
@@ -391,6 +411,7 @@ paths:
     get:
       tags:
       - internal
+      - collections
       operationId: RetrieveCollectionDetail_api_internal_ui_collections__namespace__name___name__
       parameters:
       - name: namespace__name
@@ -426,6 +447,7 @@ paths:
     get:
       tags:
       - internal
+      - namespaces
       operationId: ListNamespaceImportsList_api_internal_ui_namespaces__namespace_id__imports_
       parameters:
       - name: namespace_id
@@ -470,6 +492,7 @@ paths:
     get:
       tags:
       - internal
+      - search
       operationId: ListSearchView_api_internal_ui_search_
       parameters: []
       responses:
@@ -483,6 +506,7 @@ paths:
     get:
       tags:
       - introspection
+      - v1
       operationId: ListApiV1RootView_api_v1_
       parameters: []
       responses:
@@ -498,6 +522,7 @@ paths:
     get:
       tags:
       - me
+      - v1
       operationId: RetrieveActiveUserView_api_v1_me_
       parameters:
       - name: search
@@ -519,6 +544,7 @@ paths:
     get:
       tags:
       - namespaces
+      - v1
       operationId: ListNamespaceList_api_v1_namespaces_
       parameters:
       - name: page
@@ -556,6 +582,7 @@ paths:
     get:
       tags:
       - search
+      - v1
       operationId: ListApiV1SearchView_api_v1_search_
       parameters: []
       responses:
@@ -569,6 +596,7 @@ paths:
     get:
       tags:
       - search
+      - v1
       operationId: ListContentSearchView_api_v1_search_content_
       parameters:
       - name: page
@@ -598,6 +626,7 @@ paths:
     get:
       tags:
       - search
+      - v1
       operationId: ListRoleSearchView_api_v1_search_roles_
       parameters:
       - name: page
@@ -627,6 +656,7 @@ paths:
     get:
       tags:
       - search
+      - v1
       operationId: ListTagsSearchView_api_v1_search_tags_
       parameters:
       - name: page
@@ -656,6 +686,7 @@ paths:
     get:
       tags:
       - tags
+      - v1
       operationId: ListTagList_api_v1_tags_
       parameters:
       - name: page
@@ -693,6 +724,7 @@ paths:
     get:
       tags:
       - tags
+      - v1
       operationId: RetrieveTagDetail_api_v1_tags__id__
       parameters:
       - name: id
