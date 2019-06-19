@@ -352,7 +352,7 @@ export class V2Service {
     }
 
     /**
-     * 
+     * Get a Collection
      * 
      * @param id The collection id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
