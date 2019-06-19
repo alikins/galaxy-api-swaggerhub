@@ -971,7 +971,7 @@ paths:
   /api/v2/collection-versions/{version_pk}/:
     get:
       tags:
-      - collections-versions
+      - collection-versions
       - v2
       operationId: RetrieveVersionDetailView_api_v2_collection-versions__version_pk__
       parameters:
@@ -1077,6 +1077,9 @@ paths:
                 $ref: '#/components/schemas/CollectionVersionLinks'
   /api/v2/collections/{namespace}/{name}/:
     get:
+      tags:
+      - collections
+      - v2
       operationId: RetrieveCollectionDetailView_api_v2_collections__namespace___name__
       parameters:
       - name: namespace
@@ -1104,6 +1107,9 @@ paths:
                 $ref: '#/components/schemas/Collection'
   /api/v2/collections/{namespace}/{name}/versions/:
     get:
+      tags:
+      - collections
+      - v2
       operationId: ListVersionListView_api_v2_collections__namespace___name__versions_
       parameters:
       - name: namespace
@@ -1153,6 +1159,9 @@ paths:
                 $ref: '#/components/schemas/CollectionVersionLinks'
   /api/v2/collections/{namespace}/{name}/versions/{version}/:
     get:
+      tags:
+      - collections
+      - v2
       operationId: RetrieveVersionDetailView_api_v2_collections__namespace___name__versions__version__
       parameters:
       - name: namespace
@@ -1186,6 +1195,9 @@ paths:
                 $ref: '#/components/schemas/CollectionVersion'
   /api/v2/collections/{namespace}/{name}/versions/{version}/artifact/:
     get:
+      tags:
+      - collections
+      - v2
       operationId: RetrieveCollectionArtifactView_api_v2_collections__namespace___name__versions__version__artifact_
       parameters:
       - name: namespace
@@ -1227,6 +1239,8 @@ paths:
                 $ref: '#/components/schemas/CollectionVersionArtifactDetail'
   /download/{filename}:
     get:
+      tags:
+      - download
       operationId: RetrieveArtifactDownloadView_download__filename_
       parameters:
       - name: filename
