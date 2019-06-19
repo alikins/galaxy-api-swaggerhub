@@ -712,6 +712,7 @@
     },
     "/api/v1/namespaces/" : {
       "get" : {
+        "tags" : [ "namespaces" ],
         "operationId" : "ListNamespaceList_api_v1_namespaces_",
         "parameters" : [ {
           "name" : "page",
@@ -760,6 +761,7 @@
     },
     "/api/v1/search/" : {
       "get" : {
+        "tags" : [ "search" ],
         "operationId" : "ListApiV1SearchView_api_v1_search_",
         "parameters" : [ ],
         "responses" : {
@@ -778,6 +780,7 @@
     },
     "/api/v1/search/content/" : {
       "get" : {
+        "tags" : [ "search" ],
         "operationId" : "ListContentSearchView_api_v1_search_content_",
         "parameters" : [ {
           "name" : "page",
@@ -816,6 +819,7 @@
     },
     "/api/v1/search/roles/" : {
       "get" : {
+        "tags" : [ "search" ],
         "operationId" : "ListRoleSearchView_api_v1_search_roles_",
         "parameters" : [ {
           "name" : "page",
@@ -854,6 +858,7 @@
     },
     "/api/v1/search/tags/" : {
       "get" : {
+        "tags" : [ "search" ],
         "operationId" : "ListTagsSearchView_api_v1_search_tags_",
         "parameters" : [ {
           "name" : "page",
@@ -892,6 +897,7 @@
     },
     "/api/v1/tags/" : {
       "get" : {
+        "tags" : [ "tags" ],
         "operationId" : "ListTagList_api_v1_tags_",
         "parameters" : [ {
           "name" : "page",
