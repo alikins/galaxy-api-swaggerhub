@@ -23,6 +23,8 @@ tags:
 - name: Collection-Imports
 - name: Collection-Versions
 - name: Download
+- name: v1
+  description: API endpoints from the v1 API.
 paths:
   /api/:
     get:
