@@ -1,0 +1,2624 @@
+info:
+  description: Galaxy 3.2 API (wip)
+  title: Galaxy 3.2 API (wip)
+  version: "1.1.1"
+openapi: 3.0.0
+servers:
+  - url: https://galaxy.ansible.com/
+    description: Production server (uses live data)
+  - url: https://galaxy-dev.ansible.com/
+    description: shared public dev server
+  - url: http://localhost:8000
+    description: local sandbox
+paths:
+  /api/:
+    get:
+      operationId: GetAPI
+      tags:
+        - introspection
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: some response
+  /api/internal/me/notifications/:
+    get:
+      operationId: ListActiveUserNotifications
+      summary: List active user notifications
+      tags:
+        - internal
+      parameters:
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  collection:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this user notification was created.
+                    readOnly: true
+                    type: string
+                  id:
+                    description: Database ID for this user notification.
+                    readOnly: true
+                    type: integer
+                  message:
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this user notification was last modified.
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  repository:
+                    readOnly: true
+                    type: string
+                  seen:
+                    type: boolean
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  type:
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user notification.
+                    readOnly: true
+                    type: string
+          description: some response
+  /api/internal/me/notifications/clear/:
+    delete:
+      operationId: >-
+        DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_
+      tags:
+        - internal
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: some response
+    put:
+      operationId: >-
+        UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_
+      tags:
+        - internal
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: some response
+  '/api/internal/me/notifications/{id}/':
+    delete:
+      operationId: >-
+        DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  collection:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this user notification was created.
+                    readOnly: true
+                    type: string
+                  id:
+                    description: Database ID for this user notification.
+                    readOnly: true
+                    type: integer
+                  message:
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this user notification was last modified.
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  repository:
+                    readOnly: true
+                    type: string
+                  seen:
+                    type: boolean
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  type:
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user notification.
+                    readOnly: true
+                    type: string
+          description: some response
+    get:
+      operationId: >-
+        RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  collection:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this user notification was created.
+                    readOnly: true
+                    type: string
+                  id:
+                    description: Database ID for this user notification.
+                    readOnly: true
+                    type: integer
+                  message:
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this user notification was last modified.
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  repository:
+                    readOnly: true
+                    type: string
+                  seen:
+                    type: boolean
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  type:
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user notification.
+                    readOnly: true
+                    type: string
+          description: some response
+    patch:
+      operationId: >-
+        PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                seen:
+                  type: boolean
+        description: some body
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  collection:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this user notification was created.
+                    readOnly: true
+                    type: string
+                  id:
+                    description: Database ID for this user notification.
+                    readOnly: true
+                    type: integer
+                  message:
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this user notification was last modified.
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  repository:
+                    readOnly: true
+                    type: string
+                  seen:
+                    type: boolean
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  type:
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user notification.
+                    readOnly: true
+                    type: string
+          description: some response
+    put:
+      operationId: >-
+        UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                seen:
+                  type: boolean
+        description: some body
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  collection:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this user notification was created.
+                    readOnly: true
+                    type: string
+                  id:
+                    description: Database ID for this user notification.
+                    readOnly: true
+                    type: integer
+                  message:
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this user notification was last modified.
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  repository:
+                    readOnly: true
+                    type: string
+                  seen:
+                    type: boolean
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  type:
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user notification.
+                    readOnly: true
+                    type: string
+          description: some response
+  /api/internal/me/preferences/:
+    get:
+      operationId: RetrieveActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
+      parameters:
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  collections_followed:
+                    items:
+                      type: integer
+                    type: array
+                  created:
+                    description: Timestamp when this user preferences was created.
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this user preferences was last modified.
+                    readOnly: true
+                    type: string
+                  namespaces_followed:
+                    items:
+                      type: integer
+                    type: array
+                  preferences:
+                    type: object
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  repositories_followed:
+                    items:
+                      type: integer
+                    type: array
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user preferences.
+                    readOnly: true
+                    type: string
+                required:
+                  - preferences
+          description: some response
+    patch:
+      operationId: PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
+      parameters:
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                collections_followed:
+                  items:
+                    type: integer
+                  type: array
+                namespaces_followed:
+                  items:
+                    type: integer
+                  type: array
+                preferences:
+                  type: object
+                repositories_followed:
+                  items:
+                    type: integer
+                  type: array
+        description: some body
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  collections_followed:
+                    items:
+                      type: integer
+                    type: array
+                  created:
+                    description: Timestamp when this user preferences was created.
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this user preferences was last modified.
+                    readOnly: true
+                    type: string
+                  namespaces_followed:
+                    items:
+                      type: integer
+                    type: array
+                  preferences:
+                    type: object
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  repositories_followed:
+                    items:
+                      type: integer
+                    type: array
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user preferences.
+                    readOnly: true
+                    type: string
+                required:
+                  - preferences
+          description: some response
+    put:
+      operationId: UpdateActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
+      parameters:
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                collections_followed:
+                  items:
+                    type: integer
+                  type: array
+                namespaces_followed:
+                  items:
+                    type: integer
+                  type: array
+                preferences:
+                  type: object
+                repositories_followed:
+                  items:
+                    type: integer
+                  type: array
+              required:
+                - preferences
+        description: some body
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  collections_followed:
+                    items:
+                      type: integer
+                    type: array
+                  created:
+                    description: Timestamp when this user preferences was created.
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this user preferences was last modified.
+                    readOnly: true
+                    type: string
+                  namespaces_followed:
+                    items:
+                      type: integer
+                    type: array
+                  preferences:
+                    type: object
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  repositories_followed:
+                    items:
+                      type: integer
+                    type: array
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user preferences.
+                    readOnly: true
+                    type: string
+                required:
+                  - preferences
+          description: some response
+  /api/internal/ui/collections/:
+    get:
+      operationId: ListCollectionList_api_internal_ui_collections_
+      tags:
+        - internal
+      parameters:
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  community_score:
+                    nullable: true
+                    type: number
+                  community_survey_count:
+                    maximum: 2147483647
+                    minimum: -2147483648
+                    type: integer
+                  created:
+                    format: date-time
+                    readOnly: true
+                    type: string
+                  deprecated:
+                    type: boolean
+                  download_count:
+                    maximum: 2147483647
+                    minimum: -2147483648
+                    type: integer
+                  id:
+                    readOnly: true
+                    type: integer
+                  latest_version:
+                    properties:
+                      content_summary:
+                        readOnly: true
+                        type: string
+                      created:
+                        format: date-time
+                        readOnly: true
+                        type: string
+                      metadata:
+                        type: object
+                      modified:
+                        format: date-time
+                        readOnly: true
+                        type: string
+                      pk:
+                        readOnly: true
+                        type: integer
+                      quality_score:
+                        maximum: 5
+                        minimum: 0
+                        nullable: true
+                        type: number
+                      version:
+                        maxLength: 64
+                        type: string
+                    required:
+                      - version
+                    type: object
+                  modified:
+                    format: date-time
+                    readOnly: true
+                    type: string
+                  name:
+                    maxLength: 64
+                    type: string
+                  namespace:
+                    properties:
+                      active:
+                        type: boolean
+                      avatar_url:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      company:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      created:
+                        format: date-time
+                        readOnly: true
+                        type: string
+                      description:
+                        maxLength: 255
+                        type: string
+                      email:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      html_url:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      id:
+                        readOnly: true
+                        type: integer
+                      is_vendor:
+                        type: boolean
+                      location:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      modified:
+                        format: date-time
+                        readOnly: true
+                        type: string
+                      name:
+                        maxLength: 512
+                        type: string
+                      owners:
+                        items:
+                          type: integer
+                        type: array
+                    readOnly: true
+                    required:
+                      - name
+                      - owners
+                    type: object
+                required:
+                  - name
+                  - latest_version
+          description: some response
+  '/api/internal/ui/collections/{id}/':
+    patch:
+      operationId: PartialUpdateCollectionUpdate_api_internal_ui_collections__id__
+      tags:
+        - internal
+      parameters:
+        - description: A unique integer value identifying this collection.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                deprecated:
+                  type: boolean
+        description: some body
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  deprecated:
+                    type: boolean
+                  id:
+                    readOnly: true
+                    type: integer
+                  name:
+                    readOnly: true
+                    type: string
+          description: some response
+    put:
+      operationId: UpdateCollectionUpdate_api_internal_ui_collections__id__
+      tags:
+        - internal
+      parameters:
+        - description: A unique integer value identifying this collection.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                deprecated:
+                  type: boolean
+        description: some body
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  deprecated:
+                    type: boolean
+                  id:
+                    readOnly: true
+                    type: integer
+                  name:
+                    readOnly: true
+                    type: string
+          description: some response
+  '/api/internal/ui/collections/{namespace__name}/{name}/':
+    get:
+      operationId: >-
+        RetrieveCollectionDetail_api_internal_ui_collections__namespace__name___name__
+      tags:
+        - internal
+      parameters:
+        - description: ''
+          in: path
+          name: namespace__name
+          required: true
+          schema:
+            type: string
+        - description: ''
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  all_versions:
+                    readOnly: true
+                    type: string
+                  community_score:
+                    nullable: true
+                    type: number
+                  community_survey_count:
+                    maximum: 2147483647
+                    minimum: -2147483648
+                    type: integer
+                  created:
+                    format: date-time
+                    readOnly: true
+                    type: string
+                  deprecated:
+                    type: boolean
+                  download_count:
+                    maximum: 2147483647
+                    minimum: -2147483648
+                    type: integer
+                  id:
+                    readOnly: true
+                    type: integer
+                  latest_version:
+                    properties:
+                      contents:
+                        type: object
+                      created:
+                        format: date-time
+                        readOnly: true
+                        type: string
+                      metadata:
+                        type: object
+                      modified:
+                        format: date-time
+                        readOnly: true
+                        type: string
+                      pk:
+                        readOnly: true
+                        type: integer
+                      quality_score:
+                        maximum: 5
+                        minimum: 0
+                        nullable: true
+                        type: number
+                      readme_html:
+                        type: string
+                      version:
+                        maxLength: 64
+                        type: string
+                    required:
+                      - version
+                      - metadata
+                      - contents
+                    type: object
+                  modified:
+                    format: date-time
+                    readOnly: true
+                    type: string
+                  name:
+                    maxLength: 64
+                    type: string
+                  namespace:
+                    properties:
+                      active:
+                        type: boolean
+                      avatar_url:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      company:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      created:
+                        format: date-time
+                        readOnly: true
+                        type: string
+                      description:
+                        maxLength: 255
+                        type: string
+                      email:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      html_url:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      id:
+                        readOnly: true
+                        type: integer
+                      is_vendor:
+                        type: boolean
+                      location:
+                        maxLength: 256
+                        nullable: true
+                        type: string
+                      modified:
+                        format: date-time
+                        readOnly: true
+                        type: string
+                      name:
+                        maxLength: 512
+                        type: string
+                      owners:
+                        items:
+                          type: integer
+                        type: array
+                    readOnly: true
+                    required:
+                      - name
+                      - owners
+                    type: object
+                required:
+                  - name
+                  - latest_version
+          description: some response
+  '/api/internal/ui/namespaces/{namespace_id}/imports/':
+    get:
+      operationId: >-
+        ListNamespaceImportsList_api_internal_ui_namespaces__namespace_id__imports_
+      tags:
+        - internal
+      parameters:
+        - description: ''
+          in: path
+          name: namespace_id
+          required: true
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  finished_at:
+                    format: date-time
+                    type: string
+                  href:
+                    readOnly: true
+                    type: string
+                  id:
+                    readOnly: true
+                    type: integer
+                  name:
+                    maxLength: 64
+                    type: string
+                  namespace:
+                    readOnly: true
+                    type: string
+                  started_at:
+                    format: date-time
+                    type: string
+                  state:
+                    type: string
+                  type:
+                    readOnly: true
+                    type: string
+                  version:
+                    maxLength: 64
+                    type: string
+                required:
+                  - state
+                  - started_at
+                  - finished_at
+                  - name
+                  - version
+          description: some response
+  /api/internal/ui/search/:
+    get:
+      operationId: ListSearchView_api_internal_ui_search_
+      tags:
+        - internal
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: some response
+  /api/v1/:
+    get:
+      operationId: ListApiV1RootView_api_v1_
+      tags:
+        - introspection
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+          description: some response
+  /api/v1/me/:
+    get:
+      operationId: RetrieveActiveUserView_api_v1_me_
+      tags:
+        - me
+      parameters:
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  authenticated:
+                    readOnly: true
+                    type: string
+                  avatar_url:
+                    maxLength: 256
+                    type: string
+                  created:
+                    description: Timestamp when this user was created.
+                    readOnly: true
+                    type: string
+                  date_joined:
+                    format: date-time
+                    type: string
+                  full_name:
+                    maxLength: 254
+                    type: string
+                  id:
+                    description: Database ID for this user.
+                    readOnly: true
+                    type: integer
+                  modified:
+                    description: Timestamp when this user was last modified.
+                    readOnly: true
+                    type: string
+                  primary_email:
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  staff:
+                    readOnly: true
+                    type: string
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user.
+                    readOnly: true
+                    type: string
+                  username:
+                    description: >-
+                      Required. 30 characters or fewer. Letters, numbers and
+                      @/./+/-/_ characters
+                    maxLength: 30
+                    pattern: '^[a-zA-Z0-9_.@+-]+$'
+                    type: string
+                required:
+                  - username
+          description: some response
+  /api/v1/namespaces/:
+    get:
+      operationId: ListNamespaceList_api_v1_namespaces_
+      tags:
+        - namespaces
+      parameters:
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  avatar_url:
+                    maxLength: 256
+                    nullable: true
+                    type: string
+                  company:
+                    maxLength: 256
+                    nullable: true
+                    type: string
+                  created:
+                    description: Timestamp when this namespace was created.
+                    readOnly: true
+                    type: string
+                  description:
+                    maxLength: 255
+                    type: string
+                  email:
+                    maxLength: 256
+                    nullable: true
+                    type: string
+                  html_url:
+                    maxLength: 256
+                    nullable: true
+                    type: string
+                  id:
+                    description: Database ID for this namespace.
+                    readOnly: true
+                    type: integer
+                  is_vendor:
+                    type: boolean
+                  location:
+                    maxLength: 256
+                    nullable: true
+                    type: string
+                  modified:
+                    description: Timestamp when this namespace was last modified.
+                    readOnly: true
+                    type: string
+                  name:
+                    maxLength: 512
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this namespace.
+                    readOnly: true
+                    type: string
+                required:
+                  - name
+          description: some response
+  /api/v1/search/:
+    get:
+      operationId: ListApiV1SearchView_api_v1_search_
+      tags:
+        - search
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: some response
+  /api/v1/search/content/:
+    get:
+      operationId: ListContentSearchView_api_v1_search_content_
+      tags:
+        - search
+      parameters:
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  company:
+                    maxLength: 50
+                    nullable: true
+                    type: string
+                  created:
+                    description: Timestamp when this content was created.
+                    readOnly: true
+                    type: string
+                  description:
+                    maxLength: 255
+                    type: string
+                  download_count:
+                    readOnly: true
+                    type: string
+                  download_rank:
+                    type: number
+                  id:
+                    description: Database ID for this content.
+                    readOnly: true
+                    type: integer
+                  imported:
+                    format: date-time
+                    nullable: true
+                    type: string
+                  is_valid:
+                    readOnly: true
+                    type: boolean
+                  license:
+                    maxLength: 50
+                    type: string
+                  min_ansible_version:
+                    maxLength: 10
+                    nullable: true
+                    type: string
+                  modified:
+                    description: Timestamp when this content was last modified.
+                    readOnly: true
+                    type: string
+                  name:
+                    maxLength: 512
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  relevance:
+                    type: number
+                  role_type:
+                    readOnly: true
+                    type: string
+                  search_rank:
+                    type: number
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  travis_status_url:
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this content.
+                    readOnly: true
+                    type: string
+                  username:
+                    readOnly: true
+                    type: string
+                required:
+                  - name
+                  - relevance
+                  - search_rank
+                  - download_rank
+          description: some response
+  /api/v1/search/roles/:
+    get:
+      operationId: ListRoleSearchView_api_v1_search_roles_
+      tags:
+        - search
+      parameters:
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  company:
+                    maxLength: 50
+                    nullable: true
+                    type: string
+                  created:
+                    description: Timestamp when this content was created.
+                    readOnly: true
+                    type: string
+                  description:
+                    maxLength: 255
+                    type: string
+                  download_count:
+                    readOnly: true
+                    type: string
+                  download_rank:
+                    type: number
+                  id:
+                    description: Database ID for this content.
+                    readOnly: true
+                    type: integer
+                  imported:
+                    format: date-time
+                    nullable: true
+                    type: string
+                  is_valid:
+                    readOnly: true
+                    type: boolean
+                  license:
+                    maxLength: 50
+                    type: string
+                  min_ansible_version:
+                    maxLength: 10
+                    nullable: true
+                    type: string
+                  modified:
+                    description: Timestamp when this content was last modified.
+                    readOnly: true
+                    type: string
+                  name:
+                    maxLength: 512
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  relevance:
+                    type: number
+                  role_type:
+                    readOnly: true
+                    type: string
+                  search_rank:
+                    type: number
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  travis_status_url:
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this content.
+                    readOnly: true
+                    type: string
+                  username:
+                    readOnly: true
+                    type: string
+                required:
+                  - name
+                  - relevance
+                  - search_rank
+                  - download_rank
+          description: some response
+  /api/v1/search/tags/:
+    get:
+      operationId: ListTagsSearchView_api_v1_search_tags_
+      tags:
+        - search
+      parameters:
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this tag was created.
+                    readOnly: true
+                    type: string
+                  id:
+                    description: Database ID for this tag.
+                    readOnly: true
+                    type: integer
+                  modified:
+                    description: Timestamp when this tag was last modified.
+                    readOnly: true
+                    type: string
+                  name:
+                    maxLength: 512
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  roles_count:
+                    readOnly: true
+                    type: integer
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this tag.
+                    readOnly: true
+                    type: string
+                required:
+                  - name
+          description: some response
+  /api/v1/tags/:
+    get:
+      operationId: ListTagList_api_v1_tags_
+      tags:
+        - tags
+      parameters:
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                  previous:
+                    type: string
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TagDetail'
+          description: A page of tag details
+  '/api/v1/tags/{id}/':
+    get:
+      operationId: RetrieveTagDetail_api_v1_tags__id__
+      tags:
+        - tags
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this tag was created.
+                    readOnly: true
+                    type: string
+                  id:
+                    description: Database ID for this tag.
+                    readOnly: true
+                    type: integer
+                  modified:
+                    description: Timestamp when this tag was last modified.
+                    readOnly: true
+                    type: string
+                  name:
+                    maxLength: 512
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this tag.
+                    readOnly: true
+                    type: string
+                required:
+                  - name
+          description: some response
+  /api/v1/users/:
+    get:
+      operationId: ListUserList_api_v1_users_
+      tags:
+        - users
+        - v1
+      parameters:
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  avatar_url:
+                    maxLength: 256
+                    type: string
+                  created:
+                    description: Timestamp when this user was created.
+                    readOnly: true
+                    type: string
+                  date_joined:
+                    format: date-time
+                    type: string
+                  full_name:
+                    maxLength: 254
+                    type: string
+                  id:
+                    description: Database ID for this user.
+                    readOnly: true
+                    type: integer
+                  modified:
+                    description: Timestamp when this user was last modified.
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  staff:
+                    readOnly: true
+                    type: string
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user.
+                    readOnly: true
+                    type: string
+                  username:
+                    description: >-
+                      Required. 30 characters or fewer. Letters, numbers and
+                      @/./+/-/_ characters
+                    maxLength: 30
+                    pattern: '^[a-zA-Z0-9_.@+-]+$'
+                    type: string
+                required:
+                  - username
+          description: some response
+  '/api/v1/users/{id}/':
+    get:
+      operationId: RetrieveUserDetail_api_v1_users__id__
+      tags:
+        - users
+        - v1
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  avatar_url:
+                    maxLength: 256
+                    type: string
+                  created:
+                    description: Timestamp when this user was created.
+                    readOnly: true
+                    type: string
+                  date_joined:
+                    format: date-time
+                    type: string
+                  full_name:
+                    maxLength: 254
+                    type: string
+                  id:
+                    description: Database ID for this user.
+                    readOnly: true
+                    type: integer
+                  modified:
+                    description: Timestamp when this user was last modified.
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  staff:
+                    readOnly: true
+                    type: string
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user.
+                    readOnly: true
+                    type: string
+                  username:
+                    description: >-
+                      Required. 30 characters or fewer. Letters, numbers and
+                      @/./+/-/_ characters
+                    maxLength: 30
+                    pattern: '^[a-zA-Z0-9_.@+-]+$'
+                    type: string
+                required:
+                  - username
+          description: some response
+    patch:
+      operationId: PartialUpdateUserDetail_api_v1_users__id__
+      tags:
+        - users
+        - v1
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                avatar_url:
+                  maxLength: 256
+                  type: string
+                date_joined:
+                  format: date-time
+                  type: string
+                full_name:
+                  maxLength: 254
+                  type: string
+                username:
+                  description: >-
+                    Required. 30 characters or fewer. Letters, numbers and
+                    @/./+/-/_ characters
+                  maxLength: 30
+                  pattern: '^[a-zA-Z0-9_.@+-]+$'
+                  type: string
+        description: some body
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  avatar_url:
+                    maxLength: 256
+                    type: string
+                  created:
+                    description: Timestamp when this user was created.
+                    readOnly: true
+                    type: string
+                  date_joined:
+                    format: date-time
+                    type: string
+                  full_name:
+                    maxLength: 254
+                    type: string
+                  id:
+                    description: Database ID for this user.
+                    readOnly: true
+                    type: integer
+                  modified:
+                    description: Timestamp when this user was last modified.
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  staff:
+                    readOnly: true
+                    type: string
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this user.
+                    readOnly: true
+                    type: string
+                  username:
+                    description: >-
+                      Required. 30 characters or fewer. Letters, numbers and
+                      @/./+/-/_ characters
+                    maxLength: 30
+                    pattern: '^[a-zA-Z0-9_.@+-]+$'
+                    type: string
+                required:
+                  - username
+          description: some response
+  '/api/v1/users/{id}/starred/':
+    get:
+      operationId: ListUserStarredList_api_v1_users__id__starred_
+      tags:
+        - users
+        - v1
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this stargazer was created.
+                    readOnly: true
+                    type: string
+                  modified:
+                    description: Timestamp when this stargazer was last modified.
+                    readOnly: true
+                    type: string
+                  owner:
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  role:
+                    properties:
+                      github_repo:
+                        readOnly: true
+                        type: string
+                      github_user:
+                        readOnly: true
+                        type: string
+                      id:
+                        readOnly: true
+                        type: integer
+                      name:
+                        maxLength: 512
+                        type: string
+                      namespace:
+                        type: integer
+                    readOnly: true
+                    required:
+                      - namespace
+                      - name
+                    type: object
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this stargazer.
+                    readOnly: true
+                    type: string
+          description: some response
+  '/api/v1/users/{id}/subscriptions/':
+    get:
+      operationId: ListUserSubscriptionList_api_v1_users__id__subscriptions_
+      tags:
+        - users
+        - v1
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  active:
+                    readOnly: true
+                    type: string
+                  created:
+                    description: Timestamp when this subscription was created.
+                    readOnly: true
+                    type: string
+                  github_repo:
+                    maxLength: 256
+                    type: string
+                  github_user:
+                    maxLength: 256
+                    type: string
+                  modified:
+                    description: Timestamp when this subscription was last modified.
+                    readOnly: true
+                    type: string
+                  owner:
+                    readOnly: true
+                    type: string
+                  related:
+                    description: Data structure with URLs of related resources.
+                    readOnly: true
+                    type: string
+                  summary_fields:
+                    description: >-
+                      Data structure with name/description for related
+                      resources.
+                    readOnly: true
+                    type: string
+                  url:
+                    description: URL for this subscription.
+                    readOnly: true
+                    type: string
+                required:
+                  - github_user
+                  - github_repo
+          description: some response
+  '/api/v2/collection-imports/{id}/':
+    get:
+      operationId: RetrieveCollectionImportView_api_v2_collection-imports__id__
+      tags:
+        - collection-imports
+        - v2
+      parameters:
+        - description: A unique integer value identifying this collection import.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      description:
+                        type: string
+                      traceback:
+                        type: string
+                  finished_at:
+                    format: date-time
+                    type: string
+                  id:
+                    type: integer
+                  imported_version:
+                    readOnly: true
+                    type: string
+                  job_id:
+                    format: uuid
+                    type: string
+                  lint_records:
+                    type: object
+                  messages:
+                    items:
+                      properties:
+                        level:
+                          type: string
+                        message:
+                          type: string
+                        time:
+                          format: date-time
+                          type: string
+                      required:
+                        - level
+                        - message
+                        - time
+                    type: array
+                  name:
+                    maxLength: 64
+                    type: string
+                  namespace:
+                    type: string
+                  started_at:
+                    format: date-time
+                    type: string
+                  state:
+                    type: string
+                  version:
+                    maxLength: 64
+                    type: string
+                required:
+                  - id
+                  - job_id
+                  - started_at
+                  - finished_at
+                  - state
+                  - error
+                  - namespace
+                  - name
+                  - version
+                  - messages
+                  - lint_records
+          description: Collection import detail
+  '/api/v2/collection-versions/{id}/artifact/':
+    get:
+      operationId: RetrieveCollectionArtifactView_api_v2_collection-versions__id__artifact_
+      tags:
+        - collection-versions
+        - v2
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionArtifactDetail'
+          description: Map of collection version artifact with download_url, sha256, and filename
+  '/api/v2/collection-versions/{version_pk}/':
+    get:
+      operationId: RetrieveVersionDetailView_api_v2_collection-versions__version_pk__
+      tags:
+        - collection-versions
+        - v2
+      parameters:
+        - description: ''
+          in: path
+          name: version_pk
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersion'
+          description: A collection version
+  /api/v2/collections/:
+    post:
+      operationId: CreateCollectionListView_api_v2_collections_
+      tags:
+        - collections
+        - v2
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object 
+              properties:
+                sha256sum:
+                  type: string
+                file:
+                  type: string
+                  format: binary
+                
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  task:
+                    type: string
+          description: 'A collection version import task'
+  '/api/v2/collections/{id}/':
+    get:
+      operationId: RetrieveCollectionDetailView_api_v2_collections__id__
+      tags:
+        - collections
+        - v2
+      parameters:
+        - description: 'The collection id'
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+  '/api/v2/collections/{id}/versions/':
+    get:
+      operationId: ListVersionListView_api_v2_collections__id__versions_
+      tags:
+        - collections
+        - v2
+      parameters:
+        - description: ''
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A page of collection version links
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionLinks'
+  '/api/v2/collections/{namespace}/{name}/':
+    get:
+      operationId: RetrieveCollectionDetailView_api_v2_collections__namespace___name__
+      tags:
+        - collections
+        - v2
+      parameters:
+        - description: 'The collection namespace'
+          in: path
+          name: namespace
+          required: true
+          schema:
+            type: string
+        - description: 'The collection name'
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+  '/api/v2/collections/{namespace}/{name}/versions/':
+    get:
+      operationId: ListVersionListView_api_v2_collections__namespace___name__versions_
+      tags:
+        - collections
+        - v2
+      parameters:
+        - description: ''
+          in: path
+          name: namespace
+          required: true
+          schema:
+            type: string
+        - description: ''
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A page of collection version links
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionLinks'
+  '/api/v2/collections/{namespace}/{name}/versions/{version}/':
+    get:
+      operationId: >-
+        RetrieveVersionDetailView_api_v2_collections__namespace___name__versions__version__
+      tags:
+        - collections
+        - v2
+      parameters:
+        - description: ''
+          in: path
+          name: namespace
+          required: true
+          schema:
+            type: string
+        - description: ''
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: 'A semantic version string'
+          in: path
+          name: version
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersion'
+          description: A collection version
+  '/api/v2/collections/{namespace}/{name}/versions/{version}/artifact/':
+    get:
+      operationId: >-
+        RetrieveCollectionArtifactView_api_v2_collections__namespace___name__versions__version__artifact_
+      tags:
+        - collections
+        - v2
+      parameters:
+        - description: ''
+          in: path
+          name: namespace
+          required: true
+          schema:
+            type: string
+        - description: ''
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: ''
+          in: path
+          name: version
+          required: true
+          schema:
+            type: string
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionArtifactDetail'
+          description: Map of collection version artifact with download_url, sha256, and filename
+  '/download/{filename}':
+    get:
+      operationId: RetrieveArtifactDownloadView_download__filename_
+      tags:
+        - download
+      parameters:
+        - description: 'Download the collection artifact'
+          in: path
+          name: filename
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+          description: The collection artifact file binary contents
+components:
+  schemas:
+    PageInfo:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+        previous:
+          type: string
+    CollectionVersionLinks:
+      allOf:
+        - $ref: '#/components/schemas/PageInfo'
+        - properties:
+            results:
+              type: array
+              items:
+                type: object
+                properties:
+                  href:
+                    type: string
+                  version:
+                    type: string
+                    maxLength: 64
+    TagDetail:
+      properties:
+        active:
+          readOnly: true
+          type: string
+        created:
+          description: Timestamp when this tag was created.
+          readOnly: true
+          type: string
+        id:
+          description: Database ID for this tag.
+          readOnly: true
+          type: integer
+        modified:
+          description: Timestamp when this tag was last modified.
+          readOnly: true
+          type: string
+        name:
+          maxLength: 512
+          type: string
+        related:
+          description: Data structure with URLs of related resources.
+          readOnly: true
+          type: string
+        summary_fields:
+          description: >-
+            Data structure with name/description for related
+            resources.
+          readOnly: true
+          type: string
+        url:
+          description: URL for this tag.
+          readOnly: true
+          type: string
+      required:
+        - name
+    CollectionVersionArtifactDetail:
+      type: object
+      properties:
+        download_url:
+          readOnly: true
+          type: string
+        filename:
+          readOnly: true
+          type: string
+        sha256:
+          type: string
+        size:
+          type: integer
+    Collection:
+      type: object
+      properties:
+        latest_version:
+          type: object
+          properties:
+            href:
+              type: string
+            version:
+              type: string
+        created:
+          type: string
+        deprecated:
+          type: boolean
+        name:
+          type: string
+        namespace:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: integer
+            href:
+              type: string
+        modified:
+          type: string
+        id:
+          type: integer
+        href:
+          type: string
+        versions_url:
+          type: string
+    CollectionVersion:
+      type: object
+      properties:
+        artifact:
+          type: object
+          properties:
+            filename:
+              type: string
+            size:
+              type: integer
+            sha256:
+              type: string
+        metadata:
+          type: object
+          properties:
+            documentation: {}
+            description:
+              type: string
+            readme:
+              type: string
+            repository: {}
+            issues: {}
+            version:
+              type: string
+            license_file: {}
+            tags:
+              type: array
+              items:
+                type: string
+            dependencies:
+              type: object
+            license:
+              type: array
+              items:
+                type: string
+            name:
+              type: string
+            namespace:
+              type: string
+            authors:
+              type: array
+              items:
+                type: string
+            homepage: {}
+        hidden:
+          type: boolean
+        download_url:
+          type: string
+        namespace:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: integer
+            href:
+              type: string
+        id:
+          type: integer
+        href:
+          type: string
+        collection:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: integer
+            href:
+              type: string
+        version:
+          type: string
