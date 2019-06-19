@@ -2666,3 +2666,4 @@ tags:
       url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
       description: Creating Collections docs at galaxy.ansible.com
   - name: Collection-imports
+  - name: Collection-Versions
