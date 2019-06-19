@@ -42,7 +42,12 @@
     "description" : "API endpoints from the v2 API"
   }, {
     "name" : "Introspection",
-    "description" : "API used to gather information about the API itself."
+    "description" : "API used to gather information about the API itself"
+  }, {
+    "name" : "Internal",
+    "description" : "API endpoints used by the web user interface. These endpoints are not part of the stable Galaxy API and may change at any time."
+  }, {
+    "name" : "Notifications"
   } ],
   "paths" : {
     "/api/" : {
