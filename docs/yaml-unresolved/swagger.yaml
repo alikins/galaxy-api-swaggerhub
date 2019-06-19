@@ -2660,3 +2660,6 @@ components:
           type: string
 externalDocs:
   url: https://galaxy.ansible.com/docs/
+tags:
+  - name: Collections
+    description: blip
