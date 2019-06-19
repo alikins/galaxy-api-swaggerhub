@@ -17,7 +17,9 @@ servers:
   description: local sandbox
 tags:
 - name: Collections
-  description: blip
+  externalDocs:
+    description: Creating Collections docs at galaxy.ansible.com
+    url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
 paths:
   /api/:
     get:
