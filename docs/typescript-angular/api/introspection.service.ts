@@ -60,10 +60,10 @@ export class IntrospectionService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiGet(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getAPI(observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getAPI(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getAPI(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getAPI(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
