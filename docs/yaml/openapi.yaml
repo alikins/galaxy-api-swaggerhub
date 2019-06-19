@@ -21,6 +21,7 @@ tags:
     description: Creating Collections docs at galaxy.ansible.com
     url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
 - name: Collection-imports
+- name: Collection-Versions
 paths:
   /api/:
     get:
