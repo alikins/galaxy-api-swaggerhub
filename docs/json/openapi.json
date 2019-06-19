@@ -3,7 +3,14 @@
   "info" : {
     "title" : "Galaxy 3.2 API (wip)",
     "description" : "Galaxy 3.2 API (wip)",
+    "contact" : {
+      "name" : "Ansible Galaxy Issues",
+      "url" : "https://github.com/ansible/galaxy/issues"
+    },
     "version" : "1.1.1"
+  },
+  "externalDocs" : {
+    "url" : "https://galaxy.ansible.com/docs/"
   },
   "servers" : [ {
     "url" : "https://galaxy.ansible.com/",
@@ -14,6 +21,45 @@
   }, {
     "url" : "http://localhost:8000",
     "description" : "local sandbox"
+  } ],
+  "tags" : [ {
+    "name" : "Collections",
+    "externalDocs" : {
+      "description" : "Creating Collections docs at galaxy.ansible.com",
+      "url" : "https://galaxy.ansible.com/docs/contributing/creating_collections.html"
+    }
+  }, {
+    "name" : "Collection-Imports"
+  }, {
+    "name" : "Collection-Versions"
+  }, {
+    "name" : "Download"
+  }, {
+    "name" : "Introspection",
+    "description" : "API used to gather information about the API itself"
+  }, {
+    "name" : "v2",
+    "description" : "API endpoints from the v2 API"
+  }, {
+    "name" : "Notifications"
+  }, {
+    "name" : "Me",
+    "description" : "API endpoints related to the current user."
+  }, {
+    "name" : "Search"
+  }, {
+    "name" : "Namespaces"
+  }, {
+    "name" : "Tags",
+    "description" : "API endpoint for Ansible Galaxy tags."
+  }, {
+    "name" : "Users"
+  }, {
+    "name" : "v1",
+    "description" : "API endpoints from the v1 API."
+  }, {
+    "name" : "Internal",
+    "description" : "API endpoints used by the web user interface. These endpoints are not part of the stable Galaxy API and may change at any time."
   } ],
   "paths" : {
     "/api/" : {
@@ -1367,6 +1413,7 @@
     "/api/v2/collections/{id}/" : {
       "get" : {
         "tags" : [ "collections", "v2" ],
+        "summary" : "Get a Collection",
         "operationId" : "RetrieveCollectionDetailView_api_v2_collections__id__",
         "parameters" : [ {
           "name" : "id",

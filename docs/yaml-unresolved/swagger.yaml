@@ -2,6 +2,9 @@ info:
   description: Galaxy 3.2 API (wip)
   title: Galaxy 3.2 API (wip)
   version: "1.1.1"
+  contact:
+    url: https://github.com/ansible/galaxy/issues
+    name: Ansible Galaxy Issues
 openapi: 3.0.0
 servers:
   - url: https://galaxy.ansible.com/
@@ -2275,6 +2278,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Collection'
+      summary: Get a Collection
   '/api/v2/collections/{id}/versions/':
     get:
       operationId: ListVersionListView_api_v2_collections__id__versions_
@@ -2654,3 +2658,29 @@ components:
               type: string
         version:
           type: string
+externalDocs:
+  url: https://galaxy.ansible.com/docs/
+tags:
+  - name: Collections
+    externalDocs:
+      url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
+      description: Creating Collections docs at galaxy.ansible.com
+  - name: Collection-Imports
+  - name: Collection-Versions
+  - name: Download
+  - name: Introspection
+    description: API used to gather information about the API itself
+  - name: v2
+    description: API endpoints from the v2 API
+  - name: Notifications
+  - name: Me
+    description: API endpoints related to the current user.
+  - name: Search
+  - name: Namespaces
+  - name: Tags
+    description: API endpoint for Ansible Galaxy tags.
+  - name: Users
+  - name: v1
+    description: API endpoints from the v1 API.
+  - name: Internal
+    description: API endpoints used by the web user interface. These endpoints are not part of the stable Galaxy API and may change at any time.
