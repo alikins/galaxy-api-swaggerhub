@@ -30,6 +30,8 @@
     }
   }, {
     "name" : "Collection-imports"
+  }, {
+    "name" : "Collection-Versions"
   } ],
   "paths" : {
     "/api/" : {
