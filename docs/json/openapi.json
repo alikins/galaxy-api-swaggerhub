@@ -1310,7 +1310,7 @@
     },
     "/api/v2/collection-versions/{version_pk}/" : {
       "get" : {
-        "tags" : [ "collections-versions", "v2" ],
+        "tags" : [ "collection-versions", "v2" ],
         "operationId" : "RetrieveVersionDetailView_api_v2_collection-versions__version_pk__",
         "parameters" : [ {
           "name" : "version_pk",
@@ -1453,6 +1453,7 @@
     },
     "/api/v2/collections/{namespace}/{name}/" : {
       "get" : {
+        "tags" : [ "collections", "v2" ],
         "operationId" : "RetrieveCollectionDetailView_api_v2_collections__namespace___name__",
         "parameters" : [ {
           "name" : "namespace",
@@ -1491,6 +1492,7 @@
     },
     "/api/v2/collections/{namespace}/{name}/versions/" : {
       "get" : {
+        "tags" : [ "collections", "v2" ],
         "operationId" : "ListVersionListView_api_v2_collections__namespace___name__versions_",
         "parameters" : [ {
           "name" : "namespace",
@@ -1557,6 +1559,7 @@
     },
     "/api/v2/collections/{namespace}/{name}/versions/{version}/" : {
       "get" : {
+        "tags" : [ "collections", "v2" ],
         "operationId" : "RetrieveVersionDetailView_api_v2_collections__namespace___name__versions__version__",
         "parameters" : [ {
           "name" : "namespace",
@@ -1603,6 +1606,7 @@
     },
     "/api/v2/collections/{namespace}/{name}/versions/{version}/artifact/" : {
       "get" : {
+        "tags" : [ "collections", "v2" ],
         "operationId" : "RetrieveCollectionArtifactView_api_v2_collections__namespace___name__versions__version__artifact_",
         "parameters" : [ {
           "name" : "namespace",
@@ -1658,6 +1662,7 @@
     },
     "/download/{filename}" : {
       "get" : {
+        "tags" : [ "download" ],
         "operationId" : "RetrieveArtifactDownloadView_download__filename_",
         "parameters" : [ {
           "name" : "filename",
