@@ -1,0 +1,7 @@
+specFileName: /home/adrian/src/galaxy-api-swaggerhub/docs/yaml/openapi.yaml
+apiTitle: Ansible Galaxy API
+splitSpec: false
+codeSamples: true
+swaggerUI: true
+travis: false
+oasVersion: 3.0.0
