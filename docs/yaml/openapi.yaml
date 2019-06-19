@@ -64,6 +64,8 @@ paths:
                 $ref: '#/components/schemas/inline_response_200'
   /api/internal/me/notifications/clear/:
     put:
+      tags:
+      - internal
       operationId: UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_
       parameters: []
       responses:
@@ -74,6 +76,8 @@ paths:
               schema:
                 type: object
     delete:
+      tags:
+      - internal
       operationId: DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_
       parameters: []
       responses:
@@ -85,6 +89,8 @@ paths:
                 type: object
   /api/internal/me/notifications/{id}/:
     get:
+      tags:
+      - internal
       operationId: RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       parameters:
       - name: id
@@ -110,6 +116,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
     put:
+      tags:
+      - internal
       operationId: UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       parameters:
       - name: id
@@ -141,6 +149,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
     delete:
+      tags:
+      - internal
       operationId: DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       parameters:
       - name: id
@@ -166,6 +176,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
     patch:
+      tags:
+      - internal
       operationId: PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       parameters:
       - name: id
@@ -198,6 +210,8 @@ paths:
                 $ref: '#/components/schemas/inline_response_200'
   /api/internal/me/preferences/:
     get:
+      tags:
+      - internal
       operationId: RetrieveActiveUserPreferencesView_api_internal_me_preferences_
       parameters:
       - name: search
@@ -216,6 +230,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
     put:
+      tags:
+      - internal
       operationId: UpdateActiveUserPreferencesView_api_internal_me_preferences_
       parameters:
       - name: search
@@ -240,6 +256,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
     patch:
+      tags:
+      - internal
       operationId: PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_
       parameters:
       - name: search
