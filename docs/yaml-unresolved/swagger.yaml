@@ -13,9 +13,9 @@ servers:
 paths:
   /api/:
     get:
+      operationId: GetAPI
       tags:
         - introspection
-      operationId: ListApiRootView_api_
       parameters: []
       responses:
         '200':
