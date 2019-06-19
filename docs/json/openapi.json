@@ -18,6 +18,7 @@
   "paths" : {
     "/api/" : {
       "get" : {
+        "tags" : [ "introspection" ],
         "operationId" : "ListApiRootView_api_",
         "parameters" : [ ],
         "responses" : {
