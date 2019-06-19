@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 import { DefaultService } from './api/default.service';
+import { InternalService } from './api/internal.service';
 import { IntrospectionService } from './api/introspection.service';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { IntrospectionService } from './api/introspection.service';
   exports:      [],
   providers: [
     DefaultService,
+    InternalService,
     IntrospectionService ]
 })
 export class ApiModule {
