@@ -13,7 +13,9 @@ servers:
 paths:
   /api/:
     get:
-      operationId: ListApiRootView_api_
+      operationId: GetAPI
+      tags:
+        - introspection
       parameters: []
       responses:
         '200':
@@ -23,7 +25,12 @@ paths:
           description: some response
   /api/internal/me/notifications/:
     get:
-      operationId: ListActiveUserNotificationsView_api_internal_me_notifications_
+      operationId: ListActiveUserNotifications
+      summary: List active user notifications
+      tags:
+        - internal
+        - notifications
+        - me
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -97,6 +104,10 @@ paths:
     delete:
       operationId: >-
         DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_
+      tags:
+        - internal
+        - notifications
+        - me
       parameters: []
       responses:
         '200':
@@ -107,6 +118,10 @@ paths:
     put:
       operationId: >-
         UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_
+      tags:
+        - internal
+        - notifications
+        - me
       parameters: []
       responses:
         '200':
@@ -118,6 +133,10 @@ paths:
     delete:
       operationId: >-
         DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
+        - notifications
+        - me
       parameters:
         - description: ''
           in: path
@@ -184,6 +203,10 @@ paths:
     get:
       operationId: >-
         RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
+        - notifications
+        - me
       parameters:
         - description: ''
           in: path
@@ -250,6 +273,10 @@ paths:
     patch:
       operationId: >-
         PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
+        - notifications
+        - me
       parameters:
         - description: ''
           in: path
@@ -324,6 +351,10 @@ paths:
     put:
       operationId: >-
         UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
+        - notifications
+        - me
       parameters:
         - description: ''
           in: path
@@ -398,6 +429,9 @@ paths:
   /api/internal/me/preferences/:
     get:
       operationId: RetrieveActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
+        - me
       parameters:
         - description: A search term.
           in: query
@@ -455,6 +489,9 @@ paths:
           description: some response
     patch:
       operationId: PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
+        - me
       parameters:
         - description: A search term.
           in: query
@@ -532,6 +569,9 @@ paths:
           description: some response
     put:
       operationId: UpdateActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
+        - me
       parameters:
         - description: A search term.
           in: query
@@ -612,6 +652,9 @@ paths:
   /api/internal/ui/collections/:
     get:
       operationId: ListCollectionList_api_internal_ui_collections_
+      tags:
+        - internal
+        - collections
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -752,6 +795,9 @@ paths:
   '/api/internal/ui/collections/{id}/':
     patch:
       operationId: PartialUpdateCollectionUpdate_api_internal_ui_collections__id__
+      tags:
+        - internal
+        - collections
       parameters:
         - description: A unique integer value identifying this collection.
           in: path
@@ -790,6 +836,9 @@ paths:
           description: some response
     put:
       operationId: UpdateCollectionUpdate_api_internal_ui_collections__id__
+      tags:
+        - internal
+        - collections
       parameters:
         - description: A unique integer value identifying this collection.
           in: path
@@ -830,6 +879,9 @@ paths:
     get:
       operationId: >-
         RetrieveCollectionDetail_api_internal_ui_collections__namespace__name___name__
+      tags:
+        - internal
+        - collections
       parameters:
         - description: ''
           in: path
@@ -977,6 +1029,9 @@ paths:
     get:
       operationId: >-
         ListNamespaceImportsList_api_internal_ui_namespaces__namespace_id__imports_
+      tags:
+        - internal
+        - namespaces
       parameters:
         - description: ''
           in: path
@@ -1044,6 +1099,9 @@ paths:
   /api/internal/ui/search/:
     get:
       operationId: ListSearchView_api_internal_ui_search_
+      tags:
+        - internal
+        - search
       parameters: []
       responses:
         '200':
@@ -1054,6 +1112,9 @@ paths:
   /api/v1/:
     get:
       operationId: ListApiV1RootView_api_v1_
+      tags:
+        - introspection
+        - v1
       parameters: []
       responses:
         '200':
@@ -1067,6 +1128,9 @@ paths:
   /api/v1/me/:
     get:
       operationId: RetrieveActiveUserView_api_v1_me_
+      tags:
+        - me
+        - v1
       parameters:
         - description: A search term.
           in: query
@@ -1140,6 +1204,9 @@ paths:
   /api/v1/namespaces/:
     get:
       operationId: ListNamespaceList_api_v1_namespaces_
+      tags:
+        - namespaces
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1228,6 +1295,9 @@ paths:
   /api/v1/search/:
     get:
       operationId: ListApiV1SearchView_api_v1_search_
+      tags:
+        - search
+        - v1
       parameters: []
       responses:
         '200':
@@ -1238,6 +1308,9 @@ paths:
   /api/v1/search/content/:
     get:
       operationId: ListContentSearchView_api_v1_search_content_
+      tags:
+        - search
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1337,6 +1410,9 @@ paths:
   /api/v1/search/roles/:
     get:
       operationId: ListRoleSearchView_api_v1_search_roles_
+      tags:
+        - search
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1436,6 +1512,9 @@ paths:
   /api/v1/search/tags/:
     get:
       operationId: ListTagsSearchView_api_v1_search_tags_
+      tags:
+        - search
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1496,6 +1575,9 @@ paths:
   /api/v1/tags/:
     get:
       operationId: ListTagList_api_v1_tags_
+      tags:
+        - tags
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1536,6 +1618,9 @@ paths:
   '/api/v1/tags/{id}/':
     get:
       operationId: RetrieveTagDetail_api_v1_tags__id__
+      tags:
+        - tags
+        - v1
       parameters:
         - description: ''
           in: path
@@ -1593,6 +1678,9 @@ paths:
   /api/v1/users/:
     get:
       operationId: ListUserList_api_v1_users_
+      tags:
+        - users
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1672,6 +1760,9 @@ paths:
   '/api/v1/users/{id}/':
     get:
       operationId: RetrieveUserDetail_api_v1_users__id__
+      tags:
+        - users
+        - v1
       parameters:
         - description: ''
           in: path
@@ -1744,6 +1835,9 @@ paths:
           description: some response
     patch:
       operationId: PartialUpdateUserDetail_api_v1_users__id__
+      tags:
+        - users
+        - v1
       parameters:
         - description: ''
           in: path
@@ -1839,6 +1933,9 @@ paths:
   '/api/v1/users/{id}/starred/':
     get:
       operationId: ListUserStarredList_api_v1_users__id__starred_
+      tags:
+        - users
+        - v1
       parameters:
         - description: ''
           in: path
@@ -1923,6 +2020,9 @@ paths:
   '/api/v1/users/{id}/subscriptions/':
     get:
       operationId: ListUserSubscriptionList_api_v1_users__id__subscriptions_
+      tags:
+        - users
+        - v1
       parameters:
         - description: ''
           in: path
@@ -1995,6 +2095,9 @@ paths:
   '/api/v2/collection-imports/{id}/':
     get:
       operationId: RetrieveCollectionImportView_api_v2_collection-imports__id__
+      tags:
+        - collection-imports
+        - v2
       parameters:
         - description: A unique integer value identifying this collection import.
           in: path
@@ -2080,6 +2183,9 @@ paths:
   '/api/v2/collection-versions/{id}/artifact/':
     get:
       operationId: RetrieveCollectionArtifactView_api_v2_collection-versions__id__artifact_
+      tags:
+        - collection-versions
+        - v2
       parameters:
         - description: ''
           in: path
@@ -2103,6 +2209,9 @@ paths:
   '/api/v2/collection-versions/{version_pk}/':
     get:
       operationId: RetrieveVersionDetailView_api_v2_collection-versions__version_pk__
+      tags:
+        - collection-versions
+        - v2
       parameters:
         - description: ''
           in: path
@@ -2120,6 +2229,9 @@ paths:
   /api/v2/collections/:
     post:
       operationId: CreateCollectionListView_api_v2_collections_
+      tags:
+        - collections
+        - v2
       parameters: []
       requestBody:
         content:
@@ -2146,6 +2258,9 @@ paths:
   '/api/v2/collections/{id}/':
     get:
       operationId: RetrieveCollectionDetailView_api_v2_collections__id__
+      tags:
+        - collections
+        - v2
       parameters:
         - description: 'The collection id'
           in: path
@@ -2163,6 +2278,9 @@ paths:
   '/api/v2/collections/{id}/versions/':
     get:
       operationId: ListVersionListView_api_v2_collections__id__versions_
+      tags:
+        - collections
+        - v2
       parameters:
         - description: ''
           in: path
@@ -2198,6 +2316,9 @@ paths:
   '/api/v2/collections/{namespace}/{name}/':
     get:
       operationId: RetrieveCollectionDetailView_api_v2_collections__namespace___name__
+      tags:
+        - collections
+        - v2
       parameters:
         - description: 'The collection namespace'
           in: path
@@ -2221,6 +2342,9 @@ paths:
   '/api/v2/collections/{namespace}/{name}/versions/':
     get:
       operationId: ListVersionListView_api_v2_collections__namespace___name__versions_
+      tags:
+        - collections
+        - v2
       parameters:
         - description: ''
           in: path
@@ -2263,6 +2387,9 @@ paths:
     get:
       operationId: >-
         RetrieveVersionDetailView_api_v2_collections__namespace___name__versions__version__
+      tags:
+        - collections
+        - v2
       parameters:
         - description: ''
           in: path
@@ -2293,6 +2420,9 @@ paths:
     get:
       operationId: >-
         RetrieveCollectionArtifactView_api_v2_collections__namespace___name__versions__version__artifact_
+      tags:
+        - collections
+        - v2
       parameters:
         - description: ''
           in: path
@@ -2328,6 +2458,8 @@ paths:
   '/download/{filename}':
     get:
       operationId: RetrieveArtifactDownloadView_download__filename_
+      tags:
+        - download
       parameters:
         - description: 'Download the collection artifact'
           in: path

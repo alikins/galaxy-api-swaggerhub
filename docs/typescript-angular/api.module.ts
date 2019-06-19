@@ -3,14 +3,40 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
-import { DefaultService } from './api/default.service';
+import { CollectionImportsService } from './api/collectionImports.service';
+import { CollectionVersionsService } from './api/collectionVersions.service';
+import { CollectionsService } from './api/collections.service';
+import { DownloadService } from './api/download.service';
+import { InternalService } from './api/internal.service';
+import { IntrospectionService } from './api/introspection.service';
+import { MeService } from './api/me.service';
+import { NamespacesService } from './api/namespaces.service';
+import { NotificationsService } from './api/notifications.service';
+import { SearchService } from './api/search.service';
+import { TagsService } from './api/tags.service';
+import { UsersService } from './api/users.service';
+import { V1Service } from './api/v1.service';
+import { V2Service } from './api/v2.service';
 
 @NgModule({
   imports:      [],
   declarations: [],
   exports:      [],
   providers: [
-    DefaultService ]
+    CollectionImportsService,
+    CollectionVersionsService,
+    CollectionsService,
+    DownloadService,
+    InternalService,
+    IntrospectionService,
+    MeService,
+    NamespacesService,
+    NotificationsService,
+    SearchService,
+    TagsService,
+    UsersService,
+    V1Service,
+    V2Service ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
