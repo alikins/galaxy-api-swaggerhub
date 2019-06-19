@@ -1374,6 +1374,7 @@
     "/api/v2/collections/{id}/" : {
       "get" : {
         "tags" : [ "collections", "v2" ],
+        "summary" : "Get a Collection",
         "operationId" : "RetrieveCollectionDetailView_api_v2_collections__id__",
         "parameters" : [ {
           "name" : "id",
