@@ -39,6 +39,7 @@ tags:
 - name: Namespaces
 - name: Tags
   description: API endpoint for Ansible Galaxy tags.
+- name: Users
 paths:
   /api/:
     get:
