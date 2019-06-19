@@ -19,6 +19,7 @@
     "/api/" : {
       "get" : {
         "tags" : [ "introspection" ],
+        "operationId" : "GetAPI",
         "parameters" : [ ],
         "responses" : {
           "200" : {
