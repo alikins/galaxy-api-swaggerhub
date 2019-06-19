@@ -29,6 +29,8 @@ paths:
       summary: List active user notifications
       tags:
         - internal
+        - notifications
+        - me
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -104,6 +106,8 @@ paths:
         DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_
       tags:
         - internal
+        - notifications
+        - me
       parameters: []
       responses:
         '200':
@@ -116,6 +120,8 @@ paths:
         UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_
       tags:
         - internal
+        - notifications
+        - me
       parameters: []
       responses:
         '200':
@@ -129,6 +135,8 @@ paths:
         DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       tags:
         - internal
+        - notifications
+        - me
       parameters:
         - description: ''
           in: path
@@ -197,6 +205,8 @@ paths:
         RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       tags:
         - internal
+        - notifications
+        - me
       parameters:
         - description: ''
           in: path
@@ -265,6 +275,8 @@ paths:
         PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       tags:
         - internal
+        - notifications
+        - me
       parameters:
         - description: ''
           in: path
@@ -341,6 +353,8 @@ paths:
         UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
       tags:
         - internal
+        - notifications
+        - me
       parameters:
         - description: ''
           in: path
@@ -417,6 +431,7 @@ paths:
       operationId: RetrieveActiveUserPreferencesView_api_internal_me_preferences_
       tags:
         - internal
+        - me
       parameters:
         - description: A search term.
           in: query
@@ -476,6 +491,7 @@ paths:
       operationId: PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_
       tags:
         - internal
+        - me
       parameters:
         - description: A search term.
           in: query
@@ -555,6 +571,7 @@ paths:
       operationId: UpdateActiveUserPreferencesView_api_internal_me_preferences_
       tags:
         - internal
+        - me
       parameters:
         - description: A search term.
           in: query
@@ -637,6 +654,7 @@ paths:
       operationId: ListCollectionList_api_internal_ui_collections_
       tags:
         - internal
+        - collections
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -779,6 +797,7 @@ paths:
       operationId: PartialUpdateCollectionUpdate_api_internal_ui_collections__id__
       tags:
         - internal
+        - collections
       parameters:
         - description: A unique integer value identifying this collection.
           in: path
@@ -819,6 +838,7 @@ paths:
       operationId: UpdateCollectionUpdate_api_internal_ui_collections__id__
       tags:
         - internal
+        - collections
       parameters:
         - description: A unique integer value identifying this collection.
           in: path
@@ -861,6 +881,7 @@ paths:
         RetrieveCollectionDetail_api_internal_ui_collections__namespace__name___name__
       tags:
         - internal
+        - collections
       parameters:
         - description: ''
           in: path
@@ -1010,6 +1031,7 @@ paths:
         ListNamespaceImportsList_api_internal_ui_namespaces__namespace_id__imports_
       tags:
         - internal
+        - namespaces
       parameters:
         - description: ''
           in: path
@@ -1079,6 +1101,7 @@ paths:
       operationId: ListSearchView_api_internal_ui_search_
       tags:
         - internal
+        - search
       parameters: []
       responses:
         '200':
@@ -1091,6 +1114,7 @@ paths:
       operationId: ListApiV1RootView_api_v1_
       tags:
         - introspection
+        - v1
       parameters: []
       responses:
         '200':
@@ -1106,6 +1130,7 @@ paths:
       operationId: RetrieveActiveUserView_api_v1_me_
       tags:
         - me
+        - v1
       parameters:
         - description: A search term.
           in: query
@@ -1181,6 +1206,7 @@ paths:
       operationId: ListNamespaceList_api_v1_namespaces_
       tags:
         - namespaces
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1271,6 +1297,7 @@ paths:
       operationId: ListApiV1SearchView_api_v1_search_
       tags:
         - search
+        - v1
       parameters: []
       responses:
         '200':
@@ -1283,6 +1310,7 @@ paths:
       operationId: ListContentSearchView_api_v1_search_content_
       tags:
         - search
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1384,6 +1412,7 @@ paths:
       operationId: ListRoleSearchView_api_v1_search_roles_
       tags:
         - search
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1485,6 +1514,7 @@ paths:
       operationId: ListTagsSearchView_api_v1_search_tags_
       tags:
         - search
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1547,6 +1577,7 @@ paths:
       operationId: ListTagList_api_v1_tags_
       tags:
         - tags
+        - v1
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1589,6 +1620,7 @@ paths:
       operationId: RetrieveTagDetail_api_v1_tags__id__
       tags:
         - tags
+        - v1
       parameters:
         - description: ''
           in: path
