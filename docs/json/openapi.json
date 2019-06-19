@@ -29,7 +29,7 @@
       "url" : "https://galaxy.ansible.com/docs/contributing/creating_collections.html"
     }
   }, {
-    "name" : "Collection-imports"
+    "name" : "Collection-Imports"
   }, {
     "name" : "Collection-Versions"
   } ],
