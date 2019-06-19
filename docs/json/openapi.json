@@ -392,6 +392,7 @@
     },
     "/api/internal/ui/collections/" : {
       "get" : {
+        "tags" : [ "internal" ],
         "operationId" : "ListCollectionList_api_internal_ui_collections_",
         "parameters" : [ {
           "name" : "page",
@@ -440,6 +441,7 @@
     },
     "/api/internal/ui/collections/{id}/" : {
       "put" : {
+        "tags" : [ "internal" ],
         "operationId" : "UpdateCollectionUpdate_api_internal_ui_collections__id__",
         "parameters" : [ {
           "name" : "id",
@@ -486,6 +488,7 @@
         }
       },
       "patch" : {
+        "tags" : [ "internal" ],
         "operationId" : "PartialUpdateCollectionUpdate_api_internal_ui_collections__id__",
         "parameters" : [ {
           "name" : "id",
@@ -534,6 +537,7 @@
     },
     "/api/internal/ui/collections/{namespace__name}/{name}/" : {
       "get" : {
+        "tags" : [ "internal" ],
         "operationId" : "RetrieveCollectionDetail_api_internal_ui_collections__namespace__name___name__",
         "parameters" : [ {
           "name" : "namespace__name",
@@ -580,6 +584,7 @@
     },
     "/api/internal/ui/namespaces/{namespace_id}/imports/" : {
       "get" : {
+        "tags" : [ "internal" ],
         "operationId" : "ListNamespaceImportsList_api_internal_ui_namespaces__namespace_id__imports_",
         "parameters" : [ {
           "name" : "namespace_id",
@@ -637,6 +642,7 @@
     },
     "/api/internal/ui/search/" : {
       "get" : {
+        "tags" : [ "internal" ],
         "operationId" : "ListSearchView_api_internal_ui_search_",
         "parameters" : [ ],
         "responses" : {
@@ -655,6 +661,7 @@
     },
     "/api/v1/" : {
       "get" : {
+        "tags" : [ "introspection" ],
         "operationId" : "ListApiV1RootView_api_v1_",
         "parameters" : [ ],
         "responses" : {
@@ -676,6 +683,7 @@
     },
     "/api/v1/me/" : {
       "get" : {
+        "tags" : [ "me" ],
         "operationId" : "RetrieveActiveUserView_api_v1_me_",
         "parameters" : [ {
           "name" : "search",
