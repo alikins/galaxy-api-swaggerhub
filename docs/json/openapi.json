@@ -55,6 +55,9 @@
     "name" : "Search"
   }, {
     "name" : "Namespaces"
+  }, {
+    "name" : "Tags",
+    "description" : "API endpoint for Ansible Galaxy tags."
   } ],
   "paths" : {
     "/api/" : {
