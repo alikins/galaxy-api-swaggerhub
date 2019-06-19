@@ -1179,6 +1179,8 @@ paths:
   /api/v1/namespaces/:
     get:
       operationId: ListNamespaceList_api_v1_namespaces_
+      tags:
+        - namespaces
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1267,6 +1269,8 @@ paths:
   /api/v1/search/:
     get:
       operationId: ListApiV1SearchView_api_v1_search_
+      tags:
+        - search
       parameters: []
       responses:
         '200':
@@ -1277,6 +1281,8 @@ paths:
   /api/v1/search/content/:
     get:
       operationId: ListContentSearchView_api_v1_search_content_
+      tags:
+        - search
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1376,6 +1382,8 @@ paths:
   /api/v1/search/roles/:
     get:
       operationId: ListRoleSearchView_api_v1_search_roles_
+      tags:
+        - search
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1475,6 +1483,8 @@ paths:
   /api/v1/search/tags/:
     get:
       operationId: ListTagsSearchView_api_v1_search_tags_
+      tags:
+        - search
       parameters:
         - description: A page number within the paginated result set.
           in: query
@@ -1535,6 +1545,8 @@ paths:
   /api/v1/tags/:
     get:
       operationId: ListTagList_api_v1_tags_
+      tags:
+        - tags
       parameters:
         - description: A page number within the paginated result set.
           in: query
