@@ -37,7 +37,9 @@
     },
     "/api/internal/me/notifications/" : {
       "get" : {
-        "operationId" : "ListActiveUserNotificationsView_api_internal_me_notifications_",
+        "tags" : [ "internal" ],
+        "summary" : "List active user notifications",
+        "operationId" : "ListActiveUserNotifications",
         "parameters" : [ {
           "name" : "page",
           "in" : "query",
