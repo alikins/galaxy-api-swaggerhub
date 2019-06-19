@@ -3,6 +3,8 @@ info:
   title: Galaxy 3.2 API (wip)
   description: Galaxy 3.2 API (wip)
   version: 1.1.1
+externalDocs:
+  url: https://galaxy.ansible.com/docs/
 servers:
 - url: https://galaxy.ansible.com/
   description: Production server (uses live data)
