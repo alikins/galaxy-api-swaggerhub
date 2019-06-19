@@ -18,6 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs/Observable';
 
 import { InlineResponse20010 } from '../model/inlineResponse20010';
+import { InlineResponse20011 } from '../model/inlineResponse20011';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -99,6 +100,55 @@ export class TagsService {
         ];
 
         return this.httpClient.get<InlineResponse20010>(`${this.basePath}/api/v1/tags/`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param id 
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public retrieveTagDetailApiV1TagsId(id: string, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse20011>;
+    public retrieveTagDetailApiV1TagsId(id: string, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse20011>>;
+    public retrieveTagDetailApiV1TagsId(id: string, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse20011>>;
+    public retrieveTagDetailApiV1TagsId(id: string, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling retrieveTagDetailApiV1TagsId.');
+        }
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<InlineResponse20011>(`${this.basePath}/api/v1/tags/${encodeURIComponent(String(id))}/`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
