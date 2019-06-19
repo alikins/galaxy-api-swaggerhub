@@ -11,6 +11,7 @@ import { InternalService } from './api/internal.service';
 import { IntrospectionService } from './api/introspection.service';
 import { MeService } from './api/me.service';
 import { NamespacesService } from './api/namespaces.service';
+import { NotificationsService } from './api/notifications.service';
 import { SearchService } from './api/search.service';
 import { TagsService } from './api/tags.service';
 import { UsersService } from './api/users.service';
@@ -30,6 +31,7 @@ import { V2Service } from './api/v2.service';
     IntrospectionService,
     MeService,
     NamespacesService,
+    NotificationsService,
     SearchService,
     TagsService,
     UsersService,

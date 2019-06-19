@@ -17,6 +17,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { InlineResponse2005 } from '../model/inlineResponse2005';
 import { InlineResponse2007 } from '../model/inlineResponse2007';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -54,6 +55,65 @@ export class NamespacesService {
         return false;
     }
 
+
+    /**
+     * 
+     * 
+     * @param namespaceId 
+     * @param page A page number within the paginated result set.
+     * @param pageSize Number of results to return per page.
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports(namespaceId: string, page?: number, pageSize?: number, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2005>;
+    public listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports(namespaceId: string, page?: number, pageSize?: number, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2005>>;
+    public listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports(namespaceId: string, page?: number, pageSize?: number, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2005>>;
+    public listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports(namespaceId: string, page?: number, pageSize?: number, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (namespaceId === null || namespaceId === undefined) {
+            throw new Error('Required parameter namespaceId was null or undefined when calling listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports.');
+        }
+
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (page !== undefined && page !== null) {
+            queryParameters = queryParameters.set('page', <any>page);
+        }
+        if (pageSize !== undefined && pageSize !== null) {
+            queryParameters = queryParameters.set('page_size', <any>pageSize);
+        }
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<InlineResponse2005>(`${this.basePath}/api/internal/ui/namespaces/${encodeURIComponent(String(namespaceId))}/imports/`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
 
     /**
      * 

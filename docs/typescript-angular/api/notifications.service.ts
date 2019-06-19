@@ -19,18 +19,14 @@ import { Observable }                                        from 'rxjs/Observab
 
 import { Body } from '../model/body';
 import { Body1 } from '../model/body1';
-import { Body2 } from '../model/body2';
-import { Body3 } from '../model/body3';
 import { InlineResponse200 } from '../model/inlineResponse200';
-import { InlineResponse2001 } from '../model/inlineResponse2001';
-import { InlineResponse2006 } from '../model/inlineResponse2006';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
-export class MeService {
+export class NotificationsService {
 
     protected basePath = 'https://galaxy.ansible.com/';
     public defaultHeaders = new HttpHeaders();
@@ -260,58 +256,6 @@ export class MeService {
     /**
      * 
      * 
-     * @param body some body
-     * @param search A search term.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public partialUpdateActiveUserPreferencesViewApiInternalMePreferences(body?: Body3, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
-    public partialUpdateActiveUserPreferencesViewApiInternalMePreferences(body?: Body3, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
-    public partialUpdateActiveUserPreferencesViewApiInternalMePreferences(body?: Body3, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
-    public partialUpdateActiveUserPreferencesViewApiInternalMePreferences(body?: Body3, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-
-
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (search !== undefined && search !== null) {
-            queryParameters = queryParameters.set('search', <any>search);
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected != undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-        return this.httpClient.patch<InlineResponse2001>(`${this.basePath}/api/internal/me/preferences/`,
-            body,
-            {
-                params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
      * @param id 
      * @param search A search term.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -348,94 +292,6 @@ export class MeService {
         ];
 
         return this.httpClient.get<InlineResponse200>(`${this.basePath}/api/internal/me/notifications/${encodeURIComponent(String(id))}/`,
-            {
-                params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param search A search term.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public retrieveActiveUserPreferencesViewApiInternalMePreferences(search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
-    public retrieveActiveUserPreferencesViewApiInternalMePreferences(search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
-    public retrieveActiveUserPreferencesViewApiInternalMePreferences(search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
-    public retrieveActiveUserPreferencesViewApiInternalMePreferences(search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (search !== undefined && search !== null) {
-            queryParameters = queryParameters.set('search', <any>search);
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.get<InlineResponse2001>(`${this.basePath}/api/internal/me/preferences/`,
-            {
-                params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param search A search term.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public retrieveActiveUserViewApiV1Me(search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2006>;
-    public retrieveActiveUserViewApiV1Me(search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2006>>;
-    public retrieveActiveUserViewApiV1Me(search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2006>>;
-    public retrieveActiveUserViewApiV1Me(search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (search !== undefined && search !== null) {
-            queryParameters = queryParameters.set('search', <any>search);
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.get<InlineResponse2006>(`${this.basePath}/api/v1/me/`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -529,58 +385,6 @@ export class MeService {
         }
 
         return this.httpClient.put<InlineResponse200>(`${this.basePath}/api/internal/me/notifications/${encodeURIComponent(String(id))}/`,
-            body,
-            {
-                params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param body some body
-     * @param search A search term.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public updateActiveUserPreferencesViewApiInternalMePreferences(body?: Body2, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
-    public updateActiveUserPreferencesViewApiInternalMePreferences(body?: Body2, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
-    public updateActiveUserPreferencesViewApiInternalMePreferences(body?: Body2, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
-    public updateActiveUserPreferencesViewApiInternalMePreferences(body?: Body2, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-
-
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (search !== undefined && search !== null) {
-            queryParameters = queryParameters.set('search', <any>search);
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected != undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-        return this.httpClient.put<InlineResponse2001>(`${this.basePath}/api/internal/me/preferences/`,
             body,
             {
                 params: queryParameters,
