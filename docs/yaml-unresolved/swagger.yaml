@@ -102,6 +102,8 @@ paths:
     delete:
       operationId: >-
         DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_
+      tags:
+        - internal
       parameters: []
       responses:
         '200':
@@ -112,6 +114,8 @@ paths:
     put:
       operationId: >-
         UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_
+      tags:
+        - internal
       parameters: []
       responses:
         '200':
@@ -123,6 +127,8 @@ paths:
     delete:
       operationId: >-
         DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
       parameters:
         - description: ''
           in: path
@@ -189,6 +195,8 @@ paths:
     get:
       operationId: >-
         RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
       parameters:
         - description: ''
           in: path
@@ -255,6 +263,8 @@ paths:
     patch:
       operationId: >-
         PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
       parameters:
         - description: ''
           in: path
@@ -329,6 +339,8 @@ paths:
     put:
       operationId: >-
         UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      tags:
+        - internal
       parameters:
         - description: ''
           in: path
@@ -403,6 +415,8 @@ paths:
   /api/internal/me/preferences/:
     get:
       operationId: RetrieveActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
       parameters:
         - description: A search term.
           in: query
@@ -460,6 +474,8 @@ paths:
           description: some response
     patch:
       operationId: PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
       parameters:
         - description: A search term.
           in: query
@@ -537,6 +553,8 @@ paths:
           description: some response
     put:
       operationId: UpdateActiveUserPreferencesView_api_internal_me_preferences_
+      tags:
+        - internal
       parameters:
         - description: A search term.
           in: query
