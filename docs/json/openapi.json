@@ -37,7 +37,7 @@
     },
     "/api/internal/me/notifications/" : {
       "get" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "notifications", "me" ],
         "summary" : "List active user notifications",
         "operationId" : "ListActiveUserNotifications",
         "parameters" : [ {
@@ -87,7 +87,7 @@
     },
     "/api/internal/me/notifications/clear/" : {
       "put" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "notifications", "me" ],
         "operationId" : "UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_",
         "parameters" : [ ],
         "responses" : {
@@ -104,7 +104,7 @@
         }
       },
       "delete" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "notifications", "me" ],
         "operationId" : "DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_",
         "parameters" : [ ],
         "responses" : {
@@ -123,7 +123,7 @@
     },
     "/api/internal/me/notifications/{id}/" : {
       "get" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "notifications", "me" ],
         "operationId" : "RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__",
         "parameters" : [ {
           "name" : "id",
@@ -159,7 +159,7 @@
         }
       },
       "put" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "notifications", "me" ],
         "operationId" : "UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__",
         "parameters" : [ {
           "name" : "id",
@@ -205,7 +205,7 @@
         }
       },
       "delete" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "notifications", "me" ],
         "operationId" : "DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__",
         "parameters" : [ {
           "name" : "id",
@@ -241,7 +241,7 @@
         }
       },
       "patch" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "notifications", "me" ],
         "operationId" : "PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__",
         "parameters" : [ {
           "name" : "id",
@@ -289,7 +289,7 @@
     },
     "/api/internal/me/preferences/" : {
       "get" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "me" ],
         "operationId" : "RetrieveActiveUserPreferencesView_api_internal_me_preferences_",
         "parameters" : [ {
           "name" : "search",
@@ -316,7 +316,7 @@
         }
       },
       "put" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "me" ],
         "operationId" : "UpdateActiveUserPreferencesView_api_internal_me_preferences_",
         "parameters" : [ {
           "name" : "search",
@@ -353,7 +353,7 @@
         }
       },
       "patch" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "me" ],
         "operationId" : "PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_",
         "parameters" : [ {
           "name" : "search",
@@ -392,7 +392,7 @@
     },
     "/api/internal/ui/collections/" : {
       "get" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "collections" ],
         "operationId" : "ListCollectionList_api_internal_ui_collections_",
         "parameters" : [ {
           "name" : "page",
@@ -441,7 +441,7 @@
     },
     "/api/internal/ui/collections/{id}/" : {
       "put" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "collections" ],
         "operationId" : "UpdateCollectionUpdate_api_internal_ui_collections__id__",
         "parameters" : [ {
           "name" : "id",
@@ -488,7 +488,7 @@
         }
       },
       "patch" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "collections" ],
         "operationId" : "PartialUpdateCollectionUpdate_api_internal_ui_collections__id__",
         "parameters" : [ {
           "name" : "id",
@@ -537,7 +537,7 @@
     },
     "/api/internal/ui/collections/{namespace__name}/{name}/" : {
       "get" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "collections" ],
         "operationId" : "RetrieveCollectionDetail_api_internal_ui_collections__namespace__name___name__",
         "parameters" : [ {
           "name" : "namespace__name",
@@ -584,7 +584,7 @@
     },
     "/api/internal/ui/namespaces/{namespace_id}/imports/" : {
       "get" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "namespaces" ],
         "operationId" : "ListNamespaceImportsList_api_internal_ui_namespaces__namespace_id__imports_",
         "parameters" : [ {
           "name" : "namespace_id",
@@ -642,7 +642,7 @@
     },
     "/api/internal/ui/search/" : {
       "get" : {
-        "tags" : [ "internal" ],
+        "tags" : [ "internal", "search" ],
         "operationId" : "ListSearchView_api_internal_ui_search_",
         "parameters" : [ ],
         "responses" : {
@@ -661,7 +661,7 @@
     },
     "/api/v1/" : {
       "get" : {
-        "tags" : [ "introspection" ],
+        "tags" : [ "introspection", "v1" ],
         "operationId" : "ListApiV1RootView_api_v1_",
         "parameters" : [ ],
         "responses" : {
@@ -683,7 +683,7 @@
     },
     "/api/v1/me/" : {
       "get" : {
-        "tags" : [ "me" ],
+        "tags" : [ "me", "v1" ],
         "operationId" : "RetrieveActiveUserView_api_v1_me_",
         "parameters" : [ {
           "name" : "search",
@@ -712,7 +712,7 @@
     },
     "/api/v1/namespaces/" : {
       "get" : {
-        "tags" : [ "namespaces" ],
+        "tags" : [ "namespaces", "v1" ],
         "operationId" : "ListNamespaceList_api_v1_namespaces_",
         "parameters" : [ {
           "name" : "page",
@@ -761,7 +761,7 @@
     },
     "/api/v1/search/" : {
       "get" : {
-        "tags" : [ "search" ],
+        "tags" : [ "search", "v1" ],
         "operationId" : "ListApiV1SearchView_api_v1_search_",
         "parameters" : [ ],
         "responses" : {
@@ -780,7 +780,7 @@
     },
     "/api/v1/search/content/" : {
       "get" : {
-        "tags" : [ "search" ],
+        "tags" : [ "search", "v1" ],
         "operationId" : "ListContentSearchView_api_v1_search_content_",
         "parameters" : [ {
           "name" : "page",
@@ -819,7 +819,7 @@
     },
     "/api/v1/search/roles/" : {
       "get" : {
-        "tags" : [ "search" ],
+        "tags" : [ "search", "v1" ],
         "operationId" : "ListRoleSearchView_api_v1_search_roles_",
         "parameters" : [ {
           "name" : "page",
@@ -858,7 +858,7 @@
     },
     "/api/v1/search/tags/" : {
       "get" : {
-        "tags" : [ "search" ],
+        "tags" : [ "search", "v1" ],
         "operationId" : "ListTagsSearchView_api_v1_search_tags_",
         "parameters" : [ {
           "name" : "page",
@@ -897,7 +897,7 @@
     },
     "/api/v1/tags/" : {
       "get" : {
-        "tags" : [ "tags" ],
+        "tags" : [ "tags", "v1" ],
         "operationId" : "ListTagList_api_v1_tags_",
         "parameters" : [ {
           "name" : "page",
@@ -946,7 +946,7 @@
     },
     "/api/v1/tags/{id}/" : {
       "get" : {
-        "tags" : [ "tags" ],
+        "tags" : [ "tags", "v1" ],
         "operationId" : "RetrieveTagDetail_api_v1_tags__id__",
         "parameters" : [ {
           "name" : "id",
