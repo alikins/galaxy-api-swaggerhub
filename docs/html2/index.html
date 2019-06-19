@@ -5922,7 +5922,7 @@ except ApiException as e:
                       <article id="api-Collections-retrieveCollectionDetailViewApiV2CollectionsId-0" data-group="User" data-name="retrieveCollectionDetailViewApiV2CollectionsId" data-version="0">
                         <div class="pull-left">
                           <h1>retrieveCollectionDetailViewApiV2CollectionsId</h1>
-                          <p></p>
+                          <p>Get a Collection</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -6005,6 +6005,7 @@ public class CollectionsApiExample {
 
 CollectionsApi *apiInstance = [[CollectionsApi alloc] init];
 
+// Get a Collection
 [apiInstance retrieveCollectionDetailViewApiV2CollectionsIdWith:id
               completionHandler: ^(Collection output, NSError* error) {
                             if (output) {
@@ -6056,6 +6057,7 @@ namespace Example
 
             try
             {
+                // Get a Collection
                 Collection result = apiInstance.retrieveCollectionDetailViewApiV2CollectionsId(id);
                 Debug.WriteLine(result);
             }
@@ -6114,6 +6116,7 @@ api_instance = swagger_client.CollectionsApi()
 id = id_example # String | The collection id
 
 try: 
+    # Get a Collection
     api_response = api_instance.retrieve_collection_detail_view_api_v2_collections_id(id)
     pprint(api_response)
 except ApiException as e:
@@ -30217,7 +30220,7 @@ except ApiException as e:
                       <article id="api-V2-retrieveCollectionDetailViewApiV2CollectionsId-0" data-group="User" data-name="retrieveCollectionDetailViewApiV2CollectionsId" data-version="0">
                         <div class="pull-left">
                           <h1>retrieveCollectionDetailViewApiV2CollectionsId</h1>
-                          <p></p>
+                          <p>Get a Collection</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -30300,6 +30303,7 @@ public class V2ApiExample {
 
 V2Api *apiInstance = [[V2Api alloc] init];
 
+// Get a Collection
 [apiInstance retrieveCollectionDetailViewApiV2CollectionsIdWith:id
               completionHandler: ^(Collection output, NSError* error) {
                             if (output) {
@@ -30351,6 +30355,7 @@ namespace Example
 
             try
             {
+                // Get a Collection
                 Collection result = apiInstance.retrieveCollectionDetailViewApiV2CollectionsId(id);
                 Debug.WriteLine(result);
             }
@@ -30409,6 +30414,7 @@ api_instance = swagger_client.V2Api()
 id = id_example # String | The collection id
 
 try: 
+    # Get a Collection
     api_response = api_instance.retrieve_collection_detail_view_api_v2_collections_id(id)
     pprint(api_response)
 except ApiException as e:
