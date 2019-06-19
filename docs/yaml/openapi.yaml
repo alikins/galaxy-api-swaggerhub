@@ -15,6 +15,9 @@ servers:
   description: shared public dev server
 - url: http://localhost:8000
   description: local sandbox
+tags:
+- name: Collections
+  description: blip
 paths:
   /api/:
     get:
