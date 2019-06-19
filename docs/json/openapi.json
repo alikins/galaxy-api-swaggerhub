@@ -32,6 +32,8 @@
     "name" : "Collection-Imports"
   }, {
     "name" : "Collection-Versions"
+  }, {
+    "name" : "Download"
   } ],
   "paths" : {
     "/api/" : {
