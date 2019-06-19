@@ -17,13 +17,14 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { InlineResponse2006 } from '../model/inlineResponse2006';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
-export class IntrospectionService {
+export class MeService {
 
     protected basePath = 'https://galaxy.ansible.com/';
     public defaultHeaders = new HttpHeaders();
@@ -57,13 +58,20 @@ export class IntrospectionService {
     /**
      * 
      * 
+     * @param search A search term.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAPI(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getAPI(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getAPI(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getAPI(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public retrieveActiveUserViewApiV1Me(search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2006>;
+    public retrieveActiveUserViewApiV1Me(search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2006>>;
+    public retrieveActiveUserViewApiV1Me(search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2006>>;
+    public retrieveActiveUserViewApiV1Me(search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -80,44 +88,9 @@ export class IntrospectionService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<any>(`${this.basePath}/api/`,
+        return this.httpClient.get<InlineResponse2006>(`${this.basePath}/api/v1/me/`,
             {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public listApiV1RootViewApiV1(observe?: 'body', reportProgress?: boolean): Observable<{ [key: string]: string; }>;
-    public listApiV1RootViewApiV1(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{ [key: string]: string; }>>;
-    public listApiV1RootViewApiV1(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<{ [key: string]: string; }>>;
-    public listApiV1RootViewApiV1(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.get<{ [key: string]: string; }>(`${this.basePath}/api/v1/`,
-            {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

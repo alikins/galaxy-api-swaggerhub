@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { DefaultService } from './api/default.service';
 import { InternalService } from './api/internal.service';
 import { IntrospectionService } from './api/introspection.service';
+import { MeService } from './api/me.service';
 
 @NgModule({
   imports:      [],
@@ -14,7 +15,8 @@ import { IntrospectionService } from './api/introspection.service';
   providers: [
     DefaultService,
     InternalService,
-    IntrospectionService ]
+    IntrospectionService,
+    MeService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {

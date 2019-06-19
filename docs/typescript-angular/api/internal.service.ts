@@ -21,8 +21,14 @@ import { Body } from '../model/body';
 import { Body1 } from '../model/body1';
 import { Body2 } from '../model/body2';
 import { Body3 } from '../model/body3';
+import { Body4 } from '../model/body4';
+import { Body5 } from '../model/body5';
 import { InlineResponse200 } from '../model/inlineResponse200';
 import { InlineResponse2001 } from '../model/inlineResponse2001';
+import { InlineResponse2002 } from '../model/inlineResponse2002';
+import { InlineResponse2003 } from '../model/inlineResponse2003';
+import { InlineResponse2004 } from '../model/inlineResponse2004';
+import { InlineResponse2005 } from '../model/inlineResponse2005';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -202,6 +208,155 @@ export class InternalService {
     /**
      * 
      * 
+     * @param page A page number within the paginated result set.
+     * @param pageSize Number of results to return per page.
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listCollectionListApiInternalUiCollections(page?: number, pageSize?: number, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
+    public listCollectionListApiInternalUiCollections(page?: number, pageSize?: number, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
+    public listCollectionListApiInternalUiCollections(page?: number, pageSize?: number, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
+    public listCollectionListApiInternalUiCollections(page?: number, pageSize?: number, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (page !== undefined && page !== null) {
+            queryParameters = queryParameters.set('page', <any>page);
+        }
+        if (pageSize !== undefined && pageSize !== null) {
+            queryParameters = queryParameters.set('page_size', <any>pageSize);
+        }
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<InlineResponse2002>(`${this.basePath}/api/internal/ui/collections/`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param namespaceId 
+     * @param page A page number within the paginated result set.
+     * @param pageSize Number of results to return per page.
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports(namespaceId: string, page?: number, pageSize?: number, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2005>;
+    public listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports(namespaceId: string, page?: number, pageSize?: number, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2005>>;
+    public listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports(namespaceId: string, page?: number, pageSize?: number, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2005>>;
+    public listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports(namespaceId: string, page?: number, pageSize?: number, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (namespaceId === null || namespaceId === undefined) {
+            throw new Error('Required parameter namespaceId was null or undefined when calling listNamespaceImportsListApiInternalUiNamespacesNamespaceIdImports.');
+        }
+
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (page !== undefined && page !== null) {
+            queryParameters = queryParameters.set('page', <any>page);
+        }
+        if (pageSize !== undefined && pageSize !== null) {
+            queryParameters = queryParameters.set('page_size', <any>pageSize);
+        }
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<InlineResponse2005>(`${this.basePath}/api/internal/ui/namespaces/${encodeURIComponent(String(namespaceId))}/imports/`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listSearchViewApiInternalUiSearch(observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public listSearchViewApiInternalUiSearch(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public listSearchViewApiInternalUiSearch(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public listSearchViewApiInternalUiSearch(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/api/internal/ui/search/`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
      * @param id 
      * @param body some body
      * @param search A search term.
@@ -311,6 +466,63 @@ export class InternalService {
     /**
      * 
      * 
+     * @param id A unique integer value identifying this collection.
+     * @param body some body
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public partialUpdateCollectionUpdateApiInternalUiCollectionsId(id: string, body?: Body5, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2003>;
+    public partialUpdateCollectionUpdateApiInternalUiCollectionsId(id: string, body?: Body5, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2003>>;
+    public partialUpdateCollectionUpdateApiInternalUiCollectionsId(id: string, body?: Body5, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2003>>;
+    public partialUpdateCollectionUpdateApiInternalUiCollectionsId(id: string, body?: Body5, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling partialUpdateCollectionUpdateApiInternalUiCollectionsId.');
+        }
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.patch<InlineResponse2003>(`${this.basePath}/api/internal/ui/collections/${encodeURIComponent(String(id))}/`,
+            body,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
      * @param id 
      * @param search A search term.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -391,6 +603,60 @@ export class InternalService {
         ];
 
         return this.httpClient.get<InlineResponse2001>(`${this.basePath}/api/internal/me/preferences/`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param namespaceName 
+     * @param name 
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public retrieveCollectionDetailApiInternalUiCollectionsNamespaceNameName(namespaceName: string, name: string, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2004>;
+    public retrieveCollectionDetailApiInternalUiCollectionsNamespaceNameName(namespaceName: string, name: string, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2004>>;
+    public retrieveCollectionDetailApiInternalUiCollectionsNamespaceNameName(namespaceName: string, name: string, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2004>>;
+    public retrieveCollectionDetailApiInternalUiCollectionsNamespaceNameName(namespaceName: string, name: string, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (namespaceName === null || namespaceName === undefined) {
+            throw new Error('Required parameter namespaceName was null or undefined when calling retrieveCollectionDetailApiInternalUiCollectionsNamespaceNameName.');
+        }
+
+        if (name === null || name === undefined) {
+            throw new Error('Required parameter name was null or undefined when calling retrieveCollectionDetailApiInternalUiCollectionsNamespaceNameName.');
+        }
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<InlineResponse2004>(`${this.basePath}/api/internal/ui/collections/${encodeURIComponent(String(namespaceName))}/${encodeURIComponent(String(name))}/`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -536,6 +802,63 @@ export class InternalService {
         }
 
         return this.httpClient.put<InlineResponse2001>(`${this.basePath}/api/internal/me/preferences/`,
+            body,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param id A unique integer value identifying this collection.
+     * @param body some body
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public updateCollectionUpdateApiInternalUiCollectionsId(id: string, body?: Body4, search?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2003>;
+    public updateCollectionUpdateApiInternalUiCollectionsId(id: string, body?: Body4, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2003>>;
+    public updateCollectionUpdateApiInternalUiCollectionsId(id: string, body?: Body4, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2003>>;
+    public updateCollectionUpdateApiInternalUiCollectionsId(id: string, body?: Body4, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateCollectionUpdateApiInternalUiCollectionsId.');
+        }
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.put<InlineResponse2003>(`${this.basePath}/api/internal/ui/collections/${encodeURIComponent(String(id))}/`,
             body,
             {
                 params: queryParameters,

@@ -4,4 +4,6 @@ export * from './internal.service';
 import { InternalService } from './internal.service';
 export * from './introspection.service';
 import { IntrospectionService } from './introspection.service';
-export const APIS = [DefaultService, InternalService, IntrospectionService];
+export * from './me.service';
+import { MeService } from './me.service';
+export const APIS = [DefaultService, InternalService, IntrospectionService, MeService];
