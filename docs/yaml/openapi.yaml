@@ -32,6 +32,7 @@ tags:
 - name: Internal
   description: API endpoints used by the web user interface. These endpoints are not
     part of the stable Galaxy API and may change at any time.
+- name: Notifications
 paths:
   /api/:
     get:
