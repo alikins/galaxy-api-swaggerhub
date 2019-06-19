@@ -2681,3 +2681,5 @@ tags:
     description: API endpoints related to the current user.
   - name: Search
   - name: Namespaces
+  - name: Tags
+    description: API endpoint for Ansible Galaxy tags.
