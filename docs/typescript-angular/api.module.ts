@@ -7,6 +7,9 @@ import { DefaultService } from './api/default.service';
 import { InternalService } from './api/internal.service';
 import { IntrospectionService } from './api/introspection.service';
 import { MeService } from './api/me.service';
+import { NamespacesService } from './api/namespaces.service';
+import { SearchService } from './api/search.service';
+import { TagsService } from './api/tags.service';
 
 @NgModule({
   imports:      [],
@@ -16,7 +19,10 @@ import { MeService } from './api/me.service';
     DefaultService,
     InternalService,
     IntrospectionService,
-    MeService ]
+    MeService,
+    NamespacesService,
+    SearchService,
+    TagsService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
