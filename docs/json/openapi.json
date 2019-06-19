@@ -946,6 +946,7 @@
     },
     "/api/v1/tags/{id}/" : {
       "get" : {
+        "tags" : [ "tags" ],
         "operationId" : "RetrieveTagDetail_api_v1_tags__id__",
         "parameters" : [ {
           "name" : "id",
@@ -983,6 +984,7 @@
     },
     "/api/v1/users/" : {
       "get" : {
+        "tags" : [ "users", "v1" ],
         "operationId" : "ListUserList_api_v1_users_",
         "parameters" : [ {
           "name" : "page",
@@ -1031,6 +1033,7 @@
     },
     "/api/v1/users/{id}/" : {
       "get" : {
+        "tags" : [ "users", "v1" ],
         "operationId" : "RetrieveUserDetail_api_v1_users__id__",
         "parameters" : [ {
           "name" : "id",
@@ -1066,6 +1069,7 @@
         }
       },
       "patch" : {
+        "tags" : [ "users", "v1" ],
         "operationId" : "PartialUpdateUserDetail_api_v1_users__id__",
         "parameters" : [ {
           "name" : "id",
@@ -1113,6 +1117,7 @@
     },
     "/api/v1/users/{id}/starred/" : {
       "get" : {
+        "tags" : [ "users", "v1" ],
         "operationId" : "ListUserStarredList_api_v1_users__id__starred_",
         "parameters" : [ {
           "name" : "id",
@@ -1170,6 +1175,7 @@
     },
     "/api/v1/users/{id}/subscriptions/" : {
       "get" : {
+        "tags" : [ "users", "v1" ],
         "operationId" : "ListUserSubscriptionList_api_v1_users__id__subscriptions_",
         "parameters" : [ {
           "name" : "id",
@@ -1227,6 +1233,7 @@
     },
     "/api/v2/collection-imports/{id}/" : {
       "get" : {
+        "tags" : [ "collection-imports", "v2" ],
         "operationId" : "RetrieveCollectionImportView_api_v2_collection-imports__id__",
         "parameters" : [ {
           "name" : "id",
@@ -1265,6 +1272,7 @@
     },
     "/api/v2/collection-versions/{id}/artifact/" : {
       "get" : {
+        "tags" : [ "collection-versions", "v2" ],
         "operationId" : "RetrieveCollectionArtifactView_api_v2_collection-versions__id__artifact_",
         "parameters" : [ {
           "name" : "id",
@@ -1302,6 +1310,7 @@
     },
     "/api/v2/collection-versions/{version_pk}/" : {
       "get" : {
+        "tags" : [ "collections-versions", "v2" ],
         "operationId" : "RetrieveVersionDetailView_api_v2_collection-versions__version_pk__",
         "parameters" : [ {
           "name" : "version_pk",
@@ -1329,6 +1338,7 @@
     },
     "/api/v2/collections/" : {
       "post" : {
+        "tags" : [ "collections", "v2" ],
         "operationId" : "CreateCollectionListView_api_v2_collections_",
         "parameters" : [ ],
         "requestBody" : {
@@ -1356,6 +1366,7 @@
     },
     "/api/v2/collections/{id}/" : {
       "get" : {
+        "tags" : [ "collections", "v2" ],
         "operationId" : "RetrieveCollectionDetailView_api_v2_collections__id__",
         "parameters" : [ {
           "name" : "id",
@@ -1384,6 +1395,7 @@
     },
     "/api/v2/collections/{id}/versions/" : {
       "get" : {
+        "tags" : [ "collections", "v2" ],
         "operationId" : "ListVersionListView_api_v2_collections__id__versions_",
         "parameters" : [ {
           "name" : "id",
