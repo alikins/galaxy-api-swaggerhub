@@ -2668,14 +2668,10 @@ tags:
   - name: Collection-Imports
   - name: Collection-Versions
   - name: Download
-  - name: v1
-    description: API endpoints from the v1 API.
-  - name: v2
-    description: API endpoints from the v2 API
   - name: Introspection
     description: API used to gather information about the API itself
-  - name: Internal
-    description: API endpoints used by the web user interface. These endpoints are not part of the stable Galaxy API and may change at any time.
+  - name: v2
+    description: API endpoints from the v2 API
   - name: Notifications
   - name: Me
     description: API endpoints related to the current user.
@@ -2684,3 +2680,7 @@ tags:
   - name: Tags
     description: API endpoint for Ansible Galaxy tags.
   - name: Users
+  - name: v1
+    description: API endpoints from the v1 API.
+  - name: Internal
+    description: API endpoints used by the web user interface. These endpoints are not part of the stable Galaxy API and may change at any time.
