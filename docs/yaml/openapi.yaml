@@ -33,6 +33,8 @@ tags:
   description: API endpoints used by the web user interface. These endpoints are not
     part of the stable Galaxy API and may change at any time.
 - name: Notifications
+- name: Me
+  description: API endpoints related to the current user.
 paths:
   /api/:
     get:
