@@ -517,6 +517,8 @@ paths:
                 $ref: '#/components/schemas/inline_response_200_6'
   /api/v1/namespaces/:
     get:
+      tags:
+      - namespaces
       operationId: ListNamespaceList_api_v1_namespaces_
       parameters:
       - name: page
@@ -552,6 +554,8 @@ paths:
                 $ref: '#/components/schemas/inline_response_200_7'
   /api/v1/search/:
     get:
+      tags:
+      - search
       operationId: ListApiV1SearchView_api_v1_search_
       parameters: []
       responses:
@@ -563,6 +567,8 @@ paths:
                 type: object
   /api/v1/search/content/:
     get:
+      tags:
+      - search
       operationId: ListContentSearchView_api_v1_search_content_
       parameters:
       - name: page
@@ -590,6 +596,8 @@ paths:
                 $ref: '#/components/schemas/inline_response_200_8'
   /api/v1/search/roles/:
     get:
+      tags:
+      - search
       operationId: ListRoleSearchView_api_v1_search_roles_
       parameters:
       - name: page
@@ -617,6 +625,8 @@ paths:
                 $ref: '#/components/schemas/inline_response_200_8'
   /api/v1/search/tags/:
     get:
+      tags:
+      - search
       operationId: ListTagsSearchView_api_v1_search_tags_
       parameters:
       - name: page
@@ -644,6 +654,8 @@ paths:
                 $ref: '#/components/schemas/inline_response_200_9'
   /api/v1/tags/:
     get:
+      tags:
+      - tags
       operationId: ListTagList_api_v1_tags_
       parameters:
       - name: page
