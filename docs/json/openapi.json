@@ -51,6 +51,10 @@
   }, {
     "name" : "Me",
     "description" : "API endpoints related to the current user."
+  }, {
+    "name" : "Search"
+  }, {
+    "name" : "Namespaces"
   } ],
   "paths" : {
     "/api/" : {
