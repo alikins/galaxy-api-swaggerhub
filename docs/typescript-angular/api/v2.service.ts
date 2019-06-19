@@ -182,6 +182,70 @@ export class V2Service {
     /**
      * 
      * 
+     * @param namespace 
+     * @param name 
+     * @param page A page number within the paginated result set.
+     * @param pageSize Number of results to return per page.
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listVersionListViewApiV2CollectionsNamespaceNameVersions(namespace: string, name: string, page?: number, pageSize?: number, search?: string, observe?: 'body', reportProgress?: boolean): Observable<CollectionVersionLinks>;
+    public listVersionListViewApiV2CollectionsNamespaceNameVersions(namespace: string, name: string, page?: number, pageSize?: number, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CollectionVersionLinks>>;
+    public listVersionListViewApiV2CollectionsNamespaceNameVersions(namespace: string, name: string, page?: number, pageSize?: number, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CollectionVersionLinks>>;
+    public listVersionListViewApiV2CollectionsNamespaceNameVersions(namespace: string, name: string, page?: number, pageSize?: number, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (namespace === null || namespace === undefined) {
+            throw new Error('Required parameter namespace was null or undefined when calling listVersionListViewApiV2CollectionsNamespaceNameVersions.');
+        }
+
+        if (name === null || name === undefined) {
+            throw new Error('Required parameter name was null or undefined when calling listVersionListViewApiV2CollectionsNamespaceNameVersions.');
+        }
+
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (page !== undefined && page !== null) {
+            queryParameters = queryParameters.set('page', <any>page);
+        }
+        if (pageSize !== undefined && pageSize !== null) {
+            queryParameters = queryParameters.set('page_size', <any>pageSize);
+        }
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CollectionVersionLinks>(`${this.basePath}/api/v2/collections/${encodeURIComponent(String(namespace))}/${encodeURIComponent(String(name))}/versions/`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
      * @param id 
      * @param search A search term.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -231,6 +295,65 @@ export class V2Service {
     /**
      * 
      * 
+     * @param namespace 
+     * @param name 
+     * @param version 
+     * @param search A search term.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public retrieveCollectionArtifactViewApiV2CollectionsNamespaceNameVersionsVersionArtifact(namespace: string, name: string, version: string, search?: string, observe?: 'body', reportProgress?: boolean): Observable<CollectionVersionArtifactDetail>;
+    public retrieveCollectionArtifactViewApiV2CollectionsNamespaceNameVersionsVersionArtifact(namespace: string, name: string, version: string, search?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CollectionVersionArtifactDetail>>;
+    public retrieveCollectionArtifactViewApiV2CollectionsNamespaceNameVersionsVersionArtifact(namespace: string, name: string, version: string, search?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CollectionVersionArtifactDetail>>;
+    public retrieveCollectionArtifactViewApiV2CollectionsNamespaceNameVersionsVersionArtifact(namespace: string, name: string, version: string, search?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (namespace === null || namespace === undefined) {
+            throw new Error('Required parameter namespace was null or undefined when calling retrieveCollectionArtifactViewApiV2CollectionsNamespaceNameVersionsVersionArtifact.');
+        }
+
+        if (name === null || name === undefined) {
+            throw new Error('Required parameter name was null or undefined when calling retrieveCollectionArtifactViewApiV2CollectionsNamespaceNameVersionsVersionArtifact.');
+        }
+
+        if (version === null || version === undefined) {
+            throw new Error('Required parameter version was null or undefined when calling retrieveCollectionArtifactViewApiV2CollectionsNamespaceNameVersionsVersionArtifact.');
+        }
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (search !== undefined && search !== null) {
+            queryParameters = queryParameters.set('search', <any>search);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CollectionVersionArtifactDetail>(`${this.basePath}/api/v2/collections/${encodeURIComponent(String(namespace))}/${encodeURIComponent(String(name))}/versions/${encodeURIComponent(String(version))}/artifact/`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
      * @param id The collection id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -260,6 +383,52 @@ export class V2Service {
         ];
 
         return this.httpClient.get<Collection>(`${this.basePath}/api/v2/collections/${encodeURIComponent(String(id))}/`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param namespace The collection namespace
+     * @param name The collection name
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public retrieveCollectionDetailViewApiV2CollectionsNamespaceName(namespace: string, name: string, observe?: 'body', reportProgress?: boolean): Observable<Collection>;
+    public retrieveCollectionDetailViewApiV2CollectionsNamespaceName(namespace: string, name: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Collection>>;
+    public retrieveCollectionDetailViewApiV2CollectionsNamespaceName(namespace: string, name: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Collection>>;
+    public retrieveCollectionDetailViewApiV2CollectionsNamespaceName(namespace: string, name: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (namespace === null || namespace === undefined) {
+            throw new Error('Required parameter namespace was null or undefined when calling retrieveCollectionDetailViewApiV2CollectionsNamespaceName.');
+        }
+
+        if (name === null || name === undefined) {
+            throw new Error('Required parameter name was null or undefined when calling retrieveCollectionDetailViewApiV2CollectionsNamespaceName.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Collection>(`${this.basePath}/api/v2/collections/${encodeURIComponent(String(namespace))}/${encodeURIComponent(String(name))}/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -350,6 +519,57 @@ export class V2Service {
         ];
 
         return this.httpClient.get<CollectionVersion>(`${this.basePath}/api/v2/collection-versions/${encodeURIComponent(String(versionPk))}/`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param namespace 
+     * @param name 
+     * @param version A semantic version string
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public retrieveVersionDetailViewApiV2CollectionsNamespaceNameVersionsVersion(namespace: string, name: string, version: string, observe?: 'body', reportProgress?: boolean): Observable<CollectionVersion>;
+    public retrieveVersionDetailViewApiV2CollectionsNamespaceNameVersionsVersion(namespace: string, name: string, version: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CollectionVersion>>;
+    public retrieveVersionDetailViewApiV2CollectionsNamespaceNameVersionsVersion(namespace: string, name: string, version: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CollectionVersion>>;
+    public retrieveVersionDetailViewApiV2CollectionsNamespaceNameVersionsVersion(namespace: string, name: string, version: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (namespace === null || namespace === undefined) {
+            throw new Error('Required parameter namespace was null or undefined when calling retrieveVersionDetailViewApiV2CollectionsNamespaceNameVersionsVersion.');
+        }
+
+        if (name === null || name === undefined) {
+            throw new Error('Required parameter name was null or undefined when calling retrieveVersionDetailViewApiV2CollectionsNamespaceNameVersionsVersion.');
+        }
+
+        if (version === null || version === undefined) {
+            throw new Error('Required parameter version was null or undefined when calling retrieveVersionDetailViewApiV2CollectionsNamespaceNameVersionsVersion.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CollectionVersion>(`${this.basePath}/api/v2/collections/${encodeURIComponent(String(namespace))}/${encodeURIComponent(String(name))}/versions/${encodeURIComponent(String(version))}/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

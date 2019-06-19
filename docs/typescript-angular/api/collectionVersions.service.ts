@@ -17,6 +17,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { CollectionVersion } from '../model/collectionVersion';
 import { CollectionVersionArtifactDetail } from '../model/collectionVersionArtifactDetail';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -96,6 +97,47 @@ export class CollectionVersionsService {
         return this.httpClient.get<CollectionVersionArtifactDetail>(`${this.basePath}/api/v2/collection-versions/${encodeURIComponent(String(id))}/artifact/`,
             {
                 params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param versionPk 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public retrieveVersionDetailViewApiV2CollectionVersionsVersionPk(versionPk: string, observe?: 'body', reportProgress?: boolean): Observable<CollectionVersion>;
+    public retrieveVersionDetailViewApiV2CollectionVersionsVersionPk(versionPk: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CollectionVersion>>;
+    public retrieveVersionDetailViewApiV2CollectionVersionsVersionPk(versionPk: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CollectionVersion>>;
+    public retrieveVersionDetailViewApiV2CollectionVersionsVersionPk(versionPk: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (versionPk === null || versionPk === undefined) {
+            throw new Error('Required parameter versionPk was null or undefined when calling retrieveVersionDetailViewApiV2CollectionVersionsVersionPk.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CollectionVersion>(`${this.basePath}/api/v2/collection-versions/${encodeURIComponent(String(versionPk))}/`,
+            {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

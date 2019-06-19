@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { CollectionImportsService } from './api/collectionImports.service';
 import { CollectionVersionsService } from './api/collectionVersions.service';
 import { CollectionsService } from './api/collections.service';
-import { CollectionsVersionsService } from './api/collectionsVersions.service';
-import { DefaultService } from './api/default.service';
+import { DownloadService } from './api/download.service';
 import { InternalService } from './api/internal.service';
 import { IntrospectionService } from './api/introspection.service';
 import { MeService } from './api/me.service';
@@ -26,8 +25,7 @@ import { V2Service } from './api/v2.service';
     CollectionImportsService,
     CollectionVersionsService,
     CollectionsService,
-    CollectionsVersionsService,
-    DefaultService,
+    DownloadService,
     InternalService,
     IntrospectionService,
     MeService,
