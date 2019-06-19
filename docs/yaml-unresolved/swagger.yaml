@@ -2654,3 +2654,5 @@ components:
               type: string
         version:
           type: string
+externalDocs:
+  url: https://galaxy.ansible.com/docs/
