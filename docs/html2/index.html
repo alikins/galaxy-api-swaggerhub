@@ -2120,24 +2120,6 @@
                     <li data-group="Default" data-name="createCollectionListViewApiV2Collections" class="">
                       <a href="#api-Default-createCollectionListViewApiV2Collections">createCollectionListViewApiV2Collections</a>
                     </li>
-                    <li data-group="Default" data-name="listApiV1SearchViewApiV1Search" class="">
-                      <a href="#api-Default-listApiV1SearchViewApiV1Search">listApiV1SearchViewApiV1Search</a>
-                    </li>
-                    <li data-group="Default" data-name="listContentSearchViewApiV1SearchContent" class="">
-                      <a href="#api-Default-listContentSearchViewApiV1SearchContent">listContentSearchViewApiV1SearchContent</a>
-                    </li>
-                    <li data-group="Default" data-name="listNamespaceListApiV1Namespaces" class="">
-                      <a href="#api-Default-listNamespaceListApiV1Namespaces">listNamespaceListApiV1Namespaces</a>
-                    </li>
-                    <li data-group="Default" data-name="listRoleSearchViewApiV1SearchRoles" class="">
-                      <a href="#api-Default-listRoleSearchViewApiV1SearchRoles">listRoleSearchViewApiV1SearchRoles</a>
-                    </li>
-                    <li data-group="Default" data-name="listTagListApiV1Tags" class="">
-                      <a href="#api-Default-listTagListApiV1Tags">listTagListApiV1Tags</a>
-                    </li>
-                    <li data-group="Default" data-name="listTagsSearchViewApiV1SearchTags" class="">
-                      <a href="#api-Default-listTagsSearchViewApiV1SearchTags">listTagsSearchViewApiV1SearchTags</a>
-                    </li>
                     <li data-group="Default" data-name="listUserListApiV1Users" class="">
                       <a href="#api-Default-listUserListApiV1Users">listUserListApiV1Users</a>
                     </li>
@@ -2245,6 +2227,27 @@
                   <li class="nav-header" data-group="Me"><a href="#api-Me">API Methods - Me</a></li>
                     <li data-group="Me" data-name="retrieveActiveUserViewApiV1Me" class="">
                       <a href="#api-Me-retrieveActiveUserViewApiV1Me">retrieveActiveUserViewApiV1Me</a>
+                    </li>
+                  <li class="nav-header" data-group="Namespaces"><a href="#api-Namespaces">API Methods - Namespaces</a></li>
+                    <li data-group="Namespaces" data-name="listNamespaceListApiV1Namespaces" class="">
+                      <a href="#api-Namespaces-listNamespaceListApiV1Namespaces">listNamespaceListApiV1Namespaces</a>
+                    </li>
+                  <li class="nav-header" data-group="Search"><a href="#api-Search">API Methods - Search</a></li>
+                    <li data-group="Search" data-name="listApiV1SearchViewApiV1Search" class="">
+                      <a href="#api-Search-listApiV1SearchViewApiV1Search">listApiV1SearchViewApiV1Search</a>
+                    </li>
+                    <li data-group="Search" data-name="listContentSearchViewApiV1SearchContent" class="">
+                      <a href="#api-Search-listContentSearchViewApiV1SearchContent">listContentSearchViewApiV1SearchContent</a>
+                    </li>
+                    <li data-group="Search" data-name="listRoleSearchViewApiV1SearchRoles" class="">
+                      <a href="#api-Search-listRoleSearchViewApiV1SearchRoles">listRoleSearchViewApiV1SearchRoles</a>
+                    </li>
+                    <li data-group="Search" data-name="listTagsSearchViewApiV1SearchTags" class="">
+                      <a href="#api-Search-listTagsSearchViewApiV1SearchTags">listTagsSearchViewApiV1SearchTags</a>
+                    </li>
+                  <li class="nav-header" data-group="Tags"><a href="#api-Tags">API Methods - Tags</a></li>
+                    <li data-group="Tags" data-name="listTagListApiV1Tags" class="">
+                      <a href="#api-Tags-listTagListApiV1Tags">listTagListApiV1Tags</a>
                     </li>
           </ul>
         </nav>
@@ -2572,1901 +2575,6 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-createCollectionListViewApiV2Collections-202-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-listApiV1SearchViewApiV1Search">
-                      <article id="api-Default-listApiV1SearchViewApiV1Search-0" data-group="User" data-name="listApiV1SearchViewApiV1Search" data-version="0">
-                        <div class="pull-left">
-                          <h1>listApiV1SearchViewApiV1Search</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/search/</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-listApiV1SearchViewApiV1Search-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-listApiV1SearchViewApiV1Search-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/search/"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        try {
-            Object result = apiInstance.listApiV1SearchViewApiV1Search();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listApiV1SearchViewApiV1Search");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        try {
-            Object result = apiInstance.listApiV1SearchViewApiV1Search();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listApiV1SearchViewApiV1Search");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-[apiInstance listApiV1SearchViewApiV1SearchWithCompletionHandler: 
-              ^(Object output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
-
-var api = new Galaxy32ApiWip.DefaultApi()
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.listApiV1SearchViewApiV1Search(callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class listApiV1SearchViewApiV1SearchExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-
-            try
-            {
-                Object result = apiInstance.listApiV1SearchViewApiV1Search();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.listApiV1SearchViewApiV1Search: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-
-try {
-    $result = $api_instance->listApiV1SearchViewApiV1Search();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listApiV1SearchViewApiV1Search: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-
-eval { 
-    my $result = $api_instance->listApiV1SearchViewApiV1Search();
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->listApiV1SearchViewApiV1Search: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listApiV1SearchViewApiV1Search-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-
-try: 
-    api_response = api_instance.list_api_v1_search_view_api_v1_search()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->listApiV1SearchViewApiV1Search: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - some response </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-listApiV1SearchViewApiV1Search-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-listApiV1SearchViewApiV1Search-200-schema">
-                                  <div id='responses-listApiV1SearchViewApiV1Search-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "some response",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "type" : "object",
-        "x-content-type" : "application/json"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-listApiV1SearchViewApiV1Search-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-listApiV1SearchViewApiV1Search-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-listApiV1SearchViewApiV1Search-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-listContentSearchViewApiV1SearchContent">
-                      <article id="api-Default-listContentSearchViewApiV1SearchContent-0" data-group="User" data-name="listContentSearchViewApiV1SearchContent" data-version="0">
-                        <div class="pull-left">
-                          <h1>listContentSearchViewApiV1SearchContent</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/search/content/</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-listContentSearchViewApiV1SearchContent-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-listContentSearchViewApiV1SearchContent-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/search/content/?page=&page_size="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        try {
-            inline_response_200_8 result = apiInstance.listContentSearchViewApiV1SearchContent(page, pageSize);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listContentSearchViewApiV1SearchContent");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        try {
-            inline_response_200_8 result = apiInstance.listContentSearchViewApiV1SearchContent(page, pageSize);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listContentSearchViewApiV1SearchContent");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
-Integer *pageSize = 56; // Number of results to return per page. (optional)
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-[apiInstance listContentSearchViewApiV1SearchContentWith:page
-    pageSize:pageSize
-              completionHandler: ^(inline_response_200_8 output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
-
-var api = new Galaxy32ApiWip.DefaultApi()
-var opts = { 
-  'page': 56, // {{Integer}} A page number within the paginated result set.
-  'pageSize': 56 // {{Integer}} Number of results to return per page.
-};
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.listContentSearchViewApiV1SearchContent(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class listContentSearchViewApiV1SearchContentExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
-            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
-
-            try
-            {
-                inline_response_200_8 result = apiInstance.listContentSearchViewApiV1SearchContent(page, pageSize);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.listContentSearchViewApiV1SearchContent: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-$page = 56; // Integer | A page number within the paginated result set.
-$pageSize = 56; // Integer | Number of results to return per page.
-
-try {
-    $result = $api_instance->listContentSearchViewApiV1SearchContent($page, $pageSize);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listContentSearchViewApiV1SearchContent: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $page = 56; # Integer | A page number within the paginated result set.
-my $pageSize = 56; # Integer | Number of results to return per page.
-
-eval { 
-    my $result = $api_instance->listContentSearchViewApiV1SearchContent(page => $page, pageSize => $pageSize);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->listContentSearchViewApiV1SearchContent: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listContentSearchViewApiV1SearchContent-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-page = 56 # Integer | A page number within the paginated result set. (optional)
-pageSize = 56 # Integer | Number of results to return per page. (optional)
-
-try: 
-    api_response = api_instance.list_content_search_view_api_v1_search_content(page=page, pageSize=pageSize)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->listContentSearchViewApiV1SearchContent: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">page</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listContentSearchViewApiV1SearchContent_page">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        A page number within the paginated result set.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr><td style="width:150px;">page_size</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listContentSearchViewApiV1SearchContent_pageSize">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        Number of results to return per page.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - some response </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-listContentSearchViewApiV1SearchContent-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-listContentSearchViewApiV1SearchContent-200-schema">
-                                  <div id='responses-listContentSearchViewApiV1SearchContent-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "some response",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/inline_response_200_8"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-listContentSearchViewApiV1SearchContent-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-listContentSearchViewApiV1SearchContent-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-listContentSearchViewApiV1SearchContent-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-listNamespaceListApiV1Namespaces">
-                      <article id="api-Default-listNamespaceListApiV1Namespaces-0" data-group="User" data-name="listNamespaceListApiV1Namespaces" data-version="0">
-                        <div class="pull-left">
-                          <h1>listNamespaceListApiV1Namespaces</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/namespaces/</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-listNamespaceListApiV1Namespaces-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-listNamespaceListApiV1Namespaces-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/namespaces/?page=&page_size=&search="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        String search = search_example; // String | A search term.
-        try {
-            inline_response_200_7 result = apiInstance.listNamespaceListApiV1Namespaces(page, pageSize, search);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listNamespaceListApiV1Namespaces");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        String search = search_example; // String | A search term.
-        try {
-            inline_response_200_7 result = apiInstance.listNamespaceListApiV1Namespaces(page, pageSize, search);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listNamespaceListApiV1Namespaces");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
-Integer *pageSize = 56; // Number of results to return per page. (optional)
-String *search = search_example; // A search term. (optional)
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-[apiInstance listNamespaceListApiV1NamespacesWith:page
-    pageSize:pageSize
-    search:search
-              completionHandler: ^(inline_response_200_7 output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
-
-var api = new Galaxy32ApiWip.DefaultApi()
-var opts = { 
-  'page': 56, // {{Integer}} A page number within the paginated result set.
-  'pageSize': 56, // {{Integer}} Number of results to return per page.
-  'search': search_example // {{String}} A search term.
-};
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.listNamespaceListApiV1Namespaces(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class listNamespaceListApiV1NamespacesExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
-            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
-            var search = search_example;  // String | A search term. (optional) 
-
-            try
-            {
-                inline_response_200_7 result = apiInstance.listNamespaceListApiV1Namespaces(page, pageSize, search);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.listNamespaceListApiV1Namespaces: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-$page = 56; // Integer | A page number within the paginated result set.
-$pageSize = 56; // Integer | Number of results to return per page.
-$search = search_example; // String | A search term.
-
-try {
-    $result = $api_instance->listNamespaceListApiV1Namespaces($page, $pageSize, $search);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listNamespaceListApiV1Namespaces: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $page = 56; # Integer | A page number within the paginated result set.
-my $pageSize = 56; # Integer | Number of results to return per page.
-my $search = search_example; # String | A search term.
-
-eval { 
-    my $result = $api_instance->listNamespaceListApiV1Namespaces(page => $page, pageSize => $pageSize, search => $search);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->listNamespaceListApiV1Namespaces: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listNamespaceListApiV1Namespaces-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-page = 56 # Integer | A page number within the paginated result set. (optional)
-pageSize = 56 # Integer | Number of results to return per page. (optional)
-search = search_example # String | A search term. (optional)
-
-try: 
-    api_response = api_instance.list_namespace_list_api_v1_namespaces(page=page, pageSize=pageSize, search=search)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->listNamespaceListApiV1Namespaces: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">page</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listNamespaceListApiV1Namespaces_page">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        A page number within the paginated result set.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr><td style="width:150px;">page_size</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listNamespaceListApiV1Namespaces_pageSize">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        Number of results to return per page.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr><td style="width:150px;">search</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listNamespaceListApiV1Namespaces_search">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    String
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        A search term.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - some response </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-listNamespaceListApiV1Namespaces-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-listNamespaceListApiV1Namespaces-200-schema">
-                                  <div id='responses-listNamespaceListApiV1Namespaces-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "some response",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/inline_response_200_7"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-listNamespaceListApiV1Namespaces-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-listNamespaceListApiV1Namespaces-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-listNamespaceListApiV1Namespaces-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-listRoleSearchViewApiV1SearchRoles">
-                      <article id="api-Default-listRoleSearchViewApiV1SearchRoles-0" data-group="User" data-name="listRoleSearchViewApiV1SearchRoles" data-version="0">
-                        <div class="pull-left">
-                          <h1>listRoleSearchViewApiV1SearchRoles</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/search/roles/</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-listRoleSearchViewApiV1SearchRoles-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/search/roles/?page=&page_size="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        try {
-            inline_response_200_8 result = apiInstance.listRoleSearchViewApiV1SearchRoles(page, pageSize);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listRoleSearchViewApiV1SearchRoles");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        try {
-            inline_response_200_8 result = apiInstance.listRoleSearchViewApiV1SearchRoles(page, pageSize);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listRoleSearchViewApiV1SearchRoles");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
-Integer *pageSize = 56; // Number of results to return per page. (optional)
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-[apiInstance listRoleSearchViewApiV1SearchRolesWith:page
-    pageSize:pageSize
-              completionHandler: ^(inline_response_200_8 output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
-
-var api = new Galaxy32ApiWip.DefaultApi()
-var opts = { 
-  'page': 56, // {{Integer}} A page number within the paginated result set.
-  'pageSize': 56 // {{Integer}} Number of results to return per page.
-};
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.listRoleSearchViewApiV1SearchRoles(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class listRoleSearchViewApiV1SearchRolesExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
-            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
-
-            try
-            {
-                inline_response_200_8 result = apiInstance.listRoleSearchViewApiV1SearchRoles(page, pageSize);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.listRoleSearchViewApiV1SearchRoles: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-$page = 56; // Integer | A page number within the paginated result set.
-$pageSize = 56; // Integer | Number of results to return per page.
-
-try {
-    $result = $api_instance->listRoleSearchViewApiV1SearchRoles($page, $pageSize);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listRoleSearchViewApiV1SearchRoles: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $page = 56; # Integer | A page number within the paginated result set.
-my $pageSize = 56; # Integer | Number of results to return per page.
-
-eval { 
-    my $result = $api_instance->listRoleSearchViewApiV1SearchRoles(page => $page, pageSize => $pageSize);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->listRoleSearchViewApiV1SearchRoles: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listRoleSearchViewApiV1SearchRoles-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-page = 56 # Integer | A page number within the paginated result set. (optional)
-pageSize = 56 # Integer | Number of results to return per page. (optional)
-
-try: 
-    api_response = api_instance.list_role_search_view_api_v1_search_roles(page=page, pageSize=pageSize)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->listRoleSearchViewApiV1SearchRoles: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">page</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listRoleSearchViewApiV1SearchRoles_page">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        A page number within the paginated result set.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr><td style="width:150px;">page_size</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listRoleSearchViewApiV1SearchRoles_pageSize">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        Number of results to return per page.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - some response </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-listRoleSearchViewApiV1SearchRoles-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-listRoleSearchViewApiV1SearchRoles-200-schema">
-                                  <div id='responses-listRoleSearchViewApiV1SearchRoles-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "some response",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/inline_response_200_8"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-listRoleSearchViewApiV1SearchRoles-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-listRoleSearchViewApiV1SearchRoles-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-listRoleSearchViewApiV1SearchRoles-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-listTagListApiV1Tags">
-                      <article id="api-Default-listTagListApiV1Tags-0" data-group="User" data-name="listTagListApiV1Tags" data-version="0">
-                        <div class="pull-left">
-                          <h1>listTagListApiV1Tags</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/tags/</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-listTagListApiV1Tags-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-listTagListApiV1Tags-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-listTagListApiV1Tags-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-listTagListApiV1Tags-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-listTagListApiV1Tags-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-listTagListApiV1Tags-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-listTagListApiV1Tags-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-listTagListApiV1Tags-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-listTagListApiV1Tags-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-listTagListApiV1Tags-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-listTagListApiV1Tags-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-listTagListApiV1Tags-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/tags/?page=&page_size=&search="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        String search = search_example; // String | A search term.
-        try {
-            inline_response_200_10 result = apiInstance.listTagListApiV1Tags(page, pageSize, search);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listTagListApiV1Tags");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        String search = search_example; // String | A search term.
-        try {
-            inline_response_200_10 result = apiInstance.listTagListApiV1Tags(page, pageSize, search);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listTagListApiV1Tags");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
-Integer *pageSize = 56; // Number of results to return per page. (optional)
-String *search = search_example; // A search term. (optional)
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-[apiInstance listTagListApiV1TagsWith:page
-    pageSize:pageSize
-    search:search
-              completionHandler: ^(inline_response_200_10 output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
-
-var api = new Galaxy32ApiWip.DefaultApi()
-var opts = { 
-  'page': 56, // {{Integer}} A page number within the paginated result set.
-  'pageSize': 56, // {{Integer}} Number of results to return per page.
-  'search': search_example // {{String}} A search term.
-};
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.listTagListApiV1Tags(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class listTagListApiV1TagsExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
-            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
-            var search = search_example;  // String | A search term. (optional) 
-
-            try
-            {
-                inline_response_200_10 result = apiInstance.listTagListApiV1Tags(page, pageSize, search);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.listTagListApiV1Tags: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-$page = 56; // Integer | A page number within the paginated result set.
-$pageSize = 56; // Integer | Number of results to return per page.
-$search = search_example; // String | A search term.
-
-try {
-    $result = $api_instance->listTagListApiV1Tags($page, $pageSize, $search);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listTagListApiV1Tags: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $page = 56; # Integer | A page number within the paginated result set.
-my $pageSize = 56; # Integer | Number of results to return per page.
-my $search = search_example; # String | A search term.
-
-eval { 
-    my $result = $api_instance->listTagListApiV1Tags(page => $page, pageSize => $pageSize, search => $search);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->listTagListApiV1Tags: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTagListApiV1Tags-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-page = 56 # Integer | A page number within the paginated result set. (optional)
-pageSize = 56 # Integer | Number of results to return per page. (optional)
-search = search_example # String | A search term. (optional)
-
-try: 
-    api_response = api_instance.list_tag_list_api_v1_tags(page=page, pageSize=pageSize, search=search)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->listTagListApiV1Tags: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">page</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listTagListApiV1Tags_page">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        A page number within the paginated result set.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr><td style="width:150px;">page_size</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listTagListApiV1Tags_pageSize">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        Number of results to return per page.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr><td style="width:150px;">search</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listTagListApiV1Tags_search">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    String
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        A search term.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - A page of tag details </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-listTagListApiV1Tags-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-listTagListApiV1Tags-200-schema">
-                                  <div id='responses-listTagListApiV1Tags-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "A page of tag details",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/inline_response_200_10"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-listTagListApiV1Tags-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-listTagListApiV1Tags-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-listTagListApiV1Tags-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-listTagsSearchViewApiV1SearchTags">
-                      <article id="api-Default-listTagsSearchViewApiV1SearchTags-0" data-group="User" data-name="listTagsSearchViewApiV1SearchTags" data-version="0">
-                        <div class="pull-left">
-                          <h1>listTagsSearchViewApiV1SearchTags</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/search/tags/</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-listTagsSearchViewApiV1SearchTags-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/search/tags/?page=&page_size="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        try {
-            inline_response_200_9 result = apiInstance.listTagsSearchViewApiV1SearchTags(page, pageSize);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listTagsSearchViewApiV1SearchTags");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
-        try {
-            inline_response_200_9 result = apiInstance.listTagsSearchViewApiV1SearchTags(page, pageSize);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listTagsSearchViewApiV1SearchTags");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
-Integer *pageSize = 56; // Number of results to return per page. (optional)
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-[apiInstance listTagsSearchViewApiV1SearchTagsWith:page
-    pageSize:pageSize
-              completionHandler: ^(inline_response_200_9 output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
-
-var api = new Galaxy32ApiWip.DefaultApi()
-var opts = { 
-  'page': 56, // {{Integer}} A page number within the paginated result set.
-  'pageSize': 56 // {{Integer}} Number of results to return per page.
-};
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.listTagsSearchViewApiV1SearchTags(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class listTagsSearchViewApiV1SearchTagsExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
-            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
-
-            try
-            {
-                inline_response_200_9 result = apiInstance.listTagsSearchViewApiV1SearchTags(page, pageSize);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.listTagsSearchViewApiV1SearchTags: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-$page = 56; // Integer | A page number within the paginated result set.
-$pageSize = 56; // Integer | Number of results to return per page.
-
-try {
-    $result = $api_instance->listTagsSearchViewApiV1SearchTags($page, $pageSize);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listTagsSearchViewApiV1SearchTags: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $page = 56; # Integer | A page number within the paginated result set.
-my $pageSize = 56; # Integer | Number of results to return per page.
-
-eval { 
-    my $result = $api_instance->listTagsSearchViewApiV1SearchTags(page => $page, pageSize => $pageSize);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->listTagsSearchViewApiV1SearchTags: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTagsSearchViewApiV1SearchTags-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-page = 56 # Integer | A page number within the paginated result set. (optional)
-pageSize = 56 # Integer | Number of results to return per page. (optional)
-
-try: 
-    api_response = api_instance.list_tags_search_view_api_v1_search_tags(page=page, pageSize=pageSize)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->listTagsSearchViewApiV1SearchTags: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">page</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listTagsSearchViewApiV1SearchTags_page">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        A page number within the paginated result set.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr><td style="width:150px;">page_size</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listTagsSearchViewApiV1SearchTags_pageSize">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        Number of results to return per page.
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - some response </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-listTagsSearchViewApiV1SearchTags-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-listTagsSearchViewApiV1SearchTags-200-schema">
-                                  <div id='responses-listTagsSearchViewApiV1SearchTags-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "some response",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/inline_response_200_9"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-listTagsSearchViewApiV1SearchTags-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-listTagsSearchViewApiV1SearchTags-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-listTagsSearchViewApiV1SearchTags-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -16081,6 +14189,1910 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-retrieveActiveUserViewApiV1Me-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Namespaces">
+                  <h1>Namespaces</h1>
+                    <div id="api-Namespaces-listNamespaceListApiV1Namespaces">
+                      <article id="api-Namespaces-listNamespaceListApiV1Namespaces-0" data-group="User" data-name="listNamespaceListApiV1Namespaces" data-version="0">
+                        <div class="pull-left">
+                          <h1>listNamespaceListApiV1Namespaces</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/namespaces/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Namespaces-listNamespaceListApiV1Namespaces-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/namespaces/?page=&page_size=&search="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.NamespacesApi;
+
+import java.io.File;
+import java.util.*;
+
+public class NamespacesApiExample {
+
+    public static void main(String[] args) {
+        
+        NamespacesApi apiInstance = new NamespacesApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        String search = search_example; // String | A search term.
+        try {
+            inline_response_200_7 result = apiInstance.listNamespaceListApiV1Namespaces(page, pageSize, search);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling NamespacesApi#listNamespaceListApiV1Namespaces");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.NamespacesApi;
+
+public class NamespacesApiExample {
+
+    public static void main(String[] args) {
+        NamespacesApi apiInstance = new NamespacesApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        String search = search_example; // String | A search term.
+        try {
+            inline_response_200_7 result = apiInstance.listNamespaceListApiV1Namespaces(page, pageSize, search);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling NamespacesApi#listNamespaceListApiV1Namespaces");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
+Integer *pageSize = 56; // Number of results to return per page. (optional)
+String *search = search_example; // A search term. (optional)
+
+NamespacesApi *apiInstance = [[NamespacesApi alloc] init];
+
+[apiInstance listNamespaceListApiV1NamespacesWith:page
+    pageSize:pageSize
+    search:search
+              completionHandler: ^(inline_response_200_7 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
+
+var api = new Galaxy32ApiWip.NamespacesApi()
+var opts = { 
+  'page': 56, // {{Integer}} A page number within the paginated result set.
+  'pageSize': 56, // {{Integer}} Number of results to return per page.
+  'search': search_example // {{String}} A search term.
+};
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.listNamespaceListApiV1Namespaces(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class listNamespaceListApiV1NamespacesExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new NamespacesApi();
+            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
+            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
+            var search = search_example;  // String | A search term. (optional) 
+
+            try
+            {
+                inline_response_200_7 result = apiInstance.listNamespaceListApiV1Namespaces(page, pageSize, search);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling NamespacesApi.listNamespaceListApiV1Namespaces: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiNamespacesApi();
+$page = 56; // Integer | A page number within the paginated result set.
+$pageSize = 56; // Integer | Number of results to return per page.
+$search = search_example; // String | A search term.
+
+try {
+    $result = $api_instance->listNamespaceListApiV1Namespaces($page, $pageSize, $search);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling NamespacesApi->listNamespaceListApiV1Namespaces: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::NamespacesApi;
+
+my $api_instance = WWW::SwaggerClient::NamespacesApi->new();
+my $page = 56; # Integer | A page number within the paginated result set.
+my $pageSize = 56; # Integer | Number of results to return per page.
+my $search = search_example; # String | A search term.
+
+eval { 
+    my $result = $api_instance->listNamespaceListApiV1Namespaces(page => $page, pageSize => $pageSize, search => $search);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling NamespacesApi->listNamespaceListApiV1Namespaces: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Namespaces-listNamespaceListApiV1Namespaces-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.NamespacesApi()
+page = 56 # Integer | A page number within the paginated result set. (optional)
+pageSize = 56 # Integer | Number of results to return per page. (optional)
+search = search_example # String | A search term. (optional)
+
+try: 
+    api_response = api_instance.list_namespace_list_api_v1_namespaces(page=page, pageSize=pageSize, search=search)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling NamespacesApi->listNamespaceListApiV1Namespaces: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">page</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listNamespaceListApiV1Namespaces_page">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        A page number within the paginated result set.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">page_size</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listNamespaceListApiV1Namespaces_pageSize">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Number of results to return per page.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">search</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listNamespaceListApiV1Namespaces_search">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        A search term.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - some response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-listNamespaceListApiV1Namespaces-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-listNamespaceListApiV1Namespaces-200-schema">
+                                  <div id='responses-listNamespaceListApiV1Namespaces-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "some response",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200_7"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-listNamespaceListApiV1Namespaces-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listNamespaceListApiV1Namespaces-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-listNamespaceListApiV1Namespaces-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Search">
+                  <h1>Search</h1>
+                    <div id="api-Search-listApiV1SearchViewApiV1Search">
+                      <article id="api-Search-listApiV1SearchViewApiV1Search-0" data-group="User" data-name="listApiV1SearchViewApiV1Search" data-version="0">
+                        <div class="pull-left">
+                          <h1>listApiV1SearchViewApiV1Search</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/search/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Search-listApiV1SearchViewApiV1Search-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Search-listApiV1SearchViewApiV1Search-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/search/"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.SearchApi;
+
+import java.io.File;
+import java.util.*;
+
+public class SearchApiExample {
+
+    public static void main(String[] args) {
+        
+        SearchApi apiInstance = new SearchApi();
+        try {
+            Object result = apiInstance.listApiV1SearchViewApiV1Search();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#listApiV1SearchViewApiV1Search");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.SearchApi;
+
+public class SearchApiExample {
+
+    public static void main(String[] args) {
+        SearchApi apiInstance = new SearchApi();
+        try {
+            Object result = apiInstance.listApiV1SearchViewApiV1Search();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#listApiV1SearchViewApiV1Search");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+SearchApi *apiInstance = [[SearchApi alloc] init];
+
+[apiInstance listApiV1SearchViewApiV1SearchWithCompletionHandler: 
+              ^(Object output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
+
+var api = new Galaxy32ApiWip.SearchApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.listApiV1SearchViewApiV1Search(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class listApiV1SearchViewApiV1SearchExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new SearchApi();
+
+            try
+            {
+                Object result = apiInstance.listApiV1SearchViewApiV1Search();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SearchApi.listApiV1SearchViewApiV1Search: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiSearchApi();
+
+try {
+    $result = $api_instance->listApiV1SearchViewApiV1Search();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SearchApi->listApiV1SearchViewApiV1Search: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::SearchApi;
+
+my $api_instance = WWW::SwaggerClient::SearchApi->new();
+
+eval { 
+    my $result = $api_instance->listApiV1SearchViewApiV1Search();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling SearchApi->listApiV1SearchViewApiV1Search: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listApiV1SearchViewApiV1Search-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.SearchApi()
+
+try: 
+    api_response = api_instance.list_api_v1_search_view_api_v1_search()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->listApiV1SearchViewApiV1Search: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - some response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-listApiV1SearchViewApiV1Search-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-listApiV1SearchViewApiV1Search-200-schema">
+                                  <div id='responses-listApiV1SearchViewApiV1Search-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "some response",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "object",
+        "x-content-type" : "application/json"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-listApiV1SearchViewApiV1Search-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listApiV1SearchViewApiV1Search-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-listApiV1SearchViewApiV1Search-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Search-listContentSearchViewApiV1SearchContent">
+                      <article id="api-Search-listContentSearchViewApiV1SearchContent-0" data-group="User" data-name="listContentSearchViewApiV1SearchContent" data-version="0">
+                        <div class="pull-left">
+                          <h1>listContentSearchViewApiV1SearchContent</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/search/content/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Search-listContentSearchViewApiV1SearchContent-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Search-listContentSearchViewApiV1SearchContent-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/search/content/?page=&page_size="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.SearchApi;
+
+import java.io.File;
+import java.util.*;
+
+public class SearchApiExample {
+
+    public static void main(String[] args) {
+        
+        SearchApi apiInstance = new SearchApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        try {
+            inline_response_200_8 result = apiInstance.listContentSearchViewApiV1SearchContent(page, pageSize);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#listContentSearchViewApiV1SearchContent");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.SearchApi;
+
+public class SearchApiExample {
+
+    public static void main(String[] args) {
+        SearchApi apiInstance = new SearchApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        try {
+            inline_response_200_8 result = apiInstance.listContentSearchViewApiV1SearchContent(page, pageSize);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#listContentSearchViewApiV1SearchContent");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
+Integer *pageSize = 56; // Number of results to return per page. (optional)
+
+SearchApi *apiInstance = [[SearchApi alloc] init];
+
+[apiInstance listContentSearchViewApiV1SearchContentWith:page
+    pageSize:pageSize
+              completionHandler: ^(inline_response_200_8 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
+
+var api = new Galaxy32ApiWip.SearchApi()
+var opts = { 
+  'page': 56, // {{Integer}} A page number within the paginated result set.
+  'pageSize': 56 // {{Integer}} Number of results to return per page.
+};
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.listContentSearchViewApiV1SearchContent(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class listContentSearchViewApiV1SearchContentExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new SearchApi();
+            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
+            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
+
+            try
+            {
+                inline_response_200_8 result = apiInstance.listContentSearchViewApiV1SearchContent(page, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SearchApi.listContentSearchViewApiV1SearchContent: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiSearchApi();
+$page = 56; // Integer | A page number within the paginated result set.
+$pageSize = 56; // Integer | Number of results to return per page.
+
+try {
+    $result = $api_instance->listContentSearchViewApiV1SearchContent($page, $pageSize);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SearchApi->listContentSearchViewApiV1SearchContent: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::SearchApi;
+
+my $api_instance = WWW::SwaggerClient::SearchApi->new();
+my $page = 56; # Integer | A page number within the paginated result set.
+my $pageSize = 56; # Integer | Number of results to return per page.
+
+eval { 
+    my $result = $api_instance->listContentSearchViewApiV1SearchContent(page => $page, pageSize => $pageSize);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling SearchApi->listContentSearchViewApiV1SearchContent: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listContentSearchViewApiV1SearchContent-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.SearchApi()
+page = 56 # Integer | A page number within the paginated result set. (optional)
+pageSize = 56 # Integer | Number of results to return per page. (optional)
+
+try: 
+    api_response = api_instance.list_content_search_view_api_v1_search_content(page=page, pageSize=pageSize)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->listContentSearchViewApiV1SearchContent: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">page</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listContentSearchViewApiV1SearchContent_page">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        A page number within the paginated result set.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">page_size</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listContentSearchViewApiV1SearchContent_pageSize">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Number of results to return per page.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - some response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-listContentSearchViewApiV1SearchContent-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-listContentSearchViewApiV1SearchContent-200-schema">
+                                  <div id='responses-listContentSearchViewApiV1SearchContent-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "some response",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200_8"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-listContentSearchViewApiV1SearchContent-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listContentSearchViewApiV1SearchContent-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-listContentSearchViewApiV1SearchContent-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Search-listRoleSearchViewApiV1SearchRoles">
+                      <article id="api-Search-listRoleSearchViewApiV1SearchRoles-0" data-group="User" data-name="listRoleSearchViewApiV1SearchRoles" data-version="0">
+                        <div class="pull-left">
+                          <h1>listRoleSearchViewApiV1SearchRoles</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/search/roles/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Search-listRoleSearchViewApiV1SearchRoles-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/search/roles/?page=&page_size="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.SearchApi;
+
+import java.io.File;
+import java.util.*;
+
+public class SearchApiExample {
+
+    public static void main(String[] args) {
+        
+        SearchApi apiInstance = new SearchApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        try {
+            inline_response_200_8 result = apiInstance.listRoleSearchViewApiV1SearchRoles(page, pageSize);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#listRoleSearchViewApiV1SearchRoles");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.SearchApi;
+
+public class SearchApiExample {
+
+    public static void main(String[] args) {
+        SearchApi apiInstance = new SearchApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        try {
+            inline_response_200_8 result = apiInstance.listRoleSearchViewApiV1SearchRoles(page, pageSize);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#listRoleSearchViewApiV1SearchRoles");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
+Integer *pageSize = 56; // Number of results to return per page. (optional)
+
+SearchApi *apiInstance = [[SearchApi alloc] init];
+
+[apiInstance listRoleSearchViewApiV1SearchRolesWith:page
+    pageSize:pageSize
+              completionHandler: ^(inline_response_200_8 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
+
+var api = new Galaxy32ApiWip.SearchApi()
+var opts = { 
+  'page': 56, // {{Integer}} A page number within the paginated result set.
+  'pageSize': 56 // {{Integer}} Number of results to return per page.
+};
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.listRoleSearchViewApiV1SearchRoles(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class listRoleSearchViewApiV1SearchRolesExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new SearchApi();
+            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
+            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
+
+            try
+            {
+                inline_response_200_8 result = apiInstance.listRoleSearchViewApiV1SearchRoles(page, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SearchApi.listRoleSearchViewApiV1SearchRoles: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiSearchApi();
+$page = 56; // Integer | A page number within the paginated result set.
+$pageSize = 56; // Integer | Number of results to return per page.
+
+try {
+    $result = $api_instance->listRoleSearchViewApiV1SearchRoles($page, $pageSize);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SearchApi->listRoleSearchViewApiV1SearchRoles: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::SearchApi;
+
+my $api_instance = WWW::SwaggerClient::SearchApi->new();
+my $page = 56; # Integer | A page number within the paginated result set.
+my $pageSize = 56; # Integer | Number of results to return per page.
+
+eval { 
+    my $result = $api_instance->listRoleSearchViewApiV1SearchRoles(page => $page, pageSize => $pageSize);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling SearchApi->listRoleSearchViewApiV1SearchRoles: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listRoleSearchViewApiV1SearchRoles-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.SearchApi()
+page = 56 # Integer | A page number within the paginated result set. (optional)
+pageSize = 56 # Integer | Number of results to return per page. (optional)
+
+try: 
+    api_response = api_instance.list_role_search_view_api_v1_search_roles(page=page, pageSize=pageSize)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->listRoleSearchViewApiV1SearchRoles: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">page</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listRoleSearchViewApiV1SearchRoles_page">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        A page number within the paginated result set.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">page_size</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listRoleSearchViewApiV1SearchRoles_pageSize">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Number of results to return per page.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - some response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-listRoleSearchViewApiV1SearchRoles-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-listRoleSearchViewApiV1SearchRoles-200-schema">
+                                  <div id='responses-listRoleSearchViewApiV1SearchRoles-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "some response",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200_8"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-listRoleSearchViewApiV1SearchRoles-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listRoleSearchViewApiV1SearchRoles-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-listRoleSearchViewApiV1SearchRoles-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Search-listTagsSearchViewApiV1SearchTags">
+                      <article id="api-Search-listTagsSearchViewApiV1SearchTags-0" data-group="User" data-name="listTagsSearchViewApiV1SearchTags" data-version="0">
+                        <div class="pull-left">
+                          <h1>listTagsSearchViewApiV1SearchTags</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/search/tags/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Search-listTagsSearchViewApiV1SearchTags-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/search/tags/?page=&page_size="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.SearchApi;
+
+import java.io.File;
+import java.util.*;
+
+public class SearchApiExample {
+
+    public static void main(String[] args) {
+        
+        SearchApi apiInstance = new SearchApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        try {
+            inline_response_200_9 result = apiInstance.listTagsSearchViewApiV1SearchTags(page, pageSize);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#listTagsSearchViewApiV1SearchTags");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.SearchApi;
+
+public class SearchApiExample {
+
+    public static void main(String[] args) {
+        SearchApi apiInstance = new SearchApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        try {
+            inline_response_200_9 result = apiInstance.listTagsSearchViewApiV1SearchTags(page, pageSize);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#listTagsSearchViewApiV1SearchTags");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
+Integer *pageSize = 56; // Number of results to return per page. (optional)
+
+SearchApi *apiInstance = [[SearchApi alloc] init];
+
+[apiInstance listTagsSearchViewApiV1SearchTagsWith:page
+    pageSize:pageSize
+              completionHandler: ^(inline_response_200_9 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
+
+var api = new Galaxy32ApiWip.SearchApi()
+var opts = { 
+  'page': 56, // {{Integer}} A page number within the paginated result set.
+  'pageSize': 56 // {{Integer}} Number of results to return per page.
+};
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.listTagsSearchViewApiV1SearchTags(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class listTagsSearchViewApiV1SearchTagsExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new SearchApi();
+            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
+            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
+
+            try
+            {
+                inline_response_200_9 result = apiInstance.listTagsSearchViewApiV1SearchTags(page, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SearchApi.listTagsSearchViewApiV1SearchTags: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiSearchApi();
+$page = 56; // Integer | A page number within the paginated result set.
+$pageSize = 56; // Integer | Number of results to return per page.
+
+try {
+    $result = $api_instance->listTagsSearchViewApiV1SearchTags($page, $pageSize);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SearchApi->listTagsSearchViewApiV1SearchTags: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::SearchApi;
+
+my $api_instance = WWW::SwaggerClient::SearchApi->new();
+my $page = 56; # Integer | A page number within the paginated result set.
+my $pageSize = 56; # Integer | Number of results to return per page.
+
+eval { 
+    my $result = $api_instance->listTagsSearchViewApiV1SearchTags(page => $page, pageSize => $pageSize);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling SearchApi->listTagsSearchViewApiV1SearchTags: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Search-listTagsSearchViewApiV1SearchTags-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.SearchApi()
+page = 56 # Integer | A page number within the paginated result set. (optional)
+pageSize = 56 # Integer | Number of results to return per page. (optional)
+
+try: 
+    api_response = api_instance.list_tags_search_view_api_v1_search_tags(page=page, pageSize=pageSize)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->listTagsSearchViewApiV1SearchTags: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">page</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listTagsSearchViewApiV1SearchTags_page">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        A page number within the paginated result set.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">page_size</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listTagsSearchViewApiV1SearchTags_pageSize">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Number of results to return per page.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - some response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-listTagsSearchViewApiV1SearchTags-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-listTagsSearchViewApiV1SearchTags-200-schema">
+                                  <div id='responses-listTagsSearchViewApiV1SearchTags-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "some response",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200_9"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-listTagsSearchViewApiV1SearchTags-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listTagsSearchViewApiV1SearchTags-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-listTagsSearchViewApiV1SearchTags-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Tags">
+                  <h1>Tags</h1>
+                    <div id="api-Tags-listTagListApiV1Tags">
+                      <article id="api-Tags-listTagListApiV1Tags-0" data-group="User" data-name="listTagListApiV1Tags" data-version="0">
+                        <div class="pull-left">
+                          <h1>listTagListApiV1Tags</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/tags/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Tags-listTagListApiV1Tags-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Tags-listTagListApiV1Tags-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Tags-listTagListApiV1Tags-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://galaxy.ansible.com//api/v1/tags/?page=&page_size=&search="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.TagsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TagsApiExample {
+
+    public static void main(String[] args) {
+        
+        TagsApi apiInstance = new TagsApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        String search = search_example; // String | A search term.
+        try {
+            inline_response_200_10 result = apiInstance.listTagListApiV1Tags(page, pageSize, search);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TagsApi#listTagListApiV1Tags");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.TagsApi;
+
+public class TagsApiExample {
+
+    public static void main(String[] args) {
+        TagsApi apiInstance = new TagsApi();
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        String search = search_example; // String | A search term.
+        try {
+            inline_response_200_10 result = apiInstance.listTagListApiV1Tags(page, pageSize, search);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TagsApi#listTagListApiV1Tags");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *page = 56; // A page number within the paginated result set. (optional)
+Integer *pageSize = 56; // Number of results to return per page. (optional)
+String *search = search_example; // A search term. (optional)
+
+TagsApi *apiInstance = [[TagsApi alloc] init];
+
+[apiInstance listTagListApiV1TagsWith:page
+    pageSize:pageSize
+    search:search
+              completionHandler: ^(inline_response_200_10 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Galaxy32ApiWip = require('galaxy_32_api__wip');
+
+var api = new Galaxy32ApiWip.TagsApi()
+var opts = { 
+  'page': 56, // {{Integer}} A page number within the paginated result set.
+  'pageSize': 56, // {{Integer}} Number of results to return per page.
+  'search': search_example // {{String}} A search term.
+};
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.listTagListApiV1Tags(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class listTagListApiV1TagsExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new TagsApi();
+            var page = 56;  // Integer | A page number within the paginated result set. (optional) 
+            var pageSize = 56;  // Integer | Number of results to return per page. (optional) 
+            var search = search_example;  // String | A search term. (optional) 
+
+            try
+            {
+                inline_response_200_10 result = apiInstance.listTagListApiV1Tags(page, pageSize, search);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TagsApi.listTagListApiV1Tags: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiTagsApi();
+$page = 56; // Integer | A page number within the paginated result set.
+$pageSize = 56; // Integer | Number of results to return per page.
+$search = search_example; // String | A search term.
+
+try {
+    $result = $api_instance->listTagListApiV1Tags($page, $pageSize, $search);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TagsApi->listTagListApiV1Tags: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::TagsApi;
+
+my $api_instance = WWW::SwaggerClient::TagsApi->new();
+my $page = 56; # Integer | A page number within the paginated result set.
+my $pageSize = 56; # Integer | Number of results to return per page.
+my $search = search_example; # String | A search term.
+
+eval { 
+    my $result = $api_instance->listTagListApiV1Tags(page => $page, pageSize => $pageSize, search => $search);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TagsApi->listTagListApiV1Tags: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Tags-listTagListApiV1Tags-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.TagsApi()
+page = 56 # Integer | A page number within the paginated result set. (optional)
+pageSize = 56 # Integer | Number of results to return per page. (optional)
+search = search_example # String | A search term. (optional)
+
+try: 
+    api_response = api_instance.list_tag_list_api_v1_tags(page=page, pageSize=pageSize, search=search)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TagsApi->listTagListApiV1Tags: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">page</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listTagListApiV1Tags_page">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        A page number within the paginated result set.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">page_size</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listTagListApiV1Tags_pageSize">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Number of results to return per page.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">search</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_listTagListApiV1Tags_search">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        A search term.
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A page of tag details </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-listTagListApiV1Tags-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-listTagListApiV1Tags-200-schema">
+                                  <div id='responses-listTagListApiV1Tags-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "A page of tag details",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200_10"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-listTagListApiV1Tags-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listTagListApiV1Tags-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-listTagListApiV1Tags-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
