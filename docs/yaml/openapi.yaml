@@ -15,7 +15,6 @@ paths:
     get:
       tags:
       - introspection
-      operationId: ListApiRootView_api_
       parameters: []
       responses:
         200:
