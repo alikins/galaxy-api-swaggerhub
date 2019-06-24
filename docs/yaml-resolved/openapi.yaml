@@ -667,11 +667,11 @@ paths:
           default: 10
       responses:
         200:
-          description: some response
+          description: Response containing a Page of Content search results
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_7'
+                $ref: '#/components/schemas/ContentsPage'
   /api/v1/search/roles/:
     get:
       tags:
@@ -705,12 +705,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_8'
+                $ref: '#/components/schemas/inline_response_200_7'
   /api/v1/search/tags/:
     get:
       tags:
       - search
       - v1
+      summary: Get a list of Tags by searching
       operationId: SearchTags
       parameters:
       - name: page
@@ -735,11 +736,11 @@ paths:
           default: 10
       responses:
         200:
-          description: some response
+          description: Response containing a Page of a list of Tags
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_9'
+                $ref: '#/components/schemas/TagsPage'
   /api/v1/tags/:
     get:
       tags:
@@ -1712,6 +1713,98 @@ components:
           description: URL for this tag.
           readOnly: true
       description: A v1 galaxy Tag
+    Content:
+      required:
+      - download_rank
+      - name
+      - relevance
+      - search_rank
+      type: object
+      properties:
+        active:
+          type: string
+          readOnly: true
+        company:
+          maxLength: 50
+          type: string
+          nullable: true
+        created:
+          type: string
+          description: Timestamp when this content was created.
+          readOnly: true
+        description:
+          maxLength: 255
+          type: string
+        download_count:
+          type: string
+          readOnly: true
+        download_rank:
+          type: number
+        id:
+          type: integer
+          description: Database ID for this content.
+          readOnly: true
+        imported:
+          type: string
+          format: date-time
+          nullable: true
+        is_valid:
+          type: boolean
+          readOnly: true
+        license:
+          maxLength: 50
+          type: string
+        min_ansible_version:
+          maxLength: 10
+          type: string
+          nullable: true
+        modified:
+          type: string
+          description: Timestamp when this content was last modified.
+          readOnly: true
+        name:
+          maxLength: 512
+          type: string
+        related:
+          type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        relevance:
+          type: number
+        role_type:
+          type: string
+          readOnly: true
+        search_rank:
+          type: number
+        summary_fields:
+          type: string
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        travis_status_url:
+          type: string
+          readOnly: true
+        url:
+          type: string
+          description: URL for this content.
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+    ContentsPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of Contents for this Page
+          items:
+            $ref: '#/components/schemas/Content'
+      description: A page of a list of Contents
     TagsPage:
       type: object
       properties:
@@ -2337,83 +2430,6 @@ components:
           description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
             characters
     inline_response_200_7:
-      required:
-      - download_rank
-      - name
-      - relevance
-      - search_rank
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        company:
-          maxLength: 50
-          type: string
-          nullable: true
-        created:
-          type: string
-          description: Timestamp when this content was created.
-          readOnly: true
-        description:
-          maxLength: 255
-          type: string
-        download_count:
-          type: string
-          readOnly: true
-        download_rank:
-          type: number
-        id:
-          type: integer
-          description: Database ID for this content.
-          readOnly: true
-        imported:
-          type: string
-          format: date-time
-          nullable: true
-        is_valid:
-          type: boolean
-          readOnly: true
-        license:
-          maxLength: 50
-          type: string
-        min_ansible_version:
-          maxLength: 10
-          type: string
-          nullable: true
-        modified:
-          type: string
-          description: Timestamp when this content was last modified.
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        relevance:
-          type: number
-        role_type:
-          type: string
-          readOnly: true
-        search_rank:
-          type: number
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        travis_status_url:
-          type: string
-          readOnly: true
-        url:
-          type: string
-          description: URL for this content.
-          readOnly: true
-        username:
-          type: string
-          readOnly: true
-    inline_response_200_8:
       type: object
       properties:
         count:
@@ -2426,44 +2442,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SearchRolesResult'
-    inline_response_200_9:
-      required:
-      - name
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        created:
-          type: string
-          description: Timestamp when this tag was created.
-          readOnly: true
-        id:
-          type: integer
-          description: Database ID for this tag.
-          readOnly: true
-        modified:
-          type: string
-          description: Timestamp when this tag was last modified.
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        roles_count:
-          type: integer
-          readOnly: true
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this tag.
-          readOnly: true
     body_6:
       type: object
       properties:
@@ -2524,6 +2502,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/CreateCollectionResult'
+    Contents:
+      description: Response containing a Page of Content search results
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ContentsPage'
     Users:
       description: Response containing a Page of a list of Users
       content:
