@@ -968,6 +968,7 @@ components:
           $ref: '#/components/schemas/CollectionVersionLink'
         created:
           type: string
+          readOnly: true
         deprecated:
           type: boolean
         name:
@@ -976,8 +977,10 @@ components:
           $ref: '#/components/schemas/CollectionNamespace'
         modified:
           type: string
+          readOnly: true
         id:
           type: integer
+          readOnly: true
         href:
           type: string
         versions_url:
@@ -1272,170 +1275,99 @@ components:
             maxLength: 512
             type: string
     Role:
-      required:
-      - download_rank
-      - name
-      - relevance
-      - search_rank
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        company:
-          maxLength: 50
-          type: string
-          nullable: true
-        created:
-          type: string
-          description: Timestamp when this content was created.
-          readOnly: true
-        description:
-          maxLength: 255
-          type: string
-        download_count:
-          type: string
-          readOnly: true
-        download_rank:
-          type: number
-        id:
-          type: integer
-          description: Database ID for this content.
-          readOnly: true
-        imported:
-          type: string
-          format: date-time
-          nullable: true
-        is_valid:
-          type: boolean
-          readOnly: true
-        license:
-          maxLength: 50
-          type: string
-        min_ansible_version:
-          maxLength: 10
-          type: string
-          nullable: true
-        modified:
-          type: string
-          description: Timestamp when this content was last modified.
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        relevance:
-          type: number
-        role_type:
-          type: string
-          readOnly: true
-        search_rank:
-          type: number
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        travis_status_url:
-          type: string
-          readOnly: true
-        url:
-          type: string
-          description: URL for this content.
-          readOnly: true
-        username:
-          type: string
-          readOnly: true
       description: An Ansible Role
+      allOf:
+      - $ref: '#/components/schemas/V1BaseModel'
+      - required:
+        - download_rank
+        - name
+        - relevance
+        - search_rank
+        type: object
+        properties:
+          company:
+            maxLength: 50
+            type: string
+            nullable: true
+          description:
+            maxLength: 255
+            type: string
+          download_count:
+            type: string
+            readOnly: true
+          download_rank:
+            type: number
+          imported:
+            type: string
+            format: date-time
+            nullable: true
+          is_valid:
+            type: boolean
+            readOnly: true
+          license:
+            maxLength: 50
+            type: string
+          min_ansible_version:
+            maxLength: 10
+            type: string
+            nullable: true
+          name:
+            maxLength: 512
+            type: string
+          relevance:
+            type: number
+          role_type:
+            type: string
+            readOnly: true
+          search_rank:
+            type: number
+          travis_status_url:
+            type: string
+            readOnly: true
+          username:
+            type: string
+            readOnly: true
     Tag:
-      required:
-      - name
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        created:
-          type: string
-          description: Timestamp when this tag was created.
-          readOnly: true
-        id:
-          type: integer
-          description: Database ID for this tag.
-          readOnly: true
-        modified:
-          type: string
-          description: Timestamp when this tag was last modified.
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this tag.
-          readOnly: true
       description: A v1 galaxy Tag
+      allOf:
+      - $ref: '#/components/schemas/V1BaseModel'
+      - required:
+        - name
+        type: object
+        properties:
+          created:
+            type: string
+            description: Timestamp when this tag was created.
+            readOnly: true
+          name:
+            maxLength: 512
+            type: string
     User:
-      required:
-      - username
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        avatar_url:
-          maxLength: 256
-          type: string
-        created:
-          type: string
-          description: Timestamp when this user was created.
-          readOnly: true
-        date_joined:
-          type: string
-          format: date-time
-        full_name:
-          maxLength: 254
-          type: string
-        id:
-          type: integer
-          description: Database ID for this user.
-          readOnly: true
-        modified:
-          type: string
-          description: Timestamp when this user was last modified.
-          readOnly: true
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        staff:
-          type: string
-          readOnly: true
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this user.
-          readOnly: true
-        username:
-          maxLength: 30
-          pattern: ^[a-zA-Z0-9_.@+-]+$
-          type: string
-          description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
-            characters
       description: A v1 User
+      allOf:
+      - $ref: '#/components/schemas/V1BaseModel'
+      - required:
+        - username
+        type: object
+        properties:
+          avatar_url:
+            maxLength: 256
+            type: string
+          date_joined:
+            type: string
+            format: date-time
+          full_name:
+            maxLength: 254
+            type: string
+          staff:
+            type: string
+            readOnly: true
+          username:
+            maxLength: 30
+            pattern: ^[a-zA-Z0-9_.@+-]+$
+            type: string
+            description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
+              characters
     CollectionVersionsPage:
       type: object
       properties:
