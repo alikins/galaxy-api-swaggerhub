@@ -2344,6 +2344,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/User'
+    CreateCollectionResult:
+      description: 'A map of collection import task info, including its url'
+      type: object
+      properties:
+        task:
+          description: 'The url for the queued collection import task. Check it for progress and status.'
+          type: string
     SearchRolesResult:
       type: object
       properties:
@@ -2455,12 +2462,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            description: 'A map of collection import task info, including its url'
-            properties:
-              task:
-                description: 'The url for the queued collection import task. Check it for progress and status.'
-                type: string
+            $ref: '#/components/schemas/CreateCollectionResult'
     Users:
       description: 'Response containing a Page of a list of Users'
       content:
