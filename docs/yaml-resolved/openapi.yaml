@@ -711,7 +711,7 @@ paths:
       tags:
       - search
       - v1
-      operationId: ListTagsSearchView_api_v1_search_tags_
+      operationId: SearchTags
       parameters:
       - name: page
         in: query
@@ -745,6 +745,7 @@ paths:
       tags:
       - tags
       - v1
+      summary: Get a list of Galaxy Tags
       operationId: ListTags
       parameters:
       - name: page
@@ -787,10 +788,12 @@ paths:
       tags:
       - tags
       - v1
+      summary: Get a Galaxy Tag
       operationId: GetTagDetail
       parameters:
       - name: id
         in: path
+        description: Tag id
         required: true
         style: simple
         explode: false
@@ -889,10 +892,12 @@ paths:
       tags:
       - users
       - v1
-      operationId: PartialUpdateUserDetail_api_v1_users__id__
+      summary: Patch/update an User by id
+      operationId: PatchUserById
       parameters:
       - name: id
         in: path
+        description: User id
         required: true
         style: simple
         explode: false
