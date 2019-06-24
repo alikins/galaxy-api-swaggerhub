@@ -766,87 +766,95 @@ components:
         collection:
           $ref: '#/components/schemas/CollectionVersionDetailCollection'
 
-
-        
-    Content:
+    V1BaseModel:
+      description: 'Base for common v1 shared model attributes' 
       type: object
       properties:
-        active:
-          readOnly: true
-          type: string
-        company:
-          maxLength: 50
-          nullable: true
-          type: string
-        created:
-          description: 'Timestamp when this content was created.'
-          readOnly: true
-          type: string
-        description:
-          maxLength: 255
-          type: string
-        download_count:
-          readOnly: true
-          type: string
-        download_rank:
-          type: number
         id:
-          description: 'Database ID for this content.'
+          description: 'Database ID for this object.'
           readOnly: true
           type: integer
-        imported:
-          format: date-time
-          nullable: true
-          type: string
-        is_valid:
+        url:
+          description: 'URL for this resource.'
           readOnly: true
-          type: boolean
-        license:
-          maxLength: 50
-          type: string
-        min_ansible_version:
-          maxLength: 10
-          nullable: true
-          type: string
-        modified:
-          description: 'Timestamp when this content was last modified.'
-          readOnly: true
-          type: string
-        name:
-          maxLength: 512
           type: string
         related:
           description: 'Data structure with URLs of related resources.'
           readOnly: true
-          type: string
-        relevance:
-          type: number
-        role_type:
-          readOnly: true
-          type: string
-        search_rank:
-          type: number
+          type: object
+          additionalProperties:
+            type: string
         summary_fields:
           description: >-
             Data structure with name/description for related
             resources.
           readOnly: true
-          type: string
-        travis_status_url:
+          type: object
+          additionalProperties: true
+        active:
           readOnly: true
           type: string
-        url:
-          description: 'URL for this content.'
+        modified:
+          description: 'Timestamp when this object was last modified.'
           readOnly: true
           type: string
-        username:
+        created:
+          description: 'Timestamp when this object was created.'
           readOnly: true
           type: string
-      required:
-        - name
-        - relevance
-        - search_rank
-        - download_rank
+      
+    Content:
+      allOf:
+        - $ref: '#/components/schemas/V1BaseModel'
+        - type: object
+          properties:
+            company:
+              maxLength: 50
+              nullable: true
+              type: string
+            description:
+              maxLength: 255
+              type: string
+            download_count:
+              readOnly: true
+              type: string
+            download_rank:
+              type: number
+            imported:
+              format: date-time
+              nullable: true
+              type: string
+            is_valid:
+              readOnly: true
+              type: boolean
+            license:
+              maxLength: 50
+              type: string
+            min_ansible_version:
+              maxLength: 10
+              nullable: true
+              type: string
+            name:
+              maxLength: 512
+              type: string
+            relevance:
+              type: number
+            role_type:
+              readOnly: true
+              type: string
+            search_rank:
+              type: number
+            travis_status_url:
+              readOnly: true
+              type: string
+            username:
+              readOnly: true
+              type: string
+          required:
+            - name
+            - relevance
+            - search_rank
+            - download_rank
           
     Namespace:
       description: 'A Namespace'
