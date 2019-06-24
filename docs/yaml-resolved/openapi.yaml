@@ -1109,7 +1109,7 @@ paths:
               $ref: '#/components/schemas/body_7'
       responses:
         202:
-          description: A collection version import task
+          description: Result of collection import task with task url
           content:
             application/json:
               schema:
@@ -2672,6 +2672,9 @@ components:
       properties:
         task:
           type: string
+          description: The url for the queued collection import task. Check it for
+            progress and status.
+      description: A map of collection import task info, including its url
     inline_response_200_16:
       type: object
       properties:
@@ -2712,6 +2715,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/inline_response_200_16'
+    CreateCollectionResult:
+      description: Result of collection import task with task url
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_202'
     Users:
       description: A page of users
       content:
