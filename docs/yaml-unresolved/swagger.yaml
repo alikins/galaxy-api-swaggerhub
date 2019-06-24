@@ -2271,6 +2271,7 @@ components:
         previous:
           $ref: '#/components/schemas/PagePrevious'
         results:
+          description: 'List of CollectionVersionLinks for this Page'
           type: array
           items:
             $ref: '#/components/schemas/CollectionVersionLink'
@@ -2328,6 +2329,21 @@ components:
           type: string
       required:
         - username
+    UsersPage:
+      description: "A page of a list of Users"
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          description: 'List of Users for this Page'
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
     SearchRolesResult:
       type: object
       properties:
@@ -2429,7 +2445,7 @@ components:
           schema:
             $ref: '#/components/schemas/APIException'
     CollectionVersions:
-      description: A page of collection version links
+      description: 'Response containing a page of CollectionVersionLinks'
       content:
         application/json:
           schema:
@@ -2446,22 +2462,11 @@ components:
                 description: 'The url for the queued collection import task. Check it for progress and status.'
                 type: string
     Users:
-      description: A page of users
+      description: 'Response containing a Page of a list of Users'
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              count:
-                $ref: '#/components/schemas/PageCount'
-              next:
-                $ref: '#/components/schemas/PageNext'
-              previous:
-                $ref: '#/components/schemas/PagePrevious'
-              results:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'            
+            $ref: '#/components/schemas/UsersPage'           
   parameters:
     Page:
       description: A page number within the paginated result set.
