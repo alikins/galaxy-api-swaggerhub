@@ -1109,6 +1109,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Namespaces'
+
   /api/v1/search/:
     get:
       operationId: ListSearch
@@ -1753,11 +1754,30 @@ paths:
         - v2
       responses:
         '200':
+          description: A collection version
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CollectionVersion'
-          description: A collection version
+          links:
+            GetCollectionVersionById:
+              operationId: GetCollectionVersionById
+              parameters:
+                id: '$response.body#/id'
+              description: >
+                The `id` value returned in the response can be used as
+                the `id` parameter in `{method} GET /api/v2/collection-versions/{id}`.
+            GetCollectionById:
+              operationId: GetCollectionById
+              parameters:
+                id: '$response.body#/collection/id'
+            DownloadArtifactByFilename:
+              operationId: DownloadArtifactByFilename
+              parameters:
+                id: '$response.body#/artifact/filename'
+              description: >
+                The `filename` value returned in the response can be used as
+                the `filename` parameter in `GET /download/{filename}`.                
   '/api/v2/collections/{namespace}/{name}/versions/{version}/artifact/':
     parameters:
       - $ref: '#/components/parameters/CollectionNamespace'
@@ -2400,6 +2420,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NamespacesPage'
+      links:
+        GetCollectionByNamespace: #  name for link
+          operationId: GetCollectionByNamespaceName
+          parameters:
+            namespace: '$response.body#/name'
+          description: >
+            The `name` value returned in the response can be used as
+            the `namespace` parameter in `GET /collections/{namespace}/{name}`.
     Tags:
       description: 'Response containing a Page of a list of Tags'
       content:
