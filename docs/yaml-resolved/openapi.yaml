@@ -1236,66 +1236,41 @@ components:
             type: string
             readOnly: true
     Namespace:
-      required:
-      - name
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        avatar_url:
-          maxLength: 256
-          type: string
-          nullable: true
-        company:
-          maxLength: 256
-          type: string
-          nullable: true
-        created:
-          type: string
-          description: Timestamp when this namespace was created.
-          readOnly: true
-        description:
-          maxLength: 255
-          type: string
-        email:
-          maxLength: 256
-          type: string
-          nullable: true
-        html_url:
-          maxLength: 256
-          type: string
-          nullable: true
-        id:
-          type: integer
-          description: Database ID for this namespace.
-          readOnly: true
-        is_vendor:
-          type: boolean
-        location:
-          maxLength: 256
-          type: string
-          nullable: true
-        modified:
-          type: string
-          description: Timestamp when this namespace was last modified.
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this namespace.
-          readOnly: true
       description: A Namespace
+      allOf:
+      - $ref: '#/components/schemas/V1BaseModel'
+      - required:
+        - name
+        type: object
+        properties:
+          avatar_url:
+            maxLength: 256
+            type: string
+            nullable: true
+          company:
+            maxLength: 256
+            type: string
+            nullable: true
+          description:
+            maxLength: 255
+            type: string
+          email:
+            maxLength: 256
+            type: string
+            nullable: true
+          html_url:
+            maxLength: 256
+            type: string
+            nullable: true
+          is_vendor:
+            type: boolean
+          location:
+            maxLength: 256
+            type: string
+            nullable: true
+          name:
+            maxLength: 512
+            type: string
     Role:
       required:
       - download_rank
