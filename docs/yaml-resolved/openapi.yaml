@@ -1202,7 +1202,7 @@ paths:
           type: string
       responses:
         200:
-          description: A page of collection version links
+          description: Response containing a page of CollectionVersionLinks
           content:
             application/json:
               schema:
@@ -1292,7 +1292,7 @@ paths:
           type: string
       responses:
         200:
-          description: A page of collection version links
+          description: Response containing a page of CollectionVersionLinks
           content:
             application/json:
               schema:
@@ -1716,6 +1716,7 @@ components:
           $ref: '#/components/schemas/PagePrevious'
         results:
           type: array
+          description: List of CollectionVersionLinks for this Page
           items:
             $ref: '#/components/schemas/CollectionVersionLink'
       description: A page of a list of CollectionVersionLinks
@@ -1770,6 +1771,21 @@ components:
           description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
             characters
       description: A v1 User
+    UsersPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of Users for this Page
+          items:
+            $ref: '#/components/schemas/User'
+      description: A page of a list of Users
     SearchRolesResult:
       required:
       - download_rank
@@ -2711,7 +2727,7 @@ components:
           schema:
             $ref: '#/components/schemas/APIException'
     CollectionVersions:
-      description: A page of collection version links
+      description: Response containing a page of CollectionVersionLinks
       content:
         application/json:
           schema:
@@ -2723,22 +2739,11 @@ components:
           schema:
             $ref: '#/components/schemas/inline_response_202'
     Users:
-      description: A page of users
+      description: Response containing a Page of a list of Users
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              count:
-                $ref: '#/components/schemas/PageCount'
-              next:
-                $ref: '#/components/schemas/PageNext'
-              previous:
-                $ref: '#/components/schemas/PagePrevious'
-              results:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
+            $ref: '#/components/schemas/UsersPage'
   parameters:
     Page:
       name: page
