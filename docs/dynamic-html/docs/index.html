@@ -34,7 +34,7 @@
             <a href="#!/CollectionImportsApi">CollectionImportsApi</a>
           </div>
           <ul>
-            <li><a href="#!/CollectionImportsApi#retrieveCollectionImportViewApiV2CollectionImportsId">retrieveCollectionImportViewApiV2CollectionImportsId</a></li>
+            <li><a href="#!/CollectionImportsApi#getCollectionImportById">getCollectionImportById</a></li>
           </ul>
         </div>
         <div class="section-box">
@@ -42,8 +42,8 @@
             <a href="#!/CollectionVersionsApi">CollectionVersionsApi</a>
           </div>
           <ul>
-            <li><a href="#!/CollectionVersionsApi#getCollectionVersionDetail">getCollectionVersionDetail</a></li>
-            <li><a href="#!/CollectionVersionsApi#retrieveCollectionArtifactViewApiV2CollectionVersionsIdArtifact">retrieveCollectionArtifactViewApiV2CollectionVersionsIdArtifact</a></li>
+            <li><a href="#!/CollectionVersionsApi#getCollectionVersionArtifactById">getCollectionVersionArtifactById</a></li>
+            <li><a href="#!/CollectionVersionsApi#getCollectionVersionByVersionPk">getCollectionVersionByVersionPk</a></li>
           </ul>
         </div>
         <div class="section-box">
@@ -51,17 +51,17 @@
             <a href="#!/CollectionsApi">CollectionsApi</a>
           </div>
           <ul>
-            <li><a href="#!/CollectionsApi#createCollectionListViewApiV2Collections">createCollectionListViewApiV2Collections</a></li>
+            <li><a href="#!/CollectionsApi#getCollectionById">getCollectionById</a></li>
             <li><a href="#!/CollectionsApi#getCollectionByNamespaceName">getCollectionByNamespaceName</a></li>
             <li><a href="#!/CollectionsApi#getCollectionVersion">getCollectionVersion</a></li>
             <li><a href="#!/CollectionsApi#getCollectionVersionArtifact">getCollectionVersionArtifact</a></li>
             <li><a href="#!/CollectionsApi#getInternalUICollections">getInternalUICollections</a></li>
             <li><a href="#!/CollectionsApi#getInternalUiCollectionsDetailByNamespaceName">getInternalUiCollectionsDetailByNamespaceName</a></li>
+            <li><a href="#!/CollectionsApi#importCollectionVersionArtifact">importCollectionVersionArtifact</a></li>
             <li><a href="#!/CollectionsApi#listCollectionVersionsById">listCollectionVersionsById</a></li>
             <li><a href="#!/CollectionsApi#listCollectionVersionsByNamespaceName">listCollectionVersionsByNamespaceName</a></li>
             <li><a href="#!/CollectionsApi#patchInternalUiCollectionDetail">patchInternalUiCollectionDetail</a></li>
             <li><a href="#!/CollectionsApi#putInternalCollectionsDetail">putInternalCollectionsDetail</a></li>
-            <li><a href="#!/CollectionsApi#retrieveCollectionDetailViewApiV2CollectionsId">retrieveCollectionDetailViewApiV2CollectionsId</a></li>
           </ul>
         </div>
         <div class="section-box">
@@ -171,10 +171,9 @@
             <a href="#!/UsersApi">UsersApi</a>
           </div>
           <ul>
-            <li><a href="#!/UsersApi#listUserListApiV1Users">listUserListApiV1Users</a></li>
-            <li><a href="#!/UsersApi#listUserStarredListApiV1UsersIdStarred">listUserStarredListApiV1UsersIdStarred</a></li>
+            <li><a href="#!/UsersApi#getUserById">getUserById</a></li>
+            <li><a href="#!/UsersApi#listUsers">listUsers</a></li>
             <li><a href="#!/UsersApi#partialUpdateUserDetailApiV1UsersId">partialUpdateUserDetailApiV1UsersId</a></li>
-            <li><a href="#!/UsersApi#retrieveUserDetailApiV1UsersId">retrieveUserDetailApiV1UsersId</a></li>
           </ul>
         </div>
         <div class="section-box">
@@ -184,6 +183,7 @@
           <ul>
             <li><a href="#!/V1Api#getMeDetail">getMeDetail</a></li>
             <li><a href="#!/V1Api#getTagDetail">getTagDetail</a></li>
+            <li><a href="#!/V1Api#getUserById">getUserById</a></li>
             <li><a href="#!/V1Api#listApiV1">listApiV1</a></li>
             <li><a href="#!/V1Api#listContentSearch">listContentSearch</a></li>
             <li><a href="#!/V1Api#listNamespaces">listNamespaces</a></li>
@@ -191,10 +191,8 @@
             <li><a href="#!/V1Api#listSearch">listSearch</a></li>
             <li><a href="#!/V1Api#listTags">listTags</a></li>
             <li><a href="#!/V1Api#listTagsSearchViewApiV1SearchTags">listTagsSearchViewApiV1SearchTags</a></li>
-            <li><a href="#!/V1Api#listUserListApiV1Users">listUserListApiV1Users</a></li>
-            <li><a href="#!/V1Api#listUserStarredListApiV1UsersIdStarred">listUserStarredListApiV1UsersIdStarred</a></li>
+            <li><a href="#!/V1Api#listUsers">listUsers</a></li>
             <li><a href="#!/V1Api#partialUpdateUserDetailApiV1UsersId">partialUpdateUserDetailApiV1UsersId</a></li>
-            <li><a href="#!/V1Api#retrieveUserDetailApiV1UsersId">retrieveUserDetailApiV1UsersId</a></li>
           </ul>
         </div>
         <div class="section-box">
@@ -202,16 +200,16 @@
             <a href="#!/V2Api">V2Api</a>
           </div>
           <ul>
-            <li><a href="#!/V2Api#createCollectionListViewApiV2Collections">createCollectionListViewApiV2Collections</a></li>
+            <li><a href="#!/V2Api#getCollectionById">getCollectionById</a></li>
             <li><a href="#!/V2Api#getCollectionByNamespaceName">getCollectionByNamespaceName</a></li>
+            <li><a href="#!/V2Api#getCollectionImportById">getCollectionImportById</a></li>
             <li><a href="#!/V2Api#getCollectionVersion">getCollectionVersion</a></li>
             <li><a href="#!/V2Api#getCollectionVersionArtifact">getCollectionVersionArtifact</a></li>
-            <li><a href="#!/V2Api#getCollectionVersionDetail">getCollectionVersionDetail</a></li>
+            <li><a href="#!/V2Api#getCollectionVersionArtifactById">getCollectionVersionArtifactById</a></li>
+            <li><a href="#!/V2Api#getCollectionVersionByVersionPk">getCollectionVersionByVersionPk</a></li>
+            <li><a href="#!/V2Api#importCollectionVersionArtifact">importCollectionVersionArtifact</a></li>
             <li><a href="#!/V2Api#listCollectionVersionsById">listCollectionVersionsById</a></li>
             <li><a href="#!/V2Api#listCollectionVersionsByNamespaceName">listCollectionVersionsByNamespaceName</a></li>
-            <li><a href="#!/V2Api#retrieveCollectionArtifactViewApiV2CollectionVersionsIdArtifact">retrieveCollectionArtifactViewApiV2CollectionVersionsIdArtifact</a></li>
-            <li><a href="#!/V2Api#retrieveCollectionDetailViewApiV2CollectionsId">retrieveCollectionDetailViewApiV2CollectionsId</a></li>
-            <li><a href="#!/V2Api#retrieveCollectionImportViewApiV2CollectionImportsId">retrieveCollectionImportViewApiV2CollectionImportsId</a></li>
           </ul>
         </div>
       </div>
