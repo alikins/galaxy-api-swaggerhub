@@ -1,0 +1,1749 @@
+openapi: 3.0.0
+info:
+  title: Galaxy 3.2 API (wip)
+  description: Galaxy 3.2 API (wip)
+  contact:
+    name: Ansible Galaxy Issues
+    url: https://github.com/ansible/galaxy/issues
+  version: 1.2.0
+externalDocs:
+  url: https://galaxy.ansible.com/docs/
+servers:
+- url: https://galaxy.ansible.com/
+  description: Production server (uses live data)
+- url: https://galaxy-dev.ansible.com/
+  description: shared public dev server
+- url: http://localhost:8000
+  description: local sandbox
+tags:
+- name: Collections
+  externalDocs:
+    description: Creating Collections docs at galaxy.ansible.com
+    url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
+- name: Collection-Imports
+- name: Collection-Versions
+- name: Download
+- name: Introspection
+  description: API used to gather information about the API itself
+- name: v2
+  description: API endpoints from the v2 API
+- name: Notifications
+- name: Me
+  description: API endpoints related to the current user.
+- name: Search
+- name: Namespaces
+- name: Tags
+  description: API endpoint for Ansible Galaxy tags.
+- name: Users
+- name: v1
+  description: API endpoints from the v1 API.
+paths:
+  /api/:
+    get:
+      tags:
+      - introspection
+      summary: Get info about the API
+      operationId: GetAPI
+      parameters: []
+      responses:
+        200:
+          description: A map of endpoints in the API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIEndpoints'
+  /api/v1/:
+    get:
+      tags:
+      - introspection
+      - v1
+      summary: Get info about the v1 API
+      operationId: GetApiV1
+      parameters: []
+      responses:
+        200:
+          description: A map of endpoints in the v1 API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIEndpoints'
+  /api/v1/search/:
+    get:
+      tags:
+      - search
+      - introspection
+      - v1
+      summary: Get info about the v1 search API
+      operationId: GetApiV1Search
+      parameters: []
+      responses:
+        200:
+          description: A map of endpoints in the v1 search API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIEndpoints'
+  /api/v1/me/:
+    get:
+      tags:
+      - me
+      - v1
+      summary: Get the User info for the current user
+      operationId: GetMeDetail
+      parameters:
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Response with the current User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/v1/namespaces/:
+    get:
+      tags:
+      - namespaces
+      - v1
+      summary: Get a list of Namespaces
+      operationId: ListNamespaces
+      parameters:
+      - name: page
+        in: query
+        description: Page number within the paginated result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 1000
+          minimum: 0
+          type: integer
+          default: 10
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Response containing a Page of a list of Namespaces
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamespacesPage'
+  /api/v1/search/content/:
+    get:
+      tags:
+      - search
+      - v1
+      summary: Get a list of Contents by searching
+      operationId: ListContentBySearch
+      parameters:
+      - name: page
+        in: query
+        description: Page number within the paginated result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 1000
+          minimum: 0
+          type: integer
+          default: 10
+      responses:
+        200:
+          description: Response containing a Page of Content search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentsPage'
+  /api/v1/search/roles/:
+    get:
+      tags:
+      - search
+      - v1
+      operationId: ListRoleBySearch
+      parameters:
+      - name: page
+        in: query
+        description: Page number within the paginated result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 1000
+          minimum: 0
+          type: integer
+          default: 10
+      responses:
+        200:
+          description: Response containing a Page of a list of Roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolesPage'
+  /api/v1/search/tags/:
+    get:
+      tags:
+      - search
+      - v1
+      summary: Get a list of Tags by searching
+      operationId: ListTagBySearch
+      parameters:
+      - name: page
+        in: query
+        description: Page number within the paginated result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 1000
+          minimum: 0
+          type: integer
+          default: 10
+      responses:
+        200:
+          description: Response containing a Page of a list of Tags
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagsPage'
+  /api/v1/tags/:
+    get:
+      tags:
+      - tags
+      - v1
+      summary: Get a list of Galaxy Tags
+      operationId: ListTags
+      parameters:
+      - name: page
+        in: query
+        description: Page number within the paginated result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 1000
+          minimum: 0
+          type: integer
+          default: 10
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Response containing a Page of a list of Tags
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagsPage'
+  /api/v1/tags/{id}/:
+    get:
+      tags:
+      - tags
+      - v1
+      summary: Get a Galaxy Tag
+      operationId: GetTagById
+      parameters:
+      - name: id
+        in: path
+        description: Tag id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: A Galaxy Tag
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+  /api/v1/users/:
+    get:
+      tags:
+      - users
+      - v1
+      summary: Get a list of Users
+      operationId: ListUsers
+      parameters:
+      - name: page
+        in: query
+        description: Page number within the paginated result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 1000
+          minimum: 0
+          type: integer
+          default: 10
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Response containing a Page of a list of Users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersPage'
+  /api/v1/users/{id}/:
+    get:
+      tags:
+      - users
+      - v1
+      summary: Get an User by id
+      operationId: GetUserById
+      parameters:
+      - name: id
+        in: path
+        description: User id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Response with a User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    patch:
+      tags:
+      - users
+      - v1
+      summary: Patch/update an User by id
+      operationId: PatchUserById
+      parameters:
+      - name: id
+        in: path
+        description: User id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      requestBody:
+        description: An User to update to
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+      responses:
+        200:
+          description: The User updated by the PATCH
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/v2/collection-imports/{id}/:
+    get:
+      tags:
+      - collection-imports
+      - v2
+      summary: Get a Collection-Import (import task) by id
+      operationId: GetCollectionImportById
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this collection import.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: The result of a collection import
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionImportResult'
+  /api/v2/collection-versions/{id}/artifact/:
+    get:
+      tags:
+      - collection-versions
+      - v2
+      operationId: GetCollectionVersionArtifactById
+      parameters:
+      - name: id
+        in: path
+        description: The CollectionVersion id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: The collection version artifact details with download_url,
+            sha256, and filename
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionArtifactDetail'
+  /api/v2/collection-versions/{version_pk}/:
+    get:
+      tags:
+      - collection-versions
+      - v2
+      summary: Get a CollectionVersion by version_pk
+      operationId: GetCollectionVersionByVersionPk
+      parameters:
+      - name: version_pk
+        in: path
+        description: The CollectionVersion version_pk
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: Response contain a CollectionVersion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersion'
+          links:
+            GetCollectionVersionById:
+              operationId: GetCollectionVersionById
+              parameters:
+                id: $response.body#/id
+              description: |
+                The `id` value returned in the response can be used as the `id` parameter in `{method} GET /api/v2/collection-versions/{id}`.
+            GetCollectionById:
+              operationId: GetCollectionById
+              parameters:
+                id: $response.body#/collection/id
+            DownloadArtifactByFilename:
+              operationId: DownloadArtifactByFilename
+              parameters:
+                id: $response.body#/artifact/filename
+              description: |
+                The `filename` value returned in the response can be used as the `filename` parameter in `GET /download/{filename}`.
+  /api/v2/collections/:
+    post:
+      tags:
+      - collections
+      - v2
+      summary: Create a new CollectionVersion by importing a collection artifact
+      operationId: ImportCollectionVersionArtifact
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/CollectionVersionArtifactBody'
+      responses:
+        202:
+          description: Result of collection import task with task url
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionCreationResult'
+        401:
+          description: Authorization error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIException'
+        409:
+          description: Conflict Error
+          content:
+            application/json:
+              schema:
+                discriminator:
+                  propertyName: code
+                  mapping:
+                    conflict: '#/components/schemas/ConflictError'
+                    conflict.collection_exists: '#/components/schemas/ConflictCollectionExistsError'
+                    conflict.repository_name_conflict: '#/compontents/schemas/RepositoryNameError'
+                    conflict.artifact_exists: '#/compontents/schemas/ArtifactExistsError'
+                oneOf:
+                - $ref: '#/components/schemas/ConflictError'
+  /api/v2/collections/{id}/:
+    get:
+      tags:
+      - collections
+      - v2
+      summary: Get a Collection by id
+      operationId: GetCollectionById
+      parameters:
+      - name: id
+        in: path
+        description: The Collection id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: A Collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+  /api/v2/collections/{id}/versions/:
+    get:
+      tags:
+      - collections
+      - v2
+      summary: Get list of versions for a collection id
+      operationId: ListCollectionVersionsById
+      parameters:
+      - name: id
+        in: path
+        description: The Collection id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page number within the paginated result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 1000
+          minimum: 0
+          type: integer
+          default: 10
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Response containing a page of CollectionVersionLinks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionsPage'
+  /api/v2/collections/{namespace}/{name}/:
+    get:
+      tags:
+      - collections
+      - v2
+      summary: Get a Collection by namespace and name
+      operationId: GetCollectionByNamespaceName
+      parameters:
+      - name: namespace
+        in: path
+        description: The collection namespace
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: name
+        in: path
+        description: The collection name
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$'
+          type: string
+      responses:
+        200:
+          description: A Collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+  /api/v2/collections/{namespace}/{name}/versions/:
+    get:
+      tags:
+      - collections
+      - v2
+      summary: Get a list of CollectionVersions for a Collection by namespace and
+        name
+      operationId: ListCollectionVersionsByNamespaceName
+      parameters:
+      - name: namespace
+        in: path
+        description: The collection namespace
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: name
+        in: path
+        description: The collection name
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$'
+          type: string
+      - name: page
+        in: query
+        description: Page number within the paginated result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 1000
+          minimum: 0
+          type: integer
+          default: 10
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Response containing a page of CollectionVersionLinks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionsPage'
+  /api/v2/collections/{namespace}/{name}/versions/{version}/:
+    get:
+      tags:
+      - collections
+      - v2
+      summary: Get a CollectionVersion by namespace, name, and version
+      operationId: GetCollectionVersion
+      parameters:
+      - name: namespace
+        in: path
+        description: The collection namespace
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: name
+        in: path
+        description: The collection name
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$'
+          type: string
+      - name: version
+        in: path
+        description: A Semantic Version string
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^((([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$
+          type: string
+      responses:
+        200:
+          description: Response contain a CollectionVersion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersion'
+          links:
+            GetCollectionVersionById:
+              operationId: GetCollectionVersionById
+              parameters:
+                id: $response.body#/id
+              description: |
+                The `id` value returned in the response can be used as the `id` parameter in `{method} GET /api/v2/collection-versions/{id}`.
+            GetCollectionById:
+              operationId: GetCollectionById
+              parameters:
+                id: $response.body#/collection/id
+            DownloadArtifactByFilename:
+              operationId: DownloadArtifactByFilename
+              parameters:
+                id: $response.body#/artifact/filename
+              description: |
+                The `filename` value returned in the response can be used as the `filename` parameter in `GET /download/{filename}`.
+  /api/v2/collections/{namespace}/{name}/versions/{version}/artifact/:
+    get:
+      tags:
+      - collections
+      - v2
+      summary: Get Artifact details for a Collection by namespace, name, and version
+      operationId: GetCollectionVersionArtifact
+      parameters:
+      - name: namespace
+        in: path
+        description: The collection namespace
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: name
+        in: path
+        description: The collection name
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$'
+          type: string
+      - name: version
+        in: path
+        description: A Semantic Version string
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^((([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$
+          type: string
+      - name: search
+        in: query
+        description: Term to search for
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: The collection version artifact details with download_url,
+            sha256, and filename
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionArtifactDetail'
+  /download/{filename}:
+    get:
+      tags:
+      - download
+      summary: Download the collection artifact
+      operationId: DownloadArtifactByFilename
+      parameters:
+      - name: filename
+        in: path
+        description: CollectionVersion artifact filename
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: The collection artifact file binary contents
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    Error:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Unique identifier for the error
+          example: invalid
+        message:
+          type: string
+          example: namespace and name parameters are required
+        field:
+          type: string
+          description: The name of the field involved
+          example: namespace
+      description: Error data
+    APIException:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Unique identifier for the exception
+          example: not_authenticated
+        message:
+          type: string
+          example: Authentication credentials were not provided.
+        errors:
+          type: array
+          description: A list of additional error objects
+          items:
+            $ref: '#/components/schemas/Error'
+      description: API Exception
+    ConflictError:
+      allOf:
+      - $ref: '#/components/schemas/APIException'
+    ConflictCollectionExistsError:
+      allOf:
+      - $ref: '#/components/schemas/ConflictError'
+    RepositoryNameError:
+      allOf:
+      - $ref: '#/components/schemas/ConflictError'
+    ArtifactExistsError:
+      allOf:
+      - $ref: '#/components/schemas/ConflictError'
+    ValidationError:
+      allOf:
+      - $ref: '#/components/schemas/APIException'
+    APIEndpoints:
+      type: object
+      additionalProperties:
+        type: string
+      description: Map of API endpoint names to URLS
+    PageCount:
+      type: integer
+    PageNext:
+      type: string
+    PagePrevious:
+      type: string
+    CollectionVersionLink:
+      type: object
+      properties:
+        href:
+          type: string
+          description: The URL to the CollectionVersion
+        version:
+          maxLength: 64
+          type: string
+    CollectionVersionArtifactDetail:
+      type: object
+      properties:
+        download_url:
+          type: string
+          readOnly: true
+        filename:
+          type: string
+          readOnly: true
+        sha256:
+          type: string
+        size:
+          type: integer
+    Collection:
+      type: object
+      properties:
+        latest_version:
+          $ref: '#/components/schemas/CollectionVersionLink'
+        created:
+          type: string
+        deprecated:
+          type: boolean
+        name:
+          type: string
+        namespace:
+          $ref: '#/components/schemas/CollectionNamespace'
+        modified:
+          type: string
+        id:
+          type: integer
+        href:
+          type: string
+        versions_url:
+          type: string
+    CollectionImportError:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        traceback:
+          type: string
+    CollectionImportMessage:
+      required:
+      - level
+      - message
+      - time
+      type: object
+      properties:
+        level:
+          type: string
+        message:
+          type: string
+        time:
+          type: string
+          format: date-time
+      description: Message from collection importer including lint results
+    CollectionCreationResult:
+      type: object
+      properties:
+        task:
+          type: string
+          description: The url for the queued collection import task. Check it for
+            progress and status.
+      description: A map of collection import task info, including its url
+    CollectionImportResult:
+      required:
+      - error
+      - finished_at
+      - id
+      - job_id
+      - lint_records
+      - messages
+      - name
+      - namespace
+      - started_at
+      - state
+      - version
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/CollectionImportError'
+        finished_at:
+          type: string
+          format: date-time
+        id:
+          type: integer
+        imported_version:
+          type: string
+          readOnly: true
+        job_id:
+          type: string
+          format: uuid
+        lint_records:
+          type: object
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionImportMessage'
+        name:
+          maxLength: 64
+          type: string
+        namespace:
+          type: string
+        started_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+        version:
+          maxLength: 64
+          type: string
+      description: Collection import result
+    CollectionNamespace:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+        href:
+          type: string
+          description: link to the Namespace
+    CollectionVersionDetailCollection:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+        href:
+          type: string
+          description: link to the Collection
+    CollectionVersionDetailArtifact:
+      type: object
+      properties:
+        filename:
+          type: string
+        size:
+          type: integer
+        sha256:
+          type: string
+    CollectionVersionDetailMetadata:
+      type: object
+      properties:
+        documentation:
+          type: object
+        description:
+          type: string
+        readme:
+          type: string
+        repository:
+          type: object
+        issues:
+          type: object
+        version:
+          type: string
+        license_file:
+          type: object
+        tags:
+          type: array
+          items:
+            type: string
+        dependencies:
+          type: object
+        license:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        authors:
+          type: array
+          items:
+            type: string
+        homepage:
+          type: object
+      description: The Collection Version metadata from collections galaxy.yml or
+        MANIFEST.JSON
+    CollectionVersion:
+      type: object
+      properties:
+        artifact:
+          $ref: '#/components/schemas/CollectionVersionDetailArtifact'
+        metadata:
+          $ref: '#/components/schemas/CollectionVersionDetailMetadata'
+        hidden:
+          type: boolean
+        download_url:
+          type: string
+        namespace:
+          $ref: '#/components/schemas/CollectionNamespace'
+        id:
+          type: integer
+        href:
+          type: string
+        collection:
+          $ref: '#/components/schemas/CollectionVersionDetailCollection'
+    Content:
+      required:
+      - download_rank
+      - name
+      - relevance
+      - search_rank
+      type: object
+      properties:
+        active:
+          type: string
+          readOnly: true
+        company:
+          maxLength: 50
+          type: string
+          nullable: true
+        created:
+          type: string
+          description: Timestamp when this content was created.
+          readOnly: true
+        description:
+          maxLength: 255
+          type: string
+        download_count:
+          type: string
+          readOnly: true
+        download_rank:
+          type: number
+        id:
+          type: integer
+          description: Database ID for this content.
+          readOnly: true
+        imported:
+          type: string
+          format: date-time
+          nullable: true
+        is_valid:
+          type: boolean
+          readOnly: true
+        license:
+          maxLength: 50
+          type: string
+        min_ansible_version:
+          maxLength: 10
+          type: string
+          nullable: true
+        modified:
+          type: string
+          description: Timestamp when this content was last modified.
+          readOnly: true
+        name:
+          maxLength: 512
+          type: string
+        related:
+          type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        relevance:
+          type: number
+        role_type:
+          type: string
+          readOnly: true
+        search_rank:
+          type: number
+        summary_fields:
+          type: string
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        travis_status_url:
+          type: string
+          readOnly: true
+        url:
+          type: string
+          description: URL for this content.
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+    Namespace:
+      required:
+      - name
+      type: object
+      properties:
+        active:
+          type: string
+          readOnly: true
+        avatar_url:
+          maxLength: 256
+          type: string
+          nullable: true
+        company:
+          maxLength: 256
+          type: string
+          nullable: true
+        created:
+          type: string
+          description: Timestamp when this namespace was created.
+          readOnly: true
+        description:
+          maxLength: 255
+          type: string
+        email:
+          maxLength: 256
+          type: string
+          nullable: true
+        html_url:
+          maxLength: 256
+          type: string
+          nullable: true
+        id:
+          type: integer
+          description: Database ID for this namespace.
+          readOnly: true
+        is_vendor:
+          type: boolean
+        location:
+          maxLength: 256
+          type: string
+          nullable: true
+        modified:
+          type: string
+          description: Timestamp when this namespace was last modified.
+          readOnly: true
+        name:
+          maxLength: 512
+          type: string
+        related:
+          type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        summary_fields:
+          type: string
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        url:
+          type: string
+          description: URL for this namespace.
+          readOnly: true
+      description: A Namespace
+    Role:
+      required:
+      - download_rank
+      - name
+      - relevance
+      - search_rank
+      type: object
+      properties:
+        active:
+          type: string
+          readOnly: true
+        company:
+          maxLength: 50
+          type: string
+          nullable: true
+        created:
+          type: string
+          description: Timestamp when this content was created.
+          readOnly: true
+        description:
+          maxLength: 255
+          type: string
+        download_count:
+          type: string
+          readOnly: true
+        download_rank:
+          type: number
+        id:
+          type: integer
+          description: Database ID for this content.
+          readOnly: true
+        imported:
+          type: string
+          format: date-time
+          nullable: true
+        is_valid:
+          type: boolean
+          readOnly: true
+        license:
+          maxLength: 50
+          type: string
+        min_ansible_version:
+          maxLength: 10
+          type: string
+          nullable: true
+        modified:
+          type: string
+          description: Timestamp when this content was last modified.
+          readOnly: true
+        name:
+          maxLength: 512
+          type: string
+        related:
+          type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        relevance:
+          type: number
+        role_type:
+          type: string
+          readOnly: true
+        search_rank:
+          type: number
+        summary_fields:
+          type: string
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        travis_status_url:
+          type: string
+          readOnly: true
+        url:
+          type: string
+          description: URL for this content.
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+      description: An Ansible Role
+    Tag:
+      required:
+      - name
+      type: object
+      properties:
+        active:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          description: Timestamp when this tag was created.
+          readOnly: true
+        id:
+          type: integer
+          description: Database ID for this tag.
+          readOnly: true
+        modified:
+          type: string
+          description: Timestamp when this tag was last modified.
+          readOnly: true
+        name:
+          maxLength: 512
+          type: string
+        related:
+          type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        summary_fields:
+          type: string
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        url:
+          type: string
+          description: URL for this tag.
+          readOnly: true
+      description: A v1 galaxy Tag
+    User:
+      required:
+      - username
+      type: object
+      properties:
+        active:
+          type: string
+          readOnly: true
+        avatar_url:
+          maxLength: 256
+          type: string
+        created:
+          type: string
+          description: Timestamp when this user was created.
+          readOnly: true
+        date_joined:
+          type: string
+          format: date-time
+        full_name:
+          maxLength: 254
+          type: string
+        id:
+          type: integer
+          description: Database ID for this user.
+          readOnly: true
+        modified:
+          type: string
+          description: Timestamp when this user was last modified.
+          readOnly: true
+        related:
+          type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        staff:
+          type: string
+          readOnly: true
+        summary_fields:
+          type: string
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        url:
+          type: string
+          description: URL for this user.
+          readOnly: true
+        username:
+          maxLength: 30
+          pattern: ^[a-zA-Z0-9_.@+-]+$
+          type: string
+          description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
+            characters
+      description: A v1 User
+    CollectionVersionsPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of CollectionVersionLinks for this Page
+          items:
+            $ref: '#/components/schemas/CollectionVersionLink'
+      description: A page of a list of CollectionVersionLinks
+    ContentsPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of Contents for this Page
+          items:
+            $ref: '#/components/schemas/Content'
+      description: A page of a list of Contents
+    NamespacesPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of Namespaces for this Page
+          items:
+            $ref: '#/components/schemas/Namespace'
+      description: A Page of a list of Namespaces
+    RolesPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of Roles for this Page
+          items:
+            $ref: '#/components/schemas/Role'
+      description: A Page of a list of Roles
+    TagsPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of Tags for this Page
+          items:
+            $ref: '#/components/schemas/Tag'
+      description: A page of a list of Galaxy Tags
+    UsersPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of Users for this Page
+          items:
+            $ref: '#/components/schemas/User'
+      description: A page of a list of Users
+    body:
+      type: object
+      properties:
+        avatar_url:
+          maxLength: 256
+          type: string
+        date_joined:
+          type: string
+          format: date-time
+        full_name:
+          maxLength: 254
+          type: string
+        username:
+          maxLength: 30
+          pattern: ^[a-zA-Z0-9_.@+-]+$
+          type: string
+          description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
+            characters
+  responses:
+    Conflict:
+      description: Conflict Error
+      content:
+        application/json:
+          schema:
+            discriminator:
+              propertyName: code
+              mapping:
+                conflict: '#/components/schemas/ConflictError'
+                conflict.collection_exists: '#/components/schemas/ConflictCollectionExistsError'
+                conflict.repository_name_conflict: '#/compontents/schemas/RepositoryNameError'
+                conflict.artifact_exists: '#/compontents/schemas/ArtifactExistsError'
+            oneOf:
+            - $ref: '#/components/schemas/ConflictError'
+    Unauthorized:
+      description: Authorization error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIException'
+    CollectionVersions:
+      description: Response containing a page of CollectionVersionLinks
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CollectionVersionsPage'
+    CollectionVersion:
+      description: Response contain a CollectionVersion
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CollectionVersion'
+      links:
+        GetCollectionVersionById:
+          operationId: GetCollectionVersionById
+          parameters:
+            id: $response.body#/id
+          description: |
+            The `id` value returned in the response can be used as the `id` parameter in `{method} GET /api/v2/collection-versions/{id}`.
+        GetCollectionById:
+          operationId: GetCollectionById
+          parameters:
+            id: $response.body#/collection/id
+        DownloadArtifactByFilename:
+          operationId: DownloadArtifactByFilename
+          parameters:
+            id: $response.body#/artifact/filename
+          description: |
+            The `filename` value returned in the response can be used as the `filename` parameter in `GET /download/{filename}`.
+    CollectionVersionArtifact:
+      description: The collection version artifact details with download_url, sha256,
+        and filename
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CollectionVersionArtifactDetail'
+    CreateCollectionResult:
+      description: Result of collection import task with task url
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CollectionCreationResult'
+    Contents:
+      description: Response containing a Page of Content search results
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ContentsPage'
+    Users:
+      description: Response containing a Page of a list of Users
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UsersPage'
+    Namespaces:
+      description: Response containing a Page of a list of Namespaces
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NamespacesPage'
+    Roles:
+      description: Response containing a Page of a list of Roles
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RolesPage'
+    Tags:
+      description: Response containing a Page of a list of Tags
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TagsPage'
+  parameters:
+    Page:
+      name: page
+      in: query
+      description: Page number within the paginated result set.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+        default: 1
+    PageSize:
+      name: page_size
+      in: query
+      description: Number of results to return per page.
+      required: false
+      style: form
+      explode: true
+      schema:
+        maximum: 1000
+        minimum: 0
+        type: integer
+        default: 10
+    Search:
+      name: search
+      in: query
+      description: Term to search for
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    CollectionId:
+      name: id
+      in: path
+      description: The Collection id
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+    CollectionNamespace:
+      name: namespace
+      in: path
+      description: The collection namespace
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+    CollectionName:
+      name: name
+      in: path
+      description: The collection name
+      required: true
+      style: simple
+      explode: false
+      schema:
+        pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$'
+        type: string
+    CollectionVersion:
+      name: version
+      in: path
+      description: A Semantic Version string
+      required: true
+      style: simple
+      explode: false
+      schema:
+        pattern: ^((([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$
+        type: string
+    UserId:
+      name: id
+      in: path
+      description: User id
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+  requestBodies:
+    CollectionVersionArtifactBody:
+      description: A multipart/form encoded payload including the collection artifact
+        file and it's sha256sum
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              sha256:
+                type: string
+                description: The sha256sum of the collection artifact file
+              file:
+                type: string
+                format: binary
