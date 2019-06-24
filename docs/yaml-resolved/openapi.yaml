@@ -624,6 +624,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NamespacesPage'
+          links:
+            GetCollectionByNamespace:
+              operationId: GetCollectionByNamespaceName
+              parameters:
+                namespace: $response.body#/name
+              description: |
+                The `name` value returned in the response can be used as the `namespace` parameter in `GET /collections/{namespace}/{name}`.
   /api/v1/search/:
     get:
       tags:
@@ -1288,6 +1295,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CollectionVersion'
+          links:
+            GetCollectionVersionById:
+              operationId: GetCollectionVersionById
+              parameters:
+                id: $response.body#/id
+              description: |
+                The `id` value returned in the response can be used as the `id` parameter in `{method} GET /api/v2/collection-versions/{id}`.
+            GetCollectionById:
+              operationId: GetCollectionById
+              parameters:
+                id: $response.body#/collection/id
+            DownloadArtifactByFilename:
+              operationId: DownloadArtifactByFilename
+              parameters:
+                id: $response.body#/artifact/filename
+              description: "The `filename` value returned in the response can be used\
+                \ as the `filename` parameter in `GET /download/{filename}`.     \
+                \           \n"
   /api/v2/collections/{namespace}/{name}/versions/{version}/artifact/:
     get:
       tags:
@@ -2647,6 +2672,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NamespacesPage'
+      links:
+        GetCollectionByNamespace:
+          operationId: GetCollectionByNamespaceName
+          parameters:
+            namespace: $response.body#/name
+          description: |
+            The `name` value returned in the response can be used as the `namespace` parameter in `GET /collections/{namespace}/{name}`.
     Tags:
       description: Response containing a Page of a list of Tags
       content:
