@@ -16,25 +16,25 @@ servers:
 - url: http://localhost:8000
   description: local sandbox
 tags:
-- name: Collections
+- name: collections
   externalDocs:
     description: Creating Collections docs at galaxy.ansible.com
     url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
-- name: Collection-Imports
-- name: Collection-Versions
-- name: Download
-- name: Introspection
+- name: collection-imports
+- name: vollection-versions
+- name: download
+- name: introspection
   description: API used to gather information about the API itself
 - name: v2
   description: API endpoints from the v2 API
-- name: Notifications
-- name: Me
+- name: notifications
+- name: me
   description: API endpoints related to the current user.
-- name: Search
-- name: Namespaces
-- name: Tags
+- name: search
+- name: namespaces
+- name: tags
   description: API endpoint for Ansible Galaxy tags.
-- name: Users
+- name: users
 - name: v1
   description: API endpoints from the v1 API.
 paths:
