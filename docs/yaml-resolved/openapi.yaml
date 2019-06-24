@@ -848,11 +848,11 @@ paths:
           type: string
       responses:
         200:
-          description: some response
+          description: Authorization error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_13'
+                $ref: '#/components/schemas/APIException'
   /api/v1/users/{id}/:
     get:
       tags:
@@ -1166,6 +1166,7 @@ paths:
       parameters:
       - name: id
         in: path
+        description: The id of the Collection
         required: true
         style: simple
         explode: false
@@ -1704,6 +1705,57 @@ components:
           type: string
         collection:
           $ref: '#/components/schemas/CollectionVersionDetailCollection'
+    User:
+      required:
+      - username
+      type: object
+      properties:
+        active:
+          type: string
+          readOnly: true
+        avatar_url:
+          maxLength: 256
+          type: string
+        created:
+          type: string
+          description: Timestamp when this user was created.
+          readOnly: true
+        date_joined:
+          type: string
+          format: date-time
+        full_name:
+          maxLength: 254
+          type: string
+        id:
+          type: integer
+          description: Database ID for this user.
+          readOnly: true
+        modified:
+          type: string
+          description: Timestamp when this user was last modified.
+          readOnly: true
+        related:
+          type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        staff:
+          type: string
+          readOnly: true
+        summary_fields:
+          type: string
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        url:
+          type: string
+          description: URL for this user.
+          readOnly: true
+        username:
+          maxLength: 30
+          pattern: ^[a-zA-Z0-9_.@+-]+$
+          type: string
+          description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
+            characters
+      description: A v1 User
     SearchRolesResult:
       required:
       - download_rank
@@ -2660,6 +2712,23 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/inline_response_200_16'
+    Users:
+      description: A page of users
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: '#/components/schemas/PageCount'
+              next:
+                $ref: '#/components/schemas/PageNext'
+              previous:
+                $ref: '#/components/schemas/PagePrevious'
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
   parameters:
     Page:
       name: page
