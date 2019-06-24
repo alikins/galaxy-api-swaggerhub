@@ -2,7 +2,7 @@
 
 ## swaggerhub project
 
-[https://app.swaggerhub.com/apis/alikins/galaxy_MERGE/1.1.5](https://app.swaggerhub.com/apis/alikins/galaxy_MERGE/1.1.5)
+[https://app.swaggerhub.com/apis/alikins/galaxy_MERGE/1.2.0](https://app.swaggerhub.com/apis/alikins/galaxy_MERGE/1.2.0)
 
 ### Links to the galaxy openapi spec itself
 
