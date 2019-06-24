@@ -1306,25 +1306,10 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                  next:
-                    type: string
-                  previous:
-                    type: string
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/TagDetail'
-          description: A page of tag details
+          $ref: '#/components/responses/Tags'
   '/api/v1/tags/{id}/':
     get:
-      operationId: RetrieveTagDetail_api_v1_tags__id__
+      operationId: GetTagDetail
       tags:
         - tags
         - v1
@@ -1338,45 +1323,11 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
+          description: 'A Galaxy Tag'
           content:
             application/json:
               schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  created:
-                    description: Timestamp when this tag was created.
-                    readOnly: true
-                    type: string
-                  id:
-                    description: Database ID for this tag.
-                    readOnly: true
-                    type: integer
-                  modified:
-                    description: Timestamp when this tag was last modified.
-                    readOnly: true
-                    type: string
-                  name:
-                    maxLength: 512
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this tag.
-                    readOnly: true
-                    type: string
-                required:
-                  - name
-          description: some response
+                $ref: '#/components/schemas/Tag'
   /api/v1/users/:
     get:
       operationId: ListUserList_api_v1_users_
@@ -1389,6 +1340,7 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
+
           $ref: '#/components/responses/Users'
 
 
@@ -1914,42 +1866,7 @@ components:
         version:
           type: string
           maxLength: 64
-    TagDetail:
-      properties:
-        active:
-          readOnly: true
-          type: string
-        created:
-          description: Timestamp when this tag was created.
-          readOnly: true
-          type: string
-        id:
-          description: Database ID for this tag.
-          readOnly: true
-          type: integer
-        modified:
-          description: Timestamp when this tag was last modified.
-          readOnly: true
-          type: string
-        name:
-          maxLength: 512
-          type: string
-        related:
-          description: Data structure with URLs of related resources.
-          readOnly: true
-          type: string
-        summary_fields:
-          description: >-
-            Data structure with name/description for related
-            resources.
-          readOnly: true
-          type: string
-        url:
-          description: URL for this tag.
-          readOnly: true
-          type: string
-      required:
-        - name
+
     CollectionVersionArtifactDetail:
       type: object
       properties:
@@ -2206,6 +2123,59 @@ components:
           type: string
       required:
         - username
+    Tag:
+      description: 'A v1 galaxy Tag'
+      type: object
+      properties:
+        active:
+          readOnly: true
+          type: string
+        created:
+          description: Timestamp when this tag was created.
+          readOnly: true
+          type: string
+        id:
+          description: Database ID for this tag.
+          readOnly: true
+          type: integer
+        modified:
+          description: Timestamp when this tag was last modified.
+          readOnly: true
+          type: string
+        name:
+          maxLength: 512
+          type: string
+        related:
+          description: Data structure with URLs of related resources.
+          readOnly: true
+          type: string
+        summary_fields:
+          description: >-
+            Data structure with name/description for related
+            resources.
+          readOnly: true
+          type: string
+        url:
+          description: URL for this tag.
+          readOnly: true
+          type: string
+      required:
+        - name
+    TagsPage:
+      description: "A page of a list of Galaxy Tags"
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          description: 'List of Tags for this Page'
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
     UsersPage:
       description: "A page of a list of Users"
       type: object
@@ -2430,6 +2400,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NamespacesPage'
+    Tags:
+      description: 'Response containing a Page of a list of Tags'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TagsPage'
+
   parameters:
     Page:
       description: A page number within the paginated result set.
