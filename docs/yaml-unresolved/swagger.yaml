@@ -1,20 +1,20 @@
 info:
-  description: Galaxy 3.2 API (wip)
-  title: Galaxy 3.2 API (wip)
+  description: 'Galaxy 3.2 API (wip)'
+  title: 'Galaxy 3.2 API (wip)'
   version: "1.1.5"
   contact:
     url: https://github.com/ansible/galaxy/issues
-    name: Ansible Galaxy Issues
+    name: 'Ansible Galaxy Issues'
 openapi: 3.0.0
 servers:
   - url: https://galaxy.ansible.com/
-    description: Production server (uses live data)
+    description: 'Production server (uses live data)'
   - url: https://galaxy-dev.ansible.com/
-    description: shared public dev server
+    description: 'shared public dev server'
   - url: http://localhost:8000
-    description: local sandbox
+    description: 'local sandbox'
 paths:
-  /api/:
+  '/api/':
     get:
       operationId: GetAPI
       tags:
@@ -25,8 +25,8 @@ paths:
           content:
             application/json:
               schema: {}
-          description: some response
-  /api/internal/me/notifications/:
+          description: 'some response'
+  '/api/internal/me/notifications/':
     get:
       operationId: GetMeNotifications
       summary: List active user notifications
@@ -87,8 +87,8 @@ paths:
                     description: URL for this user notification.
                     readOnly: true
                     type: string
-          description: some response
-  /api/internal/me/notifications/clear/:
+          description: 'some response'
+  '/api/internal/me/notifications/clear/':
     delete:
       operationId: DeleteMeNotificationsClear
       tags:
@@ -101,7 +101,7 @@ paths:
           content:
             application/json:
               schema: {}
-          description: some response
+          description: 'some response'
     put:
       operationId: PutMeNotificationsClear
       tags:
@@ -114,7 +114,7 @@ paths:
           content:
             application/json:
               schema: {}
-          description: some response
+          description: 'some response'
   '/api/internal/me/notifications/{id}/':
     delete:
       operationId: DeleteMeNotificationsClearDetail
@@ -179,7 +179,7 @@ paths:
                     description: URL for this user notification.
                     readOnly: true
                     type: string
-          description: some response
+          description: 'some response'
     get:
       operationId: GetMeNotificationDetail
       tags:
@@ -243,7 +243,7 @@ paths:
                     description: URL for this user notification.
                     readOnly: true
                     type: string
-          description: some response
+          description: 'some response'
     patch:
       operationId: PatchMeNotificationsDetail
       tags:
@@ -265,7 +265,7 @@ paths:
               properties:
                 seen:
                   type: boolean
-        description: some body
+        description: 'some body'
       responses:
         '200':
           content:
@@ -315,7 +315,7 @@ paths:
                     description: URL for this user notification.
                     readOnly: true
                     type: string
-          description: some response
+          description: 'some response'
     put:
       operationId: PutMeNotificationsDetail
       tags:
@@ -337,7 +337,7 @@ paths:
               properties:
                 seen:
                   type: boolean
-        description: some body
+        description: 'some body'
       responses:
         '200':
           content:
@@ -388,7 +388,7 @@ paths:
                     readOnly: true
                     type: string
           description: some response
-  /api/internal/me/preferences/:
+  '/api/internal/me/preferences/':
     get:
       operationId: GetInternalMePreferences
       tags:
@@ -443,7 +443,7 @@ paths:
                     type: string
                 required:
                   - preferences
-          description: some response
+          description: 'some response'
     patch:
       operationId: PatchInternalMePreferences
       tags:
@@ -470,7 +470,7 @@ paths:
                   items:
                     type: integer
                   type: array
-        description: some body
+        description: 'some body'
       responses:
         '200':
           content:
@@ -518,7 +518,7 @@ paths:
                     type: string
                 required:
                   - preferences
-          description: some response
+          description: 'some response'
     put:
       operationId: PutInternalMePreferences
       tags:
@@ -595,8 +595,8 @@ paths:
                     type: string
                 required:
                   - preferences
-          description: some response
-  /api/internal/ui/collections/:
+          description: 'some response'
+  '/api/internal/ui/collections/':
     get:
       operationId: GetInternalUICollections
       tags:
@@ -723,7 +723,7 @@ paths:
                 required:
                   - name
                   - latest_version
-          description: some response
+          description: 'some response'
   '/api/internal/ui/collections/{id}/':
     patch:
       operationId: PatchInternalUiCollectionDetail
@@ -731,7 +731,7 @@ paths:
         - internal
         - collections
       parameters:
-        - description: A unique integer value identifying this collection.
+        - description: 'A unique integer value identifying this collection.'
           in: path
           name: id
           required: true
@@ -745,7 +745,7 @@ paths:
               properties:
                 deprecated:
                   type: boolean
-        description: some body
+        description: 'some body'
       responses:
         '200':
           content:
@@ -767,7 +767,7 @@ paths:
         - internal
         - collections
       parameters:
-        - description: A unique integer value identifying this collection.
+        - description: 'A unique integer value identifying this collection'
           in: path
           name: id
           required: true
@@ -781,7 +781,7 @@ paths:
               properties:
                 deprecated:
                   type: boolean
-        description: some body
+        description: 'some body'
       responses:
         '200':
           content:
@@ -797,6 +797,7 @@ paths:
                     readOnly: true
                     type: string
           description: some response
+          
   '/api/internal/ui/collections/{namespace__name}/{name}/':
     get:
       operationId: GetInternalUiCollectionsDetailByNamespaceName
@@ -804,13 +805,13 @@ paths:
         - internal
         - collections
       parameters:
-        - description: ''
+        - description: 'The name of the namespace'
           in: path
           name: namespace__name
           required: true
           schema:
             type: string
-        - description: ''
+        - description: 'The name of the collection'
           in: path
           name: name
           required: true
@@ -819,6 +820,7 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
+          description: 'Response of internal ui collections'
           content:
             application/json:
               schema:
@@ -940,7 +942,7 @@ paths:
                 required:
                   - name
                   - latest_version
-          description: some response
+          
   '/api/internal/ui/namespaces/{namespace_id}/imports/':
     get:
       operationId: GetInternalUIImportsByNamespaceId
@@ -996,7 +998,8 @@ paths:
                   - name
                   - version
           description: some response
-  /api/internal/ui/search/:
+          
+  '/api/internal/ui/search/':
     get:
       operationId: GetInternalUISearch
       tags:
@@ -1009,24 +1012,28 @@ paths:
             application/json:
               schema: {}
           description: some response
-  /api/v1/:
+          
+  '/api/v1/':
     get:
-      operationId: ListApiV1
+      summary: 'Get info about the v1 API'
+      operationId: GetApiV1
       tags:
         - introspection
         - v1
       parameters: []
       responses:
         '200':
+          description: 'A map of endpoints in the v1 API'
           content:
             application/json:
               schema:
                 type: object
                 additionalProperties:
                   type: string
-          description: some response
-  /api/v1/me/:
+
+  '/api/v1/me/':
     get:
+      summary: 'Get the User info for the current user'
       operationId: GetMeDetail
       tags:
         - me
@@ -1035,69 +1042,15 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
+          description: 'Response with the current User'
           content:
             application/json:
               schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  authenticated:
-                    readOnly: true
-                    type: string
-                  avatar_url:
-                    maxLength: 256
-                    type: string
-                  created:
-                    description: Timestamp when this user was created.
-                    readOnly: true
-                    type: string
-                  date_joined:
-                    format: date-time
-                    type: string
-                  full_name:
-                    maxLength: 254
-                    type: string
-                  id:
-                    description: Database ID for this user.
-                    readOnly: true
-                    type: integer
-                  modified:
-                    description: Timestamp when this user was last modified.
-                    readOnly: true
-                    type: string
-                  primary_email:
-                    readOnly: true
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  staff:
-                    readOnly: true
-                    type: string
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user.
-                    readOnly: true
-                    type: string
-                  username:
-                    description: >-
-                      Required. 30 characters or fewer. Letters, numbers and
-                      @/./+/-/_ characters
-                    maxLength: 30
-                    pattern: '^[a-zA-Z0-9_.@+-]+$'
-                    type: string
-                required:
-                  - username
-          description: some response
-  /api/v1/namespaces/:
+                $ref: '#/components/schemas/User'
+
+  '/api/v1/namespaces/':
     get:
+      summary: 'Get a list of Namespaces'
       operationId: ListNamespaces
       tags:
         - namespaces
@@ -1110,7 +1063,7 @@ paths:
         '200':
           $ref: '#/components/responses/Namespaces'
 
-  /api/v1/search/:
+  '/api/v1/search/':
     get:
       operationId: ListSearch
       tags:
@@ -1125,6 +1078,7 @@ paths:
           description: some response
   /api/v1/search/content/:
     get:
+      summary: 'Get a list of Contents by searching'
       operationId: ListContentSearch
       tags:
         - search
@@ -1246,11 +1200,12 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
+          description: 'Response with a User'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-          description: some response
+
     patch:
       summary: 'Patch/update an User by id'
       operationId: PatchUserById
