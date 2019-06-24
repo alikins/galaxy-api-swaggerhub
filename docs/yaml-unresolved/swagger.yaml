@@ -2420,14 +2420,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NamespacesPage'
-      links:
-        GetCollectionByNamespace: #  name for link
-          operationId: GetCollectionByNamespaceName
-          parameters:
-            namespace: '$response.body#/name'
-          description: >
-            The `name` value returned in the response can be used as
-            the `namespace` parameter in `GET /collections/{namespace}/{name}`.
     Tags:
       description: 'Response containing a Page of a list of Tags'
       content:
