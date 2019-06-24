@@ -10,11 +10,13 @@
 
 [yaml-unresolved swagger.yaml](https://alikins.github.io/galaxy-api-swaggerhub/yaml-unresolved/swagger.yaml
 )
+
 [swaggerui view](https://petstore.swagger.io/?url=https://alikins.github.io/galaxy-api-swaggerhub/yaml-unresolved/swagger.yaml)
 
 ## yaml-resolved (openapi.yaml) openapi 3.0 OAS
 
 [yaml-resolved openapi.yaml](https://alikins.github.io/galaxy-api-swaggerhub/yaml-resolved/openapi.yaml)
+
 [swaggerui view](https://petstore.swagger.io/?url=https://alikins.github.io/galaxy-api-swaggerhub/yaml-resolved/openapi.yaml)
 
 
