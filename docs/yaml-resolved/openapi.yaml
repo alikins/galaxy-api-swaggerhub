@@ -1113,7 +1113,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_202'
+                $ref: '#/components/schemas/CreateCollectionResult'
         401:
           description: Authorization error
           content:
@@ -1786,6 +1786,14 @@ components:
           items:
             $ref: '#/components/schemas/User'
       description: A page of a list of Users
+    CreateCollectionResult:
+      type: object
+      properties:
+        task:
+          type: string
+          description: The url for the queued collection import task. Check it for
+            progress and status.
+      description: A map of collection import task info, including its url
     SearchRolesResult:
       required:
       - download_rank
@@ -2697,14 +2705,6 @@ components:
         file:
           type: string
           format: binary
-    inline_response_202:
-      type: object
-      properties:
-        task:
-          type: string
-          description: The url for the queued collection import task. Check it for
-            progress and status.
-      description: A map of collection import task info, including its url
   responses:
     Conflict:
       description: Conflict Error
@@ -2737,7 +2737,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_202'
+            $ref: '#/components/schemas/CreateCollectionResult'
     Users:
       description: Response containing a Page of a list of Users
       content:
