@@ -1108,70 +1108,7 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  avatar_url:
-                    maxLength: 256
-                    nullable: true
-                    type: string
-                  company:
-                    maxLength: 256
-                    nullable: true
-                    type: string
-                  created:
-                    description: Timestamp when this namespace was created.
-                    readOnly: true
-                    type: string
-                  description:
-                    maxLength: 255
-                    type: string
-                  email:
-                    maxLength: 256
-                    nullable: true
-                    type: string
-                  html_url:
-                    maxLength: 256
-                    nullable: true
-                    type: string
-                  id:
-                    description: Database ID for this namespace.
-                    readOnly: true
-                    type: integer
-                  is_vendor:
-                    type: boolean
-                  location:
-                    maxLength: 256
-                    nullable: true
-                    type: string
-                  modified:
-                    description: Timestamp when this namespace was last modified.
-                    readOnly: true
-                    type: string
-                  name:
-                    maxLength: 512
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this namespace.
-                    readOnly: true
-                    type: string
-                required:
-                  - name
-          description: some response
+          $ref: '#/components/responses/Namespaces'
   /api/v1/search/:
     get:
       operationId: ListSearch
@@ -1689,66 +1626,6 @@ paths:
                     description: URL for this stargazer.
                     readOnly: true
                     type: string
-          description: some response
-  '/api/v1/users/{id}/subscriptions/':
-    get:
-      operationId: ListUserSubscriptionList_api_v1_users__id__subscriptions_
-      tags:
-        - users
-        - v1
-      parameters:
-        - description: ''
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Page'
-        - $ref: '#/components/parameters/PageSize'
-        - $ref: '#/components/parameters/Search'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  created:
-                    description: Timestamp when this subscription was created.
-                    readOnly: true
-                    type: string
-                  github_repo:
-                    maxLength: 256
-                    type: string
-                  github_user:
-                    maxLength: 256
-                    type: string
-                  modified:
-                    description: Timestamp when this subscription was last modified.
-                    readOnly: true
-                    type: string
-                  owner:
-                    readOnly: true
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this subscription.
-                    readOnly: true
-                    type: string
-                required:
-                  - github_user
-                  - github_repo
           description: some response
   '/api/v2/collection-imports/{id}/':
     get:
@@ -2344,6 +2221,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/User'
+    NamespacesPage:
+      description: "A Page of a list of Namespaces"
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          description: 'List of Namespaces for this Page'
+          type: array
+          items:
+            $ref: '#/components/schemas/Namespace' 
     CreateCollectionResult:
       description: 'A map of collection import task info, including its url'
       type: object
@@ -2351,6 +2243,69 @@ components:
         task:
           description: 'The url for the queued collection import task. Check it for progress and status.'
           type: string
+    Namespace:
+      description: 'A Namespace'
+      type: object
+      properties:
+        active:
+          readOnly: true
+          type: string
+        avatar_url:
+          maxLength: 256
+          nullable: true
+          type: string
+        company:
+          maxLength: 256
+          nullable: true
+          type: string
+        created:
+          description: Timestamp when this namespace was created.
+          readOnly: true
+          type: string
+        description:
+          maxLength: 255
+          type: string
+        email:
+          maxLength: 256
+          nullable: true
+          type: string
+        html_url:
+          maxLength: 256
+          nullable: true
+          type: string
+        id:
+          description: Database ID for this namespace.
+          readOnly: true
+          type: integer
+        is_vendor:
+          type: boolean
+        location:
+          maxLength: 256
+          nullable: true
+          type: string
+        modified:
+          description: Timestamp when this namespace was last modified.
+          readOnly: true
+          type: string
+        name:
+          maxLength: 512
+          type: string
+        related:
+          description: Data structure with URLs of related resources.
+          readOnly: true
+          type: string
+        summary_fields:
+          description: >-
+            Data structure with name/description for related
+            resources.
+          readOnly: true
+          type: string
+        url:
+          description: URL for this namespace.
+          readOnly: true
+          type: string
+      required:
+        - name
     SearchRolesResult:
       type: object
       properties:
@@ -2468,7 +2423,13 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UsersPage'           
+            $ref: '#/components/schemas/UsersPage'
+    Namespaces:
+      description: 'Response containing a Page of a list of Namespaces'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NamespacesPage'
   parameters:
     Page:
       description: A page number within the paginated result set.
