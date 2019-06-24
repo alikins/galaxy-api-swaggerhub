@@ -383,7 +383,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: A unique integer value identifying this collection.
+        description: A unique integer value identifying this collection
         required: true
         style: simple
         explode: false
@@ -454,6 +454,7 @@ paths:
       parameters:
       - name: namespace__name
         in: path
+        description: The name of the namespace
         required: true
         style: simple
         explode: false
@@ -461,6 +462,7 @@ paths:
           type: string
       - name: name
         in: path
+        description: The name of the collection
         required: true
         style: simple
         explode: false
@@ -476,7 +478,7 @@ paths:
           type: string
       responses:
         200:
-          description: some response
+          description: Response of internal ui collections
           content:
             application/json:
               schema:
@@ -549,11 +551,12 @@ paths:
       tags:
       - introspection
       - v1
-      operationId: ListApiV1
+      summary: Get info about the v1 API
+      operationId: GetApiV1
       parameters: []
       responses:
         200:
-          description: some response
+          description: A map of endpoints in the v1 API
           content:
             application/json:
               schema:
@@ -565,6 +568,7 @@ paths:
       tags:
       - me
       - v1
+      summary: Get the User info for the current user
       operationId: GetMeDetail
       parameters:
       - name: search
@@ -577,16 +581,17 @@ paths:
           type: string
       responses:
         200:
-          description: some response
+          description: Response with the current User
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_6'
+                $ref: '#/components/schemas/User'
   /api/v1/namespaces/:
     get:
       tags:
       - namespaces
       - v1
+      summary: Get a list of Namespaces
       operationId: ListNamespaces
       parameters:
       - name: page
@@ -643,6 +648,7 @@ paths:
       tags:
       - search
       - v1
+      summary: Get a list of Contents by searching
       operationId: ListContentSearch
       parameters:
       - name: page
@@ -705,7 +711,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_7'
+                $ref: '#/components/schemas/inline_response_200_6'
   /api/v1/search/tags/:
     get:
       tags:
@@ -884,7 +890,7 @@ paths:
           type: string
       responses:
         200:
-          description: some response
+          description: Response with a User
           content:
             application/json:
               schema:
@@ -2374,62 +2380,6 @@ components:
           maxLength: 64
           type: string
     inline_response_200_6:
-      required:
-      - username
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        authenticated:
-          type: string
-          readOnly: true
-        avatar_url:
-          maxLength: 256
-          type: string
-        created:
-          type: string
-          description: Timestamp when this user was created.
-          readOnly: true
-        date_joined:
-          type: string
-          format: date-time
-        full_name:
-          maxLength: 254
-          type: string
-        id:
-          type: integer
-          description: Database ID for this user.
-          readOnly: true
-        modified:
-          type: string
-          description: Timestamp when this user was last modified.
-          readOnly: true
-        primary_email:
-          type: string
-          readOnly: true
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        staff:
-          type: string
-          readOnly: true
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this user.
-          readOnly: true
-        username:
-          maxLength: 30
-          pattern: ^[a-zA-Z0-9_.@+-]+$
-          type: string
-          description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
-            characters
-    inline_response_200_7:
       type: object
       properties:
         count:
