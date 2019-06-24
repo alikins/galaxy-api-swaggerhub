@@ -11,7 +11,20 @@
   <h3 class="section">HTTP Method</h3>
   <code>GET</code>
   <h3 class="section">Response Type</h3>
-  <div class="model" data-model="string"><a href="">Map</a></div>
+  <div class="model" data-model="APIEndpoints"><a href="">APIEndpoints</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  </ul>
+  <h2><a name="getApiV1Search"></a>getApiV1Search</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://galaxy.ansible.com//api/v1/search/</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="APIEndpoints"><a href="">APIEndpoints</a></div>
   <h3 class="section">Parameters</h3>
   <ul>
   </ul>
@@ -36,10 +49,10 @@
       <span class="param-name">search</span>
       <span class="param-type">String</span>
       
-      <p class="param-description">A search term.</p>
+      <p class="param-description">Term to search for</p>
 	  </li>
   </ul>
-  <h2><a name="getTagDetail"></a>getTagDetail</h2>
+  <h2><a name="getTagById"></a>getTagById</h2>
   <hr>
   <p></p>
   
@@ -71,7 +84,7 @@
       <span class="param-name">search</span>
       <span class="param-type">String</span>
       
-      <p class="param-description">A search term.</p>
+      <p class="param-description">Term to search for</p>
 	  </li>
   </ul>
   <h2><a name="getUserById"></a>getUserById</h2>
@@ -106,10 +119,10 @@
       <span class="param-name">search</span>
       <span class="param-type">String</span>
       
-      <p class="param-description">A search term.</p>
+      <p class="param-description">Term to search for</p>
 	  </li>
   </ul>
-  <h2><a name="listContentSearch"></a>listContentSearch</h2>
+  <h2><a name="listContentBySearch"></a>listContentBySearch</h2>
   <hr>
   <p></p>
   
@@ -130,7 +143,7 @@
       <span class="param-name">page</span>
       <span class="param-type">Integer</span>
       
-      <p class="param-description">A page number within the paginated result set.</p>
+      <p class="param-description">Page number within the paginated result set.</p>
 	  </li>
 	  <li class="parameter">
       
@@ -165,7 +178,7 @@
       <span class="param-name">page</span>
       <span class="param-type">Integer</span>
       
-      <p class="param-description">A page number within the paginated result set.</p>
+      <p class="param-description">Page number within the paginated result set.</p>
 	  </li>
 	  <li class="parameter">
       
@@ -187,10 +200,10 @@
       <span class="param-name">search</span>
       <span class="param-type">String</span>
       
-      <p class="param-description">A search term.</p>
+      <p class="param-description">Term to search for</p>
 	  </li>
   </ul>
-  <h2><a name="listRoleSearchViewApiV1SearchRoles"></a>listRoleSearchViewApiV1SearchRoles</h2>
+  <h2><a name="listRoleBySearch"></a>listRoleBySearch</h2>
   <hr>
   <p></p>
   
@@ -199,7 +212,7 @@
   <h3 class="section">HTTP Method</h3>
   <code>GET</code>
   <h3 class="section">Response Type</h3>
-  <div class="model" data-model="inline_response_200_6"><a href="">inline_response_200_6</a></div>
+  <div class="model" data-model="RolesPage"><a href="">RolesPage</a></div>
   <h3 class="section">Parameters</h3>
   <ul>
 	  <li class="parameter">
@@ -211,7 +224,7 @@
       <span class="param-name">page</span>
       <span class="param-type">Integer</span>
       
-      <p class="param-description">A page number within the paginated result set.</p>
+      <p class="param-description">Page number within the paginated result set.</p>
 	  </li>
 	  <li class="parameter">
       
@@ -225,18 +238,40 @@
       <p class="param-description">Number of results to return per page.</p>
 	  </li>
   </ul>
-  <h2><a name="listSearch"></a>listSearch</h2>
+  <h2><a name="listTagBySearch"></a>listTagBySearch</h2>
   <hr>
   <p></p>
   
   <h3 class="section">URL</h3>
-  <code>https://galaxy.ansible.com//api/v1/search/</code>
+  <code>https://galaxy.ansible.com//api/v1/search/tags/</code>
   <h3 class="section">HTTP Method</h3>
   <code>GET</code>
   <h3 class="section">Response Type</h3>
-  <div class="model" data-model="object"><a href="">Object</a></div>
+  <div class="model" data-model="TagsPage"><a href="">TagsPage</a></div>
   <h3 class="section">Parameters</h3>
   <ul>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">page</span>
+      <span class="param-type">Integer</span>
+      
+      <p class="param-description">Page number within the paginated result set.</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">page_size</span>
+      <span class="param-type">Integer</span>
+      
+      <p class="param-description">Number of results to return per page.</p>
+	  </li>
   </ul>
   <h2><a name="listTags"></a>listTags</h2>
   <hr>
@@ -259,7 +294,7 @@
       <span class="param-name">page</span>
       <span class="param-type">Integer</span>
       
-      <p class="param-description">A page number within the paginated result set.</p>
+      <p class="param-description">Page number within the paginated result set.</p>
 	  </li>
 	  <li class="parameter">
       
@@ -281,7 +316,7 @@
       <span class="param-name">search</span>
       <span class="param-type">String</span>
       
-      <p class="param-description">A search term.</p>
+      <p class="param-description">Term to search for</p>
 	  </li>
   </ul>
   <h2><a name="listUsers"></a>listUsers</h2>
@@ -305,7 +340,7 @@
       <span class="param-name">page</span>
       <span class="param-type">Integer</span>
       
-      <p class="param-description">A page number within the paginated result set.</p>
+      <p class="param-description">Page number within the paginated result set.</p>
 	  </li>
 	  <li class="parameter">
       
@@ -327,7 +362,7 @@
       <span class="param-name">search</span>
       <span class="param-type">String</span>
       
-      <p class="param-description">A search term.</p>
+      <p class="param-description">Term to search for</p>
 	  </li>
   </ul>
   <h2><a name="patchUserById"></a>patchUserById</h2>
@@ -360,9 +395,9 @@
       
       <span class="param-in">Body: </span>
       <span class="param-name">body</span>
-      <span class="param-type">Body_6(Body_6)</span>
+      <span class="param-type">Body(Body)</span>
       
-      <p class="param-description">some body</p>
+      <p class="param-description">An User to update to</p>
 	  </li>
 	  <li class="parameter">
       
@@ -373,42 +408,7 @@
       <span class="param-name">search</span>
       <span class="param-type">String</span>
       
-      <p class="param-description">A search term.</p>
-	  </li>
-  </ul>
-  <h2><a name="searchTags"></a>searchTags</h2>
-  <hr>
-  <p></p>
-  
-  <h3 class="section">URL</h3>
-  <code>https://galaxy.ansible.com//api/v1/search/tags/</code>
-  <h3 class="section">HTTP Method</h3>
-  <code>GET</code>
-  <h3 class="section">Response Type</h3>
-  <div class="model" data-model="TagsPage"><a href="">TagsPage</a></div>
-  <h3 class="section">Parameters</h3>
-  <ul>
-	  <li class="parameter">
-      
-      <span class="param-in">Query: </span>
-      
-      
-      
-      <span class="param-name">page</span>
-      <span class="param-type">Integer</span>
-      
-      <p class="param-description">A page number within the paginated result set.</p>
-	  </li>
-	  <li class="parameter">
-      
-      <span class="param-in">Query: </span>
-      
-      
-      
-      <span class="param-name">page_size</span>
-      <span class="param-type">Integer</span>
-      
-      <p class="param-description">Number of results to return per page.</p>
+      <p class="param-description">Term to search for</p>
 	  </li>
   </ul>
 </div>
