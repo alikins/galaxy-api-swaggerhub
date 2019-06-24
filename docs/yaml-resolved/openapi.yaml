@@ -1149,83 +1149,92 @@ components:
           type: string
         collection:
           $ref: '#/components/schemas/CollectionVersionDetailCollection'
-    Content:
-      required:
-      - download_rank
-      - name
-      - relevance
-      - search_rank
+    V1BaseModel:
       type: object
       properties:
-        active:
-          type: string
-          readOnly: true
-        company:
-          maxLength: 50
-          type: string
-          nullable: true
-        created:
-          type: string
-          description: Timestamp when this content was created.
-          readOnly: true
-        description:
-          maxLength: 255
-          type: string
-        download_count:
-          type: string
-          readOnly: true
-        download_rank:
-          type: number
         id:
           type: integer
-          description: Database ID for this content.
-          readOnly: true
-        imported:
-          type: string
-          format: date-time
-          nullable: true
-        is_valid:
-          type: boolean
-          readOnly: true
-        license:
-          maxLength: 50
-          type: string
-        min_ansible_version:
-          maxLength: 10
-          type: string
-          nullable: true
-        modified:
-          type: string
-          description: Timestamp when this content was last modified.
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        relevance:
-          type: number
-        role_type:
-          type: string
-          readOnly: true
-        search_rank:
-          type: number
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        travis_status_url:
-          type: string
+          description: Database ID for this object.
           readOnly: true
         url:
           type: string
-          description: URL for this content.
+          description: URL for this resource.
           readOnly: true
-        username:
+        related:
+          type: object
+          additionalProperties:
+            type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        summary_fields:
+          type: object
+          additionalProperties: true
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        active:
           type: string
           readOnly: true
+        modified:
+          type: string
+          description: Timestamp when this object was last modified.
+          readOnly: true
+        created:
+          type: string
+          description: Timestamp when this object was created.
+          readOnly: true
+      description: Base for common v1 shared model attributes
+    Content:
+      allOf:
+      - $ref: '#/components/schemas/V1BaseModel'
+      - required:
+        - download_rank
+        - name
+        - relevance
+        - search_rank
+        type: object
+        properties:
+          company:
+            maxLength: 50
+            type: string
+            nullable: true
+          description:
+            maxLength: 255
+            type: string
+          download_count:
+            type: string
+            readOnly: true
+          download_rank:
+            type: number
+          imported:
+            type: string
+            format: date-time
+            nullable: true
+          is_valid:
+            type: boolean
+            readOnly: true
+          license:
+            maxLength: 50
+            type: string
+          min_ansible_version:
+            maxLength: 10
+            type: string
+            nullable: true
+          name:
+            maxLength: 512
+            type: string
+          relevance:
+            type: number
+          role_type:
+            type: string
+            readOnly: true
+          search_rank:
+            type: number
+          travis_status_url:
+            type: string
+            readOnly: true
+          username:
+            type: string
+            readOnly: true
     Namespace:
       required:
       - name
