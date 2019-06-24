@@ -816,7 +816,8 @@ paths:
       tags:
       - users
       - v1
-      operationId: ListUserList_api_v1_users_
+      summary: Get a list of Users
+      operationId: ListUsers
       parameters:
       - name: page
         in: query
@@ -858,10 +859,12 @@ paths:
       tags:
       - users
       - v1
-      operationId: RetrieveUserDetail_api_v1_users__id__
+      summary: Get an User by id
+      operationId: GetUserById
       parameters:
       - name: id
         in: path
+        description: User id
         required: true
         style: simple
         explode: false
@@ -881,7 +884,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_10'
+                $ref: '#/components/schemas/User'
     patch:
       tags:
       - users
@@ -911,66 +914,18 @@ paths:
               $ref: '#/components/schemas/body_6'
       responses:
         200:
-          description: some response
+          description: The User updated by the PATCH
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_10'
-  /api/v1/users/{id}/starred/:
-    get:
-      tags:
-      - users
-      - v1
-      operationId: ListUserStarredList_api_v1_users__id__starred_
-      parameters:
-      - name: id
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: page
-        in: query
-        description: A page number within the paginated result set.
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          default: 1
-      - name: page_size
-        in: query
-        description: Number of results to return per page.
-        required: false
-        style: form
-        explode: true
-        schema:
-          maximum: 1000
-          minimum: 0
-          type: integer
-          default: 10
-      - name: search
-        in: query
-        description: A search term.
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      responses:
-        200:
-          description: some response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200_11'
+                $ref: '#/components/schemas/User'
   /api/v2/collection-imports/{id}/:
     get:
       tags:
       - collection-imports
       - v2
-      operationId: RetrieveCollectionImportView_api_v2_collection-imports__id__
+      summary: Get a Collection-Import (import task) by id
+      operationId: GetCollectionImportById
       parameters:
       - name: id
         in: path
@@ -1000,10 +955,11 @@ paths:
       tags:
       - collection-versions
       - v2
-      operationId: RetrieveCollectionArtifactView_api_v2_collection-versions__id__artifact_
+      operationId: GetCollectionVersionArtifactById
       parameters:
       - name: id
         in: path
+        description: The CollectionVersion id
         required: true
         style: simple
         explode: false
@@ -1019,8 +975,8 @@ paths:
           type: string
       responses:
         200:
-          description: Map of collection version artifact with download_url, sha256,
-            and filename
+          description: The collection version artifact details with download_url,
+            sha256, and filename
           content:
             application/json:
               schema:
@@ -1030,10 +986,11 @@ paths:
       tags:
       - collection-versions
       - v2
-      operationId: GetCollectionVersionDetail
+      operationId: GetCollectionVersionByVersionPk
       parameters:
       - name: version_pk
         in: path
+        description: The CollectionVersion version_pk
         required: true
         style: simple
         explode: false
@@ -1041,7 +998,7 @@ paths:
           type: string
       responses:
         200:
-          description: A collection version
+          description: A CollectionVersion
           content:
             application/json:
               schema:
@@ -1051,9 +1008,12 @@ paths:
       tags:
       - collections
       - v2
-      operationId: CreateCollectionListView_api_v2_collections_
+      summary: Create a new CollectionVersion by importing a collection artifact
+      operationId: ImportCollectionVersionArtifact
       parameters: []
       requestBody:
+        description: A multipart/form encoded payload including the collection artifact
+          file and it's sha256sum
         content:
           multipart/form-data:
             schema:
@@ -1090,8 +1050,8 @@ paths:
       tags:
       - collections
       - v2
-      summary: Get a Collection
-      operationId: RetrieveCollectionDetailView_api_v2_collections__id__
+      summary: Get a Collection by id
+      operationId: GetCollectionById
       parameters:
       - name: id
         in: path
@@ -1113,6 +1073,7 @@ paths:
       tags:
       - collections
       - v2
+      summary: Get list of versions for a collection id
       operationId: ListCollectionVersionsById
       parameters:
       - name: id
@@ -1163,6 +1124,7 @@ paths:
       tags:
       - collections
       - v2
+      summary: Get a Collection by namespace and name
       operationId: GetCollectionByNamespaceName
       parameters:
       - name: namespace
@@ -1194,6 +1156,8 @@ paths:
       tags:
       - collections
       - v2
+      summary: Get a list of CollectionVersions for a Collection by namespace and
+        name
       operationId: ListCollectionVersionsByNamespaceName
       parameters:
       - name: namespace
@@ -1253,6 +1217,7 @@ paths:
       tags:
       - collections
       - v2
+      summary: Get a CollectionVersion by namespace, name, and version
       operationId: GetCollectionVersion
       parameters:
       - name: namespace
@@ -1303,14 +1268,14 @@ paths:
               operationId: DownloadArtifactByFilename
               parameters:
                 id: $response.body#/artifact/filename
-              description: "The `filename` value returned in the response can be used\
-                \ as the `filename` parameter in `GET /download/{filename}`.     \
-                \           \n"
+              description: |
+                The `filename` value returned in the response can be used as the `filename` parameter in `GET /download/{filename}`.
   /api/v2/collections/{namespace}/{name}/versions/{version}/artifact/:
     get:
       tags:
       - collections
       - v2
+      summary: Get Artifact details for a Collection by namespace, name, and version
       operationId: GetCollectionVersionArtifact
       parameters:
       - name: namespace
@@ -1349,8 +1314,8 @@ paths:
           type: string
       responses:
         200:
-          description: Map of collection version artifact with download_url, sha256,
-            and filename
+          description: The collection version artifact details with download_url,
+            sha256, and filename
           content:
             application/json:
               schema:
@@ -1359,11 +1324,12 @@ paths:
     get:
       tags:
       - download
+      summary: Download the collection artifact
       operationId: DownloadArtifactByFilename
       parameters:
       - name: filename
         in: path
-        description: Download the collection artifact
+        description: CollectionVersion artifact filename
         required: true
         style: simple
         explode: false
@@ -2493,56 +2459,6 @@ components:
           type: string
           description: URL for this tag.
           readOnly: true
-    inline_response_200_10:
-      required:
-      - username
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        avatar_url:
-          maxLength: 256
-          type: string
-        created:
-          type: string
-          description: Timestamp when this user was created.
-          readOnly: true
-        date_joined:
-          type: string
-          format: date-time
-        full_name:
-          maxLength: 254
-          type: string
-        id:
-          type: integer
-          description: Database ID for this user.
-          readOnly: true
-        modified:
-          type: string
-          description: Timestamp when this user was last modified.
-          readOnly: true
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        staff:
-          type: string
-          readOnly: true
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this user.
-          readOnly: true
-        username:
-          maxLength: 30
-          pattern: ^[a-zA-Z0-9_.@+-]+$
-          type: string
-          description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
-            characters
     body_6:
       type: object
       properties:
@@ -2561,62 +2477,12 @@ components:
           type: string
           description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
             characters
-    inline_response_200_11_role:
-      required:
-      - name
-      - namespace
-      type: object
-      properties:
-        github_repo:
-          type: string
-          readOnly: true
-        github_user:
-          type: string
-          readOnly: true
-        id:
-          type: integer
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        namespace:
-          type: integer
-    inline_response_200_11:
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        created:
-          type: string
-          description: Timestamp when this stargazer was created.
-          readOnly: true
-        modified:
-          type: string
-          description: Timestamp when this stargazer was last modified.
-          readOnly: true
-        owner:
-          type: string
-          readOnly: true
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        role:
-          $ref: '#/components/schemas/inline_response_200_11_role'
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this stargazer.
-          readOnly: true
     body_7:
       type: object
       properties:
         sha256sum:
           type: string
+          description: The sha256sum of the collection artifact file
         file:
           type: string
           format: binary
