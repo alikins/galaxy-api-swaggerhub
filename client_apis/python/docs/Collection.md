@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**latest_version** | [**CollectionLatestVersion**](CollectionLatestVersion.md) |  | [optional] 
+**latest_version** | [**CollectionVersionLink**](CollectionVersionLink.md) |  | [optional] 
 **created** | **str** |  | [optional] 
 **deprecated** | **bool** |  | [optional] 
 **name** | **str** |  | [optional] 
