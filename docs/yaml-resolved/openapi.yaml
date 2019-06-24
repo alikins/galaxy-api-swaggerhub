@@ -21,7 +21,7 @@ tags:
     description: Creating Collections docs at galaxy.ansible.com
     url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
 - name: collection-imports
-- name: vollection-versions
+- name: collection-versions
 - name: download
 - name: introspection
   description: API used to gather information about the API itself
