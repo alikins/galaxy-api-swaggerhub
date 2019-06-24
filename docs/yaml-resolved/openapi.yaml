@@ -777,17 +777,17 @@ paths:
           type: string
       responses:
         200:
-          description: A page of tag details
+          description: Response containing a Page of a list of Tags
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_10'
+                $ref: '#/components/schemas/TagsPage'
   /api/v1/tags/{id}/:
     get:
       tags:
       - tags
       - v1
-      operationId: RetrieveTagDetail_api_v1_tags__id__
+      operationId: GetTagDetail
       parameters:
       - name: id
         in: path
@@ -806,11 +806,11 @@ paths:
           type: string
       responses:
         200:
-          description: some response
+          description: A Galaxy Tag
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_11'
+                $ref: '#/components/schemas/Tag'
   /api/v1/users/:
     get:
       tags:
@@ -881,7 +881,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_12'
+                $ref: '#/components/schemas/inline_response_200_10'
     patch:
       tags:
       - users
@@ -915,7 +915,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_12'
+                $ref: '#/components/schemas/inline_response_200_10'
   /api/v1/users/{id}/starred/:
     get:
       tags:
@@ -964,7 +964,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_13'
+                $ref: '#/components/schemas/inline_response_200_11'
   /api/v2/collection-imports/{id}/:
     get:
       tags:
@@ -1428,41 +1428,6 @@ components:
         version:
           maxLength: 64
           type: string
-    TagDetail:
-      required:
-      - name
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        created:
-          type: string
-          description: Timestamp when this tag was created.
-          readOnly: true
-        id:
-          type: integer
-          description: Database ID for this tag.
-          readOnly: true
-        modified:
-          type: string
-          description: Timestamp when this tag was last modified.
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this tag.
-          readOnly: true
     CollectionVersionArtifactDetail:
       type: object
       properties:
@@ -1722,6 +1687,57 @@ components:
           description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
             characters
       description: A v1 User
+    Tag:
+      required:
+      - name
+      type: object
+      properties:
+        active:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          description: Timestamp when this tag was created.
+          readOnly: true
+        id:
+          type: integer
+          description: Database ID for this tag.
+          readOnly: true
+        modified:
+          type: string
+          description: Timestamp when this tag was last modified.
+          readOnly: true
+        name:
+          maxLength: 512
+          type: string
+        related:
+          type: string
+          description: Data structure with URLs of related resources.
+          readOnly: true
+        summary_fields:
+          type: string
+          description: Data structure with name/description for related resources.
+          readOnly: true
+        url:
+          type: string
+          description: URL for this tag.
+          readOnly: true
+      description: A v1 galaxy Tag
+    TagsPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          description: List of Tags for this Page
+          items:
+            $ref: '#/components/schemas/Tag'
+      description: A page of a list of Galaxy Tags
     UsersPage:
       type: object
       properties:
@@ -2460,54 +2476,6 @@ components:
           description: URL for this tag.
           readOnly: true
     inline_response_200_10:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-        previous:
-          type: string
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/TagDetail'
-    inline_response_200_11:
-      required:
-      - name
-      type: object
-      properties:
-        active:
-          type: string
-          readOnly: true
-        created:
-          type: string
-          description: Timestamp when this tag was created.
-          readOnly: true
-        id:
-          type: integer
-          description: Database ID for this tag.
-          readOnly: true
-        modified:
-          type: string
-          description: Timestamp when this tag was last modified.
-          readOnly: true
-        name:
-          maxLength: 512
-          type: string
-        related:
-          type: string
-          description: Data structure with URLs of related resources.
-          readOnly: true
-        summary_fields:
-          type: string
-          description: Data structure with name/description for related resources.
-          readOnly: true
-        url:
-          type: string
-          description: URL for this tag.
-          readOnly: true
-    inline_response_200_12:
       required:
       - username
       type: object
@@ -2575,7 +2543,7 @@ components:
           type: string
           description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
             characters
-    inline_response_200_13_role:
+    inline_response_200_11_role:
       required:
       - name
       - namespace
@@ -2595,7 +2563,7 @@ components:
           type: string
         namespace:
           type: integer
-    inline_response_200_13:
+    inline_response_200_11:
       type: object
       properties:
         active:
@@ -2617,7 +2585,7 @@ components:
           description: Data structure with URLs of related resources.
           readOnly: true
         role:
-          $ref: '#/components/schemas/inline_response_200_13_role'
+          $ref: '#/components/schemas/inline_response_200_11_role'
         summary_fields:
           type: string
           description: Data structure with name/description for related resources.
@@ -2679,6 +2647,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NamespacesPage'
+    Tags:
+      description: Response containing a Page of a list of Tags
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TagsPage'
   parameters:
     Page:
       name: page
