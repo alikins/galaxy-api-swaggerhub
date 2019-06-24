@@ -1,22 +1,22 @@
 # Ansible Galaxy API OpenAPI Specification
 
 
-## Working on specification
-### Install
 
-1. Install [Node JS](https://nodejs.org/)
-2. Clone repo and run `npm install` in the repo root
+## yaml-unresolved (swagger.yml) openapi 3.0 OAS
 
-### Usage
+[https://alikins.github.io/galaxy-api-swaggerhub/yaml-unresolved/swagger.yaml](https://alikins.github.io/galaxy-api-swaggerhub/yaml-unresolved/swagger.yaml
+)
 
-#### `npm start`
-Starts the development server.
+## yaml-resolved (openapi.yaml) openapi 3.0 OAS
 
-#### `npm run build`
-Bundles the spec and prepares web_deploy folder with static assets.
+[https://alikins.github.io/galaxy-api-swaggerhub/yaml-resolved/openapi.yaml](https://alikins.github.io/galaxy-api-swaggerhub/yaml-resolved/openapi.yaml)
 
-#### `npm test`
-Validates the spec.
+## swagger ui view
 
-#### `npm run gh-pages`
-Deploys docs to GitHub Pages. You don't need to run it manually if you have Travis CI configured.
+[https://petstore.swagger.io/?url=https://alikins.github.io/galaxy-api-swaggerhub/yaml-unresolved/swagger.yaml](https://petstore.swagger.io/?url=https://alikins.github.io/galaxy-api-swaggerhub/yaml-unresolved/swagger.yaml)
+
+## dynamic-html view
+
+[https://alikins.github.io/galaxy-api-swaggerhub/dynamic-html/docs/](https://alikins.github.io/galaxy-api-swaggerhub/dynamic-html/docs/)
+
+
