@@ -1,11 +1,13 @@
 info:
   description: 'Galaxy 3.2 API (wip)'
   title: 'Galaxy 3.2 API (wip)'
-  version: "1.1.5"
+  version: "1.2.0"
   contact:
     url: https://github.com/ansible/galaxy/issues
     name: 'Ansible Galaxy Issues'
+    
 openapi: 3.0.0
+
 servers:
   - url: https://galaxy.ansible.com/
     description: 'Production server (uses live data)'
@@ -13,1006 +15,49 @@ servers:
     description: 'shared public dev server'
   - url: http://localhost:8000
     description: 'local sandbox'
+    
+externalDocs:
+  url: https://galaxy.ansible.com/docs/
+  
+tags:
+  - name: 'Collections'
+    externalDocs:
+      url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
+      description: 'Creating Collections docs at galaxy.ansible.com'
+  - name: 'Collection-Imports'
+  - name: 'Collection-Versions'
+  - name: 'Download'
+  - name: 'Introspection'
+    description: 'API used to gather information about the API itself'
+  - name: 'v2'
+    description: 'API endpoints from the v2 API'
+  - name: 'Notifications'
+  - name: 'Me'
+    description: 'API endpoints related to the current user.'
+  - name: 'Search'
+  - name: 'Namespaces'
+  - name: 'Tags'
+    description: 'API endpoint for Ansible Galaxy tags.'
+  - name: 'Users'
+  - name: 'v1'
+    description: 'API endpoints from the v1 API.'
+    
 paths:
   '/api/':
     get:
+      summary: 'Get info about the API'
       operationId: GetAPI
       tags:
         - introspection
       parameters: []
       responses:
         '200':
-          content:
-            application/json:
-              schema: {}
-          description: 'some response'
-  '/api/internal/me/notifications/':
-    get:
-      operationId: GetMeNotifications
-      summary: List active user notifications
-      tags:
-        - internal
-        - notifications
-        - me
-      parameters:
-        - $ref: '#/components/parameters/Page'
-        - $ref: '#/components/parameters/PageSize'
-        - $ref: '#/components/parameters/Search'
-      responses:
-        '200':
+          description: 'A map of endpoints in the API'
           content:
             application/json:
               schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  collection:
-                    readOnly: true
-                    type: string
-                  created:
-                    description: Timestamp when this user notification was created.
-                    readOnly: true
-                    type: string
-                  id:
-                    description: Database ID for this user notification.
-                    readOnly: true
-                    type: integer
-                  message:
-                    readOnly: true
-                    type: string
-                  modified:
-                    description: Timestamp when this user notification was last modified.
-                    readOnly: true
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  repository:
-                    readOnly: true
-                    type: string
-                  seen:
-                    type: boolean
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  type:
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user notification.
-                    readOnly: true
-                    type: string
-          description: 'some response'
-  '/api/internal/me/notifications/clear/':
-    delete:
-      operationId: DeleteMeNotificationsClear
-      tags:
-        - internal
-        - notifications
-        - me
-      parameters: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema: {}
-          description: 'some response'
-    put:
-      operationId: PutMeNotificationsClear
-      tags:
-        - internal
-        - notifications
-        - me
-      parameters: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema: {}
-          description: 'some response'
-  '/api/internal/me/notifications/{id}/':
-    delete:
-      operationId: DeleteMeNotificationsClearDetail
-      tags:
-        - internal
-        - notifications
-        - me
-      parameters:
-        - description: ''
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Search'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  collection:
-                    readOnly: true
-                    type: string
-                  created:
-                    description: Timestamp when this user notification was created.
-                    readOnly: true
-                    type: string
-                  id:
-                    description: Database ID for this user notification.
-                    readOnly: true
-                    type: integer
-                  message:
-                    readOnly: true
-                    type: string
-                  modified:
-                    description: Timestamp when this user notification was last modified.
-                    readOnly: true
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  repository:
-                    readOnly: true
-                    type: string
-                  seen:
-                    type: boolean
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  type:
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user notification.
-                    readOnly: true
-                    type: string
-          description: 'some response'
-    get:
-      operationId: GetMeNotificationDetail
-      tags:
-        - internal
-        - notifications
-        - me
-      parameters:
-        - description: ''
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Search'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  collection:
-                    readOnly: true
-                    type: string
-                  created:
-                    description: Timestamp when this user notification was created.
-                    readOnly: true
-                    type: string
-                  id:
-                    description: Database ID for this user notification.
-                    readOnly: true
-                    type: integer
-                  message:
-                    readOnly: true
-                    type: string
-                  modified:
-                    description: Timestamp when this user notification was last modified.
-                    readOnly: true
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  repository:
-                    readOnly: true
-                    type: string
-                  seen:
-                    type: boolean
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  type:
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user notification.
-                    readOnly: true
-                    type: string
-          description: 'some response'
-    patch:
-      operationId: PatchMeNotificationsDetail
-      tags:
-        - internal
-        - notifications
-        - me
-      parameters:
-        - description: ''
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Search'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                seen:
-                  type: boolean
-        description: 'some body'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  collection:
-                    readOnly: true
-                    type: string
-                  created:
-                    description: Timestamp when this user notification was created.
-                    readOnly: true
-                    type: string
-                  id:
-                    description: Database ID for this user notification.
-                    readOnly: true
-                    type: integer
-                  message:
-                    readOnly: true
-                    type: string
-                  modified:
-                    description: Timestamp when this user notification was last modified.
-                    readOnly: true
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  repository:
-                    readOnly: true
-                    type: string
-                  seen:
-                    type: boolean
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  type:
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user notification.
-                    readOnly: true
-                    type: string
-          description: 'some response'
-    put:
-      operationId: PutMeNotificationsDetail
-      tags:
-        - internal
-        - notifications
-        - me
-      parameters:
-        - description: ''
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Search'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                seen:
-                  type: boolean
-        description: 'some body'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  collection:
-                    readOnly: true
-                    type: string
-                  created:
-                    description: Timestamp when this user notification was created.
-                    readOnly: true
-                    type: string
-                  id:
-                    description: Database ID for this user notification.
-                    readOnly: true
-                    type: integer
-                  message:
-                    readOnly: true
-                    type: string
-                  modified:
-                    description: Timestamp when this user notification was last modified.
-                    readOnly: true
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  repository:
-                    readOnly: true
-                    type: string
-                  seen:
-                    type: boolean
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  type:
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user notification.
-                    readOnly: true
-                    type: string
-          description: some response
-  '/api/internal/me/preferences/':
-    get:
-      operationId: GetInternalMePreferences
-      tags:
-        - internal
-        - me
-      parameters:
-        - $ref: '#/components/parameters/Search'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  collections_followed:
-                    items:
-                      type: integer
-                    type: array
-                  created:
-                    description: Timestamp when this user preferences was created.
-                    readOnly: true
-                    type: string
-                  modified:
-                    description: Timestamp when this user preferences was last modified.
-                    readOnly: true
-                    type: string
-                  namespaces_followed:
-                    items:
-                      type: integer
-                    type: array
-                  preferences:
-                    type: object
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  repositories_followed:
-                    items:
-                      type: integer
-                    type: array
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user preferences.
-                    readOnly: true
-                    type: string
-                required:
-                  - preferences
-          description: 'some response'
-    patch:
-      operationId: PatchInternalMePreferences
-      tags:
-        - internal
-        - me
-      parameters:
-        - $ref: '#/components/parameters/Search'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                collections_followed:
-                  items:
-                    type: integer
-                  type: array
-                namespaces_followed:
-                  items:
-                    type: integer
-                  type: array
-                preferences:
-                  type: object
-                repositories_followed:
-                  items:
-                    type: integer
-                  type: array
-        description: 'some body'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  collections_followed:
-                    items:
-                      type: integer
-                    type: array
-                  created:
-                    description: Timestamp when this user preferences was created.
-                    readOnly: true
-                    type: string
-                  modified:
-                    description: Timestamp when this user preferences was last modified.
-                    readOnly: true
-                    type: string
-                  namespaces_followed:
-                    items:
-                      type: integer
-                    type: array
-                  preferences:
-                    type: object
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  repositories_followed:
-                    items:
-                      type: integer
-                    type: array
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user preferences.
-                    readOnly: true
-                    type: string
-                required:
-                  - preferences
-          description: 'some response'
-    put:
-      operationId: PutInternalMePreferences
-      tags:
-        - internal
-        - me
-      parameters:
-        - $ref: '#/components/parameters/Search'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                collections_followed:
-                  items:
-                    type: integer
-                  type: array
-                namespaces_followed:
-                  items:
-                    type: integer
-                  type: array
-                preferences:
-                  type: object
-                repositories_followed:
-                  items:
-                    type: integer
-                  type: array
-              required:
-                - preferences
-        description: some body
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  collections_followed:
-                    items:
-                      type: integer
-                    type: array
-                  created:
-                    description: Timestamp when this user preferences was created.
-                    readOnly: true
-                    type: string
-                  modified:
-                    description: Timestamp when this user preferences was last modified.
-                    readOnly: true
-                    type: string
-                  namespaces_followed:
-                    items:
-                      type: integer
-                    type: array
-                  preferences:
-                    type: object
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  repositories_followed:
-                    items:
-                      type: integer
-                    type: array
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this user preferences.
-                    readOnly: true
-                    type: string
-                required:
-                  - preferences
-          description: 'some response'
-  '/api/internal/ui/collections/':
-    get:
-      operationId: GetInternalUICollections
-      tags:
-        - internal
-        - collections
-      parameters:
-        - $ref: '#/components/parameters/Page'
-        - $ref: '#/components/parameters/PageSize'
-        - $ref: '#/components/parameters/Search'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  community_score:
-                    nullable: true
-                    type: number
-                  community_survey_count:
-                    maximum: 2147483647
-                    minimum: -2147483648
-                    type: integer
-                  created:
-                    format: date-time
-                    readOnly: true
-                    type: string
-                  deprecated:
-                    type: boolean
-                  download_count:
-                    maximum: 2147483647
-                    minimum: -2147483648
-                    type: integer
-                  id:
-                    readOnly: true
-                    type: integer
-                  latest_version:
-                    properties:
-                      content_summary:
-                        readOnly: true
-                        type: string
-                      created:
-                        format: date-time
-                        readOnly: true
-                        type: string
-                      metadata:
-                        type: object
-                      modified:
-                        format: date-time
-                        readOnly: true
-                        type: string
-                      pk:
-                        readOnly: true
-                        type: integer
-                      quality_score:
-                        maximum: 5
-                        minimum: 0
-                        nullable: true
-                        type: number
-                      version:
-                        maxLength: 64
-                        type: string
-                    required:
-                      - version
-                    type: object
-                  modified:
-                    format: date-time
-                    readOnly: true
-                    type: string
-                  name:
-                    maxLength: 64
-                    type: string
-                  namespace:
-                    properties:
-                      active:
-                        type: boolean
-                      avatar_url:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      company:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      created:
-                        format: date-time
-                        readOnly: true
-                        type: string
-                      description:
-                        maxLength: 255
-                        type: string
-                      email:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      html_url:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      id:
-                        readOnly: true
-                        type: integer
-                      is_vendor:
-                        type: boolean
-                      location:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      modified:
-                        format: date-time
-                        readOnly: true
-                        type: string
-                      name:
-                        maxLength: 512
-                        type: string
-                      owners:
-                        items:
-                          type: integer
-                        type: array
-                    readOnly: true
-                    required:
-                      - name
-                      - owners
-                    type: object
-                required:
-                  - name
-                  - latest_version
-          description: 'some response'
-  '/api/internal/ui/collections/{id}/':
-    patch:
-      operationId: PatchInternalUiCollectionDetail
-      tags:
-        - internal
-        - collections
-      parameters:
-        - description: 'A unique integer value identifying this collection.'
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Search'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                deprecated:
-                  type: boolean
-        description: 'some body'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  deprecated:
-                    type: boolean
-                  id:
-                    readOnly: true
-                    type: integer
-                  name:
-                    readOnly: true
-                    type: string
-          description: some response
-    put:
-      operationId: PutInternalCollectionsDetail
-      tags:
-        - internal
-        - collections
-      parameters:
-        - description: 'A unique integer value identifying this collection'
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Search'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                deprecated:
-                  type: boolean
-        description: 'some body'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  deprecated:
-                    type: boolean
-                  id:
-                    readOnly: true
-                    type: integer
-                  name:
-                    readOnly: true
-                    type: string
-          description: some response
-          
-  '/api/internal/ui/collections/{namespace__name}/{name}/':
-    get:
-      operationId: GetInternalUiCollectionsDetailByNamespaceName
-      tags:
-        - internal
-        - collections
-      parameters:
-        - description: 'The name of the namespace'
-          in: path
-          name: namespace__name
-          required: true
-          schema:
-            type: string
-        - description: 'The name of the collection'
-          in: path
-          name: name
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Search'
-      responses:
-        '200':
-          description: 'Response of internal ui collections'
-          content:
-            application/json:
-              schema:
-                properties:
-                  all_versions:
-                    readOnly: true
-                    type: string
-                  community_score:
-                    nullable: true
-                    type: number
-                  community_survey_count:
-                    maximum: 2147483647
-                    minimum: -2147483648
-                    type: integer
-                  created:
-                    format: date-time
-                    readOnly: true
-                    type: string
-                  deprecated:
-                    type: boolean
-                  download_count:
-                    maximum: 2147483647
-                    minimum: -2147483648
-                    type: integer
-                  id:
-                    readOnly: true
-                    type: integer
-                  latest_version:
-                    properties:
-                      contents:
-                        type: object
-                      created:
-                        format: date-time
-                        readOnly: true
-                        type: string
-                      metadata:
-                        type: object
-                      modified:
-                        format: date-time
-                        readOnly: true
-                        type: string
-                      pk:
-                        readOnly: true
-                        type: integer
-                      quality_score:
-                        maximum: 5
-                        minimum: 0
-                        nullable: true
-                        type: number
-                      readme_html:
-                        type: string
-                      version:
-                        maxLength: 64
-                        type: string
-                    required:
-                      - version
-                      - metadata
-                      - contents
-                    type: object
-                  modified:
-                    format: date-time
-                    readOnly: true
-                    type: string
-                  name:
-                    maxLength: 64
-                    type: string
-                  namespace:
-                    properties:
-                      active:
-                        type: boolean
-                      avatar_url:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      company:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      created:
-                        format: date-time
-                        readOnly: true
-                        type: string
-                      description:
-                        maxLength: 255
-                        type: string
-                      email:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      html_url:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      id:
-                        readOnly: true
-                        type: integer
-                      is_vendor:
-                        type: boolean
-                      location:
-                        maxLength: 256
-                        nullable: true
-                        type: string
-                      modified:
-                        format: date-time
-                        readOnly: true
-                        type: string
-                      name:
-                        maxLength: 512
-                        type: string
-                      owners:
-                        items:
-                          type: integer
-                        type: array
-                    readOnly: true
-                    required:
-                      - name
-                      - owners
-                    type: object
-                required:
-                  - name
-                  - latest_version
-          
-  '/api/internal/ui/namespaces/{namespace_id}/imports/':
-    get:
-      operationId: GetInternalUIImportsByNamespaceId
-      tags:
-        - internal
-        - namespaces
-      parameters:
-        - description: ''
-          in: path
-          name: namespace_id
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Page'
-        - $ref: '#/components/parameters/PageSize'
-        - $ref: '#/components/parameters/Search'
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  finished_at:
-                    format: date-time
-                    type: string
-                  href:
-                    readOnly: true
-                    type: string
-                  id:
-                    readOnly: true
-                    type: integer
-                  name:
-                    maxLength: 64
-                    type: string
-                  namespace:
-                    readOnly: true
-                    type: string
-                  started_at:
-                    format: date-time
-                    type: string
-                  state:
-                    type: string
-                  type:
-                    readOnly: true
-                    type: string
-                  version:
-                    maxLength: 64
-                    type: string
-                required:
-                  - state
-                  - started_at
-                  - finished_at
-                  - name
-                  - version
-          description: some response
-          
-  '/api/internal/ui/search/':
-    get:
-      operationId: GetInternalUISearch
-      tags:
-        - internal
-        - search
-      parameters: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema: {}
-          description: some response
-          
+                $ref: '#/components/schemas/APIEndpoints'
+ 
   '/api/v1/':
     get:
       summary: 'Get info about the v1 API'
@@ -1027,10 +72,25 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties:
-                  type: string
-
+                $ref: '#/components/schemas/APIEndpoints'
+                
+  '/api/v1/search/':
+    get:
+      summary: 'Get info about the v1 search API'
+      operationId: GetApiV1Search
+      tags:
+        - search
+        - introspection
+        - v1
+      parameters: []
+      responses:
+        '200':
+          description: 'A map of endpoints in the v1 search API'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIEndpoints'
+                  
   '/api/v1/me/':
     get:
       summary: 'Get the User info for the current user'
@@ -1062,24 +122,11 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Namespaces'
-
-  '/api/v1/search/':
-    get:
-      operationId: ListSearch
-      tags:
-        - search
-        - v1
-      parameters: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema: {}
-          description: some response
-  /api/v1/search/content/:
+          
+  '/api/v1/search/content/':
     get:
       summary: 'Get a list of Contents by searching'
-      operationId: ListContentSearch
+      operationId: ListContentBySearch
       tags:
         - search
         - v1
@@ -1090,9 +137,9 @@ paths:
         '200':
           $ref: '#/components/responses/Contents'
 
-  /api/v1/search/roles/:
+  '/api/v1/search/roles/':
     get:
-      operationId: ListRoleSearchView_api_v1_search_roles_
+      operationId: ListRoleBySearch
       tags:
         - search
         - v1
@@ -1101,26 +148,12 @@ paths:
         - $ref: '#/components/parameters/PageSize'
       responses:
         '200':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  count:
-                    $ref: '#/components/schemas/PageCount'
-                  next:
-                    $ref: '#/components/schemas/PageNext'
-                  previous:
-                    $ref: '#/components/schemas/PagePrevious'
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/SearchRolesResult'
-          description: A page of Roles search results
-  /api/v1/search/tags/:
+          $ref: '#/components/responses/Roles'
+          
+  '/api/v1/search/tags/':
     get:
       summary: 'Get a list of Tags by searching'
-      operationId: SearchTags
+      operationId: ListTagBySearch
       tags:
         - search
         - v1
@@ -1132,7 +165,7 @@ paths:
         '200':
           $ref: '#/components/responses/Tags'
           
-  /api/v1/tags/:
+  '/api/v1/tags/':
     get:
       summary: 'Get a list of Galaxy Tags'
       operationId: ListTags
@@ -1146,10 +179,11 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Tags'
+          
   '/api/v1/tags/{id}/':
     get:
       summary: 'Get a Galaxy Tag'
-      operationId: GetTagDetail
+      operationId: GetTagById
       tags:
         - tags
         - v1
@@ -1168,7 +202,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Tag'
-  /api/v1/users/:
+  
+  '/api/v1/users/':
     get:
       summary: 'Get a list of Users'
       operationId: ListUsers
@@ -1191,12 +226,7 @@ paths:
         - users
         - v1
       parameters:
-        - description: 'User id'
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/UserId'
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
@@ -1213,14 +243,10 @@ paths:
         - users
         - v1
       parameters:
-        - description: 'User id'
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/UserId'
         - $ref: '#/components/parameters/Search'
       requestBody:
+        description: 'An User to update to'
         content:
           application/json:
             schema:
@@ -1241,7 +267,6 @@ paths:
                   maxLength: 30
                   pattern: '^[a-zA-Z0-9_.@+-]+$'
                   type: string
-        description: some body
       responses:
         '200':
           description: 'The User updated by the PATCH'
@@ -1272,6 +297,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CollectionImportResult'
+                
   '/api/v2/collection-versions/{id}/artifact/':
     get:
       operationId: GetCollectionVersionArtifactById
@@ -1288,14 +314,11 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
-          description: 'The collection version artifact details with download_url, sha256, and filename'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionVersionArtifactDetail'
+          $ref: '#/components/responses/CollectionVersionArtifact'
 
   '/api/v2/collection-versions/{version_pk}/':
     get:
+      summary: 'Get a CollectionVersion by version_pk'
       operationId: GetCollectionVersionByVersionPk
       tags:
         - collection-versions
@@ -1309,12 +332,9 @@ paths:
             type: string
       responses:
         '200':
-          description: 'A CollectionVersion'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionVersion'
-  /api/v2/collections/:
+          $ref: '#/components/responses/CollectionVersion'
+                
+  '/api/v2/collections/':
     post:
       summary: 'Create a new CollectionVersion by importing a collection artifact'
       operationId: ImportCollectionVersionArtifact
@@ -1323,18 +343,7 @@ paths:
         - v2
       parameters: []
       requestBody:
-        description: "A multipart/form encoded payload including the collection artifact file and it's sha256sum"
-        content:
-          multipart/form-data:
-            schema:
-              type: object 
-              properties:
-                sha256sum:
-                  description: 'The sha256sum of the collection artifact file'
-                  type: string
-                file:
-                  type: string
-                  format: binary
+        $ref: '#/components/requestBodies/CollectionVersionArtifactBody'
       responses:
         '202':
           $ref: '#/components/responses/CreateCollectionResult'
@@ -1342,6 +351,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '409':
           $ref: '#/components/responses/Conflict'
+          
   '/api/v2/collections/{id}/':
     get:
       summary: 'Get a Collection by id'
@@ -1350,12 +360,7 @@ paths:
         - collections
         - v2
       parameters:
-        - description: 'The collection id'
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/CollectionId'
       responses:
         '200':
           description: 'A Collection'
@@ -1372,18 +377,14 @@ paths:
         - collections
         - v2
       parameters:
-        - description: 'The id of the Collection'
-          in: path
-          name: id
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/CollectionId'
         - $ref: '#/components/parameters/Page'
         - $ref: '#/components/parameters/PageSize'
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
           $ref: '#/components/responses/CollectionVersions'
+          
   '/api/v2/collections/{namespace}/{name}/':
     parameters:
       - $ref: '#/components/parameters/CollectionNamespace'
@@ -1401,6 +402,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Collection'
+                
   '/api/v2/collections/{namespace}/{name}/versions/':
     parameters:
       - $ref: '#/components/parameters/CollectionNamespace'
@@ -1418,6 +420,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/CollectionVersions'
+          
   '/api/v2/collections/{namespace}/{name}/versions/{version}/':
     parameters:
       - $ref: '#/components/parameters/CollectionNamespace'
@@ -1431,30 +434,7 @@ paths:
         - v2
       responses:
         '200':
-          description: 'A collection version'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionVersion'
-          links:
-            GetCollectionVersionById:
-              operationId: GetCollectionVersionById
-              parameters:
-                id: '$response.body#/id'
-              description: >
-                The `id` value returned in the response can be used as
-                the `id` parameter in `{method} GET /api/v2/collection-versions/{id}`.
-            GetCollectionById:
-              operationId: GetCollectionById
-              parameters:
-                id: '$response.body#/collection/id'
-            DownloadArtifactByFilename:
-              operationId: DownloadArtifactByFilename
-              parameters:
-                id: '$response.body#/artifact/filename'
-              description: >
-                The `filename` value returned in the response can be used as
-                the `filename` parameter in `GET /download/{filename}`.
+          $ref: '#/components/responses/CollectionVersion'
                 
   '/api/v2/collections/{namespace}/{name}/versions/{version}/artifact/':
     parameters:
@@ -1471,11 +451,7 @@ paths:
         - $ref: '#/components/parameters/Search'
       responses:
         '200':
-          description: 'The collection version artifact details with download_url, sha256, and filename'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionVersionArtifactDetail'
+          $ref: '#/components/responses/CollectionVersionArtifact'
 
   '/download/{filename}':
     get:
@@ -1519,6 +495,7 @@ components:
       required:
         - code
         - message
+        
     APIException:
       type: object
       description: 'API Exception'
@@ -1538,27 +515,42 @@ components:
       required:
         - code
         - message
+        
     ConflictError:
       allOf:
         - $ref: '#/components/schemas/APIException'
+        
     ConflictCollectionExistsError:
       allOf:
         - $ref: '#/components/schemas/ConflictError'
+        
     RepositoryNameError:
       allOf:
         - $ref: '#/components/schemas/ConflictError'
+        
     ArtifactExistsError:
       allOf:
         - $ref: '#/components/schemas/ConflictError'
+        
     ValidationError:
       allOf:
         - $ref: '#/components/schemas/APIException'
+        
+    APIEndpoints:
+      description: 'Map of API endpoint names to URLS'
+      type: object
+      additionalProperties:
+        type: string
+        
     PageCount:
       type: integer
+      
     PageNext:
       type: string
+      
     PagePrevious:
       type: string
+      
     CollectionVersionLink:
       type: object
       properties:
@@ -1582,6 +574,7 @@ components:
           type: string
         size:
           type: integer
+          
     Collection:
       type: object
       properties:
@@ -1603,6 +596,7 @@ components:
           type: string
         versions_url:
           type: string
+          
     CollectionImportError:
       type: object
       properties:
@@ -1612,6 +606,7 @@ components:
           type: string
         traceback:
           type: string
+          
     CollectionImportMessage:
       description: 'Message from collection importer including lint results'
       required:
@@ -1627,6 +622,15 @@ components:
         time:
           type: string
           format: date-time
+          
+    CollectionCreationResult:
+      description: 'A map of collection import task info, including its url'
+      type: object
+      properties:
+        task:
+          description: 'The url for the queued collection import task. Check it for progress and status.'
+          type: string
+          
     CollectionImportResult:
       description: 'Collection import result'
       required:
@@ -1675,6 +679,7 @@ components:
         version:
           maxLength: 64
           type: string
+          
     CollectionNamespace:
       type: object
       properties:
@@ -1685,6 +690,7 @@ components:
         href:
           description: 'link to the Namespace'
           type: string
+          
     CollectionVersionDetailCollection:
       type: object
       properties:
@@ -1695,6 +701,7 @@ components:
         href:
           description: 'link to the Collection'
           type: string
+          
     CollectionVersionDetailArtifact:
       type: object
       properties:
@@ -1704,6 +711,7 @@ components:
           type: integer
         sha256:
           type: string
+          
     CollectionVersionDetailMetadata:
       description: "The Collection Version metadata from collections galaxy.yml or MANIFEST.JSON"
       type: object
@@ -1737,6 +745,7 @@ components:
           items:
             type: string
         homepage: {}
+        
     CollectionVersion:
       type: object
       properties:
@@ -1756,21 +765,273 @@ components:
           type: string
         collection:
           $ref: '#/components/schemas/CollectionVersionDetailCollection'
-    CollectionVersionsPage:
-      description: 'A page of a list of CollectionVersionLinks'
+
+
+        
+    Content:
       type: object
       properties:
-        count:
-          $ref: '#/components/schemas/PageCount'
-        next:
-          $ref: '#/components/schemas/PageNext'
-        previous:
-          $ref: '#/components/schemas/PagePrevious'
-        results:
-          description: 'List of CollectionVersionLinks for this Page'
-          type: array
-          items:
-            $ref: '#/components/schemas/CollectionVersionLink'
+        active:
+          readOnly: true
+          type: string
+        company:
+          maxLength: 50
+          nullable: true
+          type: string
+        created:
+          description: 'Timestamp when this content was created.'
+          readOnly: true
+          type: string
+        description:
+          maxLength: 255
+          type: string
+        download_count:
+          readOnly: true
+          type: string
+        download_rank:
+          type: number
+        id:
+          description: 'Database ID for this content.'
+          readOnly: true
+          type: integer
+        imported:
+          format: date-time
+          nullable: true
+          type: string
+        is_valid:
+          readOnly: true
+          type: boolean
+        license:
+          maxLength: 50
+          type: string
+        min_ansible_version:
+          maxLength: 10
+          nullable: true
+          type: string
+        modified:
+          description: 'Timestamp when this content was last modified.'
+          readOnly: true
+          type: string
+        name:
+          maxLength: 512
+          type: string
+        related:
+          description: 'Data structure with URLs of related resources.'
+          readOnly: true
+          type: string
+        relevance:
+          type: number
+        role_type:
+          readOnly: true
+          type: string
+        search_rank:
+          type: number
+        summary_fields:
+          description: >-
+            Data structure with name/description for related
+            resources.
+          readOnly: true
+          type: string
+        travis_status_url:
+          readOnly: true
+          type: string
+        url:
+          description: 'URL for this content.'
+          readOnly: true
+          type: string
+        username:
+          readOnly: true
+          type: string
+      required:
+        - name
+        - relevance
+        - search_rank
+        - download_rank
+          
+    Namespace:
+      description: 'A Namespace'
+      type: object
+      properties:
+        active:
+          readOnly: true
+          type: string
+        avatar_url:
+          maxLength: 256
+          nullable: true
+          type: string
+        company:
+          maxLength: 256
+          nullable: true
+          type: string
+        created:
+          description: 'Timestamp when this namespace was created.'
+          readOnly: true
+          type: string
+        description:
+          maxLength: 255
+          type: string
+        email:
+          maxLength: 256
+          nullable: true
+          type: string
+        html_url:
+          maxLength: 256
+          nullable: true
+          type: string
+        id:
+          description: 'Database ID for this namespace.'
+          readOnly: true
+          type: integer
+        is_vendor:
+          type: boolean
+        location:
+          maxLength: 256
+          nullable: true
+          type: string
+        modified:
+          description: 'Timestamp when this namespace was last modified.'
+          readOnly: true
+          type: string
+        name:
+          maxLength: 512
+          type: string
+        related:
+          description: 'Data structure with URLs of related resources.'
+          readOnly: true
+          type: string
+        summary_fields:
+          description: >-
+            Data structure with name/description for related
+            resources.
+          readOnly: true
+          type: string
+        url:
+          description: 'URL for this namespace.'
+          readOnly: true
+          type: string
+      required:
+        - name
+        
+    Role:
+      description: 'An Ansible Role'
+      type: object
+      properties:
+        active:
+          readOnly: true
+          type: string
+        company:
+          maxLength: 50
+          nullable: true
+          type: string
+        created:
+          description: 'Timestamp when this content was created.'
+          readOnly: true
+          type: string
+        description:
+          maxLength: 255
+          type: string
+        download_count:
+          readOnly: true
+          type: string
+        download_rank:
+          type: number
+        id:
+          description: 'Database ID for this content.'
+          readOnly: true
+          type: integer
+        imported:
+          format: date-time
+          nullable: true
+          type: string
+        is_valid:
+          readOnly: true
+          type: boolean
+        license:
+          maxLength: 50
+          type: string
+        min_ansible_version:
+          maxLength: 10
+          nullable: true
+          type: string
+        modified:
+          description: 'Timestamp when this content was last modified.'
+          readOnly: true
+          type: string
+        name:
+          maxLength: 512
+          type: string
+        related:
+          description: 'Data structure with URLs of related resources.'
+          readOnly: true
+          type: string
+        relevance:
+          type: number
+        role_type:
+          readOnly: true
+          type: string
+        search_rank:
+          type: number
+        summary_fields:
+          description: >-
+            Data structure with name/description for related
+            resources.
+          readOnly: true
+          type: string
+        travis_status_url:
+          readOnly: true
+          type: string
+        url:
+          description: 'URL for this content.'
+          readOnly: true
+          type: string
+        username:
+          readOnly: true
+          type: string
+      required:
+        - name
+        - relevance
+        - search_rank
+        - download_rank
+
+    Tag:
+      description: 'A v1 galaxy Tag'
+      type: object
+      properties:
+        active:
+          readOnly: true
+          type: string
+        created:
+          description: 'Timestamp when this tag was created.'
+          readOnly: true
+          type: string
+        id:
+          description: 'Database ID for this tag.'
+          readOnly: true
+          type: integer
+        modified:
+          description: 'Timestamp when this tag was last modified.'
+          readOnly: true
+          type: string
+        name:
+          maxLength: 512
+          type: string
+        related:
+          description: 'Data structure with URLs of related resources.'
+          readOnly: true
+          type: string
+        summary_fields:
+          description: >-
+            Data structure with name/description for related
+            resources.
+          readOnly: true
+          type: string
+        url:
+          description: 'URL for this tag.'
+          readOnly: true
+          type: string
+      required:
+        - name
+        
     User:
       description: 'A v1 User'
       type: object
@@ -1825,123 +1086,23 @@ components:
           type: string
       required:
         - username
-    Tag:
-      description: 'A v1 galaxy Tag'
+        
+    CollectionVersionsPage:
+      description: 'A page of a list of CollectionVersionLinks'
       type: object
       properties:
-        active:
-          readOnly: true
-          type: string
-        created:
-          description: Timestamp when this tag was created.
-          readOnly: true
-          type: string
-        id:
-          description: Database ID for this tag.
-          readOnly: true
-          type: integer
-        modified:
-          description: Timestamp when this tag was last modified.
-          readOnly: true
-          type: string
-        name:
-          maxLength: 512
-          type: string
-        related:
-          description: Data structure with URLs of related resources.
-          readOnly: true
-          type: string
-        summary_fields:
-          description: >-
-            Data structure with name/description for related
-            resources.
-          readOnly: true
-          type: string
-        url:
-          description: URL for this tag.
-          readOnly: true
-          type: string
-      required:
-        - name
-    Content:
-      type: object
-      properties:
-        active:
-          readOnly: true
-          type: string
-        company:
-          maxLength: 50
-          nullable: true
-          type: string
-        created:
-          description: Timestamp when this content was created.
-          readOnly: true
-          type: string
-        description:
-          maxLength: 255
-          type: string
-        download_count:
-          readOnly: true
-          type: string
-        download_rank:
-          type: number
-        id:
-          description: Database ID for this content.
-          readOnly: true
-          type: integer
-        imported:
-          format: date-time
-          nullable: true
-          type: string
-        is_valid:
-          readOnly: true
-          type: boolean
-        license:
-          maxLength: 50
-          type: string
-        min_ansible_version:
-          maxLength: 10
-          nullable: true
-          type: string
-        modified:
-          description: Timestamp when this content was last modified.
-          readOnly: true
-          type: string
-        name:
-          maxLength: 512
-          type: string
-        related:
-          description: Data structure with URLs of related resources.
-          readOnly: true
-          type: string
-        relevance:
-          type: number
-        role_type:
-          readOnly: true
-          type: string
-        search_rank:
-          type: number
-        summary_fields:
-          description: >-
-            Data structure with name/description for related
-            resources.
-          readOnly: true
-          type: string
-        travis_status_url:
-          readOnly: true
-          type: string
-        url:
-          description: URL for this content.
-          readOnly: true
-          type: string
-        username:
-          readOnly: true
-          type: string
-      required:
-        - name
-        - relevance
-        - search_rank
-        - download_rank
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          description: 'List of CollectionVersionLinks for this Page'
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionVersionLink'
+            
     ContentsPage:
       description: "A page of a list of Contents"
       type: object
@@ -1956,37 +1117,8 @@ components:
           description: 'List of Contents for this Page'
           type: array
           items:
-            $ref: '#/components/schemas/Content'     
-    TagsPage:
-      description: "A page of a list of Galaxy Tags"
-      type: object
-      properties:
-        count:
-          $ref: '#/components/schemas/PageCount'
-        next:
-          $ref: '#/components/schemas/PageNext'
-        previous:
-          $ref: '#/components/schemas/PagePrevious'
-        results:
-          description: 'List of Tags for this Page'
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
-    UsersPage:
-      description: "A page of a list of Users"
-      type: object
-      properties:
-        count:
-          $ref: '#/components/schemas/PageCount'
-        next:
-          $ref: '#/components/schemas/PageNext'
-        previous:
-          $ref: '#/components/schemas/PagePrevious'
-        results:
-          description: 'List of Users for this Page'
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
+            $ref: '#/components/schemas/Content'
+            
     NamespacesPage:
       description: "A Page of a list of Namespaces"
       type: object
@@ -2002,155 +1134,56 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Namespace' 
-    CreateCollectionResult:
-      description: 'A map of collection import task info, including its url'
+            
+    RolesPage:
+      description: "A Page of a list of Roles"
       type: object
       properties:
-        task:
-          description: 'The url for the queued collection import task. Check it for progress and status.'
-          type: string
-    Namespace:
-      description: 'A Namespace'
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          description: 'List of Roles for this Page'
+          type: array
+          items:
+            $ref: '#/components/schemas/Role' 
+            
+    TagsPage:
+      description: "A page of a list of Galaxy Tags"
       type: object
       properties:
-        active:
-          readOnly: true
-          type: string
-        avatar_url:
-          maxLength: 256
-          nullable: true
-          type: string
-        company:
-          maxLength: 256
-          nullable: true
-          type: string
-        created:
-          description: Timestamp when this namespace was created.
-          readOnly: true
-          type: string
-        description:
-          maxLength: 255
-          type: string
-        email:
-          maxLength: 256
-          nullable: true
-          type: string
-        html_url:
-          maxLength: 256
-          nullable: true
-          type: string
-        id:
-          description: Database ID for this namespace.
-          readOnly: true
-          type: integer
-        is_vendor:
-          type: boolean
-        location:
-          maxLength: 256
-          nullable: true
-          type: string
-        modified:
-          description: Timestamp when this namespace was last modified.
-          readOnly: true
-          type: string
-        name:
-          maxLength: 512
-          type: string
-        related:
-          description: Data structure with URLs of related resources.
-          readOnly: true
-          type: string
-        summary_fields:
-          description: >-
-            Data structure with name/description for related
-            resources.
-          readOnly: true
-          type: string
-        url:
-          description: URL for this namespace.
-          readOnly: true
-          type: string
-      required:
-        - name
-    SearchRolesResult:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          description: 'List of Tags for this Page'
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+            
+    UsersPage:
+      description: "A page of a list of Users"
       type: object
       properties:
-        active:
-          readOnly: true
-          type: string
-        company:
-          maxLength: 50
-          nullable: true
-          type: string
-        created:
-          description: Timestamp when this content was created.
-          readOnly: true
-          type: string
-        description:
-          maxLength: 255
-          type: string
-        download_count:
-          readOnly: true
-          type: string
-        download_rank:
-          type: number
-        id:
-          description: Database ID for this content.
-          readOnly: true
-          type: integer
-        imported:
-          format: date-time
-          nullable: true
-          type: string
-        is_valid:
-          readOnly: true
-          type: boolean
-        license:
-          maxLength: 50
-          type: string
-        min_ansible_version:
-          maxLength: 10
-          nullable: true
-          type: string
-        modified:
-          description: Timestamp when this content was last modified.
-          readOnly: true
-          type: string
-        name:
-          maxLength: 512
-          type: string
-        related:
-          description: Data structure with URLs of related resources.
-          readOnly: true
-          type: string
-        relevance:
-          type: number
-        role_type:
-          readOnly: true
-          type: string
-        search_rank:
-          type: number
-        summary_fields:
-          description: >-
-            Data structure with name/description for related
-            resources.
-          readOnly: true
-          type: string
-        travis_status_url:
-          readOnly: true
-          type: string
-        url:
-          description: URL for this content.
-          readOnly: true
-          type: string
-        username:
-          readOnly: true
-          type: string
-      required:
-        - name
-        - relevance
-        - search_rank
-        - download_rank
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          description: 'List of Users for this Page'
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+
+
   responses:
     Conflict:
       description: 'Conflict Error'
@@ -2166,42 +1199,89 @@ components:
                 conflict.collection_exists: '#/components/schemas/ConflictCollectionExistsError'
                 conflict.repository_name_conflict: '#/compontents/schemas/RepositoryNameError'
                 conflict.artifact_exists: '#/compontents/schemas/ArtifactExistsError'
+                
     Unauthorized:
       description: 'Authorization error'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/APIException'
+
     CollectionVersions:
       description: 'Response containing a page of CollectionVersionLinks'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/CollectionVersionsPage'
+
+    CollectionVersion:
+      description: 'Response contain a CollectionVersion'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CollectionVersion'
+      links:
+        GetCollectionVersionById:
+          operationId: GetCollectionVersionById
+          parameters:
+            id: '$response.body#/id'
+          description: >
+            The `id` value returned in the response can be used as
+            the `id` parameter in `{method} GET /api/v2/collection-versions/{id}`.
+        GetCollectionById:
+          operationId: GetCollectionById
+          parameters:
+            id: '$response.body#/collection/id'
+        DownloadArtifactByFilename:
+          operationId: DownloadArtifactByFilename
+          parameters:
+            id: '$response.body#/artifact/filename'
+          description: >
+            The `filename` value returned in the response can be used as
+            the `filename` parameter in `GET /download/{filename}`.
+
+    CollectionVersionArtifact:
+      description: 'The collection version artifact details with download_url, sha256, and filename'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CollectionVersionArtifactDetail'
+
     CreateCollectionResult:
       description: 'Result of collection import task with task url'
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CreateCollectionResult'
+            $ref: '#/components/schemas/CollectionCreationResult'
+            
     Contents:
       description: 'Response containing a Page of Content search results'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ContentsPage'
+            
     Users:
       description: 'Response containing a Page of a list of Users'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/UsersPage'
+            
     Namespaces:
       description: 'Response containing a Page of a list of Namespaces'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/NamespacesPage'
+            
+    Roles:
+      description: 'Response containing a Page of a list of Roles'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RolesPage'
+     
     Tags:
       description: 'Response containing a Page of a list of Tags'
       content:
@@ -2211,15 +1291,16 @@ components:
 
   parameters:
     Page:
-      description: A page number within the paginated result set.
+      description: 'Page number within the paginated result set.'
       in: query
       name: page
       required: false
       schema:
         type: integer
         default: 1
+        
     PageSize:
-      description: Number of results to return per page.
+      description: 'Number of results to return per page.'
       in: query
       name: page_size
       required: false
@@ -2228,13 +1309,23 @@ components:
         default: 10
         minimum: 0
         maximum: 1000
+        
     Search:
-      description: A search term.
+      description: 'Term to search for'
       in: query
       name: search
       required: false
       schema:
         type: string
+        
+    CollectionId:
+      description: 'The Collection id'
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+        
     CollectionNamespace:
       description: 'The collection namespace'
       in: path
@@ -2242,6 +1333,7 @@ components:
       required: true
       schema:
         type: string
+        
     CollectionName:
       description: 'The collection name'
       in: path
@@ -2250,37 +1342,35 @@ components:
       schema:
         type: string
         pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$'
+        
     CollectionVersion:
-      description: 'A semantic version string'
+      description: 'A Semantic Version string'
       in: path
       name: version
       required: true
       schema:
         type: string
         pattern: ^((([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$
-externalDocs:
-  url: https://galaxy.ansible.com/docs/
-tags:
-  - name: Collections
-    externalDocs:
-      url: https://galaxy.ansible.com/docs/contributing/creating_collections.html
-      description: Creating Collections docs at galaxy.ansible.com
-  - name: Collection-Imports
-  - name: Collection-Versions
-  - name: Download
-  - name: Introspection
-    description: API used to gather information about the API itself
-  - name: v2
-    description: API endpoints from the v2 API
-  - name: Notifications
-  - name: Me
-    description: API endpoints related to the current user.
-  - name: Search
-  - name: Namespaces
-  - name: Tags
-    description: API endpoint for Ansible Galaxy tags.
-  - name: Users
-  - name: v1
-    description: API endpoints from the v1 API.
-  - name: Internal
-    description: API endpoints used by the web user interface. These endpoints are not part of the stable Galaxy API and may change at any time.
+        
+    UserId:
+      description: 'User id'
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+        
+  requestBodies:
+    CollectionVersionArtifactBody:
+      description: "A multipart/form encoded payload including the collection artifact file and it's sha256sum"
+      content:
+        multipart/form-data:
+          schema:
+            type: object 
+            properties:
+              sha256:
+                description: 'The sha256sum of the collection artifact file'
+                type: string
+              file:
+                type: string
+                format: binary
