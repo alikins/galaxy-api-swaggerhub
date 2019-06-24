@@ -1206,7 +1206,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_16'
+                $ref: '#/components/schemas/CollectionVersionsPage'
   /api/v2/collections/{namespace}/{name}/:
     get:
       tags:
@@ -1296,7 +1296,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_16'
+                $ref: '#/components/schemas/CollectionVersionsPage'
   /api/v2/collections/{namespace}/{name}/versions/{version}/:
     get:
       tags:
@@ -1705,6 +1705,20 @@ components:
           type: string
         collection:
           $ref: '#/components/schemas/CollectionVersionDetailCollection'
+    CollectionVersionsPage:
+      type: object
+      properties:
+        count:
+          $ref: '#/components/schemas/PageCount'
+        next:
+          $ref: '#/components/schemas/PageNext'
+        previous:
+          $ref: '#/components/schemas/PagePrevious'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionVersionLink'
+      description: A page of a list of CollectionVersionLinks
     User:
       required:
       - username
@@ -2675,19 +2689,6 @@ components:
           description: The url for the queued collection import task. Check it for
             progress and status.
       description: A map of collection import task info, including its url
-    inline_response_200_16:
-      type: object
-      properties:
-        count:
-          $ref: '#/components/schemas/PageCount'
-        next:
-          $ref: '#/components/schemas/PageNext'
-        previous:
-          $ref: '#/components/schemas/PagePrevious'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/CollectionVersionLink'
   responses:
     Conflict:
       description: Conflict Error
@@ -2714,7 +2715,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_200_16'
+            $ref: '#/components/schemas/CollectionVersionsPage'
     CreateCollectionResult:
       description: Result of collection import task with task url
       content:
