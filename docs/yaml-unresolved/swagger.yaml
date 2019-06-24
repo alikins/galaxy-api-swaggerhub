@@ -1,7 +1,7 @@
 info:
   description: Galaxy 3.2 API (wip)
   title: Galaxy 3.2 API (wip)
-  version: "1.1.1"
+  version: "1.1.5"
   contact:
     url: https://github.com/ansible/galaxy/issues
     name: Ansible Galaxy Issues
@@ -28,31 +28,16 @@ paths:
           description: some response
   /api/internal/me/notifications/:
     get:
-      operationId: ListActiveUserNotifications
+      operationId: GetMeNotifications
       summary: List active user notifications
       tags:
         - internal
         - notifications
         - me
       parameters:
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -105,8 +90,7 @@ paths:
           description: some response
   /api/internal/me/notifications/clear/:
     delete:
-      operationId: >-
-        DestroyActiveUserClearNotificationView_api_internal_me_notifications_clear_
+      operationId: DeleteMeNotificationsClear
       tags:
         - internal
         - notifications
@@ -119,8 +103,7 @@ paths:
               schema: {}
           description: some response
     put:
-      operationId: >-
-        UpdateActiveUserClearNotificationView_api_internal_me_notifications_clear_
+      operationId: PutMeNotificationsClear
       tags:
         - internal
         - notifications
@@ -134,8 +117,7 @@ paths:
           description: some response
   '/api/internal/me/notifications/{id}/':
     delete:
-      operationId: >-
-        DestroyActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      operationId: DeleteMeNotificationsClearDetail
       tags:
         - internal
         - notifications
@@ -147,12 +129,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -204,8 +181,7 @@ paths:
                     type: string
           description: some response
     get:
-      operationId: >-
-        RetrieveActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      operationId: GetMeNotificationDetail
       tags:
         - internal
         - notifications
@@ -217,12 +193,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -274,8 +245,7 @@ paths:
                     type: string
           description: some response
     patch:
-      operationId: >-
-        PartialUpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      operationId: PatchMeNotificationsDetail
       tags:
         - internal
         - notifications
@@ -287,12 +257,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       requestBody:
         content:
           application/json:
@@ -352,8 +317,7 @@ paths:
                     type: string
           description: some response
     put:
-      operationId: >-
-        UpdateActiveUserNotificationsDetailView_api_internal_me_notifications__id__
+      operationId: PutMeNotificationsDetail
       tags:
         - internal
         - notifications
@@ -365,12 +329,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       requestBody:
         content:
           application/json:
@@ -431,17 +390,12 @@ paths:
           description: some response
   /api/internal/me/preferences/:
     get:
-      operationId: RetrieveActiveUserPreferencesView_api_internal_me_preferences_
+      operationId: GetInternalMePreferences
       tags:
         - internal
         - me
       parameters:
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -491,17 +445,12 @@ paths:
                   - preferences
           description: some response
     patch:
-      operationId: PartialUpdateActiveUserPreferencesView_api_internal_me_preferences_
+      operationId: PatchInternalMePreferences
       tags:
         - internal
         - me
       parameters:
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       requestBody:
         content:
           application/json:
@@ -571,17 +520,12 @@ paths:
                   - preferences
           description: some response
     put:
-      operationId: UpdateActiveUserPreferencesView_api_internal_me_preferences_
+      operationId: PutInternalMePreferences
       tags:
         - internal
         - me
       parameters:
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       requestBody:
         content:
           application/json:
@@ -654,29 +598,14 @@ paths:
           description: some response
   /api/internal/ui/collections/:
     get:
-      operationId: ListCollectionList_api_internal_ui_collections_
+      operationId: GetInternalUICollections
       tags:
         - internal
         - collections
       parameters:
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -797,7 +726,7 @@ paths:
           description: some response
   '/api/internal/ui/collections/{id}/':
     patch:
-      operationId: PartialUpdateCollectionUpdate_api_internal_ui_collections__id__
+      operationId: PatchInternalUiCollectionDetail
       tags:
         - internal
         - collections
@@ -808,12 +737,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       requestBody:
         content:
           application/json:
@@ -838,7 +762,7 @@ paths:
                     type: string
           description: some response
     put:
-      operationId: UpdateCollectionUpdate_api_internal_ui_collections__id__
+      operationId: PutInternalCollectionsDetail
       tags:
         - internal
         - collections
@@ -849,12 +773,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       requestBody:
         content:
           application/json:
@@ -880,8 +799,7 @@ paths:
           description: some response
   '/api/internal/ui/collections/{namespace__name}/{name}/':
     get:
-      operationId: >-
-        RetrieveCollectionDetail_api_internal_ui_collections__namespace__name___name__
+      operationId: GetInternalUiCollectionsDetailByNamespaceName
       tags:
         - internal
         - collections
@@ -898,12 +816,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -1030,8 +943,7 @@ paths:
           description: some response
   '/api/internal/ui/namespaces/{namespace_id}/imports/':
     get:
-      operationId: >-
-        ListNamespaceImportsList_api_internal_ui_namespaces__namespace_id__imports_
+      operationId: GetInternalUIImportsByNamespaceId
       tags:
         - internal
         - namespaces
@@ -1042,24 +954,9 @@ paths:
           required: true
           schema:
             type: string
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -1101,7 +998,7 @@ paths:
           description: some response
   /api/internal/ui/search/:
     get:
-      operationId: ListSearchView_api_internal_ui_search_
+      operationId: GetInternalUISearch
       tags:
         - internal
         - search
@@ -1114,7 +1011,7 @@ paths:
           description: some response
   /api/v1/:
     get:
-      operationId: ListApiV1RootView_api_v1_
+      operationId: ListApiV1
       tags:
         - introspection
         - v1
@@ -1130,17 +1027,12 @@ paths:
           description: some response
   /api/v1/me/:
     get:
-      operationId: RetrieveActiveUserView_api_v1_me_
+      operationId: GetMeDetail
       tags:
         - me
         - v1
       parameters:
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -1206,29 +1098,14 @@ paths:
           description: some response
   /api/v1/namespaces/:
     get:
-      operationId: ListNamespaceList_api_v1_namespaces_
+      operationId: ListNamespaces
       tags:
         - namespaces
         - v1
       parameters:
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -1297,7 +1174,7 @@ paths:
           description: some response
   /api/v1/search/:
     get:
-      operationId: ListApiV1SearchView_api_v1_search_
+      operationId: ListSearch
       tags:
         - search
         - v1
@@ -1310,23 +1187,13 @@ paths:
           description: some response
   /api/v1/search/content/:
     get:
-      operationId: ListContentSearchView_api_v1_search_content_
+      operationId: ListContentSearch
       tags:
         - search
         - v1
       parameters:
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
       responses:
         '200':
           content:
@@ -1417,101 +1284,26 @@ paths:
         - search
         - v1
       parameters:
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
       responses:
         '200':
           content:
             application/json:
               schema:
+                type: object
                 properties:
-                  active:
-                    readOnly: true
-                    type: string
-                  company:
-                    maxLength: 50
-                    nullable: true
-                    type: string
-                  created:
-                    description: Timestamp when this content was created.
-                    readOnly: true
-                    type: string
-                  description:
-                    maxLength: 255
-                    type: string
-                  download_count:
-                    readOnly: true
-                    type: string
-                  download_rank:
-                    type: number
-                  id:
-                    description: Database ID for this content.
-                    readOnly: true
-                    type: integer
-                  imported:
-                    format: date-time
-                    nullable: true
-                    type: string
-                  is_valid:
-                    readOnly: true
-                    type: boolean
-                  license:
-                    maxLength: 50
-                    type: string
-                  min_ansible_version:
-                    maxLength: 10
-                    nullable: true
-                    type: string
-                  modified:
-                    description: Timestamp when this content was last modified.
-                    readOnly: true
-                    type: string
-                  name:
-                    maxLength: 512
-                    type: string
-                  related:
-                    description: Data structure with URLs of related resources.
-                    readOnly: true
-                    type: string
-                  relevance:
-                    type: number
-                  role_type:
-                    readOnly: true
-                    type: string
-                  search_rank:
-                    type: number
-                  summary_fields:
-                    description: >-
-                      Data structure with name/description for related
-                      resources.
-                    readOnly: true
-                    type: string
-                  travis_status_url:
-                    readOnly: true
-                    type: string
-                  url:
-                    description: URL for this content.
-                    readOnly: true
-                    type: string
-                  username:
-                    readOnly: true
-                    type: string
-                required:
-                  - name
-                  - relevance
-                  - search_rank
-                  - download_rank
-          description: some response
+                  count:
+                    $ref: '#/components/schemas/PageCount'
+                  next:
+                    $ref: '#/components/schemas/PageNext'
+                  previous:
+                    $ref: '#/components/schemas/PagePrevious'
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchRolesResult'
+          description: A page of Roles search results
   /api/v1/search/tags/:
     get:
       operationId: ListTagsSearchView_api_v1_search_tags_
@@ -1519,18 +1311,8 @@ paths:
         - search
         - v1
       parameters:
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
       responses:
         '200':
           content:
@@ -1577,29 +1359,14 @@ paths:
           description: some response
   /api/v1/tags/:
     get:
-      operationId: ListTagList_api_v1_tags_
+      operationId: ListTags
       tags:
         - tags
         - v1
       parameters:
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -1631,12 +1398,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -1685,24 +1447,9 @@ paths:
         - users
         - v1
       parameters:
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -1773,12 +1520,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -1848,12 +1590,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       requestBody:
         content:
           application/json:
@@ -1946,24 +1683,9 @@ paths:
           required: true
           schema:
             type: string
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -2033,24 +1755,9 @@ paths:
           required: true
           schema:
             type: string
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -2108,81 +1815,14 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
+          description: 'The result of a collection import'
           content:
             application/json:
               schema:
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: string
-                      description:
-                        type: string
-                      traceback:
-                        type: string
-                  finished_at:
-                    format: date-time
-                    type: string
-                  id:
-                    type: integer
-                  imported_version:
-                    readOnly: true
-                    type: string
-                  job_id:
-                    format: uuid
-                    type: string
-                  lint_records:
-                    type: object
-                  messages:
-                    items:
-                      properties:
-                        level:
-                          type: string
-                        message:
-                          type: string
-                        time:
-                          format: date-time
-                          type: string
-                      required:
-                        - level
-                        - message
-                        - time
-                    type: array
-                  name:
-                    maxLength: 64
-                    type: string
-                  namespace:
-                    type: string
-                  started_at:
-                    format: date-time
-                    type: string
-                  state:
-                    type: string
-                  version:
-                    maxLength: 64
-                    type: string
-                required:
-                  - id
-                  - job_id
-                  - started_at
-                  - finished_at
-                  - state
-                  - error
-                  - namespace
-                  - name
-                  - version
-                  - messages
-                  - lint_records
-          description: Collection import detail
+                $ref: '#/components/schemas/CollectionImportResult'
   '/api/v2/collection-versions/{id}/artifact/':
     get:
       operationId: RetrieveCollectionArtifactView_api_v2_collection-versions__id__artifact_
@@ -2196,12 +1836,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -2211,7 +1846,7 @@ paths:
           description: Map of collection version artifact with download_url, sha256, and filename
   '/api/v2/collection-versions/{version_pk}/':
     get:
-      operationId: RetrieveVersionDetailView_api_v2_collection-versions__version_pk__
+      operationId: GetCollectionVersionDetail
       tags:
         - collection-versions
         - v2
@@ -2258,6 +1893,10 @@ paths:
                   task:
                     type: string
           description: 'A collection version import task'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '409':
+          $ref: '#/components/responses/Conflict'
   '/api/v2/collections/{id}/':
     get:
       operationId: RetrieveCollectionDetailView_api_v2_collections__id__
@@ -2281,7 +1920,7 @@ paths:
       summary: Get a Collection
   '/api/v2/collections/{id}/versions/':
     get:
-      operationId: ListVersionListView_api_v2_collections__id__versions_
+      operationId: ListCollectionVersionsById
       tags:
         - collections
         - v2
@@ -2292,50 +1931,21 @@ paths:
           required: true
           schema:
             type: string
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
-          description: A page of collection version links
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionVersionLinks'
+          $ref: '#/components/responses/CollectionVersions'
   '/api/v2/collections/{namespace}/{name}/':
+    parameters:
+      - $ref: '#/components/parameters/CollectionNamespace'
+      - $ref: '#/components/parameters/CollectionName'
     get:
-      operationId: RetrieveCollectionDetailView_api_v2_collections__namespace___name__
+      operationId: GetCollectionByNamespaceName
       tags:
         - collections
         - v2
-      parameters:
-        - description: 'The collection namespace'
-          in: path
-          name: namespace
-          required: true
-          schema:
-            type: string
-        - description: 'The collection name'
-          in: path
-          name: name
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: A Collection
@@ -2344,75 +1954,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/Collection'
   '/api/v2/collections/{namespace}/{name}/versions/':
+    parameters:
+      - $ref: '#/components/parameters/CollectionNamespace'
+      - $ref: '#/components/parameters/CollectionName'
     get:
-      operationId: ListVersionListView_api_v2_collections__namespace___name__versions_
+      operationId: ListCollectionVersionsByNamespaceName
       tags:
         - collections
         - v2
       parameters:
-        - description: ''
-          in: path
-          name: namespace
-          required: true
-          schema:
-            type: string
-        - description: ''
-          in: path
-          name: name
-          required: true
-          schema:
-            type: string
-        - description: A page number within the paginated result set.
-          in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-        - description: Number of results to return per page.
-          in: query
-          name: page_size
-          required: false
-          schema:
-            type: integer
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
-          description: A page of collection version links
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionVersionLinks'
+          $ref: '#/components/responses/CollectionVersions'
   '/api/v2/collections/{namespace}/{name}/versions/{version}/':
+    parameters:
+      - $ref: '#/components/parameters/CollectionNamespace'
+      - $ref: '#/components/parameters/CollectionName'
+      - $ref: '#/components/parameters/CollectionVersion'
     get:
-      operationId: >-
-        RetrieveVersionDetailView_api_v2_collections__namespace___name__versions__version__
+      operationId: GetCollectionVersion
       tags:
         - collections
         - v2
-      parameters:
-        - description: ''
-          in: path
-          name: namespace
-          required: true
-          schema:
-            type: string
-        - description: ''
-          in: path
-          name: name
-          required: true
-          schema:
-            type: string
-        - description: 'A semantic version string'
-          in: path
-          name: version
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           content:
@@ -2421,37 +1987,17 @@ paths:
                 $ref: '#/components/schemas/CollectionVersion'
           description: A collection version
   '/api/v2/collections/{namespace}/{name}/versions/{version}/artifact/':
+    parameters:
+      - $ref: '#/components/parameters/CollectionNamespace'
+      - $ref: '#/components/parameters/CollectionName'
+      - $ref: '#/components/parameters/CollectionVersion'
     get:
-      operationId: >-
-        RetrieveCollectionArtifactView_api_v2_collections__namespace___name__versions__version__artifact_
+      operationId: GetCollectionVersionArtifact
       tags:
         - collections
         - v2
       parameters:
-        - description: ''
-          in: path
-          name: namespace
-          required: true
-          schema:
-            type: string
-        - description: ''
-          in: path
-          name: name
-          required: true
-          schema:
-            type: string
-        - description: ''
-          in: path
-          name: version
-          required: true
-          schema:
-            type: string
-        - description: A search term.
-          in: query
-          name: search
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Search'
       responses:
         '200':
           content:
@@ -2461,7 +2007,7 @@ paths:
           description: Map of collection version artifact with download_url, sha256, and filename
   '/download/{filename}':
     get:
-      operationId: RetrieveArtifactDownloadView_download__filename_
+      operationId: DownloadArtifactByFilename
       tags:
         - download
       parameters:
@@ -2481,29 +2027,73 @@ paths:
           description: The collection artifact file binary contents
 components:
   schemas:
-    PageInfo:
+    Error:
+      type: object
+      description: 'Error data'
+      properties:
+        code:
+          description: 'Unique identifier for the error'
+          type: string
+          example: 'invalid'
+        message:
+          type: string
+          example: 'namespace and name parameters are required'
+        field:
+          description: 'The name of the field involved'
+          type: string
+          example: 'namespace'
+      required:
+        - code
+        - message
+    APIException:
+      type: object
+      description: 'API Exception'
+      properties:
+        code:
+          description: 'Unique identifier for the exception'
+          type: string
+          example: 'not_authenticated'
+        message:
+          type: string
+          example: 'Authentication credentials were not provided.'
+        errors:
+          description: 'A list of additional error objects'
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+      required:
+        - code
+        - message
+    ConflictError:
+      allOf:
+        - $ref: '#/components/schemas/APIException'
+    ConflictCollectionExistsError:
+      allOf:
+        - $ref: '#/components/schemas/ConflictError'
+    RepositoryNameError:
+      allOf:
+        - $ref: '#/components/schemas/ConflictError'
+    ArtifactExistsError:
+      allOf:
+        - $ref: '#/components/schemas/ConflictError'
+    ValidationError:
+      allOf:
+        - $ref: '#/components/schemas/APIException'
+    PageCount:
+      type: integer
+    PageNext:
+      type: string
+    PagePrevious:
+      type: string
+    CollectionVersionLink:
       type: object
       properties:
-        count:
-          type: integer
-        next:
+        href:
+          description: 'The URL to the CollectionVersion'
           type: string
-        previous:
+        version:
           type: string
-    CollectionVersionLinks:
-      allOf:
-        - $ref: '#/components/schemas/PageInfo'
-        - properties:
-            results:
-              type: array
-              items:
-                type: object
-                properties:
-                  href:
-                    type: string
-                  version:
-                    type: string
-                    maxLength: 64
+          maxLength: 64
     TagDetail:
       properties:
         active:
@@ -2557,12 +2147,7 @@ components:
       type: object
       properties:
         latest_version:
-          type: object
-          properties:
-            href:
-              type: string
-            version:
-              type: string
+          $ref: '#/components/schemas/CollectionVersionLink'
         created:
           type: string
         deprecated:
@@ -2570,14 +2155,7 @@ components:
         name:
           type: string
         namespace:
-          type: object
-          properties:
-            name:
-              type: string
-            id:
-              type: integer
-            href:
-              type: string
+          $ref: '#/components/schemas/CollectionNamespace'
         modified:
           type: string
         id:
@@ -2586,78 +2164,326 @@ components:
           type: string
         versions_url:
           type: string
+    CollectionImportError:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        traceback:
+          type: string
+    CollectionImportMessage:
+      description: 'Message from collection importer including lint results'
+      required:
+      - level
+      - message
+      - time
+      type: object
+      properties:
+        level:
+          type: string
+        message:
+          type: string
+        time:
+          type: string
+          format: date-time
+    CollectionImportResult:
+      description: 'Collection import result'
+      required:
+      - error
+      - finished_at
+      - id
+      - job_id
+      - lint_records
+      - messages
+      - name
+      - namespace
+      - started_at
+      - state
+      - version
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/CollectionImportError'
+        finished_at:
+          type: string
+          format: date-time
+        id:
+          type: integer
+        imported_version:
+          type: string
+          readOnly: true
+        job_id:
+          type: string
+          format: uuid
+        lint_records:
+          type: object
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionImportMessage'
+        name:
+          maxLength: 64
+          type: string
+        namespace:
+          type: string
+        started_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+        version:
+          maxLength: 64
+          type: string
+    CollectionNamespace:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+        href:
+          description: 'link to the Namespace'
+          type: string
+    CollectionVersionDetailCollection:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+        href:
+          description: 'link to the Collection'
+          type: string
+    CollectionVersionDetailArtifact:
+      type: object
+      properties:
+        filename:
+          type: string
+        size:
+          type: integer
+        sha256:
+          type: string
+    CollectionVersionDetailMetadata:
+      description: "The Collection Version metadata from collections galaxy.yml or MANIFEST.JSON"
+      type: object
+      properties:
+        documentation: {}
+        description:
+          type: string
+        readme:
+          type: string
+        repository: {}
+        issues: {}
+        version:
+          type: string
+        license_file: {}
+        tags:
+          type: array
+          items:
+            type: string
+        dependencies:
+          type: object
+        license:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        authors:
+          type: array
+          items:
+            type: string
+        homepage: {}
     CollectionVersion:
       type: object
       properties:
         artifact:
-          type: object
-          properties:
-            filename:
-              type: string
-            size:
-              type: integer
-            sha256:
-              type: string
+          $ref: '#/components/schemas/CollectionVersionDetailArtifact'   
         metadata:
-          type: object
-          properties:
-            documentation: {}
-            description:
-              type: string
-            readme:
-              type: string
-            repository: {}
-            issues: {}
-            version:
-              type: string
-            license_file: {}
-            tags:
-              type: array
-              items:
-                type: string
-            dependencies:
-              type: object
-            license:
-              type: array
-              items:
-                type: string
-            name:
-              type: string
-            namespace:
-              type: string
-            authors:
-              type: array
-              items:
-                type: string
-            homepage: {}
+          $ref: '#/components/schemas/CollectionVersionDetailMetadata'
         hidden:
           type: boolean
         download_url:
           type: string
         namespace:
-          type: object
-          properties:
-            name:
-              type: string
-            id:
-              type: integer
-            href:
-              type: string
+          $ref: '#/components/schemas/CollectionNamespace'
         id:
           type: integer
         href:
           type: string
         collection:
-          type: object
-          properties:
-            name:
-              type: string
-            id:
-              type: integer
-            href:
-              type: string
-        version:
+          $ref: '#/components/schemas/CollectionVersionDetailCollection'
+
+    SearchRolesResult:
+      type: object
+      properties:
+        active:
+          readOnly: true
           type: string
+        company:
+          maxLength: 50
+          nullable: true
+          type: string
+        created:
+          description: Timestamp when this content was created.
+          readOnly: true
+          type: string
+        description:
+          maxLength: 255
+          type: string
+        download_count:
+          readOnly: true
+          type: string
+        download_rank:
+          type: number
+        id:
+          description: Database ID for this content.
+          readOnly: true
+          type: integer
+        imported:
+          format: date-time
+          nullable: true
+          type: string
+        is_valid:
+          readOnly: true
+          type: boolean
+        license:
+          maxLength: 50
+          type: string
+        min_ansible_version:
+          maxLength: 10
+          nullable: true
+          type: string
+        modified:
+          description: Timestamp when this content was last modified.
+          readOnly: true
+          type: string
+        name:
+          maxLength: 512
+          type: string
+        related:
+          description: Data structure with URLs of related resources.
+          readOnly: true
+          type: string
+        relevance:
+          type: number
+        role_type:
+          readOnly: true
+          type: string
+        search_rank:
+          type: number
+        summary_fields:
+          description: >-
+            Data structure with name/description for related
+            resources.
+          readOnly: true
+          type: string
+        travis_status_url:
+          readOnly: true
+          type: string
+        url:
+          description: URL for this content.
+          readOnly: true
+          type: string
+        username:
+          readOnly: true
+          type: string
+      required:
+        - name
+        - relevance
+        - search_rank
+        - download_rank
+  responses:
+    Conflict:
+      description: 'Conflict Error'
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#/components/schemas/ConflictError'
+            discriminator:
+              propertyName: code
+              mapping:
+                conflict: '#/components/schemas/ConflictError'
+                conflict.collection_exists: '#/components/schemas/ConflictCollectionExistsError'
+                conflict.repository_name_conflict: '#/compontents/schemas/RepositoryNameError'
+                conflict.artifact_exists: '#/compontents/schemas/ArtifactExistsError'
+    Unauthorized:
+      description: 'Authorization error'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIException'
+    CollectionVersions:
+      description: A page of collection version links
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: '#/components/schemas/PageCount'
+              next:
+                $ref: '#/components/schemas/PageNext'
+              previous:
+                $ref: '#/components/schemas/PagePrevious'
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CollectionVersionLink'
+  parameters:
+    Page:
+      description: A page number within the paginated result set.
+      in: query
+      name: page
+      required: false
+      schema:
+        type: integer
+        default: 1
+    PageSize:
+      description: Number of results to return per page.
+      in: query
+      name: page_size
+      required: false
+      schema:
+        type: integer
+        default: 10
+        minimum: 0
+        maximum: 1000
+    Search:
+      description: A search term.
+      in: query
+      name: search
+      required: false
+      schema:
+        type: string
+    CollectionNamespace:
+      description: 'The collection namespace'
+      in: path
+      name: namespace
+      required: true
+      schema:
+        type: string
+    CollectionName:
+      description: 'The collection name'
+      in: path
+      name: name
+      required: true
+      schema:
+        type: string
+        pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$'
+    CollectionVersion:
+      description: 'A semantic version string'
+      in: path
+      name: version
+      required: true
+      schema:
+        type: string
+        pattern: ^((([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$
 externalDocs:
   url: https://galaxy.ansible.com/docs/
 tags:
