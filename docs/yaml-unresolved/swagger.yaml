@@ -708,9 +708,21 @@ components:
         sha256:
           type: string
           
+    SemanticVersion:
+      description: 'A version string in the Semantic Version form'
+      type: string
+      example: '1.0.1'
+      
+    SemanticVersionSpec:
+      description: 'A string to match against SemanticVersion'
+      type: string
+      example: '>=1.0.0'
+      
     CollectionVersionDependencies:
       description: 'A map of collection namespace.name to a semantic version'
       type: object
+      additionalProperties:
+        $ref: '#/components/schemas/SemanticVersionSpec'
       
     CollectionVersionLicense:
       description: 'A SPDX license id'
@@ -718,28 +730,54 @@ components:
       # TODO: This could in theory be an enum
         
     GalaxyTag:
-      description: 'A Galaxy Tags'
+      description: 'A Galaxy Tag'
       type: string
       # TODO: add TAG validation pattern
         
+    Author:
+      description: 'Author of a collection or role'
+      type: string
+      format: email
+      # TODO: add author validation pattern
+      example: 'Adrian Likins <alikins@redhat.com>'
+      
+
+
     CollectionVersionDetailMetadata:
       description: "The Collection Version metadata from collections galaxy.yml or MANIFEST.JSON"
       type: object
       properties:
         documentation:
+          description: 'Documentation URL'
           type: string
+          format: uri
+          nullable: true
         description:
+          description: 'Description of the collection'
           type: string
+          nullable: true
         readme:
+          description: 'Name of file to use for README'
           type: string
+          format: relative-file-path
         repository:
+          description: 'SCM repository for collection'
           type: string
+          format: uri
+          nullable: true
         issues:
+          description: 'URL of issues or bug tracking'
           type: string
+          format: uri
+          nullable: true
         version:
+          description: 'A Semantic Version string'
           type: string
         license_file:
+          description: 'Name of file where license info can be found'
           type: string
+          format: relative-file-path
+          nullable: true
         tags:
           type: array
           items:
@@ -747,6 +785,7 @@ components:
         dependencies:
           $ref: '#/components/schemas/CollectionVersionDependencies'
         license:
+          description: 'A list of SPDX license ids'
           type: array
           items:
             $ref: '#/components/schemas/CollectionVersionLicense'
@@ -755,11 +794,17 @@ components:
         namespace:
           type: string
         authors:
+          description: 'A list of collection authors'
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/Author'
         homepage:
           type: string
+          format: uri
+      required:
+        - namespace
+        - name
+        - version
         
     CollectionVersion:
       type: object
