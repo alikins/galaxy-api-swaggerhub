@@ -1105,12 +1105,10 @@ components:
     CollectionVersionDependencies:
       type: object
       description: A map of collection namespace.name to a semantic version
-    CollectionVersionLicenses:
-      type: array
-      description: A list of SPDX license ids
-      items:
-        type: string
-    CollectionVersionTag:
+    CollectionVersionLicense:
+      type: string
+      description: A SPDX license id
+    GalaxyTag:
       type: string
       description: A Galaxy Tags
     CollectionVersionDetailMetadata:
@@ -1133,11 +1131,13 @@ components:
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/CollectionVersionTag'
+            $ref: '#/components/schemas/GalaxyTag'
         dependencies:
           $ref: '#/components/schemas/CollectionVersionDependencies'
         license:
-          $ref: '#/components/schemas/CollectionVersionLicenses'
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionVersionLicense'
         name:
           type: string
         namespace:
