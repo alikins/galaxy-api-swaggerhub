@@ -45,6 +45,7 @@ from openapi_client.models.artifact_exists_error import ArtifactExistsError
 from openapi_client.models.collection import Collection
 from openapi_client.models.collection_creation_result import CollectionCreationResult
 from openapi_client.models.collection_import_error import CollectionImportError
+from openapi_client.models.collection_import_lint_record import CollectionImportLintRecord
 from openapi_client.models.collection_import_message import CollectionImportMessage
 from openapi_client.models.collection_import_result import CollectionImportResult
 from openapi_client.models.collection_namespace import CollectionNamespace

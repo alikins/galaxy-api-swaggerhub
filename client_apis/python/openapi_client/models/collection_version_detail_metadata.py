@@ -356,6 +356,8 @@ class CollectionVersionDetailMetadata(object):
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if name is not None and not re.search(r'^(?!.*__)[a-z]+[0-9a-z_]*$', name):  # noqa: E501
+            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^(?!.*__)[a-z]+[0-9a-z_]*$/`")  # noqa: E501
 
         self._name = name
 
@@ -381,6 +383,8 @@ class CollectionVersionDetailMetadata(object):
         """
         if namespace is None:
             raise ValueError("Invalid value for `namespace`, must not be `None`")  # noqa: E501
+        if namespace is not None and not re.search(r'^(?!.*__)[a-z]+[0-9a-z_]*$', namespace):  # noqa: E501
+            raise ValueError(r"Invalid value for `namespace`, must be a follow pattern or equal to `/^(?!.*__)[a-z]+[0-9a-z_]*$/`")  # noqa: E501
 
         self._namespace = namespace
 

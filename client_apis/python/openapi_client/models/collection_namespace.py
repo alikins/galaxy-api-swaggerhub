@@ -61,6 +61,7 @@ class CollectionNamespace(object):
     def name(self):
         """Gets the name of this CollectionNamespace.  # noqa: E501
 
+        The Collection namespace  # noqa: E501
 
         :return: The name of this CollectionNamespace.  # noqa: E501
         :rtype: str
@@ -71,10 +72,13 @@ class CollectionNamespace(object):
     def name(self, name):
         """Sets the name of this CollectionNamespace.
 
+        The Collection namespace  # noqa: E501
 
         :param name: The name of this CollectionNamespace.  # noqa: E501
         :type: str
         """
+        if name is not None and not re.search(r'^(?!.*__)[a-z]+[0-9a-z_]*$', name):  # noqa: E501
+            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^(?!.*__)[a-z]+[0-9a-z_]*$/`")  # noqa: E501
 
         self._name = name
 

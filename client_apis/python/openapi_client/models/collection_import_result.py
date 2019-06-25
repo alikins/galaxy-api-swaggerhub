@@ -36,7 +36,7 @@ class CollectionImportResult(object):
         'id': 'int',
         'imported_version': 'str',
         'job_id': 'str',
-        'lint_records': 'object',
+        'lint_records': 'list[CollectionImportLintRecord]',
         'messages': 'list[CollectionImportMessage]',
         'name': 'str',
         'namespace': 'str',
@@ -210,7 +210,7 @@ class CollectionImportResult(object):
 
 
         :return: The lint_records of this CollectionImportResult.  # noqa: E501
-        :rtype: object
+        :rtype: list[CollectionImportLintRecord]
         """
         return self._lint_records
 
@@ -220,7 +220,7 @@ class CollectionImportResult(object):
 
 
         :param lint_records: The lint_records of this CollectionImportResult.  # noqa: E501
-        :type: object
+        :type: list[CollectionImportLintRecord]
         """
         if lint_records is None:
             raise ValueError("Invalid value for `lint_records`, must not be `None`")  # noqa: E501

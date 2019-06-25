@@ -134,6 +134,7 @@ Class | Method | HTTP request | Description
  - [Collection](docs/Collection.md)
  - [CollectionCreationResult](docs/CollectionCreationResult.md)
  - [CollectionImportError](docs/CollectionImportError.md)
+ - [CollectionImportLintRecord](docs/CollectionImportLintRecord.md)
  - [CollectionImportMessage](docs/CollectionImportMessage.md)
  - [CollectionImportResult](docs/CollectionImportResult.md)
  - [CollectionNamespace](docs/CollectionNamespace.md)

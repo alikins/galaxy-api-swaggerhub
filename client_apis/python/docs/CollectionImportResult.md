@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **imported_version** | **str** |  | [optional] 
 **job_id** | **str** |  | 
-**lint_records** | [**object**](.md) |  | 
+**lint_records** | [**list[CollectionImportLintRecord]**](CollectionImportLintRecord.md) |  | 
 **messages** | [**list[CollectionImportMessage]**](CollectionImportMessage.md) |  | 
 **name** | **str** |  | 
 **namespace** | **str** |  | 
