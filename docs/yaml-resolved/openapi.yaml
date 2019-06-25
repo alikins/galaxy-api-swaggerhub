@@ -429,7 +429,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              $ref: '#/components/schemas/UserUpdate'
       responses:
         200:
           description: The User updated by the PATCH
@@ -1380,6 +1380,25 @@ components:
             type: string
             description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
               characters
+    UserUpdate:
+      type: object
+      properties:
+        avatar_url:
+          maxLength: 256
+          type: string
+        date_joined:
+          type: string
+          format: date-time
+        full_name:
+          maxLength: 254
+          type: string
+        username:
+          maxLength: 30
+          pattern: ^[a-zA-Z0-9_.@+-]+$
+          type: string
+          description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
+            characters
+      description: User data to update
     CollectionVersionsPage:
       type: object
       properties:
@@ -1470,24 +1489,6 @@ components:
           items:
             $ref: '#/components/schemas/User'
       description: A page of a list of Users
-    body:
-      type: object
-      properties:
-        avatar_url:
-          maxLength: 256
-          type: string
-        date_joined:
-          type: string
-          format: date-time
-        full_name:
-          maxLength: 254
-          type: string
-        username:
-          maxLength: 30
-          pattern: ^[a-zA-Z0-9_.@+-]+$
-          type: string
-          description: Required. 30 characters or fewer. Letters, numbers and @/./+/-/_
-            characters
   responses:
     Conflict:
       description: Conflict Error
