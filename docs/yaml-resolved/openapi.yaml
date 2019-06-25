@@ -1152,6 +1152,18 @@ components:
           type: string
         collection:
           $ref: '#/components/schemas/CollectionVersionDetailCollection'
+    CollectionVersionArtifactData:
+      type: object
+      properties:
+        sha256:
+          type: string
+          description: The sha256sum of the collection artifact file
+        file:
+          type: string
+          description: The binary contents of a collection artifact
+          format: binary
+      description: CollectionVersionArtifact archive file binary and sha256 checksum.
+        Used for importing collection artifacts
     V1BaseModel:
       type: object
       properties:
@@ -1650,16 +1662,9 @@ components:
         type: string
   requestBodies:
     CollectionVersionArtifactBody:
-      description: A multipart/form encoded payload including the collection artifact
-        file and it's sha256sum
+      description: A multipart/form encoded payload including the binary collection
+        artifact file contents and it's sha256sum
       content:
         multipart/form-data:
           schema:
-            type: object
-            properties:
-              sha256:
-                type: string
-                description: The sha256sum of the collection artifact file
-              file:
-                type: string
-                format: binary
+            $ref: '#/components/schemas/CollectionVersionArtifactData'
