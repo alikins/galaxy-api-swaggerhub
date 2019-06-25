@@ -1102,32 +1102,68 @@ components:
           type: integer
         sha256:
           type: string
+    SemanticVersion:
+      type: string
+      description: A version string in the Semantic Version form
+      example: 1.0.1
+    SemanticVersionSpec:
+      type: string
+      description: A string to match against SemanticVersion
+      example: '>=1.0.0'
     CollectionVersionDependencies:
       type: object
+      additionalProperties:
+        $ref: '#/components/schemas/SemanticVersionSpec'
       description: A map of collection namespace.name to a semantic version
     CollectionVersionLicense:
       type: string
       description: A SPDX license id
     GalaxyTag:
       type: string
-      description: A Galaxy Tags
+      description: A Galaxy Tag
+    Author:
+      type: string
+      description: Author of a collection or role
+      format: email
+      example: Adrian Likins <alikins@redhat.com>
     CollectionVersionDetailMetadata:
+      required:
+      - name
+      - namespace
+      - version
       type: object
       properties:
         documentation:
           type: string
+          description: Documentation URL
+          format: uri
+          nullable: true
         description:
           type: string
+          description: Description of the collection
+          nullable: true
         readme:
           type: string
+          description: Name of file to use for README
+          format: relative-file-path
         repository:
           type: string
+          description: SCM repository for collection
+          format: uri
+          nullable: true
         issues:
           type: string
+          description: URL of issues or bug tracking
+          format: uri
+          nullable: true
         version:
           type: string
+          description: A Semantic Version string
         license_file:
           type: string
+          description: Name of file where license info can be found
+          format: relative-file-path
+          nullable: true
         tags:
           type: array
           items:
@@ -1136,6 +1172,7 @@ components:
           $ref: '#/components/schemas/CollectionVersionDependencies'
         license:
           type: array
+          description: A list of SPDX license ids
           items:
             $ref: '#/components/schemas/CollectionVersionLicense'
         name:
@@ -1144,10 +1181,12 @@ components:
           type: string
         authors:
           type: array
+          description: A list of collection authors
           items:
-            type: string
+            $ref: '#/components/schemas/Author'
         homepage:
           type: string
+          format: uri
       description: The Collection Version metadata from collections galaxy.yml or
         MANIFEST.JSON
     CollectionVersion:
