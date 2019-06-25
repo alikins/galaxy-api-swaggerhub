@@ -250,23 +250,8 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                avatar_url:
-                  maxLength: 256
-                  type: string
-                date_joined:
-                  format: date-time
-                  type: string
-                full_name:
-                  maxLength: 254
-                  type: string
-                username:
-                  description: >-
-                    Required. 30 characters or fewer. Letters, numbers and
-                    @/./+/-/_ characters
-                  maxLength: 30
-                  pattern: '^[a-zA-Z0-9_.@+-]+$'
-                  type: string
+              $ref: '#/components/schemas/UserUpdate'
+
       responses:
         '200':
           description: 'The User updated by the PATCH'
@@ -1006,6 +991,26 @@ components:
           required:
             - username
         
+    UserUpdate:
+      description: 'User data to update'
+      properties:
+        avatar_url:
+          maxLength: 256
+          type: string
+        date_joined:
+          format: date-time
+          type: string
+        full_name:
+          maxLength: 254
+          type: string
+        username:
+          description: >-
+            Required. 30 characters or fewer. Letters, numbers and
+            @/./+/-/_ characters
+          maxLength: 30
+          pattern: '^[a-zA-Z0-9_.@+-]+$'
+          type: string
+
     # Instead of creating a schema type for each paginated
     # might be able to make 'results' a PageResults type.
     # And make PageResults use 'anyOf' and a discriminator
