@@ -718,24 +718,33 @@ components:
       items:
         type: string
         
+    CollectionVersionTag:
+      description: 'A Galaxy Tags'
+      type: string
+      # TODO: add TAG validation pattern
+        
     CollectionVersionDetailMetadata:
       description: "The Collection Version metadata from collections galaxy.yml or MANIFEST.JSON"
       type: object
       properties:
-        documentation: {}
+        documentation:
+          type: string
         description:
           type: string
         readme:
           type: string
-        repository: {}
-        issues: {}
+        repository:
+          type: string
+        issues:
+          type: string
         version:
           type: string
-        license_file: {}
+        license_file:
+          type: string
         tags:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/CollectionVersionTag'
         dependencies:
           $ref: '#/components/schemas/CollectionVersionDependencies'
         license:
@@ -748,7 +757,8 @@ components:
           type: array
           items:
             type: string
-        homepage: {}
+        homepage:
+          type: string
         
     CollectionVersion:
       type: object
