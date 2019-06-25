@@ -1102,6 +1102,14 @@ components:
           type: integer
         sha256:
           type: string
+    CollectionVersionDependencies:
+      type: object
+      description: A map of collection namespace.name to a semantic version
+    CollectionVersionLicenses:
+      type: array
+      description: A list of SPDX license ids
+      items:
+        type: string
     CollectionVersionDetailMetadata:
       type: object
       properties:
@@ -1124,11 +1132,9 @@ components:
           items:
             type: string
         dependencies:
-          type: object
+          $ref: '#/components/schemas/CollectionVersionDependencies'
         license:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/CollectionVersionLicenses'
         name:
           type: string
         namespace:
