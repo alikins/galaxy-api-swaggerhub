@@ -1028,6 +1028,21 @@ components:
           type: string
           format: date-time
       description: Message from collection importer including lint results
+    CollectionImportLintRecord:
+      type: object
+      properties:
+        code:
+          type: string
+        type:
+          type: string
+        message:
+          type: string
+        severity:
+          type: integer
+        score_type:
+          type: string
+          nullable: true
+      description: Records from collection linters
     CollectionCreationResult:
       type: object
       properties:
@@ -1066,7 +1081,9 @@ components:
           type: string
           format: uuid
         lint_records:
-          type: object
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionImportLintRecord'
         messages:
           type: array
           items:
