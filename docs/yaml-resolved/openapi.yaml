@@ -1001,6 +1001,7 @@ components:
           readOnly: true
         href:
           type: string
+          format: uri
         versions_url:
           type: string
     CollectionImportError:
@@ -1034,6 +1035,7 @@ components:
           type: string
           description: The url for the queued collection import task. Check it for
             progress and status.
+          format: uri
       description: A map of collection import task info, including its url
     CollectionImportResult:
       required:
@@ -1087,12 +1089,13 @@ components:
       type: object
       properties:
         name:
-          type: string
+          $ref: '#/components/schemas/CollectionNamespaceName'
         id:
           type: integer
         href:
           type: string
           description: link to the Namespace
+          format: uri
     CollectionVersionDetailCollection:
       type: object
       properties:
@@ -1103,6 +1106,7 @@ components:
         href:
           type: string
           description: link to the Collection
+          format: uri
     CollectionVersionDetailArtifact:
       type: object
       properties:
