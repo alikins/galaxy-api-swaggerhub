@@ -771,8 +771,7 @@ components:
           format: uri
           nullable: true
         version:
-          description: 'A Semantic Version string'
-          type: string
+          $ref: '#/components/schemas/SemanticVersion'
         license_file:
           description: 'Name of file where license info can be found'
           type: string
