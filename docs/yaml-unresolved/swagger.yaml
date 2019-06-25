@@ -27,6 +27,8 @@ tags:
   - name: 'collection-imports'
   - name: 'collection-versions'
   - name: 'download'
+  - name: 'client_mazer'
+    description: 'API used by mazer and or ansible-galaxy'
   - name: 'introspection'
     description: 'API used to gather information about the API itself'
   - name: 'v2'
@@ -326,6 +328,7 @@ paths:
       tags:
         - collections
         - v2
+        - client_mazer
       parameters: []
       requestBody:
         $ref: '#/components/requestBodies/CollectionVersionArtifactBody'
@@ -380,6 +383,7 @@ paths:
       tags:
         - collections
         - v2
+        - client_mazer
       responses:
         '200':
           description: 'A Collection'
@@ -398,6 +402,7 @@ paths:
       tags:
         - collections
         - v2
+        - client_mazer
       parameters:
         - $ref: '#/components/parameters/Page'
         - $ref: '#/components/parameters/PageSize'
@@ -417,6 +422,7 @@ paths:
       tags:
         - collections
         - v2
+        - client_mazer
       responses:
         '200':
           $ref: '#/components/responses/CollectionVersion'
@@ -432,6 +438,7 @@ paths:
       tags:
         - collections
         - v2
+        - client_mazer
       parameters:
         - $ref: '#/components/parameters/Search'
       responses:
@@ -444,6 +451,7 @@ paths:
       operationId: DownloadArtifactByFilename
       tags:
         - download
+        - client_mazer
       parameters:
         - description: 'CollectionVersion artifact filename'
           in: path
