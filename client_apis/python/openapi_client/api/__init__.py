@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from openapi_client.api.client_mazer_api import ClientMazerApi
 from openapi_client.api.collection_imports_api import CollectionImportsApi
 from openapi_client.api.collection_versions_api import CollectionVersionsApi
 from openapi_client.api.collections_api import CollectionsApi

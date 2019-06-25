@@ -234,7 +234,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_collection_version_artifact**
-> CollectionCreationResult import_collection_version_artifact(unknown_base_type=unknown_base_type)
+> CollectionCreationResult import_collection_version_artifact(collection_version_artifact_data=collection_version_artifact_data)
 
 Create a new CollectionVersion by importing a collection artifact
 
@@ -249,11 +249,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openapi_client.CollectionsApi()
-unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | A multipart/form encoded payload including the collection artifact file and it's sha256sum (optional)
+collection_version_artifact_data = openapi_client.CollectionVersionArtifactData() # CollectionVersionArtifactData | A multipart/form encoded payload including the binary collection artifact file contents and it's sha256sum (optional)
 
 try:
     # Create a new CollectionVersion by importing a collection artifact
-    api_response = api_instance.import_collection_version_artifact(unknown_base_type=unknown_base_type)
+    api_response = api_instance.import_collection_version_artifact(collection_version_artifact_data=collection_version_artifact_data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CollectionsApi->import_collection_version_artifact: %s\n" % e)
@@ -263,7 +263,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| A multipart/form encoded payload including the collection artifact file and it&#39;s sha256sum | [optional] 
+ **collection_version_artifact_data** | [**CollectionVersionArtifactData**](CollectionVersionArtifactData.md)| A multipart/form encoded payload including the binary collection artifact file contents and it&#39;s sha256sum | [optional] 
 
 ### Return type
 

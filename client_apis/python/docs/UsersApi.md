@@ -120,7 +120,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_user_by_id**
-> User patch_user_by_id(id, search=search, body=body)
+> User patch_user_by_id(id, search=search, user_update=user_update)
 
 Patch/update an User by id
 
@@ -137,11 +137,11 @@ from pprint import pprint
 api_instance = openapi_client.UsersApi()
 id = 'id_example' # str | User id
 search = 'search_example' # str | Term to search for (optional)
-body = openapi_client.Body() # Body | An User to update to (optional)
+user_update = openapi_client.UserUpdate() # UserUpdate | An User to update to (optional)
 
 try:
     # Patch/update an User by id
-    api_response = api_instance.patch_user_by_id(id, search=search, body=body)
+    api_response = api_instance.patch_user_by_id(id, search=search, user_update=user_update)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->patch_user_by_id: %s\n" % e)
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| User id | 
  **search** | **str**| Term to search for | [optional] 
- **body** | [**Body**](Body.md)| An User to update to | [optional] 
+ **user_update** | [**UserUpdate**](UserUpdate.md)| An User to update to | [optional] 
 
 ### Return type
 

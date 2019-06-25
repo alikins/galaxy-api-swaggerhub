@@ -849,7 +849,7 @@ class V2Api(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param UNKNOWN_BASE_TYPE unknown_base_type: A multipart/form encoded payload including the collection artifact file and it's sha256sum
+        :param CollectionVersionArtifactData collection_version_artifact_data: A multipart/form encoded payload including the binary collection artifact file contents and it's sha256sum
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -873,7 +873,7 @@ class V2Api(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param UNKNOWN_BASE_TYPE unknown_base_type: A multipart/form encoded payload including the collection artifact file and it's sha256sum
+        :param CollectionVersionArtifactData collection_version_artifact_data: A multipart/form encoded payload including the binary collection artifact file contents and it's sha256sum
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -890,7 +890,7 @@ class V2Api(object):
 
         local_var_params = locals()
 
-        all_params = ['unknown_base_type']  # noqa: E501
+        all_params = ['collection_version_artifact_data']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -917,8 +917,8 @@ class V2Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'unknown_base_type' in local_var_params:
-            body_params = local_var_params['unknown_base_type']
+        if 'collection_version_artifact_data' in local_var_params:
+            body_params = local_var_params['collection_version_artifact_data']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

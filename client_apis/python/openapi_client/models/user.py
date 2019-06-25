@@ -31,75 +31,167 @@ class User(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
+        'url': 'str',
+        'related': 'dict(str, str)',
+        'summary_fields': 'dict(str, object)',
         'active': 'str',
-        'avatar_url': 'str',
+        'modified': 'str',
         'created': 'str',
+        'avatar_url': 'str',
         'date_joined': 'datetime',
         'full_name': 'str',
-        'id': 'int',
-        'modified': 'str',
-        'related': 'str',
         'staff': 'str',
-        'summary_fields': 'str',
-        'url': 'str',
         'username': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
+        'url': 'url',
+        'related': 'related',
+        'summary_fields': 'summary_fields',
         'active': 'active',
-        'avatar_url': 'avatar_url',
+        'modified': 'modified',
         'created': 'created',
+        'avatar_url': 'avatar_url',
         'date_joined': 'date_joined',
         'full_name': 'full_name',
-        'id': 'id',
-        'modified': 'modified',
-        'related': 'related',
         'staff': 'staff',
-        'summary_fields': 'summary_fields',
-        'url': 'url',
         'username': 'username'
     }
 
-    def __init__(self, active=None, avatar_url=None, created=None, date_joined=None, full_name=None, id=None, modified=None, related=None, staff=None, summary_fields=None, url=None, username=None):  # noqa: E501
+    def __init__(self, id=None, url=None, related=None, summary_fields=None, active=None, modified=None, created=None, avatar_url=None, date_joined=None, full_name=None, staff=None, username=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
 
+        self._id = None
+        self._url = None
+        self._related = None
+        self._summary_fields = None
         self._active = None
-        self._avatar_url = None
+        self._modified = None
         self._created = None
+        self._avatar_url = None
         self._date_joined = None
         self._full_name = None
-        self._id = None
-        self._modified = None
-        self._related = None
         self._staff = None
-        self._summary_fields = None
-        self._url = None
         self._username = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
+        if url is not None:
+            self.url = url
+        if related is not None:
+            self.related = related
+        if summary_fields is not None:
+            self.summary_fields = summary_fields
         if active is not None:
             self.active = active
-        if avatar_url is not None:
-            self.avatar_url = avatar_url
+        if modified is not None:
+            self.modified = modified
         if created is not None:
             self.created = created
+        if avatar_url is not None:
+            self.avatar_url = avatar_url
         if date_joined is not None:
             self.date_joined = date_joined
         if full_name is not None:
             self.full_name = full_name
-        if id is not None:
-            self.id = id
-        if modified is not None:
-            self.modified = modified
-        if related is not None:
-            self.related = related
         if staff is not None:
             self.staff = staff
-        if summary_fields is not None:
-            self.summary_fields = summary_fields
-        if url is not None:
-            self.url = url
         self.username = username
+
+    @property
+    def id(self):
+        """Gets the id of this User.  # noqa: E501
+
+        Database ID for this object.  # noqa: E501
+
+        :return: The id of this User.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this User.
+
+        Database ID for this object.  # noqa: E501
+
+        :param id: The id of this User.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
+
+    @property
+    def url(self):
+        """Gets the url of this User.  # noqa: E501
+
+        URL for this resource.  # noqa: E501
+
+        :return: The url of this User.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this User.
+
+        URL for this resource.  # noqa: E501
+
+        :param url: The url of this User.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
+
+    @property
+    def related(self):
+        """Gets the related of this User.  # noqa: E501
+
+        Data structure with URLs of related resources.  # noqa: E501
+
+        :return: The related of this User.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._related
+
+    @related.setter
+    def related(self, related):
+        """Sets the related of this User.
+
+        Data structure with URLs of related resources.  # noqa: E501
+
+        :param related: The related of this User.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._related = related
+
+    @property
+    def summary_fields(self):
+        """Gets the summary_fields of this User.  # noqa: E501
+
+        Data structure with name/description for related resources.  # noqa: E501
+
+        :return: The summary_fields of this User.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._summary_fields
+
+    @summary_fields.setter
+    def summary_fields(self, summary_fields):
+        """Sets the summary_fields of this User.
+
+        Data structure with name/description for related resources.  # noqa: E501
+
+        :param summary_fields: The summary_fields of this User.  # noqa: E501
+        :type: dict(str, object)
+        """
+
+        self._summary_fields = summary_fields
 
     @property
     def active(self):
@@ -123,6 +215,52 @@ class User(object):
         self._active = active
 
     @property
+    def modified(self):
+        """Gets the modified of this User.  # noqa: E501
+
+        Timestamp when this object was last modified.  # noqa: E501
+
+        :return: The modified of this User.  # noqa: E501
+        :rtype: str
+        """
+        return self._modified
+
+    @modified.setter
+    def modified(self, modified):
+        """Sets the modified of this User.
+
+        Timestamp when this object was last modified.  # noqa: E501
+
+        :param modified: The modified of this User.  # noqa: E501
+        :type: str
+        """
+
+        self._modified = modified
+
+    @property
+    def created(self):
+        """Gets the created of this User.  # noqa: E501
+
+        Timestamp when this object was created.  # noqa: E501
+
+        :return: The created of this User.  # noqa: E501
+        :rtype: str
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this User.
+
+        Timestamp when this object was created.  # noqa: E501
+
+        :param created: The created of this User.  # noqa: E501
+        :type: str
+        """
+
+        self._created = created
+
+    @property
     def avatar_url(self):
         """Gets the avatar_url of this User.  # noqa: E501
 
@@ -144,29 +282,6 @@ class User(object):
             raise ValueError("Invalid value for `avatar_url`, length must be less than or equal to `256`")  # noqa: E501
 
         self._avatar_url = avatar_url
-
-    @property
-    def created(self):
-        """Gets the created of this User.  # noqa: E501
-
-        Timestamp when this user was created.  # noqa: E501
-
-        :return: The created of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """Sets the created of this User.
-
-        Timestamp when this user was created.  # noqa: E501
-
-        :param created: The created of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._created = created
 
     @property
     def date_joined(self):
@@ -213,75 +328,6 @@ class User(object):
         self._full_name = full_name
 
     @property
-    def id(self):
-        """Gets the id of this User.  # noqa: E501
-
-        Database ID for this user.  # noqa: E501
-
-        :return: The id of this User.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this User.
-
-        Database ID for this user.  # noqa: E501
-
-        :param id: The id of this User.  # noqa: E501
-        :type: int
-        """
-
-        self._id = id
-
-    @property
-    def modified(self):
-        """Gets the modified of this User.  # noqa: E501
-
-        Timestamp when this user was last modified.  # noqa: E501
-
-        :return: The modified of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._modified
-
-    @modified.setter
-    def modified(self, modified):
-        """Sets the modified of this User.
-
-        Timestamp when this user was last modified.  # noqa: E501
-
-        :param modified: The modified of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._modified = modified
-
-    @property
-    def related(self):
-        """Gets the related of this User.  # noqa: E501
-
-        Data structure with URLs of related resources.  # noqa: E501
-
-        :return: The related of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._related
-
-    @related.setter
-    def related(self, related):
-        """Sets the related of this User.
-
-        Data structure with URLs of related resources.  # noqa: E501
-
-        :param related: The related of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._related = related
-
-    @property
     def staff(self):
         """Gets the staff of this User.  # noqa: E501
 
@@ -301,52 +347,6 @@ class User(object):
         """
 
         self._staff = staff
-
-    @property
-    def summary_fields(self):
-        """Gets the summary_fields of this User.  # noqa: E501
-
-        Data structure with name/description for related resources.  # noqa: E501
-
-        :return: The summary_fields of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._summary_fields
-
-    @summary_fields.setter
-    def summary_fields(self, summary_fields):
-        """Sets the summary_fields of this User.
-
-        Data structure with name/description for related resources.  # noqa: E501
-
-        :param summary_fields: The summary_fields of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._summary_fields = summary_fields
-
-    @property
-    def url(self):
-        """Gets the url of this User.  # noqa: E501
-
-        URL for this user.  # noqa: E501
-
-        :return: The url of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """Sets the url of this User.
-
-        URL for this user.  # noqa: E501
-
-        :param url: The url of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._url = url
 
     @property
     def username(self):

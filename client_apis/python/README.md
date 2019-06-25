@@ -54,16 +54,15 @@ from pprint import pprint
 
 
 # create an instance of the API class
-api_instance = openapi_client.CollectionImportsApi(openapi_client.ApiClient(configuration))
-id = 'id_example' # str | A unique integer value identifying this collection import.
-search = 'search_example' # str | Term to search for (optional)
+api_instance = openapi_client.ClientMazerApi(openapi_client.ApiClient(configuration))
+filename = 'filename_example' # str | CollectionVersion artifact filename
 
 try:
-    # Get a Collection-Import (import task) by id
-    api_response = api_instance.get_collection_import_by_id(id, search=search)
+    # Download the collection artifact
+    api_response = api_instance.download_artifact_by_filename(filename)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CollectionImportsApi->get_collection_import_by_id: %s\n" % e)
+    print("Exception when calling ClientMazerApi->download_artifact_by_filename: %s\n" % e)
 
 ```
 
@@ -73,6 +72,12 @@ All URIs are relative to *https://galaxy.ansible.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ClientMazerApi* | [**download_artifact_by_filename**](docs/ClientMazerApi.md#download_artifact_by_filename) | **GET** /download/{filename} | Download the collection artifact
+*ClientMazerApi* | [**get_collection_by_namespace_name**](docs/ClientMazerApi.md#get_collection_by_namespace_name) | **GET** /api/v2/collections/{namespace}/{name}/ | Get a Collection by namespace and name
+*ClientMazerApi* | [**get_collection_version**](docs/ClientMazerApi.md#get_collection_version) | **GET** /api/v2/collections/{namespace}/{name}/versions/{version}/ | Get a CollectionVersion by namespace, name, and version
+*ClientMazerApi* | [**get_collection_version_artifact**](docs/ClientMazerApi.md#get_collection_version_artifact) | **GET** /api/v2/collections/{namespace}/{name}/versions/{version}/artifact/ | Get Artifact details for a Collection by namespace, name, and version
+*ClientMazerApi* | [**import_collection_version_artifact**](docs/ClientMazerApi.md#import_collection_version_artifact) | **POST** /api/v2/collections/ | Create a new CollectionVersion by importing a collection artifact
+*ClientMazerApi* | [**list_collection_versions_by_namespace_name**](docs/ClientMazerApi.md#list_collection_versions_by_namespace_name) | **GET** /api/v2/collections/{namespace}/{name}/versions/ | Get a list of CollectionVersions for a Collection by namespace and name
 *CollectionImportsApi* | [**get_collection_import_by_id**](docs/CollectionImportsApi.md#get_collection_import_by_id) | **GET** /api/v2/collection-imports/{id}/ | Get a Collection-Import (import task) by id
 *CollectionVersionsApi* | [**get_collection_version_artifact_by_id**](docs/CollectionVersionsApi.md#get_collection_version_artifact_by_id) | **GET** /api/v2/collection-versions/{id}/artifact/ | 
 *CollectionVersionsApi* | [**get_collection_version_by_version_pk**](docs/CollectionVersionsApi.md#get_collection_version_by_version_pk) | **GET** /api/v2/collection-versions/{version_pk}/ | Get a CollectionVersion by version_pk
@@ -126,7 +131,6 @@ Class | Method | HTTP request | Description
 
  - [APIException](docs/APIException.md)
  - [ArtifactExistsError](docs/ArtifactExistsError.md)
- - [Body](docs/Body.md)
  - [Collection](docs/Collection.md)
  - [CollectionCreationResult](docs/CollectionCreationResult.md)
  - [CollectionImportError](docs/CollectionImportError.md)
@@ -134,6 +138,7 @@ Class | Method | HTTP request | Description
  - [CollectionImportResult](docs/CollectionImportResult.md)
  - [CollectionNamespace](docs/CollectionNamespace.md)
  - [CollectionVersion](docs/CollectionVersion.md)
+ - [CollectionVersionArtifactData](docs/CollectionVersionArtifactData.md)
  - [CollectionVersionArtifactDetail](docs/CollectionVersionArtifactDetail.md)
  - [CollectionVersionDetailArtifact](docs/CollectionVersionDetailArtifact.md)
  - [CollectionVersionDetailCollection](docs/CollectionVersionDetailCollection.md)
@@ -143,17 +148,23 @@ Class | Method | HTTP request | Description
  - [ConflictCollectionExistsError](docs/ConflictCollectionExistsError.md)
  - [ConflictError](docs/ConflictError.md)
  - [Content](docs/Content.md)
+ - [ContentAllOf](docs/ContentAllOf.md)
  - [ContentsPage](docs/ContentsPage.md)
  - [Error](docs/Error.md)
  - [Namespace](docs/Namespace.md)
+ - [NamespaceAllOf](docs/NamespaceAllOf.md)
  - [NamespacesPage](docs/NamespacesPage.md)
  - [RepositoryNameError](docs/RepositoryNameError.md)
  - [Role](docs/Role.md)
  - [RolesPage](docs/RolesPage.md)
  - [Tag](docs/Tag.md)
+ - [TagAllOf](docs/TagAllOf.md)
  - [TagsPage](docs/TagsPage.md)
  - [User](docs/User.md)
+ - [UserAllOf](docs/UserAllOf.md)
+ - [UserUpdate](docs/UserUpdate.md)
  - [UsersPage](docs/UsersPage.md)
+ - [V1BaseModel](docs/V1BaseModel.md)
  - [ValidationError](docs/ValidationError.md)
 
 

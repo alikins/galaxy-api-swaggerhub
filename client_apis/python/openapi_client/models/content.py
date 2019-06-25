@@ -31,114 +31,206 @@ class Content(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
+        'url': 'str',
+        'related': 'dict(str, str)',
+        'summary_fields': 'dict(str, object)',
         'active': 'str',
-        'company': 'str',
+        'modified': 'str',
         'created': 'str',
+        'company': 'str',
         'description': 'str',
         'download_count': 'str',
         'download_rank': 'float',
-        'id': 'int',
         'imported': 'datetime',
         'is_valid': 'bool',
         'license': 'str',
         'min_ansible_version': 'str',
-        'modified': 'str',
         'name': 'str',
-        'related': 'str',
         'relevance': 'float',
         'role_type': 'str',
         'search_rank': 'float',
-        'summary_fields': 'str',
         'travis_status_url': 'str',
-        'url': 'str',
         'username': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
+        'url': 'url',
+        'related': 'related',
+        'summary_fields': 'summary_fields',
         'active': 'active',
-        'company': 'company',
+        'modified': 'modified',
         'created': 'created',
+        'company': 'company',
         'description': 'description',
         'download_count': 'download_count',
         'download_rank': 'download_rank',
-        'id': 'id',
         'imported': 'imported',
         'is_valid': 'is_valid',
         'license': 'license',
         'min_ansible_version': 'min_ansible_version',
-        'modified': 'modified',
         'name': 'name',
-        'related': 'related',
         'relevance': 'relevance',
         'role_type': 'role_type',
         'search_rank': 'search_rank',
-        'summary_fields': 'summary_fields',
         'travis_status_url': 'travis_status_url',
-        'url': 'url',
         'username': 'username'
     }
 
-    def __init__(self, active=None, company=None, created=None, description=None, download_count=None, download_rank=None, id=None, imported=None, is_valid=None, license=None, min_ansible_version=None, modified=None, name=None, related=None, relevance=None, role_type=None, search_rank=None, summary_fields=None, travis_status_url=None, url=None, username=None):  # noqa: E501
+    def __init__(self, id=None, url=None, related=None, summary_fields=None, active=None, modified=None, created=None, company=None, description=None, download_count=None, download_rank=None, imported=None, is_valid=None, license=None, min_ansible_version=None, name=None, relevance=None, role_type=None, search_rank=None, travis_status_url=None, username=None):  # noqa: E501
         """Content - a model defined in OpenAPI"""  # noqa: E501
 
+        self._id = None
+        self._url = None
+        self._related = None
+        self._summary_fields = None
         self._active = None
-        self._company = None
+        self._modified = None
         self._created = None
+        self._company = None
         self._description = None
         self._download_count = None
         self._download_rank = None
-        self._id = None
         self._imported = None
         self._is_valid = None
         self._license = None
         self._min_ansible_version = None
-        self._modified = None
         self._name = None
-        self._related = None
         self._relevance = None
         self._role_type = None
         self._search_rank = None
-        self._summary_fields = None
         self._travis_status_url = None
-        self._url = None
         self._username = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
+        if url is not None:
+            self.url = url
+        if related is not None:
+            self.related = related
+        if summary_fields is not None:
+            self.summary_fields = summary_fields
         if active is not None:
             self.active = active
-        self.company = company
+        if modified is not None:
+            self.modified = modified
         if created is not None:
             self.created = created
+        self.company = company
         if description is not None:
             self.description = description
         if download_count is not None:
             self.download_count = download_count
         self.download_rank = download_rank
-        if id is not None:
-            self.id = id
         self.imported = imported
         if is_valid is not None:
             self.is_valid = is_valid
         if license is not None:
             self.license = license
         self.min_ansible_version = min_ansible_version
-        if modified is not None:
-            self.modified = modified
         self.name = name
-        if related is not None:
-            self.related = related
         self.relevance = relevance
         if role_type is not None:
             self.role_type = role_type
         self.search_rank = search_rank
-        if summary_fields is not None:
-            self.summary_fields = summary_fields
         if travis_status_url is not None:
             self.travis_status_url = travis_status_url
-        if url is not None:
-            self.url = url
         if username is not None:
             self.username = username
+
+    @property
+    def id(self):
+        """Gets the id of this Content.  # noqa: E501
+
+        Database ID for this object.  # noqa: E501
+
+        :return: The id of this Content.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Content.
+
+        Database ID for this object.  # noqa: E501
+
+        :param id: The id of this Content.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
+
+    @property
+    def url(self):
+        """Gets the url of this Content.  # noqa: E501
+
+        URL for this resource.  # noqa: E501
+
+        :return: The url of this Content.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this Content.
+
+        URL for this resource.  # noqa: E501
+
+        :param url: The url of this Content.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
+
+    @property
+    def related(self):
+        """Gets the related of this Content.  # noqa: E501
+
+        Data structure with URLs of related resources.  # noqa: E501
+
+        :return: The related of this Content.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._related
+
+    @related.setter
+    def related(self, related):
+        """Sets the related of this Content.
+
+        Data structure with URLs of related resources.  # noqa: E501
+
+        :param related: The related of this Content.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._related = related
+
+    @property
+    def summary_fields(self):
+        """Gets the summary_fields of this Content.  # noqa: E501
+
+        Data structure with name/description for related resources.  # noqa: E501
+
+        :return: The summary_fields of this Content.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._summary_fields
+
+    @summary_fields.setter
+    def summary_fields(self, summary_fields):
+        """Sets the summary_fields of this Content.
+
+        Data structure with name/description for related resources.  # noqa: E501
+
+        :param summary_fields: The summary_fields of this Content.  # noqa: E501
+        :type: dict(str, object)
+        """
+
+        self._summary_fields = summary_fields
 
     @property
     def active(self):
@@ -162,6 +254,52 @@ class Content(object):
         self._active = active
 
     @property
+    def modified(self):
+        """Gets the modified of this Content.  # noqa: E501
+
+        Timestamp when this object was last modified.  # noqa: E501
+
+        :return: The modified of this Content.  # noqa: E501
+        :rtype: str
+        """
+        return self._modified
+
+    @modified.setter
+    def modified(self, modified):
+        """Sets the modified of this Content.
+
+        Timestamp when this object was last modified.  # noqa: E501
+
+        :param modified: The modified of this Content.  # noqa: E501
+        :type: str
+        """
+
+        self._modified = modified
+
+    @property
+    def created(self):
+        """Gets the created of this Content.  # noqa: E501
+
+        Timestamp when this object was created.  # noqa: E501
+
+        :return: The created of this Content.  # noqa: E501
+        :rtype: str
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this Content.
+
+        Timestamp when this object was created.  # noqa: E501
+
+        :param created: The created of this Content.  # noqa: E501
+        :type: str
+        """
+
+        self._created = created
+
+    @property
     def company(self):
         """Gets the company of this Content.  # noqa: E501
 
@@ -183,29 +321,6 @@ class Content(object):
             raise ValueError("Invalid value for `company`, length must be less than or equal to `50`")  # noqa: E501
 
         self._company = company
-
-    @property
-    def created(self):
-        """Gets the created of this Content.  # noqa: E501
-
-        Timestamp when this content was created.  # noqa: E501
-
-        :return: The created of this Content.  # noqa: E501
-        :rtype: str
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """Sets the created of this Content.
-
-        Timestamp when this content was created.  # noqa: E501
-
-        :param created: The created of this Content.  # noqa: E501
-        :type: str
-        """
-
-        self._created = created
 
     @property
     def description(self):
@@ -273,29 +388,6 @@ class Content(object):
             raise ValueError("Invalid value for `download_rank`, must not be `None`")  # noqa: E501
 
         self._download_rank = download_rank
-
-    @property
-    def id(self):
-        """Gets the id of this Content.  # noqa: E501
-
-        Database ID for this content.  # noqa: E501
-
-        :return: The id of this Content.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Content.
-
-        Database ID for this content.  # noqa: E501
-
-        :param id: The id of this Content.  # noqa: E501
-        :type: int
-        """
-
-        self._id = id
 
     @property
     def imported(self):
@@ -386,29 +478,6 @@ class Content(object):
         self._min_ansible_version = min_ansible_version
 
     @property
-    def modified(self):
-        """Gets the modified of this Content.  # noqa: E501
-
-        Timestamp when this content was last modified.  # noqa: E501
-
-        :return: The modified of this Content.  # noqa: E501
-        :rtype: str
-        """
-        return self._modified
-
-    @modified.setter
-    def modified(self, modified):
-        """Sets the modified of this Content.
-
-        Timestamp when this content was last modified.  # noqa: E501
-
-        :param modified: The modified of this Content.  # noqa: E501
-        :type: str
-        """
-
-        self._modified = modified
-
-    @property
     def name(self):
         """Gets the name of this Content.  # noqa: E501
 
@@ -432,29 +501,6 @@ class Content(object):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `512`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def related(self):
-        """Gets the related of this Content.  # noqa: E501
-
-        Data structure with URLs of related resources.  # noqa: E501
-
-        :return: The related of this Content.  # noqa: E501
-        :rtype: str
-        """
-        return self._related
-
-    @related.setter
-    def related(self, related):
-        """Sets the related of this Content.
-
-        Data structure with URLs of related resources.  # noqa: E501
-
-        :param related: The related of this Content.  # noqa: E501
-        :type: str
-        """
-
-        self._related = related
 
     @property
     def relevance(self):
@@ -524,29 +570,6 @@ class Content(object):
         self._search_rank = search_rank
 
     @property
-    def summary_fields(self):
-        """Gets the summary_fields of this Content.  # noqa: E501
-
-        Data structure with name/description for related resources.  # noqa: E501
-
-        :return: The summary_fields of this Content.  # noqa: E501
-        :rtype: str
-        """
-        return self._summary_fields
-
-    @summary_fields.setter
-    def summary_fields(self, summary_fields):
-        """Sets the summary_fields of this Content.
-
-        Data structure with name/description for related resources.  # noqa: E501
-
-        :param summary_fields: The summary_fields of this Content.  # noqa: E501
-        :type: str
-        """
-
-        self._summary_fields = summary_fields
-
-    @property
     def travis_status_url(self):
         """Gets the travis_status_url of this Content.  # noqa: E501
 
@@ -566,29 +589,6 @@ class Content(object):
         """
 
         self._travis_status_url = travis_status_url
-
-    @property
-    def url(self):
-        """Gets the url of this Content.  # noqa: E501
-
-        URL for this content.  # noqa: E501
-
-        :return: The url of this Content.  # noqa: E501
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """Sets the url of this Content.
-
-        URL for this content.  # noqa: E501
-
-        :param url: The url of this Content.  # noqa: E501
-        :type: str
-        """
-
-        self._url = url
 
     @property
     def username(self):

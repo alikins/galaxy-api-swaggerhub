@@ -31,85 +31,177 @@ class Namespace(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
+        'url': 'str',
+        'related': 'dict(str, str)',
+        'summary_fields': 'dict(str, object)',
         'active': 'str',
+        'modified': 'str',
+        'created': 'str',
         'avatar_url': 'str',
         'company': 'str',
-        'created': 'str',
         'description': 'str',
         'email': 'str',
         'html_url': 'str',
-        'id': 'int',
         'is_vendor': 'bool',
         'location': 'str',
-        'modified': 'str',
-        'name': 'str',
-        'related': 'str',
-        'summary_fields': 'str',
-        'url': 'str'
+        'name': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
+        'url': 'url',
+        'related': 'related',
+        'summary_fields': 'summary_fields',
         'active': 'active',
+        'modified': 'modified',
+        'created': 'created',
         'avatar_url': 'avatar_url',
         'company': 'company',
-        'created': 'created',
         'description': 'description',
         'email': 'email',
         'html_url': 'html_url',
-        'id': 'id',
         'is_vendor': 'is_vendor',
         'location': 'location',
-        'modified': 'modified',
-        'name': 'name',
-        'related': 'related',
-        'summary_fields': 'summary_fields',
-        'url': 'url'
+        'name': 'name'
     }
 
-    def __init__(self, active=None, avatar_url=None, company=None, created=None, description=None, email=None, html_url=None, id=None, is_vendor=None, location=None, modified=None, name=None, related=None, summary_fields=None, url=None):  # noqa: E501
+    def __init__(self, id=None, url=None, related=None, summary_fields=None, active=None, modified=None, created=None, avatar_url=None, company=None, description=None, email=None, html_url=None, is_vendor=None, location=None, name=None):  # noqa: E501
         """Namespace - a model defined in OpenAPI"""  # noqa: E501
 
+        self._id = None
+        self._url = None
+        self._related = None
+        self._summary_fields = None
         self._active = None
+        self._modified = None
+        self._created = None
         self._avatar_url = None
         self._company = None
-        self._created = None
         self._description = None
         self._email = None
         self._html_url = None
-        self._id = None
         self._is_vendor = None
         self._location = None
-        self._modified = None
         self._name = None
-        self._related = None
-        self._summary_fields = None
-        self._url = None
         self.discriminator = None
 
-        if active is not None:
-            self.active = active
-        self.avatar_url = avatar_url
-        self.company = company
-        if created is not None:
-            self.created = created
-        if description is not None:
-            self.description = description
-        self.email = email
-        self.html_url = html_url
         if id is not None:
             self.id = id
-        if is_vendor is not None:
-            self.is_vendor = is_vendor
-        self.location = location
-        if modified is not None:
-            self.modified = modified
-        self.name = name
+        if url is not None:
+            self.url = url
         if related is not None:
             self.related = related
         if summary_fields is not None:
             self.summary_fields = summary_fields
-        if url is not None:
-            self.url = url
+        if active is not None:
+            self.active = active
+        if modified is not None:
+            self.modified = modified
+        if created is not None:
+            self.created = created
+        self.avatar_url = avatar_url
+        self.company = company
+        if description is not None:
+            self.description = description
+        self.email = email
+        self.html_url = html_url
+        if is_vendor is not None:
+            self.is_vendor = is_vendor
+        self.location = location
+        self.name = name
+
+    @property
+    def id(self):
+        """Gets the id of this Namespace.  # noqa: E501
+
+        Database ID for this object.  # noqa: E501
+
+        :return: The id of this Namespace.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Namespace.
+
+        Database ID for this object.  # noqa: E501
+
+        :param id: The id of this Namespace.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
+
+    @property
+    def url(self):
+        """Gets the url of this Namespace.  # noqa: E501
+
+        URL for this resource.  # noqa: E501
+
+        :return: The url of this Namespace.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this Namespace.
+
+        URL for this resource.  # noqa: E501
+
+        :param url: The url of this Namespace.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
+
+    @property
+    def related(self):
+        """Gets the related of this Namespace.  # noqa: E501
+
+        Data structure with URLs of related resources.  # noqa: E501
+
+        :return: The related of this Namespace.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._related
+
+    @related.setter
+    def related(self, related):
+        """Sets the related of this Namespace.
+
+        Data structure with URLs of related resources.  # noqa: E501
+
+        :param related: The related of this Namespace.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._related = related
+
+    @property
+    def summary_fields(self):
+        """Gets the summary_fields of this Namespace.  # noqa: E501
+
+        Data structure with name/description for related resources.  # noqa: E501
+
+        :return: The summary_fields of this Namespace.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._summary_fields
+
+    @summary_fields.setter
+    def summary_fields(self, summary_fields):
+        """Sets the summary_fields of this Namespace.
+
+        Data structure with name/description for related resources.  # noqa: E501
+
+        :param summary_fields: The summary_fields of this Namespace.  # noqa: E501
+        :type: dict(str, object)
+        """
+
+        self._summary_fields = summary_fields
 
     @property
     def active(self):
@@ -131,6 +223,52 @@ class Namespace(object):
         """
 
         self._active = active
+
+    @property
+    def modified(self):
+        """Gets the modified of this Namespace.  # noqa: E501
+
+        Timestamp when this object was last modified.  # noqa: E501
+
+        :return: The modified of this Namespace.  # noqa: E501
+        :rtype: str
+        """
+        return self._modified
+
+    @modified.setter
+    def modified(self, modified):
+        """Sets the modified of this Namespace.
+
+        Timestamp when this object was last modified.  # noqa: E501
+
+        :param modified: The modified of this Namespace.  # noqa: E501
+        :type: str
+        """
+
+        self._modified = modified
+
+    @property
+    def created(self):
+        """Gets the created of this Namespace.  # noqa: E501
+
+        Timestamp when this object was created.  # noqa: E501
+
+        :return: The created of this Namespace.  # noqa: E501
+        :rtype: str
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this Namespace.
+
+        Timestamp when this object was created.  # noqa: E501
+
+        :param created: The created of this Namespace.  # noqa: E501
+        :type: str
+        """
+
+        self._created = created
 
     @property
     def avatar_url(self):
@@ -177,29 +315,6 @@ class Namespace(object):
             raise ValueError("Invalid value for `company`, length must be less than or equal to `256`")  # noqa: E501
 
         self._company = company
-
-    @property
-    def created(self):
-        """Gets the created of this Namespace.  # noqa: E501
-
-        Timestamp when this namespace was created.  # noqa: E501
-
-        :return: The created of this Namespace.  # noqa: E501
-        :rtype: str
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """Sets the created of this Namespace.
-
-        Timestamp when this namespace was created.  # noqa: E501
-
-        :param created: The created of this Namespace.  # noqa: E501
-        :type: str
-        """
-
-        self._created = created
 
     @property
     def description(self):
@@ -271,29 +386,6 @@ class Namespace(object):
         self._html_url = html_url
 
     @property
-    def id(self):
-        """Gets the id of this Namespace.  # noqa: E501
-
-        Database ID for this namespace.  # noqa: E501
-
-        :return: The id of this Namespace.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Namespace.
-
-        Database ID for this namespace.  # noqa: E501
-
-        :param id: The id of this Namespace.  # noqa: E501
-        :type: int
-        """
-
-        self._id = id
-
-    @property
     def is_vendor(self):
         """Gets the is_vendor of this Namespace.  # noqa: E501
 
@@ -338,29 +430,6 @@ class Namespace(object):
         self._location = location
 
     @property
-    def modified(self):
-        """Gets the modified of this Namespace.  # noqa: E501
-
-        Timestamp when this namespace was last modified.  # noqa: E501
-
-        :return: The modified of this Namespace.  # noqa: E501
-        :rtype: str
-        """
-        return self._modified
-
-    @modified.setter
-    def modified(self, modified):
-        """Sets the modified of this Namespace.
-
-        Timestamp when this namespace was last modified.  # noqa: E501
-
-        :param modified: The modified of this Namespace.  # noqa: E501
-        :type: str
-        """
-
-        self._modified = modified
-
-    @property
     def name(self):
         """Gets the name of this Namespace.  # noqa: E501
 
@@ -384,75 +453,6 @@ class Namespace(object):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `512`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def related(self):
-        """Gets the related of this Namespace.  # noqa: E501
-
-        Data structure with URLs of related resources.  # noqa: E501
-
-        :return: The related of this Namespace.  # noqa: E501
-        :rtype: str
-        """
-        return self._related
-
-    @related.setter
-    def related(self, related):
-        """Sets the related of this Namespace.
-
-        Data structure with URLs of related resources.  # noqa: E501
-
-        :param related: The related of this Namespace.  # noqa: E501
-        :type: str
-        """
-
-        self._related = related
-
-    @property
-    def summary_fields(self):
-        """Gets the summary_fields of this Namespace.  # noqa: E501
-
-        Data structure with name/description for related resources.  # noqa: E501
-
-        :return: The summary_fields of this Namespace.  # noqa: E501
-        :rtype: str
-        """
-        return self._summary_fields
-
-    @summary_fields.setter
-    def summary_fields(self, summary_fields):
-        """Sets the summary_fields of this Namespace.
-
-        Data structure with name/description for related resources.  # noqa: E501
-
-        :param summary_fields: The summary_fields of this Namespace.  # noqa: E501
-        :type: str
-        """
-
-        self._summary_fields = summary_fields
-
-    @property
-    def url(self):
-        """Gets the url of this Namespace.  # noqa: E501
-
-        URL for this namespace.  # noqa: E501
-
-        :return: The url of this Namespace.  # noqa: E501
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """Sets the url of this Namespace.
-
-        URL for this namespace.  # noqa: E501
-
-        :param url: The url of this Namespace.  # noqa: E501
-        :type: str
-        """
-
-        self._url = url
 
     def to_dict(self):
         """Returns the model properties as a dict"""
