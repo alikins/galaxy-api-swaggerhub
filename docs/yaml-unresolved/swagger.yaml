@@ -602,6 +602,7 @@ components:
           readOnly: true
         href:
           type: string
+          format: uri
         versions_url:
           type: string
           
@@ -638,6 +639,7 @@ components:
         task:
           description: 'The url for the queued collection import task. Check it for progress and status.'
           type: string
+          format: uri
           
     CollectionImportResult:
       description: 'Collection import result'
@@ -692,12 +694,13 @@ components:
       type: object
       properties:
         name:
-          type: string
+          $ref: '#/components/schemas/CollectionNamespaceName'
         id:
           type: integer
         href:
           description: 'link to the Namespace'
           type: string
+          format: uri
           
     CollectionVersionDetailCollection:
       type: object
@@ -709,6 +712,7 @@ components:
         href:
           description: 'link to the Collection'
           type: string
+          format: uri
           
     CollectionVersionDetailArtifact:
       type: object
