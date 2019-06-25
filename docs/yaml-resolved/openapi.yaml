@@ -1004,6 +1004,7 @@ components:
           format: uri
         versions_url:
           type: string
+      description: An Ansible Collection
     CollectionImportError:
       type: object
       properties:
