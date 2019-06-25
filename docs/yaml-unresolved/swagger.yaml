@@ -1006,6 +1006,14 @@ components:
           required:
             - username
         
+    # Instead of creating a schema type for each paginated
+    # might be able to make 'results' a PageResults type.
+    # And make PageResults use 'anyOf' and a discriminator
+    # to 'choose' the correct type in the list. But currently
+    # there isn't info in the Page data that indicates the
+    # type to be expected in the 'results'. This would need
+    # something like a 'result_type': 'CollectionVersion' in
+    # the data.
     CollectionVersionsPage:
       description: 'A page of a list of CollectionVersionLinks'
       type: object
