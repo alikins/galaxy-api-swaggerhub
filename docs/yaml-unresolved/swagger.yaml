@@ -712,13 +712,12 @@ components:
       description: 'A map of collection namespace.name to a semantic version'
       type: object
       
-    CollectionVersionLicenses:
-      description: 'A list of SPDX license ids'
-      type: array
-      items:
-        type: string
+    CollectionVersionLicense:
+      description: 'A SPDX license id'
+      type: string
+      # TODO: This could in theory be an enum
         
-    CollectionVersionTag:
+    GalaxyTag:
       description: 'A Galaxy Tags'
       type: string
       # TODO: add TAG validation pattern
@@ -744,11 +743,13 @@ components:
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/CollectionVersionTag'
+            $ref: '#/components/schemas/GalaxyTag'
         dependencies:
           $ref: '#/components/schemas/CollectionVersionDependencies'
         license:
-          $ref: '#/components/schemas/CollectionVersionLicenses'
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionVersionLicense'
         name:
           type: string
         namespace:
