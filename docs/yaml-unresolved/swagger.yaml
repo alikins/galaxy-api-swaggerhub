@@ -572,11 +572,13 @@ components:
       description: 'The name of a Collection'
       type: string
       example: 'my_collection'
+      pattern: '^(?!.*__)[a-z]+[0-9a-z_]*$'
       
     CollectionNamespaceName:
       description: 'The Collection namespace'
       type: string
       example: 'my_namespace'
+      pattern: '^(?!.*__)[a-z]+[0-9a-z_]*$'
       
     Collection:
       type: object
@@ -742,7 +744,8 @@ components:
     GalaxyTag:
       description: 'A Galaxy Tag'
       type: string
-      # TODO: add TAG validation pattern
+      pattern: '^[a-z0-9]+$'
+      example: 'development'
         
     Author:
       description: 'Author of a collection or role'
@@ -751,8 +754,6 @@ components:
       # TODO: add author validation pattern
       example: 'Adrian Likins <alikins@redhat.com>'
       
-
-
     CollectionVersionDetailMetadata:
       description: "The Collection Version metadata from collections galaxy.yml or MANIFEST.JSON"
       type: object
