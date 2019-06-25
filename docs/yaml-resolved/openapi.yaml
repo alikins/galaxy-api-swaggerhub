@@ -970,10 +970,12 @@ components:
         size:
           type: integer
     CollectionName:
+      pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$
       type: string
       description: The name of a Collection
       example: my_collection
     CollectionNamespaceName:
+      pattern: ^(?!.*__)[a-z]+[0-9a-z_]*$
       type: string
       description: The Collection namespace
       example: my_namespace
@@ -1127,8 +1129,10 @@ components:
       type: string
       description: A SPDX license id
     GalaxyTag:
+      pattern: ^[a-z0-9]+$
       type: string
       description: A Galaxy Tag
+      example: development
     Author:
       type: string
       description: Author of a collection or role
