@@ -23,6 +23,8 @@ tags:
 - name: collection-imports
 - name: collection-versions
 - name: download
+- name: client_mazer
+  description: API used by mazer and or ansible-galaxy
 - name: introspection
   description: API used to gather information about the API itself
 - name: v2
@@ -544,6 +546,7 @@ paths:
       tags:
       - collections
       - v2
+      - client_mazer
       summary: Create a new CollectionVersion by importing a collection artifact
       operationId: ImportCollectionVersionArtifact
       parameters: []
@@ -655,6 +658,7 @@ paths:
       tags:
       - collections
       - v2
+      - client_mazer
       summary: Get a Collection by namespace and name
       operationId: GetCollectionByNamespaceName
       parameters:
@@ -687,6 +691,7 @@ paths:
       tags:
       - collections
       - v2
+      - client_mazer
       summary: Get a list of CollectionVersions for a Collection by namespace and
         name
       operationId: ListCollectionVersionsByNamespaceName
@@ -748,6 +753,7 @@ paths:
       tags:
       - collections
       - v2
+      - client_mazer
       summary: Get a CollectionVersion by namespace, name, and version
       operationId: GetCollectionVersion
       parameters:
@@ -806,6 +812,7 @@ paths:
       tags:
       - collections
       - v2
+      - client_mazer
       summary: Get Artifact details for a Collection by namespace, name, and version
       operationId: GetCollectionVersionArtifact
       parameters:
@@ -855,6 +862,7 @@ paths:
     get:
       tags:
       - download
+      - client_mazer
       summary: Download the collection artifact
       operationId: DownloadArtifactByFilename
       parameters:
