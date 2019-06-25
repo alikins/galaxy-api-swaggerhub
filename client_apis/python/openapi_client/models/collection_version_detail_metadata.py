@@ -31,20 +31,20 @@ class CollectionVersionDetailMetadata(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'documentation': 'object',
+        'documentation': 'str',
         'description': 'str',
         'readme': 'str',
-        'repository': 'object',
-        'issues': 'object',
+        'repository': 'str',
+        'issues': 'str',
         'version': 'str',
-        'license_file': 'object',
+        'license_file': 'str',
         'tags': 'list[str]',
-        'dependencies': 'object',
+        'dependencies': 'dict(str, str)',
         'license': 'list[str]',
         'name': 'str',
         'namespace': 'str',
         'authors': 'list[str]',
-        'homepage': 'object'
+        'homepage': 'str'
     }
 
     attribute_map = {
@@ -83,30 +83,22 @@ class CollectionVersionDetailMetadata(object):
         self._homepage = None
         self.discriminator = None
 
-        if documentation is not None:
-            self.documentation = documentation
-        if description is not None:
-            self.description = description
+        self.documentation = documentation
+        self.description = description
         if readme is not None:
             self.readme = readme
-        if repository is not None:
-            self.repository = repository
-        if issues is not None:
-            self.issues = issues
-        if version is not None:
-            self.version = version
-        if license_file is not None:
-            self.license_file = license_file
+        self.repository = repository
+        self.issues = issues
+        self.version = version
+        self.license_file = license_file
         if tags is not None:
             self.tags = tags
         if dependencies is not None:
             self.dependencies = dependencies
         if license is not None:
             self.license = license
-        if name is not None:
-            self.name = name
-        if namespace is not None:
-            self.namespace = namespace
+        self.name = name
+        self.namespace = namespace
         if authors is not None:
             self.authors = authors
         if homepage is not None:
@@ -116,9 +108,10 @@ class CollectionVersionDetailMetadata(object):
     def documentation(self):
         """Gets the documentation of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        Documentation URL  # noqa: E501
 
         :return: The documentation of this CollectionVersionDetailMetadata.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._documentation
 
@@ -126,9 +119,10 @@ class CollectionVersionDetailMetadata(object):
     def documentation(self, documentation):
         """Sets the documentation of this CollectionVersionDetailMetadata.
 
+        Documentation URL  # noqa: E501
 
         :param documentation: The documentation of this CollectionVersionDetailMetadata.  # noqa: E501
-        :type: object
+        :type: str
         """
 
         self._documentation = documentation
@@ -137,6 +131,7 @@ class CollectionVersionDetailMetadata(object):
     def description(self):
         """Gets the description of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        Description of the collection  # noqa: E501
 
         :return: The description of this CollectionVersionDetailMetadata.  # noqa: E501
         :rtype: str
@@ -147,6 +142,7 @@ class CollectionVersionDetailMetadata(object):
     def description(self, description):
         """Sets the description of this CollectionVersionDetailMetadata.
 
+        Description of the collection  # noqa: E501
 
         :param description: The description of this CollectionVersionDetailMetadata.  # noqa: E501
         :type: str
@@ -158,6 +154,7 @@ class CollectionVersionDetailMetadata(object):
     def readme(self):
         """Gets the readme of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        Name of file to use for README  # noqa: E501
 
         :return: The readme of this CollectionVersionDetailMetadata.  # noqa: E501
         :rtype: str
@@ -168,6 +165,7 @@ class CollectionVersionDetailMetadata(object):
     def readme(self, readme):
         """Sets the readme of this CollectionVersionDetailMetadata.
 
+        Name of file to use for README  # noqa: E501
 
         :param readme: The readme of this CollectionVersionDetailMetadata.  # noqa: E501
         :type: str
@@ -179,9 +177,10 @@ class CollectionVersionDetailMetadata(object):
     def repository(self):
         """Gets the repository of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        SCM repository for collection  # noqa: E501
 
         :return: The repository of this CollectionVersionDetailMetadata.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._repository
 
@@ -189,9 +188,10 @@ class CollectionVersionDetailMetadata(object):
     def repository(self, repository):
         """Sets the repository of this CollectionVersionDetailMetadata.
 
+        SCM repository for collection  # noqa: E501
 
         :param repository: The repository of this CollectionVersionDetailMetadata.  # noqa: E501
-        :type: object
+        :type: str
         """
 
         self._repository = repository
@@ -200,9 +200,10 @@ class CollectionVersionDetailMetadata(object):
     def issues(self):
         """Gets the issues of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        URL of issues or bug tracking  # noqa: E501
 
         :return: The issues of this CollectionVersionDetailMetadata.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._issues
 
@@ -210,9 +211,10 @@ class CollectionVersionDetailMetadata(object):
     def issues(self, issues):
         """Sets the issues of this CollectionVersionDetailMetadata.
 
+        URL of issues or bug tracking  # noqa: E501
 
         :param issues: The issues of this CollectionVersionDetailMetadata.  # noqa: E501
-        :type: object
+        :type: str
         """
 
         self._issues = issues
@@ -221,6 +223,7 @@ class CollectionVersionDetailMetadata(object):
     def version(self):
         """Gets the version of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        A version string in the Semantic Version form  # noqa: E501
 
         :return: The version of this CollectionVersionDetailMetadata.  # noqa: E501
         :rtype: str
@@ -231,10 +234,13 @@ class CollectionVersionDetailMetadata(object):
     def version(self, version):
         """Sets the version of this CollectionVersionDetailMetadata.
 
+        A version string in the Semantic Version form  # noqa: E501
 
         :param version: The version of this CollectionVersionDetailMetadata.  # noqa: E501
         :type: str
         """
+        if version is None:
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 
@@ -242,9 +248,10 @@ class CollectionVersionDetailMetadata(object):
     def license_file(self):
         """Gets the license_file of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        Name of file where license info can be found  # noqa: E501
 
         :return: The license_file of this CollectionVersionDetailMetadata.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._license_file
 
@@ -252,9 +259,10 @@ class CollectionVersionDetailMetadata(object):
     def license_file(self, license_file):
         """Sets the license_file of this CollectionVersionDetailMetadata.
 
+        Name of file where license info can be found  # noqa: E501
 
         :param license_file: The license_file of this CollectionVersionDetailMetadata.  # noqa: E501
-        :type: object
+        :type: str
         """
 
         self._license_file = license_file
@@ -284,9 +292,10 @@ class CollectionVersionDetailMetadata(object):
     def dependencies(self):
         """Gets the dependencies of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        A map of collection namespace.name to a semantic version  # noqa: E501
 
         :return: The dependencies of this CollectionVersionDetailMetadata.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._dependencies
 
@@ -294,9 +303,10 @@ class CollectionVersionDetailMetadata(object):
     def dependencies(self, dependencies):
         """Sets the dependencies of this CollectionVersionDetailMetadata.
 
+        A map of collection namespace.name to a semantic version  # noqa: E501
 
         :param dependencies: The dependencies of this CollectionVersionDetailMetadata.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._dependencies = dependencies
@@ -305,6 +315,7 @@ class CollectionVersionDetailMetadata(object):
     def license(self):
         """Gets the license of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        A list of SPDX license ids  # noqa: E501
 
         :return: The license of this CollectionVersionDetailMetadata.  # noqa: E501
         :rtype: list[str]
@@ -315,6 +326,7 @@ class CollectionVersionDetailMetadata(object):
     def license(self, license):
         """Sets the license of this CollectionVersionDetailMetadata.
 
+        A list of SPDX license ids  # noqa: E501
 
         :param license: The license of this CollectionVersionDetailMetadata.  # noqa: E501
         :type: list[str]
@@ -326,6 +338,7 @@ class CollectionVersionDetailMetadata(object):
     def name(self):
         """Gets the name of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        The name of a Collection  # noqa: E501
 
         :return: The name of this CollectionVersionDetailMetadata.  # noqa: E501
         :rtype: str
@@ -336,10 +349,13 @@ class CollectionVersionDetailMetadata(object):
     def name(self, name):
         """Sets the name of this CollectionVersionDetailMetadata.
 
+        The name of a Collection  # noqa: E501
 
         :param name: The name of this CollectionVersionDetailMetadata.  # noqa: E501
         :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -347,6 +363,7 @@ class CollectionVersionDetailMetadata(object):
     def namespace(self):
         """Gets the namespace of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        The Collection namespace  # noqa: E501
 
         :return: The namespace of this CollectionVersionDetailMetadata.  # noqa: E501
         :rtype: str
@@ -357,10 +374,13 @@ class CollectionVersionDetailMetadata(object):
     def namespace(self, namespace):
         """Sets the namespace of this CollectionVersionDetailMetadata.
 
+        The Collection namespace  # noqa: E501
 
         :param namespace: The namespace of this CollectionVersionDetailMetadata.  # noqa: E501
         :type: str
         """
+        if namespace is None:
+            raise ValueError("Invalid value for `namespace`, must not be `None`")  # noqa: E501
 
         self._namespace = namespace
 
@@ -368,6 +388,7 @@ class CollectionVersionDetailMetadata(object):
     def authors(self):
         """Gets the authors of this CollectionVersionDetailMetadata.  # noqa: E501
 
+        A list of collection authors  # noqa: E501
 
         :return: The authors of this CollectionVersionDetailMetadata.  # noqa: E501
         :rtype: list[str]
@@ -378,6 +399,7 @@ class CollectionVersionDetailMetadata(object):
     def authors(self, authors):
         """Sets the authors of this CollectionVersionDetailMetadata.
 
+        A list of collection authors  # noqa: E501
 
         :param authors: The authors of this CollectionVersionDetailMetadata.  # noqa: E501
         :type: list[str]
@@ -391,7 +413,7 @@ class CollectionVersionDetailMetadata(object):
 
 
         :return: The homepage of this CollectionVersionDetailMetadata.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._homepage
 
@@ -401,7 +423,7 @@ class CollectionVersionDetailMetadata(object):
 
 
         :param homepage: The homepage of this CollectionVersionDetailMetadata.  # noqa: E501
-        :type: object
+        :type: str
         """
 
         self._homepage = homepage

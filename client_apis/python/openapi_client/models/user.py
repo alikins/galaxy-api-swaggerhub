@@ -77,8 +77,7 @@ class User(object):
         self._username = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
+        self.id = id
         if url is not None:
             self.url = url
         if related is not None:
@@ -121,6 +120,8 @@ class User(object):
         :param id: The id of this User.  # noqa: E501
         :type: int
         """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

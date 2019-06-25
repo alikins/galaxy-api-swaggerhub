@@ -65,8 +65,7 @@ class Tag(object):
         self._name = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
+        self.id = id
         if url is not None:
             self.url = url
         if related is not None:
@@ -101,6 +100,8 @@ class Tag(object):
         :param id: The id of this Tag.  # noqa: E501
         :type: int
         """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -221,7 +222,7 @@ class Tag(object):
     def created(self):
         """Gets the created of this Tag.  # noqa: E501
 
-        Timestamp when this tag was created.  # noqa: E501
+        Timestamp when this object was created.  # noqa: E501
 
         :return: The created of this Tag.  # noqa: E501
         :rtype: str
@@ -232,7 +233,7 @@ class Tag(object):
     def created(self, created):
         """Sets the created of this Tag.
 
-        Timestamp when this tag was created.  # noqa: E501
+        Timestamp when this object was created.  # noqa: E501
 
         :param created: The created of this Tag.  # noqa: E501
         :type: str

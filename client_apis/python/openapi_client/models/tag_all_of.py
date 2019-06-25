@@ -31,48 +31,20 @@ class TagAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'created': 'str',
         'name': 'str'
     }
 
     attribute_map = {
-        'created': 'created',
         'name': 'name'
     }
 
-    def __init__(self, created=None, name=None):  # noqa: E501
+    def __init__(self, name=None):  # noqa: E501
         """TagAllOf - a model defined in OpenAPI"""  # noqa: E501
 
-        self._created = None
         self._name = None
         self.discriminator = None
 
-        if created is not None:
-            self.created = created
         self.name = name
-
-    @property
-    def created(self):
-        """Gets the created of this TagAllOf.  # noqa: E501
-
-        Timestamp when this tag was created.  # noqa: E501
-
-        :return: The created of this TagAllOf.  # noqa: E501
-        :rtype: str
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """Sets the created of this TagAllOf.
-
-        Timestamp when this tag was created.  # noqa: E501
-
-        :param created: The created of this TagAllOf.  # noqa: E501
-        :type: str
-        """
-
-        self._created = created
 
     @property
     def name(self):
