@@ -568,6 +568,16 @@ components:
         size:
           type: integer
           
+    CollectionName:
+      description: 'The name of a Collection'
+      type: string
+      example: 'my_collection'
+      
+    CollectionNamespaceName:
+      description: 'The Collection namespace'
+      type: string
+      example: 'my_namespace'
+      
     Collection:
       type: object
       properties:
@@ -789,9 +799,9 @@ components:
           items:
             $ref: '#/components/schemas/CollectionVersionLicense'
         name:
-          type: string
+          $ref: '#/components/schemas/CollectionName'
         namespace:
-          type: string
+          $ref: '#/components/schemas/CollectionNamespaceName'
         authors:
           description: 'A list of collection authors'
           type: array
@@ -816,12 +826,14 @@ components:
           type: boolean
         download_url:
           type: string
+          format: uri
         namespace:
           $ref: '#/components/schemas/CollectionNamespace'
         id:
           type: integer
         href:
           type: string
+          format: uri
         collection:
           $ref: '#/components/schemas/CollectionVersionDetailCollection'
 
