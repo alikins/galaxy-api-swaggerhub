@@ -1110,27 +1110,30 @@ components:
       description: A list of SPDX license ids
       items:
         type: string
+    CollectionVersionTag:
+      type: string
+      description: A Galaxy Tags
     CollectionVersionDetailMetadata:
       type: object
       properties:
         documentation:
-          type: object
+          type: string
         description:
           type: string
         readme:
           type: string
         repository:
-          type: object
+          type: string
         issues:
-          type: object
+          type: string
         version:
           type: string
         license_file:
-          type: object
+          type: string
         tags:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/CollectionVersionTag'
         dependencies:
           $ref: '#/components/schemas/CollectionVersionDependencies'
         license:
@@ -1144,7 +1147,7 @@ components:
           items:
             type: string
         homepage:
-          type: object
+          type: string
       description: The Collection Version metadata from collections galaxy.yml or
         MANIFEST.JSON
     CollectionVersion:
