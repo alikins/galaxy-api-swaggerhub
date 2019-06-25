@@ -861,6 +861,7 @@ components:
           description: 'URL for this resource.'
           readOnly: true
           type: string
+          format: uri
         related:
           description: 'Data structure with URLs of related resources.'
           readOnly: true
@@ -885,6 +886,9 @@ components:
           description: 'Timestamp when this object was created.'
           readOnly: true
           type: string
+      required:
+        - id
+        
       
     Content:
       allOf:
@@ -1036,10 +1040,6 @@ components:
         - $ref: '#/components/schemas/V1BaseModel'  
         - type: object
           properties:
-            created:
-              description: 'Timestamp when this tag was created.'
-              readOnly: true
-              type: string
             name:
               maxLength: 512
               type: string
