@@ -29,11 +29,11 @@ tags:
   description: API endpoints from the v2 API
 - name: notifications
 - name: me
-  description: API endpoints related to the current user.
+  description: API related to the current user.
 - name: search
 - name: namespaces
 - name: tags
-  description: API endpoint for Ansible Galaxy tags.
+  description: API for Ansible Galaxy tags.
 - name: users
 - name: v1
   description: API endpoints from the v1 API.
