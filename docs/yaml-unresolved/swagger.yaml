@@ -632,6 +632,22 @@ components:
           type: string
           format: date-time
           
+    CollectionImportLintRecord:
+      description: 'Records from collection linters'
+      type: object
+      properties:
+        code:
+          type: string
+        type:
+          type: string
+        message:
+          type: string
+        severity:
+          type: integer
+        score_type:
+          type: string
+          nullable: true
+
     CollectionCreationResult:
       description: 'A map of collection import task info, including its url'
       type: object
@@ -671,7 +687,9 @@ components:
           type: string
           format: uuid
         lint_records:
-          type: object
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionImportLintRecord'
         messages:
           type: array
           items:
