@@ -581,6 +581,7 @@ components:
       pattern: '^(?!.*__)[a-z]+[0-9a-z_]*$'
       
     Collection:
+      description: 'An Ansible Collection'
       type: object
       properties:
         latest_version:
